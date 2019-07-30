@@ -3,9 +3,9 @@ class Api::UsersController < ApplicationController
   def create # sign up
     @user = User.new(user_params)
 
-    # debugger
+    #  
     if @user.save
-      # debugger
+      #  
       log_in!(@user)
       render :show
     else

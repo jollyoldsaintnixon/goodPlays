@@ -1,4 +1,5 @@
 // gems
+import React from 'react'
 import ReactDOM from 'react-dom';
 // store
 import { configureStore } from './store/store';

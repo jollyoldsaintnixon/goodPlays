@@ -1,18 +1,19 @@
-//Gems
-import React from 'react';
+// gems
 import ReactDOM from 'react-dom';
-//Components
-import { configureStore } from './store/store'
-import * as ApiUtil from './util/session_api_util'
+// store
+import { configureStore } from './store/store';
+// components
+import Root from './components/root'
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  
+  const store = configureStore();
+  const root = document.getElementById('root');
   // testing
-  window.logout = ApiUtil.logout
-  window.login = ApiUtil.login
-  window.signup = ApiUtil.signup
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
   // end testing
-  const store = configureStore()
-  const root = document.getElementById('root')
-  ReactDOM.render(<h1>on the app</h1>, root)
+  ReactDOM.render(<Root store={ store } />, root)
 })

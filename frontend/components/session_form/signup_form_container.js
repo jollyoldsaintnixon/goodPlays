@@ -7,7 +7,10 @@ import { signup } from '../../actions/session_actions'
 
 const msp = ({ errors: { session } }) => ({
   errors: session,
-  formType: 'signup'
+  formType: 'signup',
+  path: '/login',
+  header: 'Sign Up',
+  blurb: 'Already a member?'
 })
 
 const mdp = dispatch => ({

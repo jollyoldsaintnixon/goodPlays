@@ -9,12 +9,34 @@ class SessionForm extends React.Component {
       password: '',
       email: ''
     }
+
+    this.password, this.email = 
+      this.state.password, this.state.email
+
+    this.formType, this.path, this.header, this.blurb, this.errors = 
+      this.props.formType, this.props.path, this.props.header, this.props.blurb, this.props.errors
+
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   update(field) {
     return event => {
       this.setState({[field]: event.target.value})
+    }
+  }
+
+  extraInput() {
+    if (this.formType === 'signup') {
+      return (
+        <>
+          <label>Confirm Password:
+                <input type="password" value={this.password} onChange={this.update('password')} />
+          </label>
+          <label>Email:
+                <input type="text" value={this.email} onChange={this.update('email')} />
+          </label>
+        </>
+      )
     }
   }
 
@@ -25,70 +47,31 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    // deconstruct
-    const { username, password, email } = this.state
-    const { formType } = this.props
     // set errors
     debugger
-    const errors = this.props.errors.map(error => {
+    const errors = this.errors.map(error => {
       return <li>{error}</li>
     })
     // initialize alternative options
-    let path;
-    let header;
-    let blurb;
-    if (formType === 'signup') {
-      path = '/login';
-      header = 'Sign Up';
-      blurb = 'Already a member?';
-    } else {
-      path = '/signup';
-      header = 'Log In';
-      blurb = 'Click here to join'
-    }
-
-    if (formType === 'signup') {
       return (
         <div>
-          <h3>Sign Up!</h3>
+          <h3>{this.header}</h3>
           <form onSubmit={this.handleSubmit}>
             <label>Username: 
-              <input type="text" value={ username } onChange={this.update('username')}/>
+              <input type="text" value={this.username} onChange={this.update('username')}/>
             </label>
             <label>Password: 
-              <input type="password" value={ password } onChange={this.update('password')}/>
+              <input type="password" value={this.password} onChange={this.update('password')}/>
             </label>
-            <label>Email:
-              <input type="text" value={email} onChange={this.update('email')} />
-            </label>
-            <input type="submit" value={`${header}!`}/>
+            {this.extraInput()}
+            <input type="submit" value={`${this.header}!`}/>
           </form>
-          <Link to={path} >{blurb}</Link>
+          <Link to={this.path} >{this.blurb}</Link>
           <ul>
             {errors}
           </ul>
         </div>
       )
-    } else {
-      return (
-        <div>
-          <h3>Sign Up!</h3>
-          <form onSubmit={this.handleSubmit}>
-            <label>Username:
-              <input type="text" value={username} onChange={this.update('username')} />
-            </label>
-            <label>Password:
-              <input type="password" value={password} onChange={this.update('password')} />
-            </label>
-            <input type="submit" value={`${header}!`} />
-          </form>
-          <Link to={path} >{blurb}</Link>
-          <ul>
-            {errors}
-          </ul>
-        </div>
-      )
-    }
 
   }
 }

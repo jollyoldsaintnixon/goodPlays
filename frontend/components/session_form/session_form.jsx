@@ -9,13 +9,6 @@ class SessionForm extends React.Component {
       password: '',
       email: ''
     }
-
-    this.password, this.email = 
-      this.state.password, this.state.email
-
-    this.formType, this.path, this.header, this.blurb, this.errors = 
-      this.props.formType, this.props.path, this.props.header, this.props.blurb, this.props.errors
-
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -26,14 +19,16 @@ class SessionForm extends React.Component {
   }
 
   extraInput() {
+    // deconstruct
+    const { email, password } = this.state
     if (this.formType === 'signup') {
       return (
         <>
           <label>Confirm Password:
-                <input type="password" value={this.password} onChange={this.update('password')} />
+                <input type="password" value={password} onChange={this.update('password')} />
           </label>
           <label>Email:
-                <input type="text" value={this.email} onChange={this.update('email')} />
+                <input type="text" value={email} onChange={this.update('email')} />
           </label>
         </>
       )
@@ -47,28 +42,31 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    // deconstruct
+    const { errors, header, path, blurb} = this.props
+    const { password, username } = this.state
     // set errors
     debugger
-    const errors = this.errors.map(error => {
+    const errorsList = errors.map(error => {
       return <li>{error}</li>
     })
     // initialize alternative options
       return (
         <div>
-          <h3>{this.header}</h3>
+          <h3>{header}</h3>
           <form onSubmit={this.handleSubmit}>
             <label>Username: 
-              <input type="text" value={this.username} onChange={this.update('username')}/>
+              <input type="text" value={username} onChange={this.update('username')}/>
             </label>
             <label>Password: 
-              <input type="password" value={this.password} onChange={this.update('password')}/>
+              <input type="password" value={password} onChange={this.update('password')}/>
             </label>
             {this.extraInput()}
-            <input type="submit" value={`${this.header}!`}/>
+            <input type="submit" value={`${header}!`}/>
           </form>
-          <Link to={this.path} >{this.blurb}</Link>
+          <Link to={path} >{blurb}</Link>
           <ul>
-            {errors}
+            {errorsList}
           </ul>
         </div>
       )

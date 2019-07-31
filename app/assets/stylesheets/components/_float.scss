@@ -1,0 +1,7 @@
+
+// Clear fix is necessary to allow parent elements to respect dimensions of floated elements
+.cf:after {
+  content: '';
+  display: block;
+  clear: both;
+}

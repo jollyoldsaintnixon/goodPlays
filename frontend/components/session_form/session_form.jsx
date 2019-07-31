@@ -7,9 +7,12 @@ class SessionForm extends React.Component {
     this.state = {
       username: '', 
       password: '',
+      confirm_password: '',
       email: ''
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.signup = (this.props.formType === 'signup')
+    // [this.formType, this.header] = [this.props.formType, this.props.header]
   }
 
   update(field) {
@@ -20,12 +23,13 @@ class SessionForm extends React.Component {
 
   extraInput() {
     // deconstruct
-    const { email, password } = this.state
-    if (this.formType === 'signup') {
+    const { email, confirm_password } = this.state
+
+    if (this.signup) {
       return (
         <>
           <label>Confirm Password:
-                <input type="password" value={password} onChange={this.update('password')} />
+                <input type="password" value={confirm_password} onChange={this.update('confirm_password')} />
           </label>
           <label>Email:
                 <input type="text" value={email} onChange={this.update('email')} />
@@ -36,9 +40,17 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(event) {
+    // stop form submission
     event.preventDefault()
-    const user = this.state
-    this.props.processForm(user)
+    // destructure
+    const { password, confirm_password } = this.state
+
+    if (this.signup && password != confirm_password) {
+        return this.props.receiveErrors(["Password must match"])
+    } else {
+      const user = this.state
+      this.props.processForm(user)
+    }
   }
 
   render() {
@@ -46,9 +58,9 @@ class SessionForm extends React.Component {
     const { errors, header, path, blurb} = this.props
     const { password, username } = this.state
     // set errors
-    debugger
-    const errorsList = errors.map(error => {
-      return <li>{error}</li>
+    
+    const errorsList = errors.map((error, idx) => {
+      return <li key={`error-${idx}`}>{error}</li>
     })
     // initialize alternative options
       return (

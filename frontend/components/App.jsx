@@ -9,14 +9,16 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util'
 
 const App = () => {
   return (
-    <div>
-      <h1>goodPlays</h1>
+    <>
       <WelcomeContainer />
-      <Switch>
-        <AuthRoute path='/signup' component={SignupFormContainer} />
-        <AuthRoute path='/login' component={LoginFormContainer} />
-      </Switch>
-    </div>
+      <section className='main-section'>
+        <h1>goodPlays</h1>
+        <Switch>
+          <AuthRoute path='/signup' component={SignupFormContainer} />
+          <AuthRoute path='/login' component={LoginFormContainer} />
+        </Switch>
+      </section>
+    </>
   );
 };
 

@@ -1,0 +1,51 @@
+/* 
+  static 
+    * default
+    * take up space
+    * cannot modify position
+  relative  
+    * take up space
+    * can adjust location via left, top
+  fixed: 
+    * positioned relative to viewport
+    * take up no space on page
+    * can adjust location by using left, top
+    * sticky
+  absolute:
+    * positioned relative to most recently non-static ancestor
+    * can adjust location with left, top etc
+    * good for nav-bar drop-down menus
+*/
+
+.fixed-top {
+  // sticks to top of screen always
+  position: fixed;
+  top: 0;
+  display: block;
+  width: 100%;
+  background: green;
+}
+
+.dropdown-link {
+  position: relative;
+  :hover .dropdown-menu {
+    // dropdown menu has a display of none unless the navbar link is hovered over
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.dropdown-menu {
+  display: none;
+  // positioned relative to navbar link
+  position: absolute;
+  background: blue;
+  top: 20px;
+  li {
+    cursor: pointer;
+    margin: 0;
+    :hover {
+      background: yellow;
+    }
+  }
+}

@@ -14,20 +14,22 @@ class Welcome extends React.Component {
       );
     } else {
       return (
-        <>
-          <Link to='/signup' >Sign Up</Link>
-          <Link to='/login' >Log In</Link>
-        </>
+        <ul className=''>
+          <li><Link to='/signup' className="link">Sign Up</Link></li>
+          <li><Link to='/login' className="link">Log In</Link></li>
+        </ul>
       );
     }
   }
 
   render () {
     return (
-      <>
-        <h2>Welcome!</h2>
-        {this.display()}
-      </>
+      <header className='header'>
+        <nav className=''>
+          <h2 className=''><Link to='/' className='link'>goodPlays</Link></h2>
+          {this.display()}
+        </nav>
+      </header>
     )
   }
 }

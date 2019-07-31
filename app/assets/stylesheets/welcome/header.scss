@@ -1,0 +1,32 @@
+.header {
+  background: $dark-purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    background: $mid-green;
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px;
+      li {
+        padding: 10px;
+        .link {
+  
+        }
+      }
+    }
+    h2 {
+      padding: 20px;
+      .link {
+  
+      }
+    }
+  }
+}

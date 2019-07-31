@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def log_in!(user) #dangerous due to reset_token!
+    debugger
     session[:session_token] = user.reset_token! #gets rid of any dangling token while setting the session cookie's key of :session_token to match the user's token
     @current_user = user #set user as current_user IOT to avoid a DB hit when asked for current_user
   end

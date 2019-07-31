@@ -7,8 +7,10 @@ class Api::UsersController < ApplicationController
     if @user.save
       # debugger
       log_in!(@user)
+      # debugger
       render :show
     else
+      # debugger
       render json: @user.errors.full_messages, status: 422 #unprocessable entity
     end
   end

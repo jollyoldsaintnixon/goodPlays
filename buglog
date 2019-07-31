@@ -1,0 +1,3 @@
+30 JUL: User is being returned from DB as an empty object when tyring to dispatch the Thunk Action Creator login
+  solution: extra comma at end of json.extract! in _user partial. Followed this rabbit down every hole it would jump in until
+  finally a second pair of eyes caught it (brandon)

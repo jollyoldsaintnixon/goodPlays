@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import WelcomeFormContainer from './welcome_form_container'
 
 class Welcome extends React.Component {
 
@@ -14,9 +15,16 @@ class Welcome extends React.Component {
       );
     } else {
       return (
-        <ul className=''>
-          <li><Link to='/signup' className="link">Sign Up</Link></li>
-          <li><Link to='/login' className="link">Log In</Link></li>
+        
+        <ul className='toplist'>
+          <WelcomeFormContainer />
+          <li>
+            <ul className='sublist'>
+              <li><input type='checkbox' id='forgot'/>Remember me</li>
+              <li><a href="#">Forgot it?</a></li>
+            </ul>
+          </li>
+          {/* <li><Link to='/login' className="link">Log In</Link></li> */}
         </ul>
       );
     }
@@ -26,7 +34,7 @@ class Welcome extends React.Component {
     return (
       <header className='header'>
         <nav className=''>
-          <h2 className=''><Link to='/' className='link'>goodPlays</Link></h2>
+          <h2 className=''><Link to='/' className='link'>good<strong>Plays</strong></Link></h2>
           {this.display()}
         </nav>
       </header>

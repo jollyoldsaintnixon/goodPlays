@@ -12,7 +12,8 @@ const App = () => {
     <>
       <WelcomeContainer />
       <section className='main-section'>
-        <h1>goodPlays</h1>
+        <img className='banner' src={window.banner} alt='Terror of the Amazon'/>
+        <Content />
         <Switch>
           <AuthRoute path='/signup' component={SignupFormContainer} />
           <AuthRoute path='/login' component={LoginFormContainer} />

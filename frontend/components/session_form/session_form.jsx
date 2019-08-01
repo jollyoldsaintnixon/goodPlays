@@ -8,7 +8,7 @@ class SessionForm extends React.Component {
     this.state = {
       username: '', 
       password: '',
-      confirm_password: '',
+      // confirm_password: '',
       email: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,10 +41,10 @@ class SessionForm extends React.Component {
     // destructure
     const { password, confirm_password } = this.state
 
-    if (this.signup && password != confirm_password) {
-      this.props.receiveErrors(["Password must match"])
-      this.props.history.push('/signup')
-    } else {
+    // if (this.signup && password != confirm_password) {
+    //   this.props.receiveErrors(["Password must match"])
+    //   this.props.history.push('/signup')
+    // } else {
       const user = this.state
       const that = this
       this.props.processForm(user)

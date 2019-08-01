@@ -4,3 +4,6 @@ bundle.js.map
 tmp/
 .DS_Store
 .byebug_history
+.DS_STORE
+tmp/
+games-features.csv

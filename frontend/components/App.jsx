@@ -6,6 +6,8 @@ import WelcomeContainer from './welcome/welcome_container';
 import LoginFormContainer from './session_form/login_form_container'
 import SignupFormContainer from './session_form/signup_form_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
+// import Content from './content/content'
+import SignupPage from './signup_page/signup_page'
 
 const App = () => {
   return (
@@ -13,9 +15,11 @@ const App = () => {
       <WelcomeContainer />
       <section className='main-section'>
         <img className='banner' src={window.banner} alt='Terror of the Amazon'/>
-        <Content />
+        <SignupFormContainer />
+        {/* <Content /> */}
         <Switch>
-          <AuthRoute path='/signup' component={SignupFormContainer} />
+          <AuthRoute path='signup-page' exact component={SignupPage} />
+          <AuthRoute path='/signup' exact component={SignupFormContainer} />
           <AuthRoute path='/login' component={LoginFormContainer} />
         </Switch>
       </section>

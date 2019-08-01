@@ -1,5 +1,6 @@
 // gems
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 // components
 import SessionForm from './session_form'
 // actions
@@ -17,4 +18,4 @@ const mdp = dispatch => ({
   processForm: user => dispatch(login(user))
 })
 
-export default connect(msp, mdp)(SessionForm)
+export default withRouter(connect(msp, mdp)(SessionForm))

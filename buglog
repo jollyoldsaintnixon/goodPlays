@@ -5,3 +5,5 @@
 31 JUL: Renamed a file from .js to .jsx, and the app would no longer compile.  Tried redo-ing all instances where the renamed file
   was imported, but to no avail.  Restarted the server, nothing.  Brandon recommended restarting webpack, and thus the bug was squashed
 
+31 JUL: Could not figure out how to properly push history within a component.  Brandon explained that my TAC still returned 
+  promises and therefore we could tack on another .then IOT conditionally render a different layou

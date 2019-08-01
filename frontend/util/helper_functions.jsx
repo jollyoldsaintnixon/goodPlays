@@ -1,7 +1,6 @@
 import React from 'react'
 
 export const update = (field, component) => {
-  debugger
   return event => {
     component.setState({ [field]: event.target.value })
   }

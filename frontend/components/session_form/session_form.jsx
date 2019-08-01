@@ -9,10 +9,11 @@ class SessionForm extends React.Component {
       username: '', 
       password: '',
       confirm_password: '',
-      email: ''
+      email: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.signup = (this.props.formType === 'signup')
+    
     // [this.formType, this.header] = [this.props.formType, this.props.header]
   }
 
@@ -41,25 +42,39 @@ class SessionForm extends React.Component {
     const { password, confirm_password } = this.state
 
     if (this.signup && password != confirm_password) {
-        return this.props.receiveErrors(["Password must match"])
+      this.props.receiveErrors(["Password must match"])
+      this.props.history.push('/signup-page')
     } else {
       const user = this.state
+      const that = this
       this.props.processForm(user)
+        .fail(error => {
+          that.props.history.push('/signup-page')
+        })
     }
   }
 
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.id != this.props.match.params.id)
+  //   if (this.props.errors.length > 0) {
+  //     this.props.history.push('/signup-page')
+  //   }
+  // }
+
   render() {
     // deconstruct
-    const { errors, header, path, blurb} = this.props
+    const { errors, header, path, blurb } = this.props
     const { password, username } = this.state
     // set errors
     
     const errorsList = errors.map((error, idx) => {
       return <li key={`error-${idx}`}>{error}</li>
     })
+    debugger
+    const id = errors === undefined ? '' : 'error-page'
     // initialize alternative options
       return (
-        <section className='session flex-col '>
+        <section className='session flex-col' id={id}>
           <form className='session-form col-1-4' onSubmit={this.handleSubmit}>
             <h3>{header}</h3>
             <label>
@@ -73,7 +88,7 @@ class SessionForm extends React.Component {
               <input type="submit" value={`${header}!`}/>
               <Link to={path} >{blurb}</Link>
             </div>
-            <ul>
+            <ul className='error-list'>
               {errorsList}
             </ul>
           </form>

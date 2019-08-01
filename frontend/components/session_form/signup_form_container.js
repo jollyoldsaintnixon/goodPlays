@@ -1,17 +1,24 @@
 // gems
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 // components
 import SessionForm from './session_form'
 // actions
-import { signup } from '../../actions/session_actions'
+import { signup, receiveErrors } from '../../actions/session_actions'
 
-const msp = ({ errors: { session } }) => ({
-  errors: session,
-  formType: 'signup'
-})
+const msp = ({ errors: { session } }) => {
+  return ({
+    errors: session,
+    formType: 'signup',
+    path: '/login',
+    header: 'Sign Up',
+    blurb: 'Already a member?'
+  })
+}
 
 const mdp = dispatch => ({
-  processForm: user => dispatch(signup(user))
+  processForm: user => dispatch(signup(user)), 
+  receiveErrors: errors => dispatch(receiveErrors(errors))
 })
 
-export default connect(msp, mdp)(SessionForm)
+export default withRouter(connect(msp, mdp)(SessionForm))

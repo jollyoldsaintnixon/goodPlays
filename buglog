@@ -1,3 +1,9 @@
 30 JUL: User is being returned from DB as an empty object when tyring to dispatch the Thunk Action Creator login
   solution: extra comma at end of json.extract! in _user partial. Followed this rabbit down every hole it would jump in until
   finally a second pair of eyes caught it (brandon)
+
+31 JUL: Renamed a file from .js to .jsx, and the app would no longer compile.  Tried redo-ing all instances where the renamed file
+  was imported, but to no avail.  Restarted the server, nothing.  Brandon recommended restarting webpack, and thus the bug was squashed
+
+31 JUL: Could not figure out how to properly push history within a component.  Brandon explained that my TAC still returned 
+  promises and therefore we could tack on another .then IOT conditionally render a different layou

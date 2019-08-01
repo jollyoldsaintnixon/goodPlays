@@ -9,8 +9,8 @@ const msp = ({session: { id }, entities: { users }}) => ({
   currentUser: users[id]
 });
 
-const mdp = dispatch => ({
-  logout: () => dispatch(logout())
-})
+// const mdp = dispatch => ({
+//   logout: () => dispatch(logout())
+// })
 
-export default connect(msp, mdp)(Welcome)
+export default connect(msp)(Welcome)

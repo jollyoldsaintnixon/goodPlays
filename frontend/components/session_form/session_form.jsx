@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { update } from '../../util/helper_functions'
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -7,88 +8,94 @@ class SessionForm extends React.Component {
     this.state = {
       username: '', 
       password: '',
-      email: ''
+      confirm_password: '',
+      email: '',
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.signup = (this.props.formType === 'signup')
+    
+    // [this.formType, this.header] = [this.props.formType, this.props.header]
   }
 
-  update(field) {
-    return event => {
-      this.setState({[field]: event.target.value})
+  extraInput() {
+    // deconstruct
+    const { email, confirm_password } = this.state
+
+    if (this.signup) {
+      return (
+        <>
+          {/* <label>Confirm Password:
+                <input type="password" placeholder='username' value={confirm_password} onChange={update('confirm_password', this)} />
+          </label> */}
+          <label>
+            <input type="text" placeholder='Email Address' value={email} onChange={update('email', this)} />
+          </label>
+        </>
+      )
     }
   }
 
   handleSubmit(event) {
+    // stop form submission
     event.preventDefault()
-    const user = this.state
-    this.props.processForm(user)
+    // destructure
+    const { password, confirm_password } = this.state
+
+    if (this.signup && password != confirm_password) {
+      this.props.receiveErrors(["Password must match"])
+      this.props.history.push('/signup')
+    } else {
+      const user = this.state
+      const that = this
+      this.props.processForm(user)
+        .fail(error => {
+          that.props.history.push('/signup')
+        })
+    }
   }
+
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.id != this.props.match.params.id)
+  //   if (this.props.errors.length > 0) {
+  //     this.props.history.push('/signup-page')
+  //   }
+  // }
 
   render() {
     // deconstruct
-    const { username, password, email } = this.state
-    const { formType } = this.props
+    const { errors, header, path, blurb } = this.props
+    const { password, username } = this.state
     // set errors
-    debugger
-    const errors = this.props.errors.map(error => {
-      return <li>{error}</li>
+    
+    const errorsList = errors.map((error, idx) => {
+      return <li key={`error-${idx}`}>{error}</li>
     })
+    
+    // const id = errors.length > 0 ? 'error-page' : ''
     // initialize alternative options
-    let path;
-    let header;
-    let blurb;
-    if (formType === 'signup') {
-      path = '/login';
-      header = 'Sign Up';
-      blurb = 'Already a member?';
-    } else {
-      path = '/signup';
-      header = 'Log In';
-      blurb = 'Click here to join'
-    }
-
-    if (formType === 'signup') {
       return (
-        <div>
-          <h3>Sign Up!</h3>
-          <form onSubmit={this.handleSubmit}>
-            <label>Username: 
-              <input type="text" value={ username } onChange={this.update('username')}/>
-            </label>
-            <label>Password: 
-              <input type="password" value={ password } onChange={this.update('password')}/>
-            </label>
-            <label>Email:
-              <input type="text" value={email} onChange={this.update('email')} />
-            </label>
-            <input type="submit" value={`${header}!`}/>
+        <section className='session flex-col' >
+          <form className='session-form col-1-4' onSubmit={this.handleSubmit}>
+            <h3>{header}</h3>
+            <ul className='session-inputs'>
+              <label>
+                <input type="text" placeholder='Username' value={username} onChange={update('username', this)}/>
+              </label>
+              <label>
+                <input type="password" placeholder='Password' value={password} onChange={update('password', this)}/>
+              </label>
+              {this.extraInput()}
+            </ul>
+            <div className='session-links'>
+              <input type="submit" value={`${header}!`}/>
+              <Link to={path} >{blurb}</Link>
+            </div>
+            <ul className='error-list'>
+              {errorsList}
+            </ul>
           </form>
-          <Link to={path} >{blurb}</Link>
-          <ul>
-            {errors}
-          </ul>
-        </div>
+        </section>
       )
-    } else {
-      return (
-        <div>
-          <h3>Sign Up!</h3>
-          <form onSubmit={this.handleSubmit}>
-            <label>Username:
-              <input type="text" value={username} onChange={this.update('username')} />
-            </label>
-            <label>Password:
-              <input type="password" value={password} onChange={this.update('password')} />
-            </label>
-            <input type="submit" value={`${header}!`} />
-          </form>
-          <Link to={path} >{blurb}</Link>
-          <ul>
-            {errors}
-          </ul>
-        </div>
-      )
-    }
 
   }
 }

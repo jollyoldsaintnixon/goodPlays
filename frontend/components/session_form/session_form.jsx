@@ -39,7 +39,7 @@ class SessionForm extends React.Component {
     // stop form submission
     event.preventDefault()
     // destructure
-    const { password, confirm_password } = this.state
+    // const { password, confirm_password } = this.state
 
     // if (this.signup && password != confirm_password) {
     //   this.props.receiveErrors(["Password must match"])
@@ -51,7 +51,7 @@ class SessionForm extends React.Component {
         .fail(error => {
           that.props.history.push('/signup')
         })
-    }
+    // }
   }
 
   // componentDidUpdate(prevProps) {

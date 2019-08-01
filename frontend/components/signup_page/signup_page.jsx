@@ -38,7 +38,7 @@ class SignupPage extends React.Component {
     // stop form submission
     event.preventDefault()
     // destructure
-    const { password, confirm_password } = this.state
+    // const { password, confirm_password } = this.state
 
     // if (this.signup && password != confirm_password) {
     //   this.props.receiveErrors(["Password must match"])
@@ -46,7 +46,7 @@ class SignupPage extends React.Component {
     // } else {
       const user = this.state
       this.props.processForm(user)
-    }
+    // }
   }
 
   handleClick(e) {

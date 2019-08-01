@@ -19,4 +19,18 @@ table.each do |row|
   array_of_hashes << temp_hash
 end
 
-(1...13000).each {|num| Game.create(array_of_hashes[num])}
+files = 0
+
+File.open("#{Rails.root}/lib/assets/scraped.txt", 'w') do |file|
+  array_of_hashes.each do |el|
+    files += 1
+    break if files > 100 
+    file.puts(el.to_json)
+  end
+end
+
+File.open("#{Rails.root}/lib/assets/scraped.txt", 'r') do |file|
+  file.read.each_line do |line|
+    Game.create(JSON.parse(line))
+  end
+end

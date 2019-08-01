@@ -19,12 +19,12 @@ class Welcome extends React.Component {
         
         <ul className='toplist'>
           <WelcomeFormContainer />
-          <li>
+          {/* <li>
             <ul className='sublist'>
               <li><input type='checkbox' id='forgot'/>Remember me</li>
               <li><a href="#">Forgot it?</a></li>
             </ul>
-          </li>
+          </li> */}
           {/* <li><Link to='/login' className="link">Log In</Link></li> */}
         </ul>
       );

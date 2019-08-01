@@ -18,7 +18,11 @@ class WelcomeForm extends React.Component {
     // stop form submission
     event.preventDefault()
     const user = this.state
+    const that = this
     this.props.signup(user)
+      .fail(error => {
+        that.props.history.push('/signup')
+      })
   }
 
 

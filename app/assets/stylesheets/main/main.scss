@@ -1,6 +1,7 @@
 html {
   // background-image: url('capybara-swiming.jpg');
-  background-color: rosybrown;
+  background-color: lighten($light-purple, 30%);
+  // background-color: $light-green;
   background-size: 100%, 200px;
   background-repeat: no-repeat;
   background-size: cover;

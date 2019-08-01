@@ -43,13 +43,13 @@ class SessionForm extends React.Component {
 
     if (this.signup && password != confirm_password) {
       this.props.receiveErrors(["Password must match"])
-      this.props.history.push('/signup-page')
+      this.props.history.push('/signup')
     } else {
       const user = this.state
       const that = this
       this.props.processForm(user)
         .fail(error => {
-          that.props.history.push('/signup-page')
+          that.props.history.push('/signup')
         })
     }
   }
@@ -70,8 +70,8 @@ class SessionForm extends React.Component {
     const errorsList = errors.map((error, idx) => {
       return <li key={`error-${idx}`}>{error}</li>
     })
-    debugger
-    const id = errors.length > 0 ? 'error-page' : ''
+    
+    // const id = errors.length > 0 ? 'error-page' : ''
     // initialize alternative options
       return (
         <section className='session flex-col' >

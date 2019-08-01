@@ -1,5 +1,6 @@
 // gems
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 // components
 import WelcomeForm from './welcome_form';
 // actions
@@ -14,4 +15,4 @@ const mdp = dispatch => ({
   receiveErrors: errors => dispatch(receiveErrors(errors))
 })
 
-export default connect(msp, mdp)(WelcomeForm)
+export default withRouter(connect(msp, mdp)(WelcomeForm))

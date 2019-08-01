@@ -72,7 +72,6 @@ class SignupPage extends React.Component {
         <form className='signup-page-form .content col-1-2' onSubmit={this.handleSubmit}>
           <h3>{header}</h3>
           <ul className='signup-page-inputs'>
-            {}
             <ul className='signup-page-errors'>
               {errorsList}
             </ul>

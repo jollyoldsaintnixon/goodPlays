@@ -77,14 +77,16 @@ class SessionForm extends React.Component {
         <section className='session flex-col' >
           <form className='session-form col-1-4' onSubmit={this.handleSubmit}>
             <h3>{header}</h3>
-            <label>
-              <input type="text" placeholder='Username' value={username} onChange={update('username', this)}/>
-            </label>
-            <label>
-              <input type="password" placeholder='Password' value={password} onChange={update('password', this)}/>
-            </label>
-            {this.extraInput()}
-            <div>
+            <ul className='session-inputs'>
+              <label>
+                <input type="text" placeholder='Username' value={username} onChange={update('username', this)}/>
+              </label>
+              <label>
+                <input type="password" placeholder='Password' value={password} onChange={update('password', this)}/>
+              </label>
+              {this.extraInput()}
+            </ul>
+            <div className='session-links'>
               <input type="submit" value={`${header}!`}/>
               <Link to={path} >{blurb}</Link>
             </div>

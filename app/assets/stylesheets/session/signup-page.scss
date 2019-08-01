@@ -17,9 +17,10 @@
   justify-content: center;
   width: 100%;
   border: 1px transparent;
-  background: blue;
-  border: 5px solid red;
+  background: lighten($light-green, 20%);
+  border: 1px solid gray;
   h3 {
+    color: $dark-green;
     font-size: 2em;
     font-weight: bold;
   }
@@ -29,6 +30,7 @@
   input:not([type=submit]) {
     width: 90%;
     border-radius: 5%/2%;
+    background-color: lighten($light-green, 45%)
   }
 }
 
@@ -54,6 +56,9 @@
   align-items: center;
   input {
     margin-right: 25px;
+  }
+  a {
+    color: $dark-green;
   }
 }
 

@@ -71,10 +71,10 @@ class SessionForm extends React.Component {
       return <li key={`error-${idx}`}>{error}</li>
     })
     debugger
-    const id = errors === undefined ? '' : 'error-page'
+    const id = errors.length > 0 ? 'error-page' : ''
     // initialize alternative options
       return (
-        <section className='session flex-col' id={id}>
+        <section className='session flex-col' >
           <form className='session-form col-1-4' onSubmit={this.handleSubmit}>
             <h3>{header}</h3>
             <label>

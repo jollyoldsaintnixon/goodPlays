@@ -19,11 +19,13 @@ class GameIndex extends React.Component {
   render() {
     const games = this.props.games.map((game, idx) => {
       return <GameIndexItem game={game} key={`game-${idx}`}>Game #{idx + 1}</GameIndexItem>
+      
     })
     
     return (
       <section>
         <ul>
+
           {games}
         </ul>
         

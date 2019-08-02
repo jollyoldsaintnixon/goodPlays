@@ -2,7 +2,7 @@ import { RECEIVE_GAME_ERRORS, CLEAR_GAME_ERRORS } from '../actions/games_actions
 
 export default (state = [], action) => {
   Object.freeze(state)
-
+  
   switch (action.type) {
     case RECEIVE_GAME_ERRORS:
       return action.errors

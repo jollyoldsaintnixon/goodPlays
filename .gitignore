@@ -5,3 +5,4 @@ bundle.js.map
 .DS_STORE
 tmp/
 games-features.csv
+lines.txt

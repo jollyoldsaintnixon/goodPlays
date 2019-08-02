@@ -28,9 +28,13 @@ export const clearGameErrors = () => ({
 // thunk action creators
 
 export const fetchGames = () => dispatch => {
+  
   return APIUtil.fetchGames()
     .then(games => dispatch(receiveGames(games)),
-      error => dispatch(receiveGameErrors(error.responseJSON)))
+      error => {
+        
+        return dispatch(receiveGameErrors(error.responseJSON))
+      })
 }
 
 export const fetchGame = () => dispatch => {

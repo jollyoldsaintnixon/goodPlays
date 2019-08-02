@@ -22,7 +22,7 @@
   background: lighten($light-green, 20%);
   border: 1px solid gray;
   h3 {
-    margin: 20px 35px;
+    margin: 20px 35px 5px 35px;
     font-size: 1.5em;
     color: $dark-green;
     font-weight: bold;
@@ -32,8 +32,14 @@
   }
   input:not([type=submit]) {
     width: 100%;
-    border-radius: 5%/2%;
+    border-radius: 3px;
     background-color: lighten($light-green, 45%);
+  }
+  p {
+    text-align: center;
+    font-family: $serif;
+    margin: 5px 35px 20px 35px;
+    color: lighten($dark-green, 20%);
   }
 }
 

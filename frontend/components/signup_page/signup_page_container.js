@@ -14,7 +14,8 @@ const msp = ({ errors: { session } }) => {
     path: '/login',
     header: 'Sign up with goodPlays',
     blurb: 'Already a member?',
-    buttonText: 'Sign up!'
+    buttonText: 'Sign up!',
+    lede: "See what your friends are playing, get game recommendations, and join the world’s largest community of gamers."
   })
 }
 

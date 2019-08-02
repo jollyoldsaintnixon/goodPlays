@@ -12,7 +12,8 @@ const msp = ({ errors: { session } }) => {
     formType: 'signup',
     path: '/login',
     header: 'Sign Up',
-    blurb: 'Already a member?'
+    blurb: 'Already a member?',
+    lede: 'Create a free account'
   })
 }
 

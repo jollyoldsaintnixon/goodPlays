@@ -63,7 +63,7 @@ class SessionForm extends React.Component {
 
   render() {
     // deconstruct
-    const { errors, header, path, blurb } = this.props
+    const { errors, header, path, blurb, lede } = this.props
     const { password, username } = this.state
     // set errors
     
@@ -77,6 +77,9 @@ class SessionForm extends React.Component {
         <section className='session flex-col' >
           <form className='session-form col-1-4' onSubmit={this.handleSubmit}>
             <h3>{header}</h3>
+            <div className='.inline-block'>
+              <p>{lede}</p>
+            </div>
             <ul className='session-inputs'>
               <label>
                 <input type="text" placeholder='Username' value={username} onChange={update('username', this)}/>

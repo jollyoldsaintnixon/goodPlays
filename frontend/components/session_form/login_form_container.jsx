@@ -11,7 +11,8 @@ const msp = ({ errors: { session } }) => ({
   formType: 'login',
   path: '/signup',
   header: 'Log In',
-  blurb: 'Click here to join'
+  blurb: 'Click here to join',
+  lede: 'Create a free account'
 })
 
 const mdp = dispatch => ({

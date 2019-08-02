@@ -7,6 +7,10 @@ html {
   // background-size: cover;
 }
 
+body {
+  font-family: $sans
+}
+
 input:not([type=submit]) {
   text-align: start;
   background-color: rosybrown;
@@ -22,14 +26,27 @@ input[type=submit] {
   padding: 8px;
   color: white;
   background: $dark-purple;
-  border-radius: 8%;
+  border-radius: 5px;
   margin-left: 7px;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover, .button:hover {
     cursor: pointer;
+}
+
+a {
+  border-bottom: 1px solid transparent
 }
 
 a:hover {
   border-bottom: 1px solid gray
+}
+
+.button {
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background: #6713A8;
+  border-radius: 8%;
+  margin-left: 7px;
 }

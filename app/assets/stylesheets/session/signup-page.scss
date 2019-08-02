@@ -29,8 +29,14 @@
   }
   input:not([type=submit]) {
     width: 90%;
-    border-radius: 5%/2%;
+    border-radius: 3px;
     background-color: lighten($light-green, 45%)
+  }
+  p {
+    text-align: center;
+    font-family: $serif;
+    padding: 25px;
+    color: lighten($dark-green, 20%);
   }
 }
 
@@ -73,6 +79,7 @@
   height: 100px;
   color: black;
   li {
+    text-align: center;
     background: lightsalmon;
     border-left: 2px solid red;
     border-right: 2px solid red;

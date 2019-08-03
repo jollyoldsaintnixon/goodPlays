@@ -24,8 +24,8 @@ class GameIndex extends React.Component {
     
     return (
       <section>
+          <Route path='/games/show/:gameId' component={GameShow} />
         <ul>
-
           {games}
         </ul>
         

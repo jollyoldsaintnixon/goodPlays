@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require 'mechanize'
 table = CSV.read("#{Rails.root}/lib/assets/games-features.csv", headers: true)
 
 Game.destroy_all
@@ -41,14 +41,15 @@ end
 
 games = Game.all
 
-agent = Mechanize.new
-games.each do |game| 
-  # debugger
-  agent.get(game.image_url).save('app/assets/images/icon_images/' + game.title + '_pic.jpg')
-end
+# agent = Mechanize.new
+# games.each do |game, i| 
+#   # debugger
+#   agent.get(game.image_url).save('app/assets/images/icon_images/' + game.title + "_pic.jpg")
+# end
 
 games.each do |game| 
   # debugger
-  download_image = open(game.image_url)
-  game.image.attach(io: download_image, filename: (game.id.to_s + ' ' + game.title + ' image.jpg'))
+  file = File.open("#{Rails.root}/app/assets/images/icon_images/" + game.title + "_pic.jpg", 'r')
+  game.image.attach(io: file, filename: (game.id.to_s + ' ' + game.title + ' image.jpg'))
 end
+

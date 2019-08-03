@@ -37,7 +37,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'pry-rails'
 gem 'csv'
-require 'mechanize'
+gem 'mechanize'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

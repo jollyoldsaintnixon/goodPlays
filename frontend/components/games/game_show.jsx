@@ -20,7 +20,7 @@ class GameShow extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    debugger
+    
     if (prevProps.id != this.props.match.params.imageId) {
       fetchGame(this.props.match.params.gameId)
     }
@@ -31,7 +31,7 @@ class GameShow extends React.Component {
     if (game === undefined) {
       game = { title: '', release_date: '', description: '', imageUrl: '', image_url: '' }
     }
-    debugger
+    
     return (
       <div className='game-show'>
         <ul>

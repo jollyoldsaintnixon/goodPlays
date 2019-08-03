@@ -24,7 +24,7 @@ const App = () => {
           <AuthRoute path='/' component={SignupFormContainer} />
 
         </Switch>
-        <ProtectedRoute path='/games/show/:gameId' component={GameShow} />
+        {/* <ProtectedRoute path='/games/show/:gameId' component={GameShow} /> */}
 
       </section>
     </>

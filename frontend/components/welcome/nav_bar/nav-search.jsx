@@ -1,13 +1,21 @@
 import React from 'react'
 import { update } from '../../../util/helper_functions'
 import { connect } from 'react-redux'
-import { receiveGames } from '../../../actions/games_actions'
+import { receiveUiGames } from '../../../actions/ui_actions'
+import { withRouter } from 'react-router-dom'
 
 class NavSearch extends React.Component {
   constructor(props) {
     super(props)
     this.state = {searchString: ''}
+    this.dropDownSelect = this.dropDownSelect.bind(this)
+  }
 
+  search() {
+    return (e) => {
+      e.preventDefault()
+      this.props.receiveUiGames(this.gameList())
+    }
   }
 
   gameList() {
@@ -31,14 +39,16 @@ class NavSearch extends React.Component {
   }
 
   dropDownSelect(e) {
-    const title = e.target.innerText
-    this.setState({searchString: title})
+    debugger
+    // const title = e.target.innerText
+    // this.setState({searchString: title})
+    this.setState({searchString: ''})
+    this.props.history.push(`/games/show/${e.target.id}`)
   }
 
   render() {
     const gameList = this.gameList().map(game => {
-    const   
-      return <li key={`search-item-${game.id}`} onClick={this.dropDownSelect}>
+      return <li key={`search-item-${game.id}`} id={game.id} onClick={this.dropDownSelect}>
       {game.title}</li>
     })
     // debugger
@@ -50,7 +60,7 @@ class NavSearch extends React.Component {
           onChange={update('searchString', this)}
           value={this.state.searchString}
           />
-        <button onClick={}>Search</button>
+        <button onClick={this.search(gameList)}>Search</button>
         <ul className='search-list'>
           {gameList.slice(0, 2)}
         </ul>
@@ -64,7 +74,7 @@ const msp = state => ({
 })
 
 const mdp = dispatch => ({
-  receiveGames = games => dispatch(receiveGames(games))
+  receiveUiGames: games => dispatch(receiveUiGames(games))
 })
 
-export default connect(msp, mdp)(NavSearch)
+export default withRouter(connect(msp, mdp)(NavSearch))

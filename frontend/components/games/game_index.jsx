@@ -17,10 +17,13 @@ class GameIndex extends React.Component {
   }
 
   render() {
-    const games = this.props.games.map((game, idx) => {
-      return <GameIndexItem game={game} key={`game-${idx}`}>Game #{idx + 1}</GameIndexItem>
-      
-    })
+    let games
+    
+    if (this.props.games) {
+      games = this.props.games.map((game, idx) => {
+        return <GameIndexItem game={game} key={`game-${idx}`}>Game #{idx + 1}</GameIndexItem>
+      })
+    }
     
     return (
       <section>
@@ -34,8 +37,9 @@ class GameIndex extends React.Component {
   }
 }
 
-const msp = ({ entities: { games }}) => {
-  return {games: Object.values(games)}
+const msp = ({ui: {games}}) => {
+  
+  return ({ games })
 }
 
 const mdp = dispatch => ({

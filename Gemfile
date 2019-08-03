@@ -37,7 +37,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'pry-rails'
 gem 'csv'
-gem 'mechanize'
+# gem 'mechanize'
 gem 'kaminari'
 
 group :development, :test do

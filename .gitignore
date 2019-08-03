@@ -6,4 +6,4 @@ bundle.js.map
 tmp/
 games-features.csv
 lines.txt
-app/assets/images/icon_images/
+*.jpg

@@ -39,7 +39,7 @@ class GameShow extends React.Component {
           <li>{game.release_date}</li>
           <li>{game.description}</li>
           <li><img src={game.imageUrl} alt={`${game.title} image`} /></li> {/* this is supposed to connect to AWS */} 
-          <li><img src={game.image_url} alt={`${game.title} image`}/></li> {/* this should work as a back up */} 
+          {/* <li><img src={game.image_url} alt={`${game.title} image`}/></li> this should work as a back up  */}
         </ul>
       </div>
     )

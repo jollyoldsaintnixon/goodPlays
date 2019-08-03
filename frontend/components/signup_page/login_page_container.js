@@ -12,7 +12,8 @@ const msp = ({ errors: { session } }) => ({
   path: '/signup',
   header: 'Sign in to goodPlays',
   blurb: 'Click here to join',
-  buttonText: 'Sign in!'
+  buttonText: 'Sign in!',
+  lede: 'Welcome back.'
 })
 
 const mdp = dispatch => ({

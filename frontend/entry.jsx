@@ -6,7 +6,8 @@ import { configureStore } from './store/store';
 // components
 import Root from './components/root'
 //testing
-import * as APIUtil from './actions/session_actions'
+import * as APIUtil from './util/games_api_util'
+import * as Actions from './actions/games_actions'
 
 
 
@@ -30,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // testing
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.login = APIUtil.login;
-  window.signup = APIUtil.signup;
+  window.fetchGamesAPI = APIUtil.fetchGames;
+  window.fetchGames = Actions.fetchGames
   // end testing
   ReactDOM.render(<Root store={ store } />, root)
 })

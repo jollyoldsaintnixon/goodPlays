@@ -38,7 +38,7 @@ class WelcomeForm extends React.Component {
                     value={username} 
                     onChange={update('username', this)}
                     autoComplete='on'
-                    placeholder='username' 
+                    placeholder='Username' 
                     />
           </label>
           <label>
@@ -46,7 +46,7 @@ class WelcomeForm extends React.Component {
                     type="password" 
                     value={password} 
                     onChange={update('password', this)}
-                    placeholder='password'
+                    placeholder='Password'
                      />
           </label>
           <input type="submit" value={`Log In!`} />

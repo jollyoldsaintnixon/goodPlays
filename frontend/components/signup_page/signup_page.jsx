@@ -55,22 +55,21 @@ class SignupPage extends React.Component {
 
   render() {
     // deconstruct
-    const { errors, header, path, blurb, buttonText } = this.props
+    const { errors, header, path, blurb, buttonText, lede } = this.props
     const { password, username, email } = this.state
     // set errors
-
     const errorsList = errors.map((error, idx) => {
         return <li key={`error-${idx}`}>{error}</li>
       })
     
-
-    // const id = errors.length > 0 ? 'error-page' : ''
-    // initialize alternative options
     
     return (
       <section className='flex-col signup-page'>
         <form className='signup-page-form .content col-1-2' onSubmit={this.handleSubmit}>
           <h3>{header}</h3>
+          <div className="inline-block">
+            <p>{lede}</p>
+          </div>
           <ul className='signup-page-inputs'>
             <ul className='signup-page-errors'>
               {errorsList}

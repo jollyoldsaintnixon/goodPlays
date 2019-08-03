@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
       # debugger
       render 'api/users/show' # want to render show page of user
     else
-      render json: ['invalid credentials'], status: 422
+      render json: ['Invalid username or password'], status: 422
     end
   end
 

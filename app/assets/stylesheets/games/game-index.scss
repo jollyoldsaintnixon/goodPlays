@@ -1,0 +1,17 @@
+.games {
+  display: flex;
+}
+
+.games-list {
+  background: blue;
+  padding-right: 0;
+  li {
+    border: 1px solid black;
+    padding-left: 25px;
+  }
+}
+
+.game-index-item:hover {
+  background: lightblue;
+}
+

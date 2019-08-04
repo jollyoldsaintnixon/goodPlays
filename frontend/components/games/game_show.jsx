@@ -33,15 +33,13 @@ class GameShow extends React.Component {
     }
     
     return (
-      <div className='game-show'>
-        <ul>
-          <li>{game.title}</li>
-          <li>{game.release_date}</li>
-          <li>{game.description}</li>
+        <ul className='game-show col-2-3'>
           <li><img src={game.imageUrl} alt={`${game.title} image`} /></li> {/* this is supposed to connect to AWS */} 
+          <li className='game-title'>{game.title}</li>
+          <li className='game-release-date'>{game.release_date}</li>
+          <li className='game-description'>{game.description}</li>
           {/* <li><img src={game.image_url} alt={`${game.title} image`}/></li> this should work as a back up  */}
         </ul>
-      </div>
     )
   }
 }

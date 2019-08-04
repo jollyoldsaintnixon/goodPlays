@@ -39,7 +39,7 @@ class NavSearch extends React.Component {
   }
 
   dropDownSelect(e) {
-    debugger
+    // debugger
     // const title = e.target.innerText
     // this.setState({searchString: title})
     this.setState({searchString: ''})
@@ -51,6 +51,11 @@ class NavSearch extends React.Component {
       return <li key={`search-item-${game.id}`} id={game.id} onClick={this.dropDownSelect}>
       {game.title}</li>
     })
+    // let $searchList = $("search-list")
+    // if (this.state.searchString === "") {
+    //   debugger
+    //   $searchList.addClass('none')
+    // }
     // debugger
     return (
       <div className='search'>
@@ -60,9 +65,10 @@ class NavSearch extends React.Component {
           onChange={update('searchString', this)}
           value={this.state.searchString}
           />
-        <button onClick={this.search(gameList)}>Search</button>
-        <ul className='search-list'>
-          {gameList.slice(0, 2)}
+        <button onClick={this.search(gameList)}>***</button>
+        <ul className={`search-list ${
+          this.state.searchString === "" ? 'none' : '' }`} >
+          {gameList.slice(0, 4)}
         </ul>
       </div>
     )

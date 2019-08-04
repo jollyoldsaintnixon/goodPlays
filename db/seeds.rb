@@ -45,17 +45,24 @@ end
 
 games = Game.all
 
+# this is for creating the .jpgs based on a url (uses Mechanize gem)
+
 # agent = Mechanize.new
 # games.each do |game, i| 
 #   # debugger
 #   agent.get(game.image_url).save('app/assets/images/icon_images/' + game.title + "_pic.jpg")
 # end
 
+# this was for populating on localhost (unnecessary)
+
 # games.each do |game| 
 #   # debugger
 #   file = File.open("#{Rails.root}/app/assets/images/icon_images/" + game.title + "_pic.jpg", 'r')
 #   game.image.attach(io: file, filename: (game.id.to_s + ' ' + game.title + ' image.jpg'))
 # end
+
+# this is for pulling off of AWS.  Upload the files into a new bucket specifically for seeding by dumping the contents
+# of your jpgs folder into it.
 
 games.each do |game| 
   # debugger

@@ -1,0 +1,22 @@
+.faded {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-wrap {
+  position: absolute;
+  // margin: 35% auto;
+  background: $light-purple;
+}
+
+.advanced-search-form {
+
+}

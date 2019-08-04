@@ -11,7 +11,56 @@ require 'open-uri'
 
 Game.destroy_all
 
-# table = CSV.read("#{Rails.root}/lib/assets/games-features.csv", headers: true)
+# array_of_hashes = []
+# table.each do |row|
+#   temp_hash = {}
+#   array_of_genres = []
+#   array_of_categories = []
+#   temp_hash[:title] = row[3]
+#   temp_hash[:description] = row[64]
+#   temp_hash[:release_date] = row[4]
+#   temp_hash[:price] = row[58]
+#   temp_hash[:image_url] = row[67]
+#     if row[44] == "True"
+#       array_of_genres << 'indie'
+#     end
+#     if row[45] == "True"
+#       array_of_genres << 'action'
+#     end
+#     if row[46] == "True"
+#       array_of_genres << 'adventure'
+#     end
+#     if row[47] == "True"
+#       array_of_genres << 'casual'
+#     end
+#     if row[49] == "True"
+#       array_of_genres << 'rpg'
+#     end
+#     if row[50] == "True"
+#       array_of_genres << 'simulation'
+#     end
+#     if row[53] == "True"
+#       array_of_genres << 'sports'
+#     end
+#     if row[54] == "True"
+#       array_of_genres << 'racing'
+#     end
+#     if row[55] == "True"
+#       array_of_genres << 'mmo'
+#     end
+#     if row[35] == "True"
+#       array_of_categories << 'single-player'
+#     end
+#     if row[36] == "True"
+#       array_of_categories << 'multi-player'
+#     end
+#     if row[37] == "True"
+#       array_of_categories << 'co-op'
+#     end
+#   temp_hash[:genres] = array_of_genres
+#   temp_hash[:categories] = array_of_categories
+#   array_of_hashes << temp_hash
+# end
 
 # array_of_hashes = []
 # table.each do |row|
@@ -38,7 +87,8 @@ Game.destroy_all
 
 File.open("#{Rails.root}/lib/assets/scraped.txt", 'r') do |file|
   file.read.each_line do |line|
-    next if line.include? '/'
+    
+    next if line.include? 'Hunter/Killer'
     Game.create(JSON.parse(line))
   end
 end

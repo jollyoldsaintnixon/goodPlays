@@ -35,7 +35,7 @@ end
 
 File.open("#{Rails.root}/lib/assets/scraped.txt", 'r') do |file|
   file.read.each_line do |line|
-    next if line.include? 'Hunter/Killer'
+    next if line.include? '/'
     Game.create(JSON.parse(line))
   end
 end

@@ -9,3 +9,4 @@ export const receiveUiGames = games => ({
 export const clearUiGames = () => ({
   type: CLEAR_UI_GAMES
 })
+

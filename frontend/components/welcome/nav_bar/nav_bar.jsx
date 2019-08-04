@@ -2,7 +2,7 @@ import React from 'react'
 import { update } from '../../../util/helper_functions'
 import NavIcons from './nav_icons'
 import NavOptions from './nav_options'
-import NavSearch from './nav-search'
+import NavSearch from '../../search/nav-search'
 
 class NavBar extends React.Component {
   constructor() {

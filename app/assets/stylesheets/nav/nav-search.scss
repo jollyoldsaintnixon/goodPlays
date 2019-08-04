@@ -12,13 +12,13 @@
 
 .search {
   display: flex;
-  // justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   position: relative;
   button {
     border: 1px solid darkgray;
     position: absolute;
-    right: 5px;
+    right: 126px;
     display: block;
     height: 27px;
     background: gray;
@@ -27,6 +27,9 @@
   button:hover {
     background: white;
     cursor: pointer;
+  }
+  a {
+    // position: absolute;
   }
 }
 

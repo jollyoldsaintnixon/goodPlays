@@ -29,15 +29,17 @@ class GameShow extends React.Component {
   render () {
     let { game } = this.props
     if (game === undefined) {
-      game = { title: '', release_date: '', description: '', imageUrl: '', image_url: '' }
+      game = { title: '', release_date: '', description: '', imageUrl: '', image_url: '', genres: [], categories: [] }
     }
-    
+    // debugger
     return (
         <ul className='game-show col-2-3'>
           <li><img src={game.imageUrl} alt={`${game.title} image`} /></li> {/* this is supposed to connect to AWS */} 
           <li className='game-title'>{game.title}</li>
-          <li className='game-release-date'>{game.release_date}</li>
+          <li className='game-release-date'>Released {game.release_date}</li>
           <li className='game-description'>{game.description}</li>
+          <li className='game-genres'>Genres: {game.genres}</li>
+          <li className='game-categories'>categories: {game.categories}</li>
           {/* <li><img src={game.image_url} alt={`${game.title} image`}/></li> this should work as a back up  */}
         </ul>
     )

@@ -16,11 +16,10 @@
   height: 100%;
   justify-content: center;
   width: 100%;
-  border: 1px transparent;
-  background: lighten($light-green, 20%);
+  background: $four;
   border: 1px solid gray;
   h3 {
-    color: $dark-green;
+    color: white;
     font-size: 2em;
     font-weight: bold;
   }
@@ -34,13 +33,13 @@
     margin: 5px;
     width: 90%;
     border-radius: 3px;
-    background-color: lighten($light-green, 45%)
+    background-color: $zero
   }
   p {
     text-align: center;
     font-family: $serif;
     padding: 25px;
-    color: lighten($dark-green, 20%);
+    color: $one;
   }
 }
 
@@ -68,10 +67,10 @@
     margin-right: 25px;
   }
   a {
-    color: $dark-green;
+    color: $one;
   }
   a:hover {
-      border-bottom: 1px solid $dark-green
+      border-bottom: 1px solid $one
   }
 }
 

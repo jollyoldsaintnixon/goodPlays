@@ -1,5 +1,5 @@
 import React from 'react'
-import { update } from '../../util/helper_functions'
+import { update, stringFilter } from '../../util/helper_functions'
 import { connect } from 'react-redux'
 import { receiveUiGames } from '../../actions/ui_actions'
 import { withRouter, NavLink, Route } from 'react-router-dom'
@@ -17,6 +17,7 @@ class NavSearch extends React.Component {
     return (e) => {
       e.preventDefault()
       this.props.receiveUiGames(this.gameList())
+      this.setState({searchString: ''})
     }
   }
 
@@ -25,25 +26,23 @@ class NavSearch extends React.Component {
     const { games } = this.props
     const { searchString } = this.state
     // initialize
-    const list = []
-
+    let list = []
+    debugger
     if (searchString === '') {
       return games
     }
-    
-    games.forEach(game => {
-      if (game.title.toLowerCase().includes(searchString.toLowerCase())) {
-        list.push(game)
-      }
-    })
+
+    list = stringFilter(games, searchString)
     
     return list
   }
 
   dropDownSelect(e) {
-    // debugger
-    // this.setState({searchString: e.target.textContent})
-    this.setState({searchString: ''})
+    debugger
+    this.setState({searchString: e.target.textContent})
+    // this.setState({searchString: ''})
+    debugger
+    this.props.receiveUiGames(this.gameList())
     this.props.history.push(`/games/show/${e.target.id}`)
   }
 
@@ -55,9 +54,13 @@ class NavSearch extends React.Component {
 
   render() {
     const gameList = this.gameList().map(game => {
-      return <li key={`search-item-${game.id}`} id={game.id} onClick={this.dropDownSelect}>
+      return <li key={`search-item-${game.id}`} id={game.id} onClick={this.dropDownSelect.bind(this)}>
       {game.title}</li>
     })
+
+    if (this.props.history.location.pathname === '/advanced-search') {
+      this.props.openModal('advanced_search')
+    }      
 
     return (
       <div className='search'>

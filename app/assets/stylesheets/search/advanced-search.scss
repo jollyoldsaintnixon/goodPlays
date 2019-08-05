@@ -14,9 +14,50 @@
 .modal-wrap {
   position: absolute;
   // margin: 35% auto;
-  background: $light-purple;
+  background: $four;
 }
 
 .advanced-search-form {
+  width: 50vw;
+  left: 25vw;
+  padding: 31px;
+  h3 {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  h4 {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+}
+.search-date {
+  margin-bottom: 5px;  
+  display: flex;
+  flex-direction: column;
+}
+.search-boxes {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  label {
+    padding-right: 10px;
+  }
+  input {
+    padding-left: 5px;
+  }
+}
 
+.search-price {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  input {
+    background-color: $zero;
+    border: 1px solid darkgray;
+    color: $five;
+    width: 50px;
+  }
 }

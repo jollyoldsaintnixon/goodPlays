@@ -19,12 +19,12 @@
   width: 300px;
   height: 300px;
   border: 1px transparent;
-  background: lighten($light-green, 20%);
+  background: $four;
   border: 1px solid gray;
   h3 {
     margin: 20px 35px 5px 35px;
     font-size: 1.5em;
-    color: $dark-green;
+    color: white;
     font-weight: bold;
   }
   label {
@@ -37,13 +37,13 @@
     border: 1px solid darkgray;
     width: 100%;
     border-radius: 3px;
-    background-color: lighten($light-green, 45%);
+    background-color: $zero;
   }
   p {
     text-align: center;
     font-family: $serif;
     margin: 5px 35px 20px 35px;
-    color: lighten($dark-green, 20%);
+    color: $one;
   }
 }
 
@@ -83,6 +83,6 @@
     margin-right: 25px;
   }
   a {
-    color: $dark-green;
+    color: $one;
   }
 }

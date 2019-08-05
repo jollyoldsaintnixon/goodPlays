@@ -3,16 +3,20 @@
 }
 
 .games-list {
-  background: blue;
+  background: transparent;
   padding-right: 0;
-  li {
+  li {   
     border: 1px solid black;
     padding-left: 25px;
   }
 }
-
+.game-index-item {
+  background: $four;
+  color: $one;
+}
 .game-index-item:hover {
-  background: lightblue;
+  background: $one;
+  color: $four;
   a {
     display: inline-block;
     width: 100%;

@@ -8,18 +8,18 @@ I pulled steam data from Craig Kelly's CSV found here: https://data.world/craigk
 
 TODO:
   CSS:
-    Pick and apply a color scheme
-    Fix overextension of the UL in Game index
     Modify appearance of genres and categories in Game Show
     Make advance search look nice
   Componenets:
-    Consider adding scroll bar to search drop down menu
-    Consider adding a magnifying glass icon to search button
-      draw with canvas?
-    Add advanced search form
-      genres
-      release date
-      category
-      developer
+    Regular Search
+      Add scroll bar to search drop down menu
+      Pressing enter searches
+      Search bar dropdown menu disappears after submission and loss of focus 
+      Add a magnifying glass icon to search button
+        draw with canvas?
+    Advanced search form
+      Dates as years
+      Buttons to open genres and category search options
+      developer selection and functionality
   Other:
     Put text file with game seed data on AWS and take off of app

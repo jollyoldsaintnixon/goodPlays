@@ -1,5 +1,5 @@
 .header {
-  background: $light-purple;
+  background: $four;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,9 +11,9 @@
     align-items: center;
     width: 95%;
     margin: auto;
-    background: $light-purple;
+    background: $four;
+    color: $one;
     .toplist {
-      color: $dark-purple;
       display: flex;
       justify-content: flex-end;
       padding: 10px;
@@ -23,7 +23,7 @@
       }
       input:not([type=submit]) {
         text-align: start;
-        background-color: rosybrown;
+        background-color: $zero;
         padding: 3px;
         width: 120px;
         border: 1px solid darkgray;

@@ -13,7 +13,7 @@ TODO:
   Componenets:
     Regular Search
       Add scroll bar to search drop down menu
-      Pressing enter searches
+      Pressjing enter searches
       Clicking on a dropdown item returns either all games or only that one
       Search bar dropdown menu disappears after submission and loss of focus 
       Add a magnifying glass icon to search button

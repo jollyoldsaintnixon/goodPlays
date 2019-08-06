@@ -40,8 +40,8 @@ class GameIndex extends React.Component {
               <Redirect to='/' />
             }
           }}/> */}
-          <Route path='/profile' component={UserProfile} />
-          <Route path='/games/show/:gameId' component={GameShow} />
+          <Route path='/index/profile' component={UserProfile} />
+          <Route path='/index/games/show/:gameId' component={GameShow} />
         </Switch>
         
       </section>

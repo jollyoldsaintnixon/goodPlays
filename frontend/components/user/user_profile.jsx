@@ -46,7 +46,7 @@ class UserProfile extends React.Component {
               key={`user-${user.id}-game-${game_id}`}
               onMouseOver={this.displayImg(game)}
               onMouseLeave={this.hideImg}>
-              <Link to={`/games/show/${game.id}`}>{game.title}</Link>
+              <Link to={`/index/games/show/${game.id}`}>{game.title}</Link>
               </li>
             ) 
         }) 

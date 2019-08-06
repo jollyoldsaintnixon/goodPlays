@@ -10,14 +10,18 @@ import SignupFormContainer from './session_form/signup_form_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import Content from './content/content'
 import SignupPageContainer from './signup_page/signup_page_container'
+import SplashPage from './splash/splash_page'
 
 const App = () => {
   return (
     <>
       <WelcomeContainer />
       <section className='main-section'>
-        <img className='banner' src={window.banner} alt='Terror of the Amazon'/>  
-        <Content />
+        <img className='banner' src={window.banner} alt='Terror of the Amazon'/> 
+        <Switch>
+          <Route path='/index' component={Content} />
+          <Route path='/' exact component={SplashPage}/>
+        </Switch> 
         <Switch>
           <AuthRoute path='/signup' exact component={SignupPageContainer} />
           <AuthRoute path='/login' component={LoginPageContainer} />

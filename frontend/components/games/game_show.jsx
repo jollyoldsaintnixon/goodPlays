@@ -39,7 +39,7 @@ class GameShow extends React.Component {
       return (
         <>
           <button className='button' onClick={buttonSubmit}>{buttonText}</button>
-          <button className='button' ><Link to='/profile' >My Rack</Link></button>
+          <button className='button' ><Link to='/index/profile' >My Rack</Link></button>
         </>
       )
     } else {
@@ -79,7 +79,6 @@ class GameShow extends React.Component {
     // debugger
     return (
       <ul className='game-show col-2-3'>
-          <li>{game.id}</li>
           <li><img src={game.imageUrl} alt={`${game.title} image`} /></li> {/* this is supposed to connect to AWS */} 
           <li className='game-title'>{game.title}</li>
           <li className='game-release-date'>Released {game.release_date}</li>

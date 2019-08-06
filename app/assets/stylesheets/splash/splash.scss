@@ -1,0 +1,39 @@
+.splash-page {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-weight: bolder;
+    font-size: 4em;
+  }
+  h2 {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+  }
+  ul:hover {
+    cursor: pointer;
+  }
+}
+
+.game-title {
+  font-size: 3em;
+  margin-top: 5px;
+}
+
+.game-release-date {
+  margin-top: 5px;
+}
+
+.game-description {
+  font-family: $serif;
+  color: black;
+}
+
+.game-show {
+  padding-top: 12px;
+  li {
+    padding: 3px, 0, 3px, 0;
+  }
+}

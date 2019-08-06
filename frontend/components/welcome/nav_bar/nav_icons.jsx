@@ -9,7 +9,7 @@ class NavIcons extends React.Component {
     const { currentUser, logout } = this.props
     return (
       <ul>
-        <Link to='/profile'>Welcome, {currentUser.username}</Link>
+        <Link to='/index/profile'>Welcome, {currentUser.username}</Link>
         <button className='button' onClick={logout}>Log Out</button>
       </ul>
     )

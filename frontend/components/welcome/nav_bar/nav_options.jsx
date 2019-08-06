@@ -7,8 +7,8 @@ class NavOptions extends React.Component {
     return (
       <ul>
         <li><Link to='/'>Home</Link></li>
-        <li><a href="#">My Games</a></li>
-        <li><a href="#">Browse</a></li>
+        <li><Link to='/index/profile'>My Rack</Link></li>
+        <li><Link to='/index'>Browse</Link></li>
         <li><a href="#">Communities</a></li>
       </ul>
     )

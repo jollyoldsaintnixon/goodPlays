@@ -13,7 +13,7 @@ class GameIndexItem extends React.Component {
     const display = (!games.length || games.includes(game)) ? 'inherit' : 'none'
     return (
       <li className={`game-index-item ${display}`} >
-          <Link to={`/games/show/${game.id}`} >{game.title}</Link>
+          <Link to={`/index/games/show/${game.id}`} >{game.title}</Link>
       </li>
     )
   }

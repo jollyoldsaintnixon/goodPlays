@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchGames } from '../../actions/games_actions'
-import { GameIndexItem } from './game_index_item'
+import GameIndexItem from './game_index_item'
 import { ProtectedRoute } from '../../util/route_util';
 import { Route, Switch } from 'react-router-dom'
 import GameShow from './game_show'

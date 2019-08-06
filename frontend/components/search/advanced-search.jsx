@@ -19,6 +19,7 @@ class AdvancedSearch extends React.Component {
       endDate: null,
       lowPrice: NaN,
       highPrice: NaN,
+      errors: '',
     }
     this.state = {
       searchString: this.props.searchVal,
@@ -28,6 +29,7 @@ class AdvancedSearch extends React.Component {
       endDate: null,
       lowPrice: null,
       highPrice: null,
+      errors: '',
     }
 
     this.closeAndReturn = this.closeAndReturn.bind(this)
@@ -45,8 +47,13 @@ class AdvancedSearch extends React.Component {
     
     return (e) => {
       e.preventDefault()
-      this.props.receiveUiGames(this.advancedGameList())
-      this.closeAndReturn()
+      const list = this.advancedGameList()
+      if (list.length) {
+        this.props.receiveUiGames(this.advancedGameList())
+        this.closeAndReturn()
+      } else {
+        this.setState({errors: 'Nothing matched'})
+      }
     }
   }
 
@@ -73,13 +80,13 @@ class AdvancedSearch extends React.Component {
     if (this.state === this.null) {
       return games
     }
-    
+    debugger
     gamesList = stringFilter(games, searchString) // filter by string
     gamesList = genreFilter(gamesList, genres)
     gamesList = categoryFilter(gamesList, categories)
     gamesList = dateFilter(gamesList, startDate, endDate)
     gamesList = priceFilter(gamesList, parseFloat(lowPrice), parseFloat(highPrice))
-    
+    debugger
     return gamesList
   }
 
@@ -93,6 +100,7 @@ class AdvancedSearch extends React.Component {
       <div className='faded' onClick={this.closeAndReturn}>
         <div className='modal-wrap' onClick={(e) => e.stopPropagation()}>
           <form className='advanced-search-form' onSubmit={this.advancedSearch()}>
+            <p>{this.state.errors}</p>
             <h3>Advanced Search</h3>
             <input
               className='search-bar'

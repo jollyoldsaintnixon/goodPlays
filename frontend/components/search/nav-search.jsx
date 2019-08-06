@@ -11,13 +11,26 @@ class NavSearch extends React.Component {
     super(props)
     this.state = {searchString: ''}
     this.dropDownSelect = this.dropDownSelect.bind(this)
+    this.enterSearch = this.enterSearch.bind(this)
   }
 
   search() {
     return (e) => {
       e.preventDefault()
-      this.props.receiveUiGames(this.gameList())
+      const list = this.gameList()
+      this.props.receiveUiGames(list)
       this.setState({searchString: ''})
+      this.props.history.push(`/games/show/${list[0].id}`)
+    }
+  }
+
+  enterSearch(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      const list = this.gameList()
+      this.props.receiveUiGames(list)
+      this.setState({ searchString: '' })
+      this.props.history.push(`/games/show/${list[0].id}`)
     }
   }
 
@@ -48,6 +61,7 @@ class NavSearch extends React.Component {
 
   advancedSearch() {
     return (e) => {
+      debugger
       this.props.openModal('advanced_search')
     }
   }
@@ -58,9 +72,9 @@ class NavSearch extends React.Component {
       {game.title}</li>
     })
 
-    if (this.props.history.location.pathname === '/advanced-search') {
-      this.props.openModal('advanced_search')
-    }      
+    // if (this.props.history.location.pathname === '/advanced-search') {
+    //   this.props.openModal('advanced_search')
+    // }      
 
     return (
       <div className='search'>
@@ -70,6 +84,7 @@ class NavSearch extends React.Component {
           onChange={update('searchString', this)}
           placeholder='Search...'
           value={this.state.searchString}
+          onKeyDown={this.enterSearch}
           />
         <button onClick={this.search()}>***</button>
         <NavLink to='/advanced-search' onClick={this.advancedSearch()}>Advanced Search </NavLink>

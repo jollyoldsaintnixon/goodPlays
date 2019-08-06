@@ -34,7 +34,7 @@ export const genreFilter = (items, array) => {
     return items
   }
   let filtered = []
-
+  debugger
   for (let i = 0; i < items.length; i++) {
     for (let j = 0; j < array.length; j++) {
       if (items[i].genres.includes(array[j])) {

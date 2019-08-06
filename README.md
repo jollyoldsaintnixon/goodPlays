@@ -25,7 +25,10 @@ TODO:
     Profile:
       Make public/private option
       Switch between Add/Delete game based on current gamerack
-    Reducers:
-      Figure out how to deal with game rack errors
+  Reducers:
+    Figure out how to deal with game rack errors
+  Controllers:
+    Implement caching
   Other:
     Put text file with game seed data on AWS and take off of app
+    Add project to your laptop

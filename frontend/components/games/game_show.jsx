@@ -4,10 +4,16 @@ import { connect } from 'react-redux'
 import { fetchGame } from '../../actions/games_actions'
 import { addGameToUser, deleteGameFromUser } from '../../actions/session_actions'
 
-const msp = (state, ownProps) => ({
-  game: state.entities.games[ownProps.match.params.gameId],
-  user: state.entities.users[state.session.id]
-})
+const msp = (state, ownProps) => {
+  let user = state.entities.users[state.session.id]
+  let game_ids = user ? user.game_ids : null
+  debugger
+  return {
+    game: state.entities.games[ownProps.match.params.gameId],
+    user,
+    game_ids,
+  }
+}
 
 const mdp = dispatch => ({
   fetchGame: id => dispatch(fetchGame(id)),
@@ -18,6 +24,27 @@ const mdp = dispatch => ({
 class GameShow extends React.Component {
   constructor(props) {
     super(props)
+  }
+
+  displayButtons() {
+    if (this.props.user) {
+      let buttonText = 'Add to Rack'
+      let buttonSubmit = this.addGame.bind(this)
+      const gameId = parseInt(this.props.match.params.gameId)
+  
+      if (this.props.game_ids.includes(gameId)) {
+        buttonText = 'Remove from Rack'
+        buttonSubmit = this.removeGame.bind(this)
+      }
+      return (
+        <>
+          <button className='button' onClick={buttonSubmit}>{buttonText}</button>
+          <button className='button' ><Link to='/profile' >My Rack</Link></button>
+        </>
+      )
+    } else {
+      return null
+    }
   }
   
 
@@ -44,31 +71,22 @@ class GameShow extends React.Component {
   }
 
   render () {
-    let buttonText = 'Add to Rack'
-    let buttonSubmit = this.addGame.bind(this)
-    const { user } = this.props
-    const gameId = parseInt(this.props.match.params.gameId)
-    
-    if (user.game_ids.includes(gameId)) {
-      buttonText = 'Remove from Rack'
-      buttonSubmit = this.removeGame.bind(this)
-    }
-
+    debugger
     let { game } = this.props
     if (game === undefined) {
       game = { title: '', release_date: '', description: '', imageUrl: '', image_url: '', genres: [], categories: [] }
     }
     // debugger
     return (
-        <ul className='game-show col-2-3'>
+      <ul className='game-show col-2-3'>
+          <li>{game.id}</li>
           <li><img src={game.imageUrl} alt={`${game.title} image`} /></li> {/* this is supposed to connect to AWS */} 
           <li className='game-title'>{game.title}</li>
           <li className='game-release-date'>Released {game.release_date}</li>
           <li className='game-description'>{game.description}</li>
           <li className='game-genres'>Genres: {game.genres.join(', ')}</li>
           <li className='game-categories'>categories: {game.categories.join(', ')}</li>
-          <button className='button' onClick={buttonSubmit}>{buttonText}</button>
-          <button className='button' ><Link to='/profile' >My Rack</Link></button>
+          {this.displayButtons()}
         </ul>
     )
   }

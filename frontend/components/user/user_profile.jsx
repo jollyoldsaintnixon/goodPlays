@@ -6,10 +6,9 @@ import { Link } from 'react-router-dom'
 class UserProfile extends React.Component {
   constructor(props) {
     super(props)
-    debugger
     this.state = {
-      imageUrl: null,
-      display: 'none'
+      imageUrl: window.banner,
+      // display: 'none'
     }
     this.displayImg = this.displayImg.bind(this)
     this.hideImg = this.hideImg.bind(this)
@@ -20,13 +19,14 @@ class UserProfile extends React.Component {
       e.preventDefault()
       this.setState({
         imageUrl: game.imageUrl,
-        display: 'inherit'
+        // display: 'inherit'
       })
     }
   }
 
   hideImg() {
-    this.setState({display: 'none'})
+    // this.setState({display: 'none'})
+    this.setState({imageUrl: window.banner})
   }
 
   componentDidMount() {
@@ -35,7 +35,7 @@ class UserProfile extends React.Component {
 
   render() {
     const { user, games } = this.props
-    
+    // debugger
     let gameRackGames
     if (Object.keys(games).length) {
       gameRackGames = user.game_ids.map(game_id => {

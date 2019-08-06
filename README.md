@@ -25,6 +25,7 @@ TODO:
     Profile:
       Make public/private option
       Switch between Add/Delete game based on current gamerack
+      Take away game index from profile
   Reducers:
     Figure out how to deal with game rack errors
   Controllers:

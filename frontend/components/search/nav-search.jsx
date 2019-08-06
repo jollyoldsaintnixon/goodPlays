@@ -20,7 +20,7 @@ class NavSearch extends React.Component {
       const list = this.gameList()
       this.props.receiveUiGames(list)
       this.setState({searchString: ''})
-      this.props.history.push(`/games/show/${list[0].id}`)
+      this.props.history.push(`/index/games/show/${list[0].id}`)
     }
   }
 
@@ -30,7 +30,7 @@ class NavSearch extends React.Component {
       const list = this.gameList()
       this.props.receiveUiGames(list)
       this.setState({ searchString: '' })
-      this.props.history.push(`/games/show/${list[0].id}`)
+      this.props.history.push(`/index/games/show/${list[0].id}`)
     }
   }
 
@@ -56,12 +56,11 @@ class NavSearch extends React.Component {
     this.setState({searchString: e.target.textContent})
     // this.setState({searchString: ''})
     this.props.receiveUiGames(this.gameList())
-    this.props.history.push(`/games/show/${e.target.id}`)
+    this.props.history.push(`/index/games/show/${e.target.id}`)
   }
 
   advancedSearch() {
     return (e) => {
-      debugger
       this.props.openModal('advanced_search')
     }
   }
@@ -79,20 +78,20 @@ class NavSearch extends React.Component {
     return (
       <div className='search'>
         <input
-          className='search-bar' 
           type="text"
+          className='search-bar'
           onChange={update('searchString', this)}
           placeholder='Search...'
           value={this.state.searchString}
           onKeyDown={this.enterSearch}
           />
         <button onClick={this.search()}>***</button>
-        <NavLink to='/advanced-search' onClick={this.advancedSearch()}>Advanced Search </NavLink>
+        <NavLink to='/index/advanced-search' onClick={this.advancedSearch()}>Advanced Search </NavLink>
         <ul className={`search-list ${
           this.state.searchString === "" ? 'none' : '' }`} >
           {gameList.slice(0, 4)}
         </ul>
-        <Route path='/advanced-search' render={props => <AdvancedSearch {...props} 
+        <Route path='/index/advanced-search' render={props => <AdvancedSearch {...props} 
           games={this.props.games} 
           searchVal={this.state.searchString}/>} 
             />

@@ -1,27 +1,25 @@
 .header {
   background: $four;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 75px;
   min-width: 995px;
   nav {
     display: flex;
     height: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    width: 95%;
+    width: 100%;
     margin: auto;
     background: $four;
     color: $one;
     .toplist {
+      width: 468px;
       display: flex;
       justify-content: flex-end;
-      padding: 10px;
+      padding: 10px 0 10px 10px;
       flex-direction: column;
-      + li {
-        padding-right: 10px;
-      }
       input:not([type=submit]) {
         text-align: start;
         background-color: $zero;
@@ -30,6 +28,9 @@
         border: 1px solid darkgray;
         border-radius: 3%/15%;
         margin: 5px;
+      }
+      form {
+        width: 100%;
       }
     }
     h1 {

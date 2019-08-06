@@ -40,7 +40,6 @@ class AdvancedSearch extends React.Component {
   closeAndReturn() {
     this.setState(this.null)
     this.props.closeModal()
-    this.props.history.push('/')
   }
 
   advancedSearch() {
@@ -49,6 +48,7 @@ class AdvancedSearch extends React.Component {
       e.preventDefault()
       const list = this.advancedGameList()
       if (list.length) {
+        this.props.history.push(`/index/games/show/${list[0].id}`)
         this.props.receiveUiGames(this.advancedGameList())
         this.closeAndReturn()
       } else {
@@ -57,6 +57,7 @@ class AdvancedSearch extends React.Component {
     }
   }
 
+  
   updateArray(field) {
     return e => {
       

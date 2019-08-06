@@ -9,7 +9,7 @@
 require 'open-uri'
 
 
-ApplicationRecord.connection.reset_pk_sequence('games')
+# ApplicationRecord.connection.reset_pk_sequence('games')
 
 Game.destroy_all
 

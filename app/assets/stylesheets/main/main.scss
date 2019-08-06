@@ -8,7 +8,8 @@ html {
 }
 
 body {
-  font-family: $sans
+  font-family: $sans;
+  min-width: 995px;
 }
 
 // input:not([type=submit]) {

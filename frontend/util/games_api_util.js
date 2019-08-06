@@ -11,3 +11,19 @@ export const fetchGame = id => {
     url: `/api/games${id}`,
   })
 }
+
+export const addGame = id => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/game_racks`,
+    data: {id}
+  })
+}
+
+export const deleteGame = id => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/game_racks/${id}`,
+    data: { id }
+  })
+}

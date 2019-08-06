@@ -14,6 +14,7 @@ TODO:
     Regular Search
       Add scroll bar to search drop down menu
       Pressing enter searches
+      Clicking on a dropdown item returns either all games or only that one
       Search bar dropdown menu disappears after submission and loss of focus 
       Add a magnifying glass icon to search button
         draw with canvas?
@@ -21,5 +22,10 @@ TODO:
       Dates as years
       Buttons to open genres and category search options
       developer selection and functionality
+    Profile:
+      Make public/private option
+      Switch between Add/Delete game based on current gamerack
+    Reducers:
+      Figure out how to deal with game rack errors
   Other:
     Put text file with game seed data on AWS and take off of app

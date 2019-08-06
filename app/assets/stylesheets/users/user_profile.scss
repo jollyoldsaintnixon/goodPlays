@@ -1,0 +1,35 @@
+.user-profile {
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  h1 {
+    align-self: center;
+    font-size: 3em;
+    font-weight: bold;
+    color: $five;
+  }
+  h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: $four;
+  }
+  img {
+
+  }
+}
+
+.game-rack {
+  display: flex;
+  width: 100%;
+  ul {
+    // display: block;
+    width: 33%;
+    li {
+      width: 100%;
+    }
+  }
+  img {
+    width: 66%;
+  }
+}

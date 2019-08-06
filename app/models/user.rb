@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
   after_initialize :ensure_token
 
+  has_many :game_racks
+  has_many :games, through: :game_racks
+
   def self.find_by_credentials(username, password) 
     user = User.find_by(username: username)
     return nil unless user && user.is_password?(password)

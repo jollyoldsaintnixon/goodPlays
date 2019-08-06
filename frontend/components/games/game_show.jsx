@@ -1,19 +1,36 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchGame } from '../../actions/games_actions'
+import { addGameToUser, deleteGameFromUser } from '../../actions/session_actions'
 
 const msp = (state, ownProps) => ({
-  game: state.entities.games[ownProps.match.params.gameId]
+  game: state.entities.games[ownProps.match.params.gameId],
+  user: state.entities.users[state.session.id]
 })
 
 const mdp = dispatch => ({
-  fetchGame: id => dispatch(fetchGame(id))
+  fetchGame: id => dispatch(fetchGame(id)),
+  addGameToUser: gameId => dispatch(addGameToUser(gameId)),
+  deleteGameFromUser: gameId => dispatch(deleteGameFromUser(gameId))
 })
 
 class GameShow extends React.Component {
   constructor(props) {
     super(props)
   }
+  
+
+  addGame(e) {
+    e.preventDefault()
+    this.props.addGameToUser(this.props.match.params.gameId)
+  }
+
+  removeGame(e) {
+    e.preventDefault()
+    this.props.deleteGameFromUser(this.props.match.params.gameId)
+  }
+
 
   componentDidMount() {
     fetchGame(this.props.match.params.gameId)
@@ -27,6 +44,16 @@ class GameShow extends React.Component {
   }
 
   render () {
+    let buttonText = 'Add to Rack'
+    let buttonSubmit = this.addGame.bind(this)
+    const { user } = this.props
+    const gameId = parseInt(this.props.match.params.gameId)
+    
+    if (user.game_ids.includes(gameId)) {
+      buttonText = 'Remove from Rack'
+      buttonSubmit = this.removeGame.bind(this)
+    }
+
     let { game } = this.props
     if (game === undefined) {
       game = { title: '', release_date: '', description: '', imageUrl: '', image_url: '', genres: [], categories: [] }
@@ -38,9 +65,10 @@ class GameShow extends React.Component {
           <li className='game-title'>{game.title}</li>
           <li className='game-release-date'>Released {game.release_date}</li>
           <li className='game-description'>{game.description}</li>
-          <li className='game-genres'>Genres: {game.genres}</li>
-          <li className='game-categories'>categories: {game.categories}</li>
-          {/* <li><img src={game.image_url} alt={`${game.title} image`}/></li> this should work as a back up  */}
+          <li className='game-genres'>Genres: {game.genres.join(', ')}</li>
+          <li className='game-categories'>categories: {game.categories.join(', ')}</li>
+          <button className='button' onClick={buttonSubmit}>{buttonText}</button>
+          <button className='button' ><Link to='/profile' >My Rack</Link></button>
         </ul>
     )
   }

@@ -22,7 +22,7 @@
 
 // Components
 @import 'components/*';
-@import 'main/main.scss';
+@import 'main/*';
 @import 'app/app.scss';
 @import 'session/session-form.scss';
 @import 'session/signup-page.scss';
@@ -30,3 +30,4 @@
 @import 'welcome/header.scss';
 @import 'games/*';
 @import 'search/*';
+@import 'users/*';

@@ -3,9 +3,10 @@ import { connect } from 'react-redux'
 import { fetchGames } from '../../actions/games_actions'
 import { GameIndexItem } from './game_index_item'
 import { ProtectedRoute } from '../../util/route_util';
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import GameShow from './game_show'
 import { withRouter } from 'react-router-dom'
+import UserProfile from '../user/user_profile'
 
 class GameIndex extends React.Component {
   constructor (props) {
@@ -26,20 +27,32 @@ class GameIndex extends React.Component {
     }
     
     return (
+      
       <section className='games'>
         <ul className='games-list col-1-3'>
           {games}
         </ul>
-        <Route path='/games/show/:gameId' component={GameShow} />
+        <Switch>
+          {/* <Route path='/profile' render={() => {
+            if (this.props.user) { 
+              return <UserProfile games={this.props.games} user={this.props.user} /> 
+            } else {
+              <Redirect to='/' />
+            }
+          }}/> */}
+          <Route path='/profile' component={UserProfile} />
+          <Route path='/games/show/:gameId' component={GameShow} />
+        </Switch>
         
       </section>
     )
   }
 }
 
-const msp = ({ui: {games}}) => {
-  
-  return ({ games })
+const msp = (state) => {
+  return ({ 
+    games: Object.values(state.entities.games),
+    user:  state.entities.users[state.session.id]})
 }
 
 const mdp = dispatch => ({

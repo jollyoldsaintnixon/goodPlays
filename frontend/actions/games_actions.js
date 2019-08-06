@@ -4,6 +4,7 @@ export const RECEIVE_GAMES = 'RECEIVE_GAMES'
 export const RECEIVE_GAME = 'RECEIVE_GAME'
 export const RECEIVE_GAME_ERRORS = 'RECEIVE_GAME_ERRORS'
 export const CLEAR_GAME_ERRORS = 'CLEAR_GAME_ERRORS'
+export const RECEIVE_GAMERACK_ERRORS = 'RECEIVE_GAMERACK_ERRORS'
 
 // action creators
 const receiveGames = games => ({
@@ -25,7 +26,12 @@ export const clearGameErrors = () => ({
   type: CLEAR_GAME_ERRORS
 })
 
+export const receiveGameRackErrors = errors => ({
+  type: RECEIVE_GAMERACK_ERRORS,
+  errors
+})
 // thunk action creators
+
 
 export const fetchGames = () => dispatch => {
   

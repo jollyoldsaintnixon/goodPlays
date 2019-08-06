@@ -27,7 +27,7 @@ class NavSearch extends React.Component {
     const { searchString } = this.state
     // initialize
     let list = []
-    debugger
+    
     if (searchString === '') {
       return games
     }
@@ -38,10 +38,10 @@ class NavSearch extends React.Component {
   }
 
   dropDownSelect(e) {
-    debugger
+    // debugger
+    e.preventDefault()
     this.setState({searchString: e.target.textContent})
     // this.setState({searchString: ''})
-    debugger
     this.props.receiveUiGames(this.gameList())
     this.props.history.push(`/games/show/${e.target.id}`)
   }

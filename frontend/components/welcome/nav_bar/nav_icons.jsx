@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { logout } from '../../../actions/session_actions'
 
 class NavIcons extends React.Component {
@@ -8,7 +9,7 @@ class NavIcons extends React.Component {
     const { currentUser, logout } = this.props
     return (
       <ul>
-        <h2>Welcome, {currentUser.username}!</h2>
+        <Link to='/profile'>Welcome, {currentUser.username}</Link>
         <button className='button' onClick={logout}>Log Out</button>
       </ul>
     )

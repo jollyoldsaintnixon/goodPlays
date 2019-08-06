@@ -6,7 +6,7 @@ import { ProtectedRoute } from '../../util/route_util';
 import { Route, Switch } from 'react-router-dom'
 import GameShow from './game_show'
 import { withRouter } from 'react-router-dom'
-import UserProfile from '../user/user_profile'
+// import UserProfile from '../user/user_profile'
 
 class GameIndex extends React.Component {
   constructor (props) {
@@ -40,7 +40,7 @@ class GameIndex extends React.Component {
               <Redirect to='/' />
             }
           }}/> */}
-          <Route path='/index/profile' component={UserProfile} />
+          {/* <Route path='/index/profile' component={UserProfile} /> */}
           <Route path='/index/games/show/:gameId' component={GameShow} />
         </Switch>
         

@@ -5,9 +5,9 @@ class NavOptions extends React.Component {
 
   render () {
     return (
-      <ul>
+      <ul className='nav-options'>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/index/profile'>My Rack</Link></li>
+        <li><Link to='/profile'>My Rack</Link></li>
         <li><Link to='/index'>Browse</Link></li>
         <li><a href="#">Communities</a></li>
       </ul>

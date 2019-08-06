@@ -57,6 +57,7 @@ class AdvancedSearch extends React.Component {
     }
   }
 
+  
   updateArray(field) {
     return e => {
       

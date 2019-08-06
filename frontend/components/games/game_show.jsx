@@ -39,7 +39,7 @@ class GameShow extends React.Component {
       return (
         <>
           <button className='button' onClick={buttonSubmit}>{buttonText}</button>
-          <button className='button' ><Link to='/index/profile' >My Rack</Link></button>
+          <button className='button' ><Link to='/profile' >My Rack</Link></button>
         </>
       )
     } else {

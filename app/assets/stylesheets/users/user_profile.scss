@@ -1,6 +1,7 @@
 .user-profile {
   padding-top: 12px;
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
   align-items: flex-start;
   h1 {
@@ -14,22 +15,38 @@
     font-weight: bold;
     color: $four;
   }
-  img {
-
+  h2 {
+    padding-bottom: 10px;
   }
 }
 
 .game-rack {
   display: flex;
+  width: 700px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-self: center;
+  a {
+    font-weight: bold;
+    color: $five;
+  }
+}
+
+.game-box {
   width: 100%;
-  ul {
-    // display: block;
-    width: 33%;
-    li {
-      width: 100%;
-    }
-  }
-  img {
-    width: 66%;
-  }
+  display: flex;
+  padding: 10px;
+}
+
+.thumb-nail-img {
+  height: 200px;
+  width: 450px;
+  display: block;
+}
+
+.game-rack-info {
+  background: $zero;
+  display: block;
+  height: 200px;
+  width: 350px;
 }

@@ -8,8 +8,8 @@ class NavIcons extends React.Component {
   render() {
     const { currentUser, logout } = this.props
     return (
-      <ul>
-        <Link to='/index/profile'>Welcome, {currentUser.username}</Link>
+      <ul className='nav-icons'>
+        <Link to='/profile'>Welcome, {currentUser.username}</Link>
         <button className='button' onClick={logout}>Log Out</button>
       </ul>
     )

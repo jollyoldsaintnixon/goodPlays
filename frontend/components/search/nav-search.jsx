@@ -78,8 +78,8 @@ class NavSearch extends React.Component {
     return (
       <div className='search'>
         <input
-          className='search-bar' 
           type="text"
+          className='search-bar'
           onChange={update('searchString', this)}
           placeholder='Search...'
           value={this.state.searchString}

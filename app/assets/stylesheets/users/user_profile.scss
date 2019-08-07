@@ -2,37 +2,8 @@
   padding-top: 12px;
   display: flex;
   margin: 0;
+  justify-content: center;
   align-items: flex-start;
-}
-
-.game-rack {
-  display: flex;
-  width: 700px;
-  flex-direction: column;
-  flex-wrap: wrap;
-  a {
-    font-weight: bold;
-    color: $five;
-  }
-}
-
-.game-box {
-  width: 100%;
-  display: flex;
-  padding: 10px 0;
-}
-
-.thumb-nail-img {
-  height: 200px;
-  width: 450px;
-  display: block;
-}
-
-.game-rack-info {
-  background: $zero;
-  display: block;
-  height: 200px;
-  width: 350px;
 }
 
 .profile-container {
@@ -55,34 +26,7 @@
   }
 }
 
-.recommended {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end
-  li {
-    padding: 10px, 0;
-  }
-  a {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 10px;
-  }
-  span {
-    display: block;
-    height: 100px;
-    width: 100px;
-    background: $zero;
-  }
-  img {
-    display: block;
-    width: 100px;
-    height: 100px;
-  }
-  h3 {
-    padding-bottom: 40px;
-  }
-}
+
 
 .split-headers {
   display: flex;

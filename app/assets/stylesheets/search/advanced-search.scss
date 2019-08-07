@@ -9,22 +9,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 1270px;
 }
 
 .modal-wrap {
   position: absolute;
   // margin: 35% auto;
   background: $four;
+  width: 35%;
+  height: 55%;
+  left: 32.5%;
+  top: 15%
 }
 
 .advanced-search-form {
-  width: 50vw;
-  left: 25vw;
-  padding: 31px;
+  padding: 20px;
+  .search-bar {
+    width: 70%;
+  }
   h3 {
     color: white;
     font-weight: bold;
     font-size: 1.5em;
+    text-align: center;
   }
   h4 {
     color: white;
@@ -38,11 +45,33 @@
     color: red;
     text-align: center;
   }
+  .submit-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    input {
+      margin: 7px;
+    }
+  }
 }
 .search-date {
   margin-bottom: 5px;  
   display: flex;
   flex-direction: column;
+  label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+  }
+  span {
+    align-self: flex-start;
+  }
+
+  input {
+    width: 50%;
+    align-self: flex-end;
+  }
 }
 .search-boxes {
   margin-bottom: 5px;
@@ -61,10 +90,17 @@
   margin-bottom: 5px;
   display: flex;
   flex-direction: column;
+  label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;  
+  }
   input {
     background-color: $zero;
     border: 1px solid darkgray;
     color: $five;
     width: 50px;
+    margin-right: 75%;
   }
 }

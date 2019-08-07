@@ -1,0 +1,44 @@
+.game-rack {
+  display: flex;
+  width: 700px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  a {
+    font-weight: bold;
+    color: $four;
+    display: flex;
+    width: 100%;
+    border: 2px solid transparent
+  }
+  a:hover {
+    border: 2px solid $five;
+  }
+  .add-more {
+    display: inline;
+    border: none;
+    border-bottom: 1px solid transparent;
+  }
+  .add-more:hover {
+    border: none;
+    border-bottom: 1px solid gray;
+  }
+}
+
+.game-box {
+  width: 100%;
+  display: flex;
+  padding: 10px 0;
+}
+
+.thumb-nail-img {
+  height: 200px;
+  width: 450px;
+  display: block;
+}
+
+.game-rack-info {
+  background: $zero;
+  display: block;
+  height: 200px;
+  width: 350px;
+}

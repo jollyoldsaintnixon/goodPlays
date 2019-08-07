@@ -2,42 +2,40 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchGames } from '../../actions/games_actions'
 import { Link } from 'react-router-dom'
-import { ulFromArray, randomElement } from '../../util/helper_functions'
+import { randomElement } from '../../util/helper_functions'
 import UserRecommendations from './user_recommendations'
+import UserGameRack from './user_game_rack'
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      genre: null,
-    }
 
     this.gameRackGames = this.gameRackGames.bind(this)
-    this.rackList = this.rackList.bind(this)
+    // this.rackList = this.rackList.bind(this)
   }
 
-  rackList(gameRackGames) {
-    const { user } = this.props
-    if (gameRackGames) {
-      const list = gameRackGames.map((game) => {
-        return (
-            <li className='game-box'
-              key={`user-${user.id}-game-${game.id}`}>
-              <ul className='game-rack-info'>
-                <Link to={`/index/games/show/${game.id}`}>{game.title}</Link>
-                <li>Price: ${game.price}</li>
-                  {ulFromArray(game.genres, 'game-genres')}
-                  {ulFromArray(game.categories, 'game-categories')}
-              </ul>
-              <img className='thumb-nail-img' src={game.imageUrl} alt={`image for ${game.title}`} />
-            </li>
-          )
-      })
-      return list
-    } else {
-      return <li className='game-box'>Your rack is empty!</li>
-    }
-  }
+  // rackList(gameRackGames) {
+  //   const { user } = this.props
+  //   if (gameRackGames) {
+  //     const list = gameRackGames.map((game) => {
+  //       return (
+  //           <li className='game-box'
+  //             key={`user-${user.id}-game-${game.id}`}>
+  //             <ul className='game-rack-info'>
+  //               <Link to={`/index/games/show/${game.id}`}>{game.title}</Link>
+  //               <li>Price: ${game.price}</li>
+  //                 {ulFromArray(game.genres, 'game-genres')}
+  //                 {ulFromArray(game.categories, 'game-categories')}
+  //             </ul>
+  //             <img className='thumb-nail-img' src={game.imageUrl} alt={`image for ${game.title}`} />
+  //           </li>
+  //         )
+  //     })
+  //     return list
+  //   } else {
+  //     return <li className='game-box'>Your rack is empty!</li>
+  //   }
+  // }
 
   gameRackGames() {
     const { user, games } = this.props
@@ -47,7 +45,6 @@ class UserProfile extends React.Component {
         return this.props.games[game_id]
       })
     } 
-    debugger
     return gameRackGames 
   }
 
@@ -60,8 +57,7 @@ class UserProfile extends React.Component {
     const gamesArray = Object.values(this.props.games)
     const gameRackGames = this.gameRackGames()
     let selectedGame1, selectedGame2, selectedGenre, selectedCategory
-    if (gameRackGames) {  // will be undefined before component mounts
-      debugger
+    if (gameRackGames && gameRackGames.length) {  // will be undefined before component mounts
       selectedGame1 = randomElement(gameRackGames)
       selectedGame2 = randomElement(gameRackGames)
       selectedGenre = randomElement(selectedGame1.genres) || 'indie'
@@ -71,11 +67,10 @@ class UserProfile extends React.Component {
       <section className='profile-container'>
         <h1>Whatup, {user.username}</h1>
         <section className='user-profile'>
-          <ul className='game-rack col-2-3' >
-            <h3>Your Rack has {user.game_ids.length} games</h3>
-            <h2><Link to='/index'>add more!</Link></h2>
-            {this.rackList(gameRackGames)}
-          </ul>
+          <UserGameRack 
+            gameRackGames={gameRackGames} 
+            count={user.game_ids.length}
+            userId={user.id}/>
           <UserRecommendations
             gamesArray={gamesArray} 
             gameRackGames={gameRackGames} 

@@ -15,8 +15,8 @@ class AdvancedSearch extends React.Component {
       searchString: '',
       genres: [],
       categories: [],
-      startDate: null,
-      endDate: null,
+      startDate: '1990',
+      endDate: '2019',
       lowPrice: NaN,
       highPrice: NaN,
       errors: '',
@@ -25,8 +25,8 @@ class AdvancedSearch extends React.Component {
       searchString: this.props.searchVal,
       genres: [],
       categories: [],
-      startDate: null,
-      endDate: null,
+      startDate: '1990',
+      endDate: '2019',
       lowPrice: null,
       highPrice: null,
       errors: '',
@@ -81,19 +81,19 @@ class AdvancedSearch extends React.Component {
     if (this.state === this.null) {
       return games
     }
-    debugger
+    // debugger
     gamesList = stringFilter(games, searchString) // filter by string
     gamesList = genreFilter(gamesList, genres)
     gamesList = categoryFilter(gamesList, categories)
     gamesList = dateFilter(gamesList, startDate, endDate)
     gamesList = priceFilter(gamesList, parseFloat(lowPrice), parseFloat(highPrice))
-    debugger
+    // debugger
     return gamesList
   }
 
   render() {
     const { searchModal } =  this.props
-    
+    const { startDate, endDate } = this.state
     if (searchModal === null) {
       return null;
     }
@@ -101,8 +101,9 @@ class AdvancedSearch extends React.Component {
       <div className='faded' onClick={this.closeAndReturn}>
         <div className='modal-wrap' onClick={(e) => e.stopPropagation()}>
           <form className='advanced-search-form' onSubmit={this.advancedSearch()}>
-            <p>{this.state.errors}</p>
             <h3>Advanced Search</h3>
+            <p>{this.state.errors}</p>
+            <h4>Filter by Title</h4>
             <input
               className='search-bar'
               type="text"
@@ -113,17 +114,30 @@ class AdvancedSearch extends React.Component {
             <div>
               <h4>Filter by Date</h4>
               <div className='search-date'>
-                <label> Start Date:
-                  <input type="date" onChange={update('startDate', this)}/>
+                <label>
+                  <span> Made after {startDate}</span>
+                    <input type="range"
+                      min='1990'
+                      max='2019'
+                      value={startDate}
+                      step='1'
+                      onChange={update('startDate', this)} />
                 </label>
-                <label> End Date:
-                  <input type="date" onChange={update('endDate', this)}/>
+                <label>
+                  <span>Made before {endDate}</span>
+                    <input type="range"
+                      min='1990'
+                      max='2019'
+                      value={endDate}
+                      step='1'
+                      onChange={update('endDate', this)} />
                 </label>
               </div>
             </div>
-              <h4>Filter by Price</h4>
+            <h4>Filter by Price</h4>
             <div className='search-price'>
-              <label>Min $
+              <label>
+                <span>Min $</span>
                 <input type="number" onChange={update('lowPrice', this)}/>
               </label>
               <label>Max $
@@ -133,7 +147,7 @@ class AdvancedSearch extends React.Component {
             {/* <button>Search By Genre</button>
             <button>Search By Category</button> */}
             {/* <SearchGenre /> */}
-              <h4>Filter by Genre</h4>
+            <h4>Filter by Genre</h4>
             <div className='search-boxes' >
               <label> All
                 <input type="checkbox" name="genre" value='all' onChange={this.updateArray('genres')} />
@@ -173,22 +187,24 @@ class AdvancedSearch extends React.Component {
               </label>
             </div>
             {/* <SearchCategory /> */}
-              <h4>Filter by Category</h4>
+            <h4>Filter by Category</h4>
             <div className='search-boxes'>
               <label> All
-          <input type="checkbox" name="category" value='all' onChange={this.updateArray('categories')} />
+                <input type="checkbox" name="category" value='all' onChange={this.updateArray('categories')} />
               </label>
               <label> Single Player
-          <input type="checkbox" name="category" value='single-player' onChange={this.updateArray('categories')} />
+                <input type="checkbox" name="category" value='single-player' onChange={this.updateArray('categories')} />
               </label>
               <label> Multi Player
-        <input type="checkbox" name="category" value='multi-player' onChange={this.updateArray('categories')}/>
+                <input type="checkbox" name="category" value='multi-player' onChange={this.updateArray('categories')}/>
               </label>
               <label> Cooperative
-        <input type="checkbox" name="category" value='co-op' onChange={this.updateArray('categories')}/>
+                <input type="checkbox" name="category" value='co-op' onChange={this.updateArray('categories')}/>
               </label>
             </div>
-            <input type="submit" value='Submit'/>
+            <div className='submit-div'>
+              <input type="submit" value='Submit'/>
+            </div>
           </form>
         </div>
       </div>

@@ -28,10 +28,12 @@ TODO:
       Dates as years
       Buttons to open genres and category search options
       developer selection and functionality
+      Opens when path is '/advanced-search'
     Profile:
       Make public/private option
       Switch between Add/Delete game based on current gamerack
       Take away game index from profile
+      Add reshuffle to recommendations
   Reducers:
     Figure out how to deal with game rack errors
   Controllers:

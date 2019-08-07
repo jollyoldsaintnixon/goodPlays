@@ -1,0 +1,33 @@
+.recommended {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-left: 12.5%;
+  li {
+    padding: 10px, 0;
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    border: 2px solid transparent;
+  }
+  a:hover {
+    border: 2px solid $five;
+  }
+  span {
+    display: block;
+    height: 100px;
+    width: 100px;
+    background: $zero;
+  }
+  img {
+    display: block;
+    width: 100px;
+    height: 100px;
+  }
+  h3 {
+    padding-bottom: 40px;
+  }
+}

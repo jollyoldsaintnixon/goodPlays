@@ -54,7 +54,7 @@ class UserRecommendations extends React.Component {
       return null
     }
     return (
-      <ul className='recommended col-1-3'>
+      <ul className='recommended col-1-8'>
         <h3>Here are some more {selectedGenre} games like {selectedGame1.title}</h3>
         {this.recommendByGenre()}
         <h3>Here are some more {selectedCategory} games like {selectedGame2.title}</h3>

@@ -45,11 +45,10 @@ class SessionForm extends React.Component {
     //   this.props.receiveErrors(["Password must match"])
     //   this.props.history.push('/signup')
     // } else {
-      debugger
+      
       const user = this.state
       const that = this
       const promise = this.props.processForm(user)
-        debugger
       promise.then(success => {
           that.props.history.push('/profile')
         } , error => {

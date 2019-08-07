@@ -11,3 +11,6 @@
 01 AUG: Placed a link to a game show component, and placed a corresponding router in the game index component.  No change upon click.
   After lots of debugging and switching locations of the Route, Brandon noticed that there was no / in front of the Route's path.  Dang.
 
+06 AUG: Had trouble with the search function working properly when coming from any page that was not the game index.  Refactored the ui games 
+  reducer to only deal with the game ids, vs the entire games.  For some reason, this worked.  Take away is that JS is crazy, but normalized 
+  state can help mitigate that craziness.

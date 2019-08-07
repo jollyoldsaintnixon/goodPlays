@@ -16,7 +16,7 @@ class SplashPage extends React.Component {
 
   displayGame() {
     const { games } = this.props
-    debugger
+    
     if (games.length) {
       const game = games[Math.floor(Math.random() * games.length)]
       return (

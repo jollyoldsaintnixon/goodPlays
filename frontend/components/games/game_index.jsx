@@ -19,7 +19,7 @@ class GameIndex extends React.Component {
 
   render() {
     let games
-    
+    debugger
     if (this.props.games) {
       games = this.props.games.map((game, idx) => {
         return <GameIndexItem game={game} key={`game-${idx}`}>Game #{idx + 1}</GameIndexItem>
@@ -32,17 +32,7 @@ class GameIndex extends React.Component {
         <ul className='games-list col-1-3'>
           {games}
         </ul>
-        <Switch>
-          {/* <Route path='/profile' render={() => {
-            if (this.props.user) { 
-              return <UserProfile games={this.props.games} user={this.props.user} /> 
-            } else {
-              <Redirect to='/' />
-            }
-          }}/> */}
-          {/* <Route path='/index/profile' component={UserProfile} /> */}
           <Route path='/index/games/show/:gameId' component={GameShow} />
-        </Switch>
         
       </section>
     )

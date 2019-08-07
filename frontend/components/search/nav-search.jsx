@@ -93,6 +93,7 @@ class NavSearch extends React.Component {
         </ul>
         <Route path='/index/advanced-search' render={props => <AdvancedSearch {...props} 
           games={this.props.games} 
+          openModal={this.props.openModal}
           searchVal={this.state.searchString}/>} 
             />
         {/* <Route path='/advanced-search' render={props => <AdvancedSearch {...props} searchVal={'hello'}/>} /> */}

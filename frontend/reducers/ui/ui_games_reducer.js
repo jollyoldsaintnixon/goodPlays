@@ -7,9 +7,14 @@ const uiGamesReducer = (state = null, action) => {
   Object.freeze(state)
   switch (action.type) {
     case RECEIVE_UI_GAMES:
-      return action.games
+      return action.games.map(game => {
+        return game.id
+      })
+    // case RECEIVE_GAMES:
+    //   return Object.values(action.games)
     case RECEIVE_GAMES:
-      return Object.values(action.games)
+      debugger
+      return state
     case CLEAR_UI_GAMES:
       return []
     case CLOSE_MODAL:  // THIS IS A CODE SMELL; ONLY DOING THIS TO GET ADVANCED SEARCH WORKING

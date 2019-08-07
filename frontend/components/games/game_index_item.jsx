@@ -9,8 +9,9 @@ class GameIndexItem extends React.Component {
   }
   
   render() {
-    const { games, game } = this.props
-    const display = (!games.length || games.includes(game)) ? 'inherit' : 'none'
+    const { uiGamesIds, game } = this.props
+    // debugger
+    const display = (!uiGamesIds.length || uiGamesIds.includes(game.id)) ? 'inherit' : 'none'
     return (
       <li className={`game-index-item ${display}`} >
           <Link to={`/index/games/show/${game.id}`} >{game.title}</Link>
@@ -19,8 +20,10 @@ class GameIndexItem extends React.Component {
   }
 }
 
-const msp = ({ui: {games}}) => ({
-  games
-})
+const msp = ({ui: {games}}) => {
+  return ({
+    uiGamesIds: games,
+  })
+}
 
 export default connect(msp)(GameIndexItem)

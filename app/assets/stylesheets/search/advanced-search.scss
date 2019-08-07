@@ -37,6 +37,7 @@
     color: white;
     font-weight: bold;
     font-size: 1.2em;
+    margin: 8px 0 3px 0;
   }
   p {
     display: block;
@@ -76,13 +77,20 @@
 .search-boxes {
   margin-bottom: 5px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   label {
+    display: flex;
     padding-right: 10px;
+    width: 30%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  span {
+    align-self: flex-start;
   }
   input {
-    padding-left: 5px;
+    margin-right: 10px;
   }
 }
 
@@ -102,5 +110,11 @@
     color: $five;
     width: 50px;
     margin-right: 75%;
+  }
+}
+
+.category {
+  label {
+    width: 50%;
   }
 }

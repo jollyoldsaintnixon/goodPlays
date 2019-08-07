@@ -15,6 +15,8 @@ TODO:
     Modify appearance of genres and categories in Game Show
     Make advance search look nice
   Componenets:
+    Session:
+      Renders profile page after submit
     Regular Search
       Add scroll bar to search drop down menu
       Pressjing enter searches

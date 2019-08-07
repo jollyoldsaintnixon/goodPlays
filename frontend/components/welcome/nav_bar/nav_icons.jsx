@@ -5,6 +5,19 @@ import { logout } from '../../../actions/session_actions'
 
 class NavIcons extends React.Component {
 
+  handleClick(e) {
+    e.preventDefault()
+    const that = this
+    logout()
+      .then(success => {
+        that.props.history.push('/')
+      }
+      // , error => {
+      //   that.props.history.push('/signup')
+      // }
+      )
+  } 
+
   render() {
     const { currentUser, logout } = this.props
     return (

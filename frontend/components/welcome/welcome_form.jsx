@@ -20,7 +20,9 @@ class WelcomeForm extends React.Component {
     const user = this.state
     const that = this
     this.props.signup(user)
-      .fail(error => {
+      .then(success => {
+        that.props.history.push('/profile')
+      }, error => {
         that.props.history.push('/signup')
       })
   }

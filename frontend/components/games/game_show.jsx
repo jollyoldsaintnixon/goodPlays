@@ -7,7 +7,7 @@ import { addGameToUser, deleteGameFromUser } from '../../actions/session_actions
 const msp = (state, ownProps) => {
   let user = state.entities.users[state.session.id]
   let game_ids = user ? user.game_ids : null
-  debugger
+  
   return {
     game: state.entities.games[ownProps.match.params.gameId],
     user,
@@ -71,7 +71,7 @@ class GameShow extends React.Component {
   }
 
   render () {
-    debugger
+    
     let { game } = this.props
     if (game === undefined) {
       game = { title: '', release_date: '', description: '', imageUrl: '', image_url: '', genres: [], categories: [] }

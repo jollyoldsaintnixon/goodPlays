@@ -19,7 +19,7 @@ const App = () => {
       <section className='main-section'>
         <img className='banner' src={window.banner} alt='Terror of the Amazon'/> 
         <Switch>
-          <Route path='/profile' component={UserProfile} />
+          <ProtectedRoute path='/profile' component={UserProfile} />
           <Route path='/index' component={Content} />
           <Route path='/' exact component={SplashPage}/>
         </Switch> 

@@ -34,7 +34,7 @@ export const genreFilter = (items, array) => {
     return items
   }
   let filtered = []
-  debugger
+  // debugger
   for (let i = 0; i < items.length; i++) {
     for (let j = 0; j < array.length; j++) {
       if (items[i].genres.includes(array[j])) {
@@ -97,4 +97,17 @@ export const priceFilter = (items, low, high) => {
 
 
   return items
+}
+
+export const randomElement = array => {
+  return array[Math.floor(Math.random() * array.length)]
+}
+
+export const ulFromArray = (array, className) => {
+  const split = array.map((ele, idx) => {
+    return (
+      <li key={`${className}-${idx}`}>{ele}</li>
+    )
+  })
+  return <ul className={className}>{split}</ul>
 }

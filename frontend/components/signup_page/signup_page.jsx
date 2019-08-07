@@ -45,7 +45,11 @@ class SignupPage extends React.Component {
     //   this.props.history.push('/signup')
     // } else {
       const user = this.state
+      const that = this
       this.props.processForm(user)
+        .then(success => {
+          that.props.history.push('/profile')
+        })
     // }
   }
 

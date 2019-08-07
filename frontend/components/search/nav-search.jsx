@@ -85,7 +85,7 @@ class NavSearch extends React.Component {
           value={this.state.searchString}
           onKeyDown={this.enterSearch}
           />
-        <button onClick={this.search()}>***</button>
+        <button onClick={this.search()}><i class="icon-magnifying-glass"></i>***</button>
         <NavLink to='/index/advanced-search' onClick={this.advancedSearch()}>Advanced Search </NavLink>
         <ul className={`search-list ${
           this.state.searchString === "" ? 'none' : '' }`} >

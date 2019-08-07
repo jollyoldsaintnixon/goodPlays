@@ -55,3 +55,9 @@ a:hover {
   margin-left: 7px;
   border: 1px solid transparent;
 }
+
+[class*="icon-"] {
+  display: inline-block;
+  overflow: hidden;
+  
+}

@@ -8,40 +8,27 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      imageUrl: window.banner,
-      // display: 'none'
+      genre: null,
     }
-    // this.displayImg = this.displayImg.bind(this)
-    // this.hideImg = this.hideImg.bind(this)
+
     this.gameRackGames = this.gameRackGames.bind(this)
     this.recommendByGenre = this.recommendByGenre.bind(this)
     this.getGenres = this.getGenres.bind(this)
   }
 
-  // displayImg(game) {
-  //   return e => {
-  //     e.preventDefault()
-  //     this.setState({
-  //       imageUrl: game.imageUrl,
-  //       // display: 'inherit'
-  //     })
-  //   }
-  // }
-
-  // hideImg() {
-  //   // this.setState({display: 'none'})
-  //   this.setState({imageUrl: window.banner})
-  // }
 
   recommendByGenre() {
     const { games } = this.props
     if (Object.keys(games).length) {
       let gameGenres = this.getGenres()
-      let genre = []
-      genre.push(gameGenres[Math.floor(Math.random() * gameGenres.length)]) 
-      let filtered = genreFilter(Object.values(games), genre)
-      
-      return <ul>{this.selectSample(filtered)}</ul>
+      if (gameGenres.length) {
+        let genre = []
+        genre.push(gameGenres[Math.floor(Math.random() * gameGenres.length)]) 
+        let filtered = genreFilter(Object.values(games), genre)
+        return this.selectSample(filtered)
+      } else {
+        return <li><Link to='/index'>Add games to your rack for recommendations!</Link></li>
+      }
     }
   }
 
@@ -52,10 +39,12 @@ class UserProfile extends React.Component {
       selection.push(selected)
     }
     const list = selection.map((selected, idx) => {
-      return (<Link key={`recommended-${idx}`} 
-              to={`/index/games/show/${selection.id}`}
-              >
-              {selected.title}</Link>)
+      return (<li>
+                <Link key={`recommended-${idx}`} 
+                to={`/index/games/show/${selected.id}`}>
+                  <span>{selected.title}</span>
+                  <img src={selected.imageUrl} alt={`image for ${selected.title}`}/>
+                </Link></li>)
     })
     return list
   }
@@ -120,15 +109,19 @@ class UserProfile extends React.Component {
     // debugger
     
     return (
-      <section className='col-2-3 user-profile'>
+      <section className='profile-container'>
         <h1>Whatup, {user.username}</h1>
-        <h3>Your Rack has {user.game_ids.length} games:</h3>
-        <h2><Link to='/index'>add more!</Link></h2>
-        <ul className='game-rack'>
-          {this.gameRackGames()}
-        </ul>
-          {/* <img className={this.state.display} src={this.state.imageUrl} alt=""/> */}
-        {this.recommendByGenre()}
+        <section className='user-profile'>
+          <ul className='game-rack col-2-3' >
+            <h3>Your Rack has {user.game_ids.length} games</h3>
+            <h2><Link to='/index'>add more!</Link></h2>
+            {this.gameRackGames()}
+          </ul>
+          <ul className='recommended col-1-3'>
+            <h3>Here are some {this.state.genre} games you may like</h3>
+            {this.recommendByGenre()}
+          </ul> 
+        </section>
       </section>
 
     )

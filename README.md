@@ -6,6 +6,10 @@ I got a lot of CSS tips and tricks from App Academy's videos and CSS Friends pro
 
 I pulled steam data from Craig Kelly's CSV found here: https://data.world/craigkelly/steam-game-data
 
+I got a lot of tips from Stack Overflow, such as their method for randomly selecting an item from an array.
+
+The magnifying glass is labeled for free commercial use and was taken from www.freeiconshop.com
+
 TODO:
   CSS:
     Modify appearance of genres and categories in Game Show

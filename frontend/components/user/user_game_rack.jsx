@@ -16,7 +16,7 @@ class UserGameRack extends React.Component {
         return (
           <li className='game-box'
             key={`user-${userId}-game-${game.id}`}>
-            <Link to={`/index/games/show/${game.id}`}>
+            <Link to={`/games/show/${game.id}`}>
               <ul className='game-rack-info'>
                 <li>{game.title}</li>
                 <li>Price: ${game.price}</li>

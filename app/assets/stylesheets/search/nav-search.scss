@@ -57,8 +57,10 @@
 }
 
 .icon-magnifying-glass {
+  position: relative;
   padding-top: 16px;
   height: 0px;
   width: 16px;
   background-image: url("../../images/magnifying_glass.png");
+  z-index: 1;
 }

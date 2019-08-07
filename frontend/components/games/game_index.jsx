@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchGames } from '../../actions/games_actions'
-import GameIndexItem from './game_index_item'
 import { ProtectedRoute } from '../../util/route_util';
 import { Route, Switch } from 'react-router-dom'
-import GameShow from './game_show'
 import { withRouter } from 'react-router-dom'
-// import UserProfile from '../user/user_profile'
+import { idsToObjects } from '../../util/helper_functions'
+import GameShow from './game_show'
+import GameIndexItem from './game_index_item'
+import GameIndexSorter from './game_index_sorter'
 
 class GameIndex extends React.Component {
   constructor (props) {
@@ -18,10 +19,18 @@ class GameIndex extends React.Component {
   }
 
   render() {
-    let games
+    const { games, uiGamesIds } = this.props
+    const gamesArray = uiGamesIds.length ? idsToObjects(uiGamesIds, games) : Object.values(games)
+    let matched = uiGamesIds.length
+    let total = Object.values(games).length
+    let indexItems
+    let content = `Showing entire library of games`
     debugger
-    if (this.props.games) {
-      games = this.props.games.map((game, idx) => {
+    if (gamesArray.length) {
+      if (matched != 0 && matched < total) {
+        content = `Search returned ${matched} out of ${total} games`
+      } 
+      indexItems = gamesArray.map((game, idx) => {
         return <GameIndexItem game={game} key={`game-${idx}`}>Game #{idx + 1}</GameIndexItem>
       })
     }
@@ -29,20 +38,22 @@ class GameIndex extends React.Component {
     return (
       
       <section className='games'>
-        <ul className='games-list col-1-3'>
-          {games}
+        <GameIndexSorter uiGamesIds={uiGamesIds} allGames={games}/>
+        <h1>{content}</h1>
+        <ul className='games-list '>
+          {indexItems}
         </ul>
-          <Route path='/index/games/show/:gameId' component={GameShow} />
-        
-      </section>
+    </section>
     )
   }
 }
 
 const msp = (state) => {
   return ({ 
-    games: Object.values(state.entities.games),
-    user:  state.entities.users[state.session.id]})
+    games: state.entities.games,
+    user:  state.entities.users[state.session.id],
+    uiGamesIds: state.ui.games
+  })
 }
 
 const mdp = dispatch => ({

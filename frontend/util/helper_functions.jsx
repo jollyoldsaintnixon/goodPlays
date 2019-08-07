@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const update = (field, component) => {
   return event => {
@@ -110,4 +111,12 @@ export const ulFromArray = (array, className) => {
     )
   })
   return <ul className={className}>{split}</ul>
+}
+
+
+
+export const idsToObjects = (ids, objects) => {
+  return ids.map(id => {
+    return objects[id]
+  })
 }

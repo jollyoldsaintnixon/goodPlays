@@ -21,6 +21,7 @@ const App = () => {
         <Switch>
           <ProtectedRoute path='/profile' component={UserProfile} />
           <Route path='/index' component={Content} />
+          <Route path='/games/show/:gameId' component={GameShow} />
           <Route path='/' exact component={SplashPage}/>
         </Switch> 
         <Switch>

@@ -10,7 +10,7 @@ class SplashPage extends React.Component {
 
   handleClick(game) {
     return e => {
-      this.props.history.push(`/index/games/show/${game.id}`)
+      this.props.history.push(`/games/show/${game.id}`)
     }
   }
 

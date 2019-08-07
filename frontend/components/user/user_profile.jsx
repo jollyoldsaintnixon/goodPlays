@@ -22,7 +22,7 @@ class UserProfile extends React.Component {
   //           <li className='game-box'
   //             key={`user-${user.id}-game-${game.id}`}>
   //             <ul className='game-rack-info'>
-  //               <Link to={`/index/games/show/${game.id}`}>{game.title}</Link>
+  //               <Link to={`/games/show/${game.id}`}>{game.title}</Link>
   //               <li>Price: ${game.price}</li>
   //                 {ulFromArray(game.genres, 'game-genres')}
   //                 {ulFromArray(game.categories, 'game-categories')}

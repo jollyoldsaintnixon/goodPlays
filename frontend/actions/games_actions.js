@@ -34,11 +34,11 @@ export const receiveGameRackErrors = errors => ({
 
 
 export const fetchGames = () => dispatch => {
-  
-  return APIUtil.fetchGames()
-    .then(games => dispatch(receiveGames(games)),
-      error => {
-        
+  debugger
+  const promise = APIUtil.fetchGames()
+  debugger
+  return promise.then(games => dispatch(receiveGames(games)),
+      error => {      
         return dispatch(receiveGameErrors(error.responseJSON))
       })
 }

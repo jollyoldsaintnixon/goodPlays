@@ -14,7 +14,9 @@ class GameIndexItem extends React.Component {
     const display = (!uiGamesIds.length || uiGamesIds.includes(game.id)) ? 'inherit' : 'none'
     return (
       <li className={`game-index-item ${display}`} >
-          <Link to={`/index/games/show/${game.id}`} >{game.title}</Link>
+          <Link to={`/games/show/${game.id}`} >
+            <img src={game.imageUrl} alt={game.title}/>
+          </Link>
       </li>
     )
   }

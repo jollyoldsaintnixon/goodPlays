@@ -1,19 +1,36 @@
 .games {
   display: flex;
+  flex-wrap: wrap;
+  h1 {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0 5px 0;
+    font-size: 2em;
+  }
 }
 
 .games-list {
   background: transparent;
   padding-right: 0;
-  li {   
-    border: 1px solid black;
-    padding-left: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 50px;
+}
+
+.game-index-item {
+  // background: $four;
+  color: $one;
+  border: 1px solid black;
+  margin: 10px;
+  img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
   }
 }
-.game-index-item {
-  background: $four;
-  color: $one;
-}
+
 .game-index-item:hover {
   background: $one;
   color: $four;

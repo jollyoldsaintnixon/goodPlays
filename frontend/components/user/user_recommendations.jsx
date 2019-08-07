@@ -39,7 +39,7 @@ class UserRecommendations extends React.Component {
       if (selected) {
         return (<li key={`recommended-${idx}`}>
           <Link key={`recommended-${idx}-link`}
-            to={`/index/games/show/${selected.id}`}>
+            to={`/games/show/${selected.id}`}>
             <span>{selected.title}</span>
             <img src={selected.imageUrl} alt={`image for ${selected.title}`} />
           </Link></li>)

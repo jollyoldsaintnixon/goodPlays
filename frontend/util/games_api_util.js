@@ -6,6 +6,7 @@ export const fetchGames = () => {
 }
 
 export const fetchGame = id => {
+  debugger
   return $.ajax({
     method: 'GET',
     url: `/api/games${id}`,

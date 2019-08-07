@@ -13,17 +13,17 @@ The magnifying glass is labeled for free commercial use and was taken from www.f
 TODO:
   CSS:
     Modify appearance of genres and categories in Game Show
-    Make advance search look nice
+    Work on GameIndexSorter
   Componenets:
     Session:
       Renders profile page after submit
     Regular Search
       Add scroll bar to search drop down menu
-      Pressjing enter searches
       Clicking on a dropdown item returns either all games or only that one
       Search bar dropdown menu disappears after submission and loss of focus 
       Add a magnifying glass icon to search button
         draw with canvas?
+      Displays errors when no match
     Advanced search form
       Dates as years
       Buttons to open genres and category search options
@@ -31,9 +31,9 @@ TODO:
       Opens when path is '/advanced-search'
     Profile:
       Make public/private option
-      Switch between Add/Delete game based on current gamerack
-      Take away game index from profile
       Add reshuffle to recommendations
+    Index:
+      Display game info on hover
   Reducers:
     Figure out how to deal with game rack errors
   Controllers:

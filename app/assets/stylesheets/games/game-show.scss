@@ -1,5 +1,23 @@
+.game-show {
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  li {
+    padding: 3px, 0, 3px, 0;
+  }
+  .button-container {
+    margin-top: 10px;
+  }
+}
+
 .game-title {
   font-size: 3em;
+  margin-top: 5px;
+}
+
+.game-price {
+  font-size: 1.5em;
   margin-top: 5px;
 }
 
@@ -12,9 +30,8 @@
   color: black;
 }
 
-.game-show {
-  padding-top: 12px;
-  li {
-    padding: 3px, 0, 3px, 0;
+.links {
+  a {
+    margin-right: 5px;
   }
 }

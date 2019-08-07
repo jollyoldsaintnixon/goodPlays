@@ -20,7 +20,7 @@ class NavSearch extends React.Component {
       const list = this.gameList()
       this.props.receiveUiGames(list)
       this.setState({searchString: ''})
-      this.props.history.push(`/index/games/show/${list[0].id}`)
+      this.props.history.push(`/index`)
     }
   }
 
@@ -30,7 +30,7 @@ class NavSearch extends React.Component {
       const list = this.gameList()
       this.props.receiveUiGames(list)
       this.setState({ searchString: '' })
-      this.props.history.push(`/index/games/show/${list[0].id}`)
+      this.props.history.push(`/index`)
     }
   }
 
@@ -56,7 +56,7 @@ class NavSearch extends React.Component {
     this.setState({searchString: e.target.textContent})
     // this.setState({searchString: ''})
     this.props.receiveUiGames(this.gameList())
-    this.props.history.push(`/index/games/show/${e.target.id}`)
+    this.props.history.push(`/games/show/${e.target.id}`)
   }
 
   advancedSearch() {

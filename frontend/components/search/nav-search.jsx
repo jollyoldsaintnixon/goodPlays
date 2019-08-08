@@ -36,7 +36,7 @@ class NavSearch extends React.Component {
         this.props.history.push(`/index`)
         break;
       case "ArrowDown":
-      
+        
         break;
       case "ArrowUp":
 

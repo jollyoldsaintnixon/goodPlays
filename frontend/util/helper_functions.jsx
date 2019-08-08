@@ -93,6 +93,7 @@ export const priceFilter = (items, low, high) => {
     items = items.filter(item => item.price >= low)
   }
   if (high) {
+    debugger
     items = items.filter(item => item.price <= high)
   }
 

@@ -18,7 +18,7 @@ class GameIndexSorter extends React.Component {
       const { allGames, uiGamesIds } = this.props
       const matched = uiGamesIds.length ? idsToObjects(uiGamesIds, allGames) : Object.values(allGames)
       let sorted = []
-      debugger
+      
       switch (type) {
         case 'title':
           sorted = matched.sort((el1, el2) => {
@@ -51,18 +51,18 @@ class GameIndexSorter extends React.Component {
           sorted = matched
   
         }
-        
-      debugger
       this.props.receiveUiGames(sorted)
     }
   }
 
   render() {
     return (
-      <form >
-        <button onClick={this.sortBy('title')}>Sort by title</button>
-        <button onClick={this.sortBy('release_date')}>Sort by release date</button>
-        <button onClick={this.sortBy('price')}>Sort by price</button>
+      <form className='game-index-sorter'>
+        {this.props.content}
+        {/* <div> </div> */}
+        <button onClick={this.sortBy('title')}><span>Sort by title</span></button>
+        <button onClick={this.sortBy('release_date')}><span>Sort by release date</span></button>
+        <button onClick={this.sortBy('price')}><span>Sort by price</span></button>
       </form>
     )
   }

@@ -1,0 +1,47 @@
+.sorter-wrapper {
+  height: 100%;
+  width: 20%;
+}
+
+.game-index-sorter {
+  position: sticky;
+  background: $zero;
+  // height: 300px;
+  // margin-top: 880px;
+  width: 100%;
+  min-width: 240px;
+  top: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  // div {
+  //   height: 0;
+  //   width: 80%;
+  //   border: 1px solid $four;
+  //   align-self: center;
+  // }
+  h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+  }
+  h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+  }
+  button {
+    margin: 3px;
+  }
+  button:first-of-type {
+    margin-top: 25px
+  }
+  span {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+  }
+  span:hover {
+    border-bottom: 1px solid $four;
+  }
+}

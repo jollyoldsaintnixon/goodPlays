@@ -1,26 +1,24 @@
 .games {
   display: flex;
-  flex-wrap: wrap;
-  h1 {
-    width: 100%;
-    text-align: center;
-    margin: 10px 0 5px 0;
-    font-size: 2em;
-  }
+  // flex-wrap: wrap;
+  width: 98%;
+  justify-content: space-around;
 }
 
 .games-list {
+  width: 70%;
   background: transparent;
   padding-right: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 50px;
+  margin: 0 50px 0 0;
 }
 
 .game-index-item {
   // background: $four;
   color: $one;
+  width: 30%;
   border: 1px solid black;
   margin: 10px;
   img {
@@ -39,4 +37,3 @@
     width: 100%;
   }
 }
-

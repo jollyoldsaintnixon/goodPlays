@@ -24,11 +24,16 @@ class GameIndex extends React.Component {
     let matched = uiGamesIds.length
     let total = Object.values(games).length
     let indexItems
-    let content = `Showing entire library of games`
-    debugger
+    let content = <div className='match-count'><h2>Showing entire library</h2></div>
+    
     if (gamesArray.length) {
       if (matched != 0 && matched < total) {
-        content = `Search returned ${matched} out of ${total} games`
+        content = <div className='match-count'>
+          <h2>Search returned</h2>
+          <h1>{matched}</h1>
+          <h2>out of </h2>
+          <h1>{total}</h1>
+        </div> 
       } 
       indexItems = gamesArray.map((game, idx) => {
         return <GameIndexItem game={game} key={`game-${idx}`}>Game #{idx + 1}</GameIndexItem>
@@ -38,8 +43,12 @@ class GameIndex extends React.Component {
     return (
       
       <section className='games'>
-        <GameIndexSorter uiGamesIds={uiGamesIds} allGames={games}/>
-        <h1>{content}</h1>
+        <div className='sorter-wrapper'>
+          <GameIndexSorter 
+            uiGamesIds={uiGamesIds} 
+            allGames={games}
+            content={content}/>
+        </div>
         <ul className='games-list '>
           {indexItems}
         </ul>

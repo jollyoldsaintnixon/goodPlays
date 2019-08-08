@@ -4,13 +4,20 @@
 
 .browse-menu {
   position: absolute;
-  // top: 50px;
-
+  top: 29px;
+  padding: 5px;
   background: purple;
+  > li {
+    background: green;
+  }
 }
 
 .browse-sub-menu {
   position: absolute;
-  right: 20px;
+  left: 20px;
   background: yellow;
+}
+
+.show {
+  display: block;
 }

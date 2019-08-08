@@ -15,7 +15,7 @@ const uiGamesReducer = (state = null, action) => {
     case RECEIVE_GAMES:
       return state
     case CLEAR_UI_GAMES:
-      debugger
+      
       return []
     case CLOSE_MODAL:  // THIS IS A CODE SMELL; ONLY DOING THIS TO GET ADVANCED SEARCH WORKING
       return state

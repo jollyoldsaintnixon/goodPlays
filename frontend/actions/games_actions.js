@@ -36,7 +36,6 @@ export const receiveGameRackErrors = errors => ({
 export const fetchGames = () => dispatch => {
   
   const promise = APIUtil.fetchGames()
-  debugger
   return promise.then(games => dispatch(receiveGames(games)),
       error => {      
         return dispatch(receiveGameErrors(error.responseJSON))
@@ -44,16 +43,14 @@ export const fetchGames = () => dispatch => {
 }
 
 export const fetchGame = (id) => dispatch => {
-  debugger
   const promise = APIUtil.fetchGame(id)
-  debugger
   return (
     promise.then(game => {
-      debugger
+  
       return dispatch(receiveGame(game))
     },
       error => {
-        debugger
+    
         return dispatch(receiveGameErrors(error.responseJSON))})
       )
 }

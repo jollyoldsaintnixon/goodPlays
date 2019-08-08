@@ -124,7 +124,7 @@ export const idsToObjects = (ids, objects) => {
 
 export const swapClass = (className, component) => {
   return (e) => {
-    debugger
+    // debugger
     e.preventDefault()
     component.setState({ className: className })
   }

@@ -3,19 +3,40 @@
 }
 
 .browse-menu {
+  width: 112px;
   position: absolute;
   top: 29px;
-  padding: 5px;
-  background: purple;
+  background: $one;
   > li {
-    background: green;
+    text-align: center;
+    padding: 2px;
+    margin: 3px;
+    background: $four;
+  }
+  > li:hover {
+    color: $four;
+    background: $one;
   }
 }
 
 .browse-sub-menu {
   position: absolute;
-  left: 20px;
-  background: yellow;
+  width: 109px;
+  left: 105px;
+  top: 0px;
+  background: $one;
+  z-index: 4;
+    > li {
+    text-align: center;
+    padding: 2px;
+    margin: 3px;
+    background: $four;
+    color: $one;
+  }
+  > li:hover {
+    color: $four;
+    background: $one;
+  }
 }
 
 .show {

@@ -86,14 +86,14 @@ class NavBrowseMenu extends React.Component {
       <ul className={`browse-menu`} >
         <li onMouseOver={this.addGenreVisible}
         // onMouseEnter={this.swapClass('inherit').bind(this)}
-          // onMouseLeave={this.removeGenreVisible}
+          onMouseLeave={this.removeGenreVisible}
           >By Genre
           {displayGenre}
         </li>
         <li 
         onMouseOver={this.addCategoryVisible}
         // onMouseEnter={this.swapClass('inherit').bind(this)}
-          // onMouseLeave={this.removeCategoryVisible}
+          onMouseLeave={this.removeCategoryVisible}
           >By Category
           {displayCategory}
         </li>

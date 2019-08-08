@@ -54,7 +54,7 @@ class NavOptions extends React.Component {
           onMouseOver={this.addVisible} 
           // onClick={this.swapClass('show')} 
           // onMouseEnter={swapClass('inherit', this)} 
-          // onMouseLeave={this.removeVisible}
+          onMouseLeave={this.removeVisible}
           >
 
           <Link to='/index' onClick={this.props.clearUiGames}>Browse</Link>

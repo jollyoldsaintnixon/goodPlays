@@ -12,13 +12,12 @@ The magnifying glass is labeled for free commercial use and was taken from www.f
 
 TODO:
   CSS:
-    Drop down search menu
   Componenets:
+    Nav Options:
+      Browse is a dropdown menu based on category and genre
     Regular Search
       Add scroll bar to search drop down menu
       Search bar dropdown menu disappears after submission and loss of focus 
-      Add a magnifying glass icon to search button
-        draw with canvas?
       Displays errors when no match
       Search refreshes when clicking Browse
     Advanced search form

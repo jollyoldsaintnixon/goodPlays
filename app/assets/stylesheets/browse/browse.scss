@@ -1,0 +1,16 @@
+.browse {
+  position: relative;
+}
+
+.browse-menu {
+  position: absolute;
+  // top: 50px;
+
+  background: purple;
+}
+
+.browse-sub-menu {
+  position: absolute;
+  right: 20px;
+  background: yellow;
+}

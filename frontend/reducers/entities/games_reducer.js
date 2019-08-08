@@ -10,7 +10,6 @@ export default (state = {}, action) => {
     case RECEIVE_GAME:
       return merge({}, state, {[action.game.id]: action.game})
     default:
-      debugger
       return state;
   }
 }

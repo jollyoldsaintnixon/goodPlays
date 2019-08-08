@@ -91,7 +91,7 @@ class NavSearch extends React.Component {
         id={game.id} 
         onClick={this.dropDownSelect.bind(this)}>
             <img src={game.imageUrl} alt=""/>
-            <p>{game.title}</p>
+            <p>{game.title.length > 45 ? game.title.slice(0, 42).concat('...') : game.title}</p>
       </li>
       )
     })

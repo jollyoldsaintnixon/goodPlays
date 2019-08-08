@@ -11,6 +11,7 @@
 }
 
 .search {
+  margin-left: 50px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -31,6 +32,7 @@
   a {
     // position: absolute;
   }
+  
 }
 
 .search-list {
@@ -39,8 +41,8 @@
   flex-direction: column;
   width: 250px;
   top: 32px;
-  width: 231px;
-  right: 145px;
+  width: 227px;
+  right: 99px;
 }
 
 .search-list li {

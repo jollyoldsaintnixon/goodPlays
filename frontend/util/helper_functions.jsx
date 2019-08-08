@@ -121,3 +121,11 @@ export const idsToObjects = (ids, objects) => {
     return objects[id]
   })
 }
+
+export const swapClass = (className, component) => {
+  return (e) => {
+    debugger
+    e.preventDefault()
+    component.setState({ className: className })
+  }
+}

@@ -1,7 +1,10 @@
 .nav-options {
+  align-self: flex-start;
+  align-items: center;
   display: flex;
   justify-content: center;
   li {
+    padding-top: 10px;
     padding-right: 15px;
   }
 }

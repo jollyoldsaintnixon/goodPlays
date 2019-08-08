@@ -2,7 +2,7 @@
   display: flex;
   width: 250px;
   text-align: start;
-  background-color: $zero;
+  background-color: lighten($zero, 20%);
   padding: 3px;
   border: 1px solid darkgray;
   border-radius: 3%/15%;

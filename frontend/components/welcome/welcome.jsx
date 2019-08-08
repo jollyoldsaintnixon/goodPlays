@@ -29,7 +29,7 @@ class Welcome extends React.Component {
     return (
       <header className='header'>
         <nav className=''>
-          <h1 className=''><Link to='/' className='link'>good<strong>Plays</strong></Link></h1>
+          <h1 className='logo'><Link to='/' className='link'>good<strong>Plays</strong></Link></h1>
           <NavBar />
           {this.display()}
         </nav>

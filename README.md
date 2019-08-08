@@ -14,7 +14,7 @@ TODO:
   CSS:
   Componenets:
     Nav Options:
-      Browse is a dropdown menu based on category and genre
+      dropdown menu disappears when mouseOut
     Regular Search
       Add scroll bar to search drop down menu
       Search bar dropdown menu disappears after submission and loss of focus 

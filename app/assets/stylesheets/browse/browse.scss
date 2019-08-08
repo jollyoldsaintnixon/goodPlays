@@ -6,16 +6,18 @@
   width: 112px;
   position: absolute;
   top: 29px;
-  background: $one;
+  background: $four;
+
   > li {
     text-align: center;
     padding: 2px;
-    margin: 3px;
-    background: $four;
+    margin: 2px;
+    background: $zero;
+    color: $four;
   }
   > li:hover {
-    color: $four;
-    background: $one;
+    color: $zero;
+    background: $four;
   }
 }
 
@@ -24,18 +26,22 @@
   width: 109px;
   left: 105px;
   top: 0px;
-  background: $one;
+  background: $four;
   z-index: 4;
     > li {
     text-align: center;
     padding: 2px;
-    margin: 3px;
-    background: $four;
-    color: $one;
+    margin: 2px;
+    background: $zero;
+    color: $four;
   }
   > li:hover {
-    color: $four;
-    background: $one;
+    color: $zero;
+    background: $four;
+    cursor: pointer;
+  }
+  a:hover {
+    border-bottom: 1px solid transparent;
   }
 }
 

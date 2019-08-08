@@ -2,7 +2,7 @@ class Api::GamesController < ApplicationController
   # caches_action :index
 
   def index
-    @games = Game.with_attached_image
+    @games = Game.with_attached_image.page(params[:page]).per(25)
     render :index
   end
 

@@ -5,8 +5,14 @@ export const RECEIVE_GAME = 'RECEIVE_GAME'
 export const RECEIVE_GAME_ERRORS = 'RECEIVE_GAME_ERRORS'
 export const CLEAR_GAME_ERRORS = 'CLEAR_GAME_ERRORS'
 export const RECEIVE_GAMERACK_ERRORS = 'RECEIVE_GAMERACK_ERRORS'
+export const RECEIVE_PAGE_OF_GAMES = 'RECEIVE_PAGE_OF_GAMES'
 
 // action creators
+const receivePageOfGames = games => ({
+  type: RECEIVE_PAGE_OF_GAMES,
+  games
+})
+
 const receiveGames = games => ({
   type: RECEIVE_GAMES,
   games
@@ -42,6 +48,13 @@ export const fetchGames = () => dispatch => {
       })
 }
 
+export const fetchPagesOfGames = page => dispatch => {
+  debugger
+  return APIUtil.fetchPagesOfGames(page)
+    .then(games => dispatch(receivePageOfGames(games)),
+      error => dispatch(receiveGameErrors(error.responseJSON))
+    )
+}
 export const fetchGame = (id) => dispatch => {
   const promise = APIUtil.fetchGame(id)
   return (

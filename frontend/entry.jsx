@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.dispatch = store.dispatch;
   window.fetchGamesAPI = APIUtil.fetchGames;
   window.fetchGames = Actions.fetchGames
+  window.fetchPagesOfGames = Actions.fetchPagesOfGames
   // end testing
   ReactDOM.render(<Root store={ store } />, root)
 })

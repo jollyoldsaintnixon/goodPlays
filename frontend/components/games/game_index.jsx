@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchGames } from '../../actions/games_actions'
+import { fetchGames, fetchPagesOfGames } from '../../actions/games_actions'
 import { ProtectedRoute } from '../../util/route_util';
 import { Route, Switch } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
@@ -8,14 +8,37 @@ import { idsToObjects } from '../../util/helper_functions'
 import GameShow from './game_show'
 import GameIndexItem from './game_index_item'
 import GameIndexSorter from './game_index_sorter'
+import { Waypoint } from 'react-waypoint';
 
 class GameIndex extends React.Component {
   constructor (props) {
     super(props)
+    this.state = { page: 1, }
+    // this.getPage = this.getPage.bind(this)
+    // this.getFirstPage = this.getFirstPage.bind(this)
   }
+
+  // getPage() {
+  //   debugger
+  //   let currentPage = this.state.page
+  //   if (currentPage < 2) {
+  //     return
+  //   }
+  //   this.props.fetchPagesOfGames(currentPage)
+  //   currentPage += 1
+  //   this.setState({page: currentPage})
+  // }
+
+  // getFirstPage() {
+  //   debugger
+  //   return this.props.fetchPagesOfGames(this.state.page)
+  // }
 
   componentDidMount() {
     this.props.fetchGames()
+    // const that = this
+    // const promise = this.getFirstPage()
+    //   promise.then(() => that.setState({page: 2}))
   }
 
   render() {
@@ -52,6 +75,11 @@ class GameIndex extends React.Component {
         <ul className='games-list '>
           {indexItems}
         </ul>
+        {/* <Waypoint onEnter={this.getPage} 
+                onPositionChange={this.getPage}
+                topOffset='20%'
+                // bottomOffset='20%'
+        /> */}
     </section>
     )
   }
@@ -66,7 +94,8 @@ const msp = (state) => {
 }
 
 const mdp = dispatch => ({
-  fetchGames: () => dispatch(fetchGames())
+  fetchGames: () => dispatch(fetchGames()),
+  fetchPagesOfGames: page => dispatch(fetchPagesOfGames(page))
 })
 
 export default withRouter(connect(msp, mdp)(GameIndex))

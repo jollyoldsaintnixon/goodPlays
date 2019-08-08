@@ -5,6 +5,14 @@ export const fetchGames = () => {
   })
 }
 
+export const fetchPagesOfGames = (page) => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/games',
+    data: { page },
+  })
+}
+
 export const fetchGame = id => {
   return $.ajax({
     method: 'GET',

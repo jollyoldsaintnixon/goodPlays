@@ -10,6 +10,8 @@ I got a lot of tips from Stack Overflow, such as their method for randomly selec
 
 The magnifying glass is labeled for free commercial use and was taken from www.freeiconshop.com
 
+I followed Kate Lawrence's walkthrough (https://medium.com/@k88lawrence/dead-simple-infinite-scroll-with-kaminari-and-react-waypoint-8073c22be7ed) for implementing infinite scrolling 
+
 TODO:
   CSS:
   Componenets:

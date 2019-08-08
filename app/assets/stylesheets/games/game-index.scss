@@ -12,15 +12,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 50px 0 0;
+  margin: 10px 50px 0 0;
 }
 
 .game-index-item {
   // background: $four;
   color: $one;
   width: 30%;
-  border: 1px solid black;
+  border: 1px solid transparent;
   margin: 10px;
+  position: relative;
   img {
     display: block;
     height: 100%;
@@ -32,8 +33,37 @@
 .game-index-item:hover {
   background: $one;
   color: $four;
+  border: 1px solid $five;
   a {
     display: inline-block;
     width: 100%;
   }
+}
+
+.game-index-item-display {
+  position: absolute;
+  background: $zero;
+  bottom: 93px;
+  left: 223px;
+  z-index: 2;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  h1 {
+    font-size: 1.5em;
+    color: $four;
+  }
+  h2 {
+    font-size: 1.2em;
+    color: $three;
+  }
+  p {
+    font-family: $serif;
+    color: $three;
+  }
+}
+
+.length {
+  height: 100%;
 }

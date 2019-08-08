@@ -31,7 +31,16 @@
 }
 
 .links {
+  margin: 10px 0;
   a {
     margin-right: 5px;
+    background: $four;
+    color: white;
+    padding: 2px 4px;
+  }
+  a:hover {
+    border-bottom: 1px solid transparent;
+    background: $zero;
+    color: $four;    
   }
 }

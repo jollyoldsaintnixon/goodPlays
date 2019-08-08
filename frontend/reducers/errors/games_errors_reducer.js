@@ -7,6 +7,7 @@ export default (state = [], action) => {
     case RECEIVE_GAMERACK_ERRORS:
       return action.errors
     case RECEIVE_GAME_ERRORS:
+      debugger
       return action.errors
     case CLEAR_GAME_ERRORS:
       return []

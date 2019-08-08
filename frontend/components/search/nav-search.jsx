@@ -5,6 +5,7 @@ import { receiveUiGames } from '../../actions/ui_actions'
 import { withRouter, NavLink, Route } from 'react-router-dom'
 import AdvancedSearch from './advanced-search'
 import { openModal } from '../../actions/modal_actions'
+import { NavSearchList } from './nav-search-list';
 
 class NavSearch extends React.Component {
   constructor(props) {
@@ -25,13 +26,31 @@ class NavSearch extends React.Component {
   }
 
   enterSearch(e) {
-    if (e.key === 'Enter') {
-      e.preventDefault()
-      const list = this.gameList()
-      this.props.receiveUiGames(list)
-      this.setState({ searchString: '' })
-      this.props.history.push(`/index`)
+    let list
+    switch (e.key) {
+      case 'Enter':
+        e.preventDefault()
+        list = this.gameList()
+        this.props.receiveUiGames(list)
+        this.setState({ searchString: '' })
+        this.props.history.push(`/index`)
+        break;
+      case "ArrowDown":
+      
+        break;
+      case "ArrowUp":
+
+        break;
+      default:
+        break;
     }
+    // if (e.key === 'Enter') {
+    //   e.preventDefault()
+    //   const list = this.gameList()
+    //   this.props.receiveUiGames(list)
+    //   this.setState({ searchString: '' })
+    //   this.props.history.push(`/index`)
+    // }
   }
 
   gameList() {
@@ -56,7 +75,7 @@ class NavSearch extends React.Component {
     this.setState({searchString: e.target.textContent})
     // this.setState({searchString: ''})
     this.props.receiveUiGames(this.gameList())
-    this.props.history.push(`/games/show/${e.target.id}`)
+    this.props.history.push(`/games/show/${e.currentTarget.id}`)
   }
 
   advancedSearch() {
@@ -67,8 +86,14 @@ class NavSearch extends React.Component {
 
   render() {
     const gameList = this.gameList().map(game => {
-      return <li key={`search-item-${game.id}`} id={game.id} onClick={this.dropDownSelect.bind(this)}>
-      {game.title}</li>
+      return (
+      <li key={`search-item-${game.id}`} 
+        id={game.id} 
+        onClick={this.dropDownSelect.bind(this)}>
+            <img src={game.imageUrl} alt=""/>
+            <p>{game.title}</p>
+      </li>
+      )
     })
 
     // if (this.props.history.location.pathname === '/advanced-search') {
@@ -85,11 +110,14 @@ class NavSearch extends React.Component {
           value={this.state.searchString}
           onKeyDown={this.enterSearch}
           />
-        <button onClick={this.search()}><i className="icon-magnifying-glass"></i>***</button>
-        <NavLink to='/index/advanced-search' onClick={this.advancedSearch()}>Advanced Search </NavLink>
+        <button onClick={this.search()}>
+          <i className="icon-magnifying-glass">***</i>
+          </button>
+        <NavLink to='/index/advanced-search' onClick={this.advancedSearch()}>Advanced </NavLink>
         <ul className={`search-list ${
           this.state.searchString === "" ? 'none' : '' }`} >
           {gameList.slice(0, 4)}
+          {/* <NavSearchList gameList={this.gameList()} /> */}
         </ul>
         <Route path='/index/advanced-search' render={props => <AdvancedSearch {...props} 
           games={this.props.games} 

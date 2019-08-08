@@ -131,7 +131,7 @@ class GameShow extends React.Component {
     // debugger
     return (
       <ul className='game-show col-2-3'>
-          <li><img src={game.imageUrl} alt={`${game.title} image`} /></li> {/* this is supposed to connect to AWS */} 
+          <li><img src={game.imageUrl} alt={`${game.title} image`} /></li>  
           <li className='game-title'>{game.title}</li>
           <li className='game-price'>${game.price}</li>
           <li className='game-release-date'>Released {game.release_date}</li>

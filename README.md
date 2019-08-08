@@ -12,10 +12,6 @@ The magnifying glass is labeled for free commercial use and was taken from www.f
 
 TODO:
   CSS:
-    Modify appearance of genres and categories in Game Show
-    Work on GameIndexSorter
-      doesn't move on top of library
-    Get that magnifying glass to show up
     Drop down search menu
   Componenets:
     Regular Search
@@ -24,6 +20,7 @@ TODO:
       Add a magnifying glass icon to search button
         draw with canvas?
       Displays errors when no match
+      Search refreshes when clicking Browse
     Advanced search form
       developer selection and functionality
       Add 'free' option to price
@@ -31,7 +28,6 @@ TODO:
       Make public/private option
       Add reshuffle to recommendations
     Index:
-      Display game info on hover
       Get Paginate working
   Reducers:
     Figure out how to deal with game rack errors

@@ -1,6 +1,7 @@
 // gems
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
+// import GameShowContainer from './games/game_show_container'
 import GameShow from './games/game_show'
 // components
 import LoginPageContainer from './signup_page/login_page_container'
@@ -21,6 +22,7 @@ const App = () => {
         <Switch>
           <ProtectedRoute path='/profile' component={UserProfile} />
           <Route path='/index' component={Content} />
+          {/* <Route path='/games/show/:gameId' component={GameShowContainer} /> */}
           <Route path='/games/show/:gameId' component={GameShow} />
           <Route path='/' exact component={SplashPage}/>
         </Switch> 

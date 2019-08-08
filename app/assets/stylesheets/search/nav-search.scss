@@ -1,6 +1,6 @@
 .search-bar {
   display: flex;
-  width: 200px;
+  width: 250px;
   text-align: start;
   background-color: $zero;
   padding: 3px;
@@ -18,7 +18,7 @@
   button {
     border: 1px solid darkgray;
     position: absolute;
-    right: 126px;
+    right: 75px;
     display: block;
     height: 27px;
     background: gray;
@@ -44,13 +44,20 @@
 }
 
 .search-list li {
-  display: block;
+  display: flex;
   width: 100%;
+  height: 42px;
   background: $zero;
   border: 1px solid $four;
+  img {
+    width: 60px;
+    height: 40px;
+    z-index: 2;
+  }
 }
 
 .search-list li:hover {
+  cursor: pointer;
   background: orange;
   color: $zero;
   background: $two;
@@ -59,8 +66,10 @@
 .icon-magnifying-glass {
   position: relative;
   padding-top: 16px;
+  margin: 0 4px;
   height: 0px;
   width: 16px;
-  background-image: url("../../images/magnifying_glass.png");
+  background-image: url("magnifying_glass.png");
+  background-repeat: no-repeat;
   z-index: 1;
 }

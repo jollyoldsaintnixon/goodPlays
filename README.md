@@ -12,15 +12,15 @@ The magnifying glass is labeled for free commercial use and was taken from www.f
 
 I followed Kate Lawrence's walkthrough (https://medium.com/@k88lawrence/dead-simple-infinite-scroll-with-kaminari-and-react-waypoint-8073c22be7ed) for implementing infinite scrolling 
 
+The background banner was created by user Jetrel and found at https://opengameart.org/content/castle-platformer under a Public Domain license
+
 TODO:
   CSS:
-    advanced search form
-    borders on sub sub menu
-    banner
+    show page looks like goodreads
   Componenets:
     Nav Options:
       dropdown menu disappears when mouseOut
-    Regular Search
+    Regular Search 
       Add scroll bar to search drop down menu
       Search bar dropdown menu disappears after submission and loss of focus 
       Displays errors when no match
@@ -31,6 +31,9 @@ TODO:
     Profile:
       Make public/private option
       Add reshuffle to recommendations
+    Splash:
+      clean up code
+        consider making a container
     Index:
       Get Paginate working
   Reducers:

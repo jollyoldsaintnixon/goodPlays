@@ -18,7 +18,7 @@
       width: 468px;
       display: flex;
       justify-content: flex-end;
-      padding: 10px 0 10px 10px;
+      margin: 10px;
       flex-direction: column;
       input:not([type=submit]) {
         text-align: start;
@@ -57,5 +57,19 @@
     margin-right: 31px;
     display: flex;
     align-items: center;
+  }
+}
+
+.welcome-form {
+  display: flex;
+  input[type='submit'] {
+    padding: 0;
+    background: none;
+    margin: 0;
+    border: none;
+  }
+  input[type='submit']:hover {
+    color: $three;
+    border: none;
   }
 }

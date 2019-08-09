@@ -18,18 +18,9 @@ class NavOptions extends React.Component {
       className: 'none',
       visible: false,  
     }
-    // this.swapClass = this.swapClass.bind(this)
     this.addVisible = this.addVisible.bind(this)
     this.removeVisible = this.removeVisible.bind(this)
   }
-
-  // swapClass(className) {
-  //   return (e) => {
-  //     // debugger
-  //     e.preventDefault()
-  //     this.setState({ className: className })
-  //   }
-  // }
 
   addVisible(e) {
     e.stopPropagation()
@@ -53,13 +44,10 @@ class NavOptions extends React.Component {
         <li><Link to='/profile'>My Rack</Link></li>
         <li className='browse'
           onMouseOver={this.addVisible} 
-          // onClick={this.swapClass('show')} 
-          // onMouseEnter={swapClass('inherit', this)} 
           onMouseLeave={this.removeVisible}
           >
 
           <Link to='/index' onClick={this.props.clearUiGames}>Browse</Link>
-          {/* <NavBrowseMenu className={this.state.className} /> */}
           {display}
         </li>
       </ul>

@@ -26,11 +26,12 @@
     border-radius: 0 5px 5px 0;
   }
   button:hover {
-    background: white;
+    background: $one;
     cursor: pointer;
   }
-  a {
-    // position: absolute;
+  a:hover {
+    border-bottom: 1px solid transparent;
+    color: white;
   }
   
 }

@@ -120,6 +120,7 @@ class AdvancedSearch extends React.Component {
               value={this.state.searchString}
             />
             <div>
+              <h5></h5>
               <h4>Filter by Date</h4>
               <div className='search-date'>
                 <label>
@@ -142,6 +143,7 @@ class AdvancedSearch extends React.Component {
                 </label>
               </div>
             </div>
+            <h5></h5>
             <h4>Filter by Price</h4>
             <div className='search-price'>
               <label>
@@ -152,9 +154,7 @@ class AdvancedSearch extends React.Component {
                 <input type="number" onChange={update('highPrice', this)} />
               </label>
             </div>
-            {/* <button>Search By Genre</button>
-            <button>Search By Category</button> */}
-            {/* <SearchGenre /> */}
+            <h5></h5>
             <h4>Filter by Genre</h4>
             <div className='search-boxes genre' >
               <label> 
@@ -206,7 +206,7 @@ class AdvancedSearch extends React.Component {
                 Platform
               </label>
             </div>
-            {/* <SearchCategory /> */}
+            <h5></h5>
             <h4>Filter by Category</h4>
             <div className='search-boxes category'>
               <label> 

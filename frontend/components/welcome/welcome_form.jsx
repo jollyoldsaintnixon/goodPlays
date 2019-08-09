@@ -33,7 +33,7 @@ class WelcomeForm extends React.Component {
     const { password, username } = this.state
     return (
       <li>
-        <form onSubmit={this.handleSubmit}>
+        <form className='welcome-form' onSubmit={this.handleSubmit}>
           <label>
                   <input 
                     type="text" 

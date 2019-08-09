@@ -56,19 +56,6 @@ class NavBrowseMenu extends React.Component {
     this.setState({ categoryVisible: false })
   }
 
-  // swapGenreVis(e) {
-  //   e.stopPropagation()
-  //   debugger
-  //   const newVis = !this.state.genreVisible
-  //   this.setState({genreVisible: newVis})
-  // }
-
-  // swapCategoryVis(e) {
-  //   e.stopPropagation()
-  //   const newVis = !this.state.categoryVisible
-  //   this.setState({ categoryVisible: newVis })
-  // }
-
   render() {
     
     const { genreVisible, categoryVisible } = this.state

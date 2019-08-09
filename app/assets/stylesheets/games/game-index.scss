@@ -44,23 +44,25 @@
   position: absolute;
   background: $zero;
   bottom: 85%;
-  left: 93%;
+  right: 93%;
   z-index: 2;
   width: 300px;
   display: flex;
   flex-direction: column;
   padding: 5px;
+  border: 1px solid $four;
+  box-shadow: 10px 10px 15px $five;
   h1 {
     font-size: 1.5em;
     color: $four;
   }
   h2 {
     font-size: 1.2em;
-    color: $three;
+    color: $four;
   }
   p {
     font-family: $serif;
-    color: $three;
+    color: $four;
   }
 }
 

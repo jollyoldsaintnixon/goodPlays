@@ -30,7 +30,7 @@ export const stringFilter = (items, searchString) => {
 }
 
 export const genreFilter = (items, array) => {
-  
+  debugger
   if (array.length === 0 || array.includes('all')) {
     return items
   }

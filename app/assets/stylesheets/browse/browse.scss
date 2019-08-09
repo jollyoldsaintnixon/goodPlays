@@ -29,10 +29,12 @@
   background: $four;
   z-index: 4;
     > li {
-    width: 100%;
+    width: 97%;
     text-align: center;
     padding: 2px;
     margin: 2px;
+    margin-right: 4px;
+    border-right: 1px solid $four;
     background: $zero;
     color: $four;
   }
@@ -40,12 +42,6 @@
     color: $zero;
     background: $four;
     cursor: pointer;
-  a {
-    width: 100%;
-  }
-  }
-  a:hover {
-    border-bottom: 1px solid transparent;
   }
 }
 

@@ -1,6 +1,6 @@
 .faded {
   position: fixed;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
   top: 0;
   bottom: 0;
   right: 0;
@@ -15,29 +15,37 @@
 .modal-wrap {
   position: absolute;
   // margin: 35% auto;
-  background: $four;
+  background: $zero;
   width: 35%;
-  height: 55%;
   left: 32.5%;
   top: 15%
 }
 
 .advanced-search-form {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
   .search-bar {
     width: 70%;
   }
   h3 {
-    color: white;
+    color: $four;
     font-weight: bold;
     font-size: 1.5em;
     text-align: center;
   }
   h4 {
-    color: white;
+    color: $four;
     font-weight: bold;
     font-size: 1.2em;
-    margin: 8px 0 3px 0;
+    margin: 0 0 3px 0;
+  }
+  h5 {
+    margin: 15px auto;
+    display: block;
+    height: 0;
+    width: 80%;
+    border-top: 1px solid $five;
   }
   p {
     display: block;
@@ -72,6 +80,7 @@
   input {
     width: 50%;
     align-self: flex-end;
+    margin-right: 20px;
   }
 }
 .search-boxes {
@@ -105,7 +114,7 @@
     margin-left: 10px;  
   }
   input {
-    background-color: $zero;
+    background-color: lighten($zero, 20%);
     border: 1px solid darkgray;
     color: $five;
     width: 50px;

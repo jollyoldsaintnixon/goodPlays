@@ -124,7 +124,7 @@ class NavSearch extends React.Component {
           onKeyDown={this.enterSearch}
           />
         <button onClick={this.search()}>
-          <i className="icon-magnifying-glass">search</i>
+          <img  className="icon-magnifying-glass" src={window.search}/>
           </button>
         <NavLink to='/index/advanced-search' onClick={this.advancedSearch()}>Advanced </NavLink>
         <ul className={`search-list ${

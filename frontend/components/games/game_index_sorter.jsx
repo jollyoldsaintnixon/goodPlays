@@ -1,14 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { receiveUiGames } from '../../actions/ui_actions'
+import { receiveUiGames, clearUiErrors } from '../../actions/ui_actions'
 import { idsToObjects } from '../../util/helper_functions'
+
+const msp = ({ errors: { ui }}) => ({
+  errors: ui,
+})
 
 const mdp = dispatch => ({
   receiveUiGames: games => dispatch(receiveUiGames(games)),
+  clearUiErrors: () => dispatch(clearUiErrors()),
 })
 
 class GameIndexSorter extends React.Component {
-
+  constructor(props) {
+    super(props)
+    this.state = { errors: null }
+  }
   
 
   sortBy(type) {
@@ -55,9 +63,15 @@ class GameIndexSorter extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearUiErrors()
+  }
+
   render() {
+    debugger
     return (
       <form className='game-index-sorter'>
+        <h4>{this.props.errors}</h4>
         {this.props.content}
         {/* <div> </div> */}
         <button onClick={this.sortBy('title')}><span>Sort by title</span></button>
@@ -68,4 +82,4 @@ class GameIndexSorter extends React.Component {
   }
 }
 
-export default connect(null, mdp)(GameIndexSorter)
+export default connect(msp, mdp)(GameIndexSorter)

@@ -6,7 +6,7 @@ class NavBrowseMenu extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      midClassName: 'none',
+      // midClassName: 'none',
       genreVisible: false,
       categoryVisible: false,
     }
@@ -70,17 +70,17 @@ class NavBrowseMenu extends React.Component {
   // }
 
   render() {
-    debugger
+    
     const { genreVisible, categoryVisible } = this.state
     const displayGenre = genreVisible ? 
       <BrowseSubMenu type='genre'
         sections={this.genreArray}
-        className='show' /> : null
+        closeParent={this.props.closeParent} /> : null
 
     const displayCategory = categoryVisible ?
       <BrowseSubMenu type='category'
         sections={this.categoryArray}
-        className='show' /> : null
+        closeParent={this.props.closeParent} /> : null
     
     return (
       <ul className={`browse-menu`} >

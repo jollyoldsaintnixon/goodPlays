@@ -1,7 +1,7 @@
 import React from 'react' 
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { receiveUiGames } from '../../../../actions/ui_actions'
+import { receiveUiGames, clearUiErrors, receiveUiErrors } from '../../../../actions/ui_actions'
 import { genreFilter, categoryFilter } from '../../../../util/helper_functions'
 
 const msp = ({ entities: { games }}) => ({
@@ -10,6 +10,8 @@ const msp = ({ entities: { games }}) => ({
 
 const mdp = dispatch => ({
   receiveUiGames: games => dispatch(receiveUiGames(games)),
+  receiveUiErrors: () => dispatch(receiveUiErrors()),
+  clearUiErrors: () => dispatch(clearUiErrors()),
 })
 
 class BrowseSubMenu extends React.Component {
@@ -26,21 +28,29 @@ capitalizeFirstLetter(string) {  // taken from Stack Overflow, posted by user St
     const list = sections.map((section, idx) => {
       const sectionArray = []
       sectionArray.push(section)
-      return (<li key={`browse-sub-menu-${idx}`}>
-                <Link to='/index'
+      return (<li key={`browse-sub-menu-${idx}`}
                     onClick={type === 'genre' ? 
-                   () => receiveUiGames(genreFilter(games, sectionArray)) :
-                   () => receiveUiGames(categoryFilter(games, sectionArray))
-                   
-                }
-                >{this.capitalizeFirstLetter(section)}</Link></li>)
+                   () => {
+                     const list = genreFilter(games, sectionArray)
+                     list.length ? this.props.clearUiErrors() : this.props.receiveUiErrors()
+                     receiveUiGames(list)
+                     this.props.history.push('/index')
+                    } :
+                   () => {
+                     const list = categoryFilter(games, sectionArray)
+                     list.length ? this.props.clearUiErrors() : this.props.receiveUiErrors()
+                     receiveUiGames(list)
+                     this.props.history.push('/index')
+                    }}>
+                    {this.capitalizeFirstLetter(section)}
+              </li>)
     })
     return (
-      <ul className='browse-sub-menu'>
+      <ul className='browse-sub-menu' onMouseLeave={this.props.closeParent}>
         {list}
       </ul>
     )
   }
 }
 
-export default connect(msp, mdp)(BrowseSubMenu)
+export default withRouter(connect(msp, mdp)(BrowseSubMenu))

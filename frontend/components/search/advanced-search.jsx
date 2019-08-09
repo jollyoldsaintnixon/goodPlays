@@ -3,6 +3,7 @@ import { } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { closeModal } from '../../actions/modal_actions'
 import { receiveUiGames } from '../../actions/ui_actions'
+import { receiveUiErrors, clearUiErrors } from '../../actions/ui_actions'
 import { update, stringFilter, categoryFilter, genreFilter, dateFilter, priceFilter } from '../../util/helper_functions'
 import SearchGenre from './search_genre'
 import SearchCategory from './search_category'
@@ -241,6 +242,8 @@ const msp = state => ({
 
 const mdp = dispatch => ({
   receiveUiGames: games => dispatch(receiveUiGames(games)),
-  closeModal: () => dispatch(closeModal())
+  closeModal: () => dispatch(closeModal()),
+  receiveUiErrors: () => dispatch(receiveUiErrors()),
+  clearUiErrors: () => dispatch(clearUiErrors()),
 })
 export default connect(msp, mdp)(AdvancedSearch)

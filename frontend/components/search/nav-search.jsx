@@ -1,6 +1,7 @@
 import React from 'react'
 import { update, stringFilter } from '../../util/helper_functions'
 import { connect } from 'react-redux'
+import { receiveUiErrors, clearUiErrors } from '../../actions/ui_actions'
 import { receiveUiGames } from '../../actions/ui_actions'
 import { withRouter, NavLink, Route } from 'react-router-dom'
 import AdvancedSearch from './advanced-search'
@@ -18,7 +19,14 @@ class NavSearch extends React.Component {
   search() {
     return (e) => {
       e.preventDefault()
+      // debugger
+
       const list = this.gameList()
+      if (this.state.searchString === '' || !list.length) {
+        this.props.receiveUiErrors()
+      } else {
+        this.props.clearUiErrors()
+      }
       this.props.receiveUiGames(list)
       this.setState({searchString: ''})
       this.props.history.push(`/index`)
@@ -31,6 +39,11 @@ class NavSearch extends React.Component {
       case 'Enter':
         e.preventDefault()
         list = this.gameList()
+        if (this.state.searchString === '' || !list.length) {
+          this.props.receiveUiErrors()
+        } else {
+          this.props.clearUiErrors()
+        }
         this.props.receiveUiGames(list)
         this.setState({ searchString: '' })
         this.props.history.push(`/index`)
@@ -136,7 +149,9 @@ const msp = state => ({
 
 const mdp = dispatch => ({
   receiveUiGames: games => dispatch(receiveUiGames(games)),
-  openModal: modal => dispatch(openModal(modal))
+  openModal: modal => dispatch(openModal(modal)),
+  receiveUiErrors: () => dispatch(receiveUiErrors()),
+  clearUiErrors: () => dispatch(clearUiErrors()),
 })
 
 export default withRouter(connect(msp, mdp)(NavSearch))

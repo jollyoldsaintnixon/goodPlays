@@ -14,6 +14,9 @@ I followed Kate Lawrence's walkthrough (https://medium.com/@k88lawrence/dead-sim
 
 TODO:
   CSS:
+    advanced search form
+    borders on sub sub menu
+    banner
   Componenets:
     Nav Options:
       dropdown menu disappears when mouseOut

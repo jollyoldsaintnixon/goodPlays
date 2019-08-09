@@ -123,9 +123,12 @@ class GameShow extends React.Component {
     if (game === undefined) {
       game = { title: '', release_date: '', description: '', imageUrl: '', image_url: '', genres: [], categories: [] }
     }
-
+    debugger
+    let content = ''
     let first = game.description.slice(0, 1000)
-
+    if (game.description.length > 1000) {
+      content = '...more'
+    }
     //  
     return (
       <ul className='game-show col-2-3'>
@@ -134,7 +137,7 @@ class GameShow extends React.Component {
           <li className='game-price'>${game.price}</li>
           <li className='game-release-date'>Released {game.release_date}</li>
         <li className='game-description'>
-          {first}<span className={className} onClick={this.expand}> ...more</span>{rest}
+          {first}<span className={className} onClick={this.expand}>{content}</span>{rest}
         </li>
           
           <li className='game-genres links'>{this.genreLinks(game)}</li>

@@ -153,6 +153,9 @@ class AdvancedSearch extends React.Component {
               <label>Max $
                 <input type="number" onChange={update('highPrice', this)} />
               </label>
+              {/* <label>Max $
+                <input type="checbo" onChange={update('highPrice', this)} />
+              </label> */}
             </div>
             <h5></h5>
             <h4>Filter by Genre</h4>

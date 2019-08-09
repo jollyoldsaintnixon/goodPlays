@@ -30,7 +30,7 @@ export const stringFilter = (items, searchString) => {
 }
 
 export const genreFilter = (items, array) => {
-  debugger
+  
   if (array.length === 0 || array.includes('all')) {
     return items
   }
@@ -93,7 +93,7 @@ export const priceFilter = (items, low, high) => {
     items = items.filter(item => item.price >= low)
   }
   if (high) {
-    debugger
+    
     items = items.filter(item => item.price <= high)
   }
 

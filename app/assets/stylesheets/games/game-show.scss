@@ -8,6 +8,15 @@
   }
   .button-container {
     margin-top: 10px;
+    button:hover {
+      color: white;
+      background: $four;
+      border: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+    }
+    a:hover {
+      border-bottom: 1px solid transparent;
+    }
   }
 }
 

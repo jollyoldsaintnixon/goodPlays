@@ -137,8 +137,8 @@ class SplashPage extends React.Component {
     return (
     <section className='splash-page'>
         <h1>Welcome to goodPlays</h1>
-        <h2>Help yourself to some tendies while the dew carbonates</h2>
-        <h2>This render's featured game:</h2>
+        <h2>A social site for gamers</h2>
+        <h2>Check out this game:</h2>
         {this.displayGame()}
     </section>
     )

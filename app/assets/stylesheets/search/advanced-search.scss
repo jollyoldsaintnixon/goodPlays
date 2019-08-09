@@ -62,6 +62,14 @@
       margin: 7px;
     }
   }
+  input[type='submit'] {
+
+  }
+  input[type='submit']:hover {
+    color: white;
+    background: $four;
+    border: 1px solid transparent;
+  }
 }
 .search-date {
   margin-bottom: 5px;  

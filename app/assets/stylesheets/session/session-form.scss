@@ -19,12 +19,13 @@
   width: 300px;
   height: 300px;
   border: 1px transparent;
-  background: $four;
+  background: $zero;
+  color: $four;
   // border: 1px solid gray;
   h3 {
     margin: 20px 35px 5px 35px;
     font-size: 1.5em;
-    color: white;
+    color: $five;
     font-weight: bold;
   }
   label {
@@ -37,13 +38,18 @@
     border: 1px solid darkgray;
     width: 100%;
     border-radius: 3px;
-    background-color: $zero;
+    background-color: lighten($zero, 20%);
   }
   p {
     text-align: center;
     font-family: $serif;
     margin: 5px 35px 20px 35px;
-    color: $one;
+    color: $four;
+  }
+  input[type='submit']:hover {
+    color: white;
+    background: $four;
+    border: 1px solid transparent;
   }
 }
 
@@ -83,6 +89,10 @@
     margin-right: 25px;
   }
   a {
-    color: $one;
+    color: $four;
+  }
+  a:hover {
+    border-bottom: 1px solid transparent;
+    color: white;
   }
 }

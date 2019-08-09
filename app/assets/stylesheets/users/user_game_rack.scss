@@ -16,11 +16,12 @@
   .add-more {
     display: inline;
     border: none;
-    border-bottom: 1px solid transparent;
+    // border-bottom: 1px solid transparent;
   }
   .add-more:hover {
     border: none;
-    border-bottom: 1px solid gray;
+    color: $two;
+    // border-bottom: 1px solid gray;
   }
 }
 
@@ -65,15 +66,17 @@
   button {
     width: 100%;
     height: 25%;
-    background: $four;
-    color: white;
-    border: 2px solid $four;
+    background: $one;
+    color: $four;
+    border-radius: 10px 10px 0 0;
     text-align: center;
     align-self: flex-end;
   }
   button:hover {
     cursor: pointer;
-    border: 2px solid white;
+    background: $three;
+    color: white;
+    // border: 2px solid white;
   }
 }
 

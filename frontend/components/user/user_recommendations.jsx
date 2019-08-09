@@ -13,7 +13,8 @@ class UserRecommendations extends React.Component {
       let genreArray = []
       genreArray.push(selectedGenre)
       let filtered = genreFilter(gamesArray, genreArray)
-      return this.selectSample(filtered)
+      let list = this.selectSample(filtered)
+      return list.length ? list : null
     } else {
       return <li><Link to='/index'>Add games to your rack for recommendations!</Link></li>
     }
@@ -32,12 +33,16 @@ class UserRecommendations extends React.Component {
     }
   }
 
-  selectSample(filtered) {
-    const ids = Object.keys(this.props.gameRackGames)
+  selectSample(filtered) { 
+    debugger
+    const ids = this.props.gameRackGames.map(game => {
+      return game.id
+    })
     let selection = []
     let i = 0
-    while (i < 3) {
-      let selected = randomElement(filtered)
+    filtered = _.shuffle(filtered)
+    while (i < 3 && filtered.length > 0) {
+      let selected = filtered.pop()
       if (ids.includes(selected.id)) {
         continue
       }
@@ -51,7 +56,11 @@ class UserRecommendations extends React.Component {
           <Link key={`recommended-${idx}-link`}
             to={`/games/show/${selected.id}`}>
             <div>
-              <span>{selected.title}</span>
+              <section>
+                <h5>{selected.title}</h5>
+                <span></span>
+                <p>Price: ${selected.price}</p>
+              </section>
               <button onClick={addGame(selected.id, this)}>Add Game</button>
             </div>
             <img src={selected.imageUrl} alt={`image for ${selected.title}`} />
@@ -67,12 +76,20 @@ class UserRecommendations extends React.Component {
     if (!selectedGame1) {
       return null
     }
+    const genres = this.recommendByGenre()
+    const categories = this.recommendByCategory()
+    const genreContent = genres ? 
+      <h3>More {selectedGenre} games like {selectedGame1.title}</h3> :
+      <h3></h3>
+    const categoryContent = categories ?
+      <h3>More {selectedCategory} games like {selectedGame2.title}</h3> :
+      <h3></h3>
     return (
       <ul className='recommended '>
-        <h3>More {selectedGenre} games like {selectedGame1.title}</h3>
-        {this.recommendByGenre()}
-        <h3>More {selectedCategory} games like {selectedGame2.title}</h3>
-        {this.recommendByCategory()}
+        {genreContent}
+        {genres}
+        {categoryContent}
+        {categories}
       </ul> 
     )
   }

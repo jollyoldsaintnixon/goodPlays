@@ -16,7 +16,7 @@
   height: 100%;
   justify-content: center;
   width: 100%;
-  background: $four;
+  background: $zero;
   border: 1px solid gray;
   h3 {
     color: white;
@@ -33,13 +33,13 @@
     margin: 5px;
     width: 90%;
     border-radius: 3px;
-    background-color: $zero
+    background-color: lighten($zero, 20%)
   }
   p {
     text-align: center;
     font-family: $serif;
     padding: 25px;
-    color: $one;
+    color: $four;
   }
 }
 
@@ -66,11 +66,15 @@
   input {
     margin-right: 25px;
   }
+  input:hover {
+    border: 1px solid transparent;
+  }
   a {
-    color: $one;
+    color: $four;
   }
   a:hover {
-      border-bottom: 1px solid $one
+    border-bottom: 1px solid transparent;
+    color: white;
   }
 }
 

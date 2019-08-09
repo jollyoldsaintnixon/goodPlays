@@ -64,6 +64,21 @@
     font-family: $serif;
     color: $four;
   }
+  button {
+    border-radius: 10% 0 0 0;
+    align-self: flex-end;
+    background: $one;
+    color: $four;
+    text-align: center;
+    align-self: flex-end;
+    padding: 5px;
+    margin: 0 -5px -5px 0;
+  }
+  button:hover {
+    cursor: pointer;
+    color: white;
+    background: $three;
+  }
 }
 
 .length {

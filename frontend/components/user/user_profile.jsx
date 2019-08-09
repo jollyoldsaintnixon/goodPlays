@@ -42,7 +42,7 @@ class UserProfile extends React.Component {
     }
     return (
       <section className='profile-container'>
-        <h1>Whatup, {user.username}</h1>
+        <h1>Hello, {user.username}</h1>
         <section className='user-profile'>
           <UserGameRack 
             gameRackGames={gameRackGames} 

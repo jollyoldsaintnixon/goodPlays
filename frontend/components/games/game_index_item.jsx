@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { GameIndexItemDisplay } from './game-index-item-display'
+import GameIndexItemDisplay from './game-index-item-display'
 
 
 class GameIndexItem extends React.Component {
@@ -30,7 +30,9 @@ class GameIndexItem extends React.Component {
           <Link to={`/games/show/${game.id}`} >
             <img src={game.imageUrl} alt={game.title}/>
           </Link>
-          <GameIndexItemDisplay game={game} className={this.state.className}/>
+          <GameIndexItemDisplay game={game} 
+            className={this.state.className}
+            uiGamesIds={uiGamesIds}/>
       </li>
     )
   }

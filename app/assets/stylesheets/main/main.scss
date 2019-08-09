@@ -36,7 +36,7 @@ input[type=submit] {
 input[type=submit]:hover, .button:hover {
     cursor: pointer;
     color: $four;
-    border: 1px solid white;
+    border: 1px solid transparent;
 }
 
 a {
@@ -44,7 +44,7 @@ a {
 }
 
 a:hover {
-  border-bottom: 1px solid gray
+  border-bottom: 1px solid transparent
 }
 
 .button {

@@ -22,7 +22,9 @@ Moving forward, I would like to implement infinite scrolling and add comment fun
  * Each component could access the React's store through React Redux's Provider  
  * Each component had access to front-end routing features through React Router Dom  
 
-## Highlighted Features:
+## Highlighted Features
+
+### Data Scraping
 
 1. The data for goodPlays was parsed from a data set containing information about several thousand games on Steam.  JavaScript's open_uri library was used to parse the CSV into a table of desired information.  
   This data was then transefered into an array with each element as a hash that had keys corresponding to the desired attributes of each game.  For example, one element in the array would have a hash that stored keys to a title, release date, price and other chosen attributes.  Each hash had the same keys.
@@ -48,6 +50,7 @@ Moving forward, I would like to implement infinite scrolling and add comment fun
       game.image.attach(io: file, filename: (game.id.to_s + ' ' + game.title + ' image.jpg'))
     end
 
+### Searching
 
 2. goodPlays has a robust search filter that can be accessed whether a user is logged in our not.  The user can choose to implement any combination of filters.  Available filters are string-to-title, release date range, price range, genres, and categories.  The number of matches against the total number of games in the library is displayed on the left-hand side of the screen and the matched games are shown in columns on the right.  The advanced search will not fire if no matches are found.
   A simple string-to-title search bar is fixe to the top of the screen on every front-end route.  Additionally, users can filter by a category or genre by selecting from the drop-down menu under the navigation bar's 'browse' link or by selecting from a particular game's genres and categories on it's show page.  If any of these filters do not match any game, the user is informed that no matches were found and is instead shown the entire library.

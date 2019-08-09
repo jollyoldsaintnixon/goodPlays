@@ -1,8 +1,10 @@
 # README
 
-I got significant help from appAcademy's BenchBnB exercise instructions on the User Authentication portion of my project.
+goodPlays is loosely inspired by https://www.goodreads.com/
 
-I got a lot of CSS tips and tricks from App Academy's videos and CSS Friends project.  Additional help was gleaned from the CSS Tricks website.
+Technologies used:
+  I used javascript's open_uri library to parse a large csv data set scraped from 
+
 
 I pulled steam data from Craig Kelly's CSV found here: https://data.world/craigkelly/steam-game-data
 
@@ -13,6 +15,8 @@ The magnifying glass is labeled for free commercial use and was taken from www.f
 I followed Kate Lawrence's walkthrough (https://medium.com/@k88lawrence/dead-simple-infinite-scroll-with-kaminari-and-react-waypoint-8073c22be7ed) for implementing infinite scrolling 
 
 The background banner was created by user Jetrel and found at https://opengameart.org/content/castle-platformer under a Public Domain license
+
+Link to site: https://goodplays-aa.herokuapp.com
 
 TODO:
   CSS:

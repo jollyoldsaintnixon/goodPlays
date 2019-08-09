@@ -120,12 +120,14 @@ games = Game.all
 
 games.each do |game| 
   #  
-  next if game.title.include? 'Beelzebub'
+  next if game.title.include? 'Beelzebub' 
+  next if game.title.include? 'Orchestra' 
+  puts game.title
   file = open("https://s3.amazonaws.com/goodplays-seeds/" + game.title.split.join('+') + "_pic.jpg")
   game.image.attach(io: file, filename: (game.id.to_s + ' ' + game.title + ' image.jpg'))
 end
 
-Game.all.each |game|
+Game.all.each do |game|
   unless game.image.attached?
     game.destroy
   end

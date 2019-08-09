@@ -73,7 +73,7 @@ class GameIndexSorter extends React.Component {
       <form className='game-index-sorter'>
         <h4>{this.props.errors}</h4>
         {this.props.content}
-        {/* <div> </div> */}
+        <h3></h3>
         <button onClick={this.sortBy('title')}><span>Sort by title</span></button>
         <button onClick={this.sortBy('release_date')}><span>Sort by release date</span></button>
         <button onClick={this.sortBy('price')}><span>Sort by price</span></button>

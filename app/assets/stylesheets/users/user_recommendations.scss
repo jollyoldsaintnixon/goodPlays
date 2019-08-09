@@ -5,8 +5,12 @@
   justify-content: flex-start;
   align-items: center;
   margin-left: 12.5%;
+
   li {
     padding: 10px, 0;
+    // position: relative;
+    display: flex;
+    // background: purple;
   }
   a {
     display: flex;
@@ -17,16 +21,39 @@
   a:hover {
     border: 2px solid $five;
   }
-  span {
-    display: block;
-    height: 100px;
-    width: 100px;
+  div {
+    display: flex;
+    height: 125px;
+    width: 125px;
+    flex-direction: column;
     background: $zero;
+    span {
+      display: block;
+      height: 75%;
+      width: 100%;
+      background: $zero;
+      font-size: .8em;
+    }
+    button {
+      height: 25%;
+      width: 100%;
+      text-align: center;
+      background: $four;
+      color: white;
+      border: 2px solid $four;
+      text-align: center;
+      // padding: 6px;
+      z-index: 2;
+    }
+    button:hover {
+      border: 2px solid white;
+      cursor: pointer;
+    }
   }
   img {
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 125px;
   }
   h3 {
     text-align: center;

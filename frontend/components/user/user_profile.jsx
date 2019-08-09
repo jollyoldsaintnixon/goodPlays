@@ -5,37 +5,14 @@ import { Link } from 'react-router-dom'
 import { randomElement } from '../../util/helper_functions'
 import UserRecommendations from './user_recommendations'
 import UserGameRack from './user_game_rack'
+import { addGameToUser, deleteGameFromUser } from '../../actions/session_actions'
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props)
 
     this.gameRackGames = this.gameRackGames.bind(this)
-    // this.rackList = this.rackList.bind(this)
   }
-
-  // rackList(gameRackGames) {
-  //   const { user } = this.props
-  //   if (gameRackGames) {
-  //     const list = gameRackGames.map((game) => {
-  //       return (
-  //           <li className='game-box'
-  //             key={`user-${user.id}-game-${game.id}`}>
-  //             <ul className='game-rack-info'>
-  //               <Link to={`/games/show/${game.id}`}>{game.title}</Link>
-  //               <li>Price: ${game.price}</li>
-  //                 {ulFromArray(game.genres, 'game-genres')}
-  //                 {ulFromArray(game.categories, 'game-categories')}
-  //             </ul>
-  //             <img className='thumb-nail-img' src={game.imageUrl} alt={`image for ${game.title}`} />
-  //           </li>
-  //         )
-  //     })
-  //     return list
-  //   } else {
-  //     return <li className='game-box'>Your rack is empty!</li>
-  //   }
-  // }
 
   gameRackGames() {
     const { user, games } = this.props
@@ -91,7 +68,7 @@ const msp = (state) => ({
 });
 
 const mdp = dispatch => ({
-  fetchGames: () => dispatch(fetchGames())
+  fetchGames: () => dispatch(fetchGames()),
 })
 
 export default connect(msp, mdp)(UserProfile)

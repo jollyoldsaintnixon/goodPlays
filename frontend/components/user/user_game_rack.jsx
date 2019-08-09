@@ -1,6 +1,9 @@
 import React from 'react'
 import { ulFromArray } from '../../util/helper_functions'
 import { Link } from 'react-router-dom'
+import { addGameToUser, deleteGameFromUser } from '../../actions/session_actions'
+import { connect } from 'react-redux'
+import { removeGame } from '../../util/game_show_helper'
 
 class UserGameRack extends React.Component {
   constructor(props) {
@@ -18,10 +21,14 @@ class UserGameRack extends React.Component {
             key={`user-${userId}-game-${game.id}`}>
             <Link to={`/games/show/${game.id}`}>
               <ul className='game-rack-info'>
-                <li>{game.title}</li>
-                <li>Price: ${game.price}</li>
-                {ulFromArray(game.genres, 'game-genres')}
-                {ulFromArray(game.categories, 'game-categories')}
+                <div>
+                  <h5>{game.title}</h5>
+                  <span></span>
+                  <li>Price: ${game.price}</li>
+                  <li className='game-genres'>Genres: {game.genres.join(', ')}</li>
+                  <li className='game-categories'>Categories: {game.categories.join(', ')}</li>
+                </div>
+                <button onClick={removeGame(game.id, this)}>Remove Game</button>
               </ul>
               <img className='thumb-nail-img' src={game.imageUrl} alt={`image for ${game.title}`} />
             </Link>
@@ -49,4 +56,9 @@ class UserGameRack extends React.Component {
   }
 }
 
-export default UserGameRack
+const mdp = dispatch => ({
+  deleteGameFromUser: gameId => dispatch(deleteGameFromUser(gameId)),
+})
+
+export default connect(null, mdp)(UserGameRack)
+

@@ -1,4 +1,4 @@
- source 'https://rubygems.org'
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
@@ -37,7 +37,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'pry-rails'
 gem 'csv'
-# gem 'mechanize'
+gem 'mechanize'
 gem 'kaminari'
 
 group :development, :test do

@@ -1,6 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { categoryFilter, genreFilter, randomElement } from '../../util/helper_functions'
+import { addGameToUser } from '../../actions/session_actions'
+import { addGame } from '../../util/game_show_helper'
 
 class UserRecommendations extends React.Component {
 
@@ -30,19 +33,30 @@ class UserRecommendations extends React.Component {
   }
 
   selectSample(filtered) {
+    const ids = Object.keys(this.props.gameRackGames)
     let selection = []
-    for (let i = 0; i < 3; i++) {
+    let i = 0
+    while (i < 3) {
       let selected = randomElement(filtered)
+      if (ids.includes(selected.id)) {
+        continue
+      }
       selection.push(selected)
+      i++
     }
     const list = selection.map((selected, idx) => {
       if (selected) {
-        return (<li key={`recommended-${idx}`}>
+        return (
+        <li key={`recommended-${idx}`}>
           <Link key={`recommended-${idx}-link`}
             to={`/games/show/${selected.id}`}>
-            <span>{selected.title}</span>
+            <div>
+              <span>{selected.title}</span>
+              <button onClick={addGame(selected.id, this)}>Add Game</button>
+            </div>
             <img src={selected.imageUrl} alt={`image for ${selected.title}`} />
-          </Link></li>)
+          </Link>
+          </li>)
         }
       })
     return list
@@ -64,4 +78,8 @@ class UserRecommendations extends React.Component {
   }
 }
 
-export default UserRecommendations
+const mdp = dispatch => ({
+  addGameToUser: gameId => dispatch(addGameToUser(gameId)),
+})
+
+export default connect(null, mdp)(UserRecommendations)

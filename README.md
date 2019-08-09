@@ -23,8 +23,6 @@ TODO:
     Regular Search 
       Add scroll bar to search drop down menu
       Search bar dropdown menu disappears after submission and loss of focus 
-      Displays errors when no match
-      Search refreshes when clicking Browse
     Advanced search form
       developer selection and functionality
       Add 'free' option to price

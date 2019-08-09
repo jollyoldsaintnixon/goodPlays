@@ -1,33 +1,12 @@
+
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { receiveUiGames } from '../../actions/ui_actions'
-import { fetchGame, fetchGames } from '../../actions/games_actions'
-import { addGameToUser, deleteGameFromUser } from '../../actions/session_actions'
 import { genreFilter, categoryFilter } from '../../util/helper_functions'
-
-const msp = (state, ownProps) => {
-  let user = state.entities.users[state.session.id]
-  let game_ids = user ? user.game_ids : null
-  return {
-    allGames: Object.values(state.entities.games),
-    game: state.entities.games[ownProps.match.params.gameId],
-    user,
-    game_ids,
-  }
-}
-
-const mdp = dispatch => ({
-  fetchGame: id => dispatch(fetchGame(id)),
-  addGameToUser: gameId => dispatch(addGameToUser(gameId)),
-  deleteGameFromUser: gameId => dispatch(deleteGameFromUser(gameId)),
-  fetchGames: () => dispatch(fetchGames()),
-  receiveUiGames: games => dispatch(receiveUiGames(games)),
-})
+import { Link } from 'react-router-dom'
 
 class GameShow extends React.Component {
   constructor(props) {
     super(props)
+
   }
 
   displayButtons() {
@@ -146,4 +125,4 @@ class GameShow extends React.Component {
   }
 }
 
-export default withRouter(connect(msp, mdp)(GameShow))
+export default GameShow

@@ -9,6 +9,7 @@ const msp = (state, ownProps) => {
   let user = state.entities.users[state.session.id]
   let game_ids = user ? user.game_ids : null
   return {
+    type: 'show',
     allGames: Object.values(state.entities.games),
     game: state.entities.games[ownProps.match.params.gameId],
     user,

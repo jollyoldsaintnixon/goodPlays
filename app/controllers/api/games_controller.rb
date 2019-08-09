@@ -2,6 +2,7 @@ class Api::GamesController < ApplicationController
   # caches_action :index
 
   def index
+    
     # @games = Game.with_attached_image.page(params[:page]).per(25)
     @games = Game.with_attached_image
     render :index
@@ -9,6 +10,13 @@ class Api::GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+  end
+
+  def count
+    
+    count = Game.count
+    # debugger
+    render json: {count: count}
   end
 
 

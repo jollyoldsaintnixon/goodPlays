@@ -6,10 +6,28 @@ export const fetchGames = () => {
 }
 
 export const fetchPagesOfGames = (page) => {
+  debugger
   return $.ajax({
     method: 'GET',
     url: '/api/games',
     data: { page },
+  })
+}
+
+export const fetchNGames = (page) => {
+  debugger
+  return $.ajax({
+    method: 'GET',
+    url: '/api/games',
+    data: { page }
+    // url: '/api/games/ngames/',
+  })
+}
+
+export const getCount = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/count`
   })
 }
 

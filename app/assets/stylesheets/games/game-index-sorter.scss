@@ -39,6 +39,20 @@
     align-self: center;
     text-align: center;
   }
+  h3 {
+    margin: 15px auto;
+    display: block;
+    height: 0;
+    width: 80%;
+    border-top: 1px solid $five;
+  }
+  h5 {
+    margin: 5px auto;
+    display: block;
+    height: 0;
+    width: 80%;
+    border-top: 1px solid $five;
+  }
   button {
     margin: 3px;
   }

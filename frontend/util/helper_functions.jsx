@@ -106,12 +106,13 @@ export const randomElement = array => {
 }
 
 export const ulFromArray = (array, className) => {
+  const intro = className === 'game-genres' ? 'Genres: ' : 'Categories: ' 
   const split = array.map((ele, idx) => {
     return (
       <li key={`${className}-${idx}`}>{ele}</li>
     )
   })
-  return <ul className={className}>{split}</ul>
+  return <ul className={className}>{intro}{split}</ul>
 }
 
 

@@ -6,6 +6,7 @@ export const RECEIVE_GAME_ERRORS = 'RECEIVE_GAME_ERRORS'
 export const CLEAR_GAME_ERRORS = 'CLEAR_GAME_ERRORS'
 export const RECEIVE_GAMERACK_ERRORS = 'RECEIVE_GAMERACK_ERRORS'
 export const RECEIVE_PAGE_OF_GAMES = 'RECEIVE_PAGE_OF_GAMES'
+export const RECEIVE_COUNT = 'RECEIVE_COUNT'
 
 // action creators
 const receivePageOfGames = games => ({
@@ -28,6 +29,11 @@ const receiveGameErrors = errors => ({
   errors
 })
 
+const receiveCount = num => ({
+  type: RECEIVE_COUNT,
+  num
+})
+
 export const clearGameErrors = () => ({
   type: CLEAR_GAME_ERRORS
 })
@@ -37,7 +43,6 @@ export const receiveGameRackErrors = errors => ({
   errors
 })
 // thunk action creators
-
 
 export const fetchGames = () => dispatch => {
   
@@ -55,6 +60,7 @@ export const fetchPagesOfGames = page => dispatch => {
       error => dispatch(receiveGameErrors(error.responseJSON))
     )
 }
+
 export const fetchGame = (id) => dispatch => {
   const promise = APIUtil.fetchGame(id)
   return (
@@ -66,4 +72,14 @@ export const fetchGame = (id) => dispatch => {
     
         return dispatch(receiveGameErrors(error.responseJSON))})
       )
+}
+
+export const fetchNGames = idx => dispatch => {
+  return APIUtil.fetchNGames(idx)
+    .then(games => dispatch(receivePageOfGames(games)))
+}
+
+export const getCount = () => dispatch => {
+  return APIUtil.getCount()
+    .then(num => dispatch(receiveCount(num)))
 }

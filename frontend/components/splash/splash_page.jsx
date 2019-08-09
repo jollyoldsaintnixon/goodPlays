@@ -5,10 +5,15 @@ import { receiveUiGames } from '../../actions/ui_actions'
 import { addGameToUser, deleteGameFromUser } from '../../actions/session_actions'
 import { Link, withRouter } from 'react-router-dom'
 import { randomElement, genreFilter, categoryFilter } from '../../util/helper_functions'
+import { handleClick, addGame, removeGame} from '../../util/game_show_helper'
 
 class SplashPage extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      game: null
+    }
+    // this.handleClick, this.addGame, this.removeGame = this.handleClick.bind(this), this.addGame.bind(this), this.removeGame.bind(this)
   }
 
   componentDidMount() {
@@ -58,7 +63,7 @@ class SplashPage extends React.Component {
   }
 
   displayGame() {
-    debugger
+    
     const { games } = this.props
     if (games.length) {
       const game = randomElement(games)
@@ -83,7 +88,7 @@ class SplashPage extends React.Component {
   }
 
   genreLinks(game) {
-    debugger
+    
     const { games } = this.props
     if (game.genres.length) {
       let list = game.genres.map((genre, idx) => {

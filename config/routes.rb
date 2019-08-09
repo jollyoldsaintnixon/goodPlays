@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :games, only: [:index, :show]
     resources :game_racks, only: [:create, :destroy]
+    get 'count', to: 'games#count'
   end
   
   root to: 'static_pages#root' 

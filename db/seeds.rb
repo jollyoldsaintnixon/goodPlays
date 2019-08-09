@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'mechanize'
-require 'open-uri'
+# require 'mechanize'
+# require 'open-uri'
 
 
 # ApplicationRecord.connection.reset_pk_sequence('games')
@@ -89,13 +89,13 @@ Game.destroy_all
 #   end
 # end
 
-# File.open("#{Rails.root}/lib/assets/scraped.txt", 'r') do |file|
-#   file.read.each_line do |line|
+File.open("#{Rails.root}/lib/assets/scraped.txt", 'r') do |file|
+  file.read.each_line do |line|
     
-#     next if line.include? 'Hunter/Killer'
-#     Game.create(JSON.parse(line))
-#   end
-# end
+    next if line.include? 'Hunter/Killer'
+    Game.create(JSON.parse(line))
+  end
+end
 
 games = Game.all
 
@@ -123,4 +123,10 @@ games.each do |game|
   next if game.title.include? 'Beelzebub'
   file = open("https://s3.amazonaws.com/goodplays-seeds/" + game.title.split.join('+') + "_pic.jpg")
   game.image.attach(io: file, filename: (game.id.to_s + ' ' + game.title + ' image.jpg'))
+end
+
+Game.all.each |game|
+  unless game.image.attached?
+    game.destroy
+  end
 end

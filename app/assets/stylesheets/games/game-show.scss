@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   margin: 20px auto;
+
   li {
     padding: 3px, 0, 3px, 0;
   }
@@ -23,6 +24,8 @@
 .game-title {
   font-size: 3em;
   margin-top: 5px;
+  color: $five;
+  font-weight: bold;
 }
 
 .game-price {
@@ -31,12 +34,23 @@
 }
 
 .game-release-date {
-  margin-top: 5px;
+  margin: 5px 0 3px 0;
 }
 
 .game-description {
   font-family: $serif;
   color: black;
+  span {
+    width: 0;
+    height: 0;
+    display: inline;
+    color: $two;
+    font-weight: bold;
+  }
+  span:hover {
+    color: $four;
+    cursor: pointer;
+  }
 }
 
 .links {

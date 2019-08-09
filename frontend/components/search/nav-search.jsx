@@ -19,7 +19,7 @@ class NavSearch extends React.Component {
   search() {
     return (e) => {
       e.preventDefault()
-      // debugger
+      //  
 
       const list = this.gameList()
       if (this.state.searchString === '' || !list.length) {
@@ -83,7 +83,7 @@ class NavSearch extends React.Component {
   }
 
   dropDownSelect(e) {
-    // debugger
+    //  
     e.preventDefault()
     this.setState({searchString: e.target.textContent})
     // this.setState({searchString: ''})

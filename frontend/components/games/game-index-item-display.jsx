@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 class GameIndexItemDisplay extends React.Component {
   
   displayButton() {
-    debugger
+     
     const { game, user } = this.props
     if (!user) {
       return null

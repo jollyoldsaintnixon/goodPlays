@@ -6,7 +6,7 @@ export const fetchGames = () => {
 }
 
 export const fetchPagesOfGames = (page) => {
-  debugger
+   
   return $.ajax({
     method: 'GET',
     url: '/api/games',
@@ -15,7 +15,7 @@ export const fetchPagesOfGames = (page) => {
 }
 
 export const fetchNGames = (page) => {
-  debugger
+   
   return $.ajax({
     method: 'GET',
     url: '/api/games',

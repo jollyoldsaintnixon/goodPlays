@@ -68,7 +68,7 @@ class GameIndexSorter extends React.Component {
   }
 
   render() {
-    debugger
+     
     return (
       <form className='game-index-sorter'>
         <h4>{this.props.errors}</h4>

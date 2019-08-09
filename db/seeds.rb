@@ -11,7 +11,7 @@ require 'open-uri'
 
 # ApplicationRecord.connection.reset_pk_sequence('games')
 
-# Game.destroy_all
+Game.destroy_all
 
 # table = CSV.read("#{Rails.root}/lib/assets/games-features.csv", headers: true)
 
@@ -103,26 +103,23 @@ games = Game.all
 
 # agent = Mechanize.new
 # games.each do |game, i| 
-#   # debugger
+#   #  
 #   agent.get(game.image_url).save('app/assets/images/icon_images/' + game.title + "_pic.jpg")
 # end
 
 # this was for populating on localhost (unnecessary)
 
 # games.each do |game| 
-#   # debugger
+#   #  
 #   file = File.open("#{Rails.root}/app/assets/images/icon_images/" + game.title + "_pic.jpg", 'r')
 #   game.image.attach(io: file, filename: (game.id.to_s + ' ' + game.title + ' image.jpg'))
 # end
 
 # this is for pulling off of AWS.  Upload the files into a new bucket specifically for seeding by dumping the contents
 # of your jpgs folder into it.
-count = 0
-games.each do |game, idx| 
-  # debugger
-  break if count = 408
-  count += 1
-  p count
+
+games.each do |game| 
+  #  
   next if game.title.include? 'Beelzebub'
   file = open("https://s3.amazonaws.com/goodplays-seeds/" + game.title.split.join('+') + "_pic.jpg")
   game.image.attach(io: file, filename: (game.id.to_s + ' ' + game.title + ' image.jpg'))

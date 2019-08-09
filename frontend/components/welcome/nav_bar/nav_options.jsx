@@ -6,7 +6,7 @@ import { clearUiGames } from '../../../actions/ui_actions'
 import NavBrowseMenu from './browse/nav_browse_menu'
 
 const mdp = dispatch => {
-  // debugger
+  //  
   return {clearUiGames: () => dispatch(clearUiGames())}
 }
 
@@ -28,7 +28,7 @@ class NavOptions extends React.Component {
   }
 
   removeVisible(e) {
-    debugger
+     
     e.stopPropagation()
     this.setState({visible: false})
   }

@@ -25,7 +25,7 @@ class UserRecommendations extends React.Component {
     if (Object.keys(gameRackGames).length && selectedCategory) {
       let categoryArray = []
       categoryArray.push(selectedCategory)
-      // debugger
+      //  
       let filtered = categoryFilter(gamesArray, categoryArray)
       return this.selectSample(filtered)
     } else {
@@ -34,7 +34,7 @@ class UserRecommendations extends React.Component {
   }
 
   selectSample(filtered) { 
-    debugger
+     
     const ids = this.props.gameRackGames.map(game => {
       return game.id
     })

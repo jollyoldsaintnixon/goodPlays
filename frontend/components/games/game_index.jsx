@@ -20,7 +20,7 @@
 //   }
 
 //   getPage() {
-//     debugger
+//      
 //     let currentPage = this.state.page
 //     this.props.fetchPagesOfGames(currentPage)
 //     currentPage += 1
@@ -28,7 +28,7 @@
 //   }
 
 //   // getFirstPage() {
-//   //   debugger
+//   //    
 //   //   return this.props.fetchPagesOfGames(this.state.page)
 //   // }
 //   fGames(page, total) {
@@ -36,7 +36,7 @@
 //     return () => {
 //       that.props.fetchNGames(page)
 //         .then(() => {
-//           debugger
+//            
 //           page += 1
 //           if (total >= that.props.count) {
 //             return

@@ -1,10 +1,10 @@
 class Api::SessionsController < ApplicationController
   def create #log in
     @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
-    # debugger
+    #  
     if @user
       log_in!(@user)
-      # debugger
+      #  
       render 'api/users/show' # want to render show page of user
     else
       render json: ['Invalid username or password'], status: 422

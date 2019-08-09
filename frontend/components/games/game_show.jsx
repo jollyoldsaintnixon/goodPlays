@@ -88,13 +88,13 @@ class GameShow extends React.Component {
 
 
   componentDidMount() {
-    debugger
+     
     this.props.fetchGame(this.props.match.params.gameId)
     this.props.fetchGames()
   }
 
   componentDidUpdate(prevProps) {
-    debugger
+     
     if (prevProps.id != this.props.match.params.imageId) {
       this.props.fetchGame(this.props.match.params.gameId)
       this.props.fetchGames()
@@ -107,7 +107,7 @@ class GameShow extends React.Component {
     if (game === undefined) {
       game = { title: '', release_date: '', description: '', imageUrl: '', image_url: '', genres: [], categories: [] }
     }
-    // debugger
+    //  
     return (
       <ul className='game-show col-2-3'>
           <li><img src={game.imageUrl} alt={`${game.title} image`} /></li>  

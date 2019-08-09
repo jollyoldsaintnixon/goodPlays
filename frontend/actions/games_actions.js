@@ -54,7 +54,7 @@ export const fetchGames = () => dispatch => {
 }
 
 export const fetchPagesOfGames = page => dispatch => {
-  debugger
+   
   return APIUtil.fetchPagesOfGames(page)
     .then(games => dispatch(receivePageOfGames(games)),
       error => dispatch(receiveGameErrors(error.responseJSON))

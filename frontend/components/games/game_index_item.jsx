@@ -21,7 +21,7 @@ class GameIndexItem extends React.Component {
   
   render() {
     const { uiGamesIds, game } = this.props
-    // debugger
+    //  
     const display = (!uiGamesIds.length || uiGamesIds.includes(game.id)) ? 'inherit' : 'none'
     return (
       <li className={`game-index-item ${display}`} 

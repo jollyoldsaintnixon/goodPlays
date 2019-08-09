@@ -36,7 +36,7 @@ export const addGameToUser = (id) => dispatch => {
 
 export const deleteGameFromUser = (id) => dispatch => {
   return APIGameUtil.deleteGame(id)
-    .then(user => { debugger
+    .then(user => {  
       return dispatch(receiveCurrentUser(user))},
       error => dispatch(receiveGameRackErrors(error.responseJSON)))
 }

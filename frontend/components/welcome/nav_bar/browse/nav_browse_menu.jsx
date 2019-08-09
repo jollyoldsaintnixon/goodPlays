@@ -23,7 +23,7 @@ class NavBrowseMenu extends React.Component {
 
   // swapClass(midClassName) {
   //   return (e) => {
-  //     debugger
+  //      
   //     e.preventDefault()
   //     this.setState({ 
   //       midClassName: midClassName,

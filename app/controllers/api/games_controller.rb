@@ -15,7 +15,7 @@ class Api::GamesController < ApplicationController
   def count
     
     count = Game.count
-    # debugger
+    #  
     render json: {count: count}
   end
 

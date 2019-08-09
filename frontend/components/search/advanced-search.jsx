@@ -13,7 +13,7 @@ import { openModal } from '../../actions/modal_actions'
 class AdvancedSearch extends React.Component {
   constructor(props) {
     super(props)
-    // debugger
+    //  
     this.null = {
       searchString: '',
       genres: [],
@@ -84,18 +84,18 @@ class AdvancedSearch extends React.Component {
     if (this.state === this.null) {
       return games
     }
-    // debugger
+    //  
     gamesList = stringFilter(games, searchString) // filter by string
     gamesList = genreFilter(gamesList, genres)
     gamesList = categoryFilter(gamesList, categories)
     gamesList = dateFilter(gamesList, startDate, endDate)
     gamesList = priceFilter(gamesList, parseFloat(lowPrice), parseFloat(highPrice))
-    // debugger
+    //  
     return gamesList
   }
 
   componentDidMount() {
-    debugger
+     
     this.props.openModal('advanced_search')
   }
 

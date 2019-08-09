@@ -13,14 +13,14 @@ Moving forward, I would like to implement infinite scrolling and add comment fun
 
 ## Technologies used
 
- *The backend was built with Ruby on Rails
- *Backend views were rendered via jbuilder
- *Embedded Ruby tags were used to augment the root html folder
- *The front end was written in JavaScript mostly with the React and Redux libraries
- *jQuery was used for its built in authentication and for AJAX requests.
- *The presentation was designed with SCSS
- *Each component could access the React's store through React Redux's Provider
- *Each component had access to front-end routing features through React Router Dom
+ *The backend was built with Ruby on Rails  
+ *Backend views were rendered via jbuilder  
+ *Embedded Ruby tags were used to augment the root html folder  
+ *The front end was written in JavaScript mostly with the React and Redux libraries  
+ *jQuery was used for its built in authentication and for AJAX requests  
+ *The presentation was designed with SCSS  
+ *Each component could access the React's store through React Redux's Provider  
+ *Each component had access to front-end routing features through React Router Dom  
 
 ## Highlighted Features:
 
@@ -76,10 +76,10 @@ Moving forward, I would like to implement infinite scrolling and add comment fun
 
 ## References and sources
 
-*I pulled steam data from Craig Kelly's CSV found here: https://data.world/craigkelly/steam-game-data
+*I pulled steam data from Craig Kelly's CSV found here: https://data.world/craigkelly/steam-game-data  
 
-*I got a lot of tips from Stack Overflow, such as their method for randomly selecting an item from an array.
+*I got a lot of tips from Stack Overflow, such as their method for randomly selecting an item from an array  
 
-*The magnifying glass is labeled for free commercial use and was taken from www.freeiconshop.com
+*The magnifying glass is labeled for free commercial use and was taken from www.freeiconshop.com  
 
-*The background banner was created by user Jetrel and found at https://opengameart.org/content/castle-platformer under a Public Domain license
+*The background banner was created by user Jetrel and found at https://opengameart.org/content/castle-platformer under a Public Domain license  

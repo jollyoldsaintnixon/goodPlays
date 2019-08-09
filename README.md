@@ -3,7 +3,13 @@
 goodPlays is loosely inspired by https://www.goodreads.com/
 
 Technologies used:
-  I used javascript's open_uri library to parse a large csv data set scraped from 
+  -The backend was built with Ruby on Rails
+  -Backend views were rendered via jbuilder
+  
+  -jQuery was used for it's built in authentication and for ajax requests.
+  -I used javascript's open_uri library to parse a large csv data set scraped from Steam, a video game platform.
+  -I used the mechanize gem to create jpegs based on the scraped data's image url.
+  
 
 
 I pulled steam data from Craig Kelly's CSV found here: https://data.world/craigkelly/steam-game-data

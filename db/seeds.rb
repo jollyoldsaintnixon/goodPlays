@@ -11,7 +11,7 @@
 
 # ApplicationRecord.connection.reset_pk_sequence('games')
 
-Game.destroy_all
+# Game.destroy_all
 
 # table = CSV.read("#{Rails.root}/lib/assets/games-features.csv", headers: true)
 
@@ -89,13 +89,13 @@ Game.destroy_all
 #   end
 # end
 
-File.open("#{Rails.root}/lib/assets/scraped.txt", 'r') do |file|
-  file.read.each_line do |line|
+# File.open("#{Rails.root}/lib/assets/scraped.txt", 'r') do |file|
+#   file.read.each_line do |line|
     
-    next if line.include? 'Hunter/Killer'
-    Game.create(JSON.parse(line))
-  end
-end
+#     next if line.include? 'Hunter/Killer'
+#     Game.create(JSON.parse(line))
+#   end
+# end
 
 games = Game.all
 
@@ -118,14 +118,14 @@ games = Game.all
 # this is for pulling off of AWS.  Upload the files into a new bucket specifically for seeding by dumping the contents
 # of your jpgs folder into it.
 
-games.each do |game| 
-  #  
-  next if game.title.include? 'Beelzebub' 
-  next if game.title.include? 'Orchestra' 
-  puts game.title
-  file = open("https://s3.amazonaws.com/goodplays-seeds/" + game.title.split.join('+') + "_pic.jpg")
-  game.image.attach(io: file, filename: (game.id.to_s + ' ' + game.title + ' image.jpg'))
-end
+# games.each do |game| 
+#   #  
+#   next if game.title.include? 'Beelzebub' 
+#   next if game.title.include? 'Orchestra' 
+#   puts game.title
+#   file = open("https://s3.amazonaws.com/goodplays-seeds/" + game.title.split.join('+') + "_pic.jpg")
+#   game.image.attach(io: file, filename: (game.id.to_s + ' ' + game.title + ' image.jpg'))
+# end
 
 Game.all.each do |game|
   unless game.image.attached?

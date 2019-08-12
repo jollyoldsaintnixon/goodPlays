@@ -83,6 +83,9 @@ class SessionForm extends React.Component {
             <div className='.inline-block'>
               <p>{lede}</p>
             </div>
+            <ul className='error-list'>
+              {errorsList[0]}
+            </ul>
             <ul className='session-inputs'>
               <label>
                 <input type="text" placeholder='Username' value={username} onChange={update('username', this)}/>
@@ -96,9 +99,6 @@ class SessionForm extends React.Component {
               <input type="submit" value={`${header}!`}/>
               <Link to={path} >{blurb}</Link>
             </div>
-            <ul className='error-list'>
-              {errorsList}
-            </ul>
           </form>
         </section>
       )

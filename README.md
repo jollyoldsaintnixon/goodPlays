@@ -86,3 +86,11 @@ Moving forward, I would like to implement infinite scrolling and add comment fun
 * The magnifying glass is labeled for free commercial use and was taken from www.freeiconshop.com  
 
 * The background banner was created by user Jetrel and found at https://opengameart.org/content/castle-platformer under a Public Domain license  
+
+
+TODO
+
+CSS:
+  SESSION FORM:
+    fix errors alignment on the small session form
+    

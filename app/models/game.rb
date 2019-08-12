@@ -5,4 +5,5 @@ class Game < ApplicationRecord
 
   has_many :game_racks
   has_many :users, through: :game_racks
+  has_many :game_comments
 end

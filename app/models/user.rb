@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :game_racks
   has_many :games, through: :game_racks
 
+  has_many :game_comments,
+  class_name: :GameComment,
+  foreign_key: :author_id
+
   def self.find_by_credentials(username, password) 
     user = User.find_by(username: username)
     return nil unless user && user.is_password?(password)

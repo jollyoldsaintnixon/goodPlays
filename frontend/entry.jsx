@@ -6,8 +6,9 @@ import { configureStore } from './store/store';
 // components
 import Root from './components/root'
 //testing
-import * as APIUtil from './util/games_api_util'
-import * as Actions from './actions/games_actions'
+import * as APIGameUtil from './util/games_api_util'
+import * as APIGameCommentUtil from './util/games_comments_api_util'
+import * as Actions from './actions/game_comments_actions'
 
 
 
@@ -29,11 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore()
   }
   // testing
+  // window.addGameComment = APIGameCommentUtil.addGameComment;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.fetchGamesAPI = APIUtil.fetchGames;
-  window.fetchGames = Actions.fetchGames
-  window.fetchPagesOfGames = Actions.fetchPagesOfGames
+  window.fetchGamesAPI = APIGameUtil.fetchGames;
+  window.addGameComment = Actions.addGameComment
   // end testing
   ReactDOM.render(<Root store={ store } />, root)
 })

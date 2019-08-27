@@ -92,5 +92,19 @@ TODO
 
 CSS:
   SESSION FORM:
-    fix errors alignment on the small session form
+    - fix errors alignment on the small session form
+
+COMPONENTS:
+  SEARCH BAR:
+    - remove drop down bar when an option is selected from it
+    - add scroll bar if more than 4 matches
+  INDEX: 
+    - implement paginate (somehow)
+  GAME COMMENTS:
+    - logged in users can comment on games
+    - logged in users can see all of their own comments from their profile
+    - logged in users can comment on comments
+    - logged out users can't see comments
+
+
     

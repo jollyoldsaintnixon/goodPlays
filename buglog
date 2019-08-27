@@ -14,3 +14,8 @@
 06 AUG: Had trouble with the search function working properly when coming from any page that was not the game index.  Refactored the ui games 
   reducer to only deal with the game ids, vs the entire games.  For some reason, this worked.  Take away is that JS is crazy, but normalized 
   state can help mitigate that craziness.
+
+26 AUG: Could not figure out why I was receiving an error in the console about a action requiring a type.  The error
+  pointed to a line of code that dispatched a thunk action, which then dispatched a regular action which absolutely had 
+  a type defined.  Finally realized that I left off a portion of the currying aspect of the thunk action;
+  I never passed it through to receive a dispatch.

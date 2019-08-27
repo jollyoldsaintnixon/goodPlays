@@ -1,15 +1,23 @@
-export const addGameComment = game_id => {
+export const addGameComment = comment => {
     return $.ajax({
         method: 'POST',
-        url: `/api/game_comments`,
-        data: { game: { game_id } }
+        url: `/game_comments`,
+        data: { comment }
+    })
+}
+
+export const fetchGameCommentsByGame = game_id => {
+    return $.ajax({
+        method: 'GET',
+        url: `/game_comments`,
+        data: { game_id },
     })
 }
 
 export const deleteGameComment = (game_comment_id, game_id) => {
     return $.ajax({
         method: 'DELETE',
-        url: `/api/game_comments/${game_comment_id}`,
+        url: `/game_comments/${game_comment_id}`,
         data: { 
             game: { game_id,
             game_comment_id },

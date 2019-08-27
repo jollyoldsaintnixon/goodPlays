@@ -3,11 +3,10 @@
   display: flex;
   justify-content: center;
   z-index: 1;
-  height: 100%;
+  height: fit-content;
   position: absolute;
   top: 73px;
   left: 65%;
-  // background: $light-green;
 }
 
 .session-form {

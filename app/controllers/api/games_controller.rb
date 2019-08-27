@@ -9,7 +9,8 @@ class Api::GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id])
+    @game = Game.includes(:game_comments).find(params[:id])
+    
   end
 
   def count

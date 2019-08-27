@@ -2,6 +2,7 @@
 import React from 'react'
 import { genreFilter, categoryFilter } from '../../util/helper_functions'
 import { Link } from 'react-router-dom'
+import GameCommentSection from '../comments/game_comment_section'
 
 class GameShow extends React.Component {
   constructor(props) {
@@ -123,7 +124,6 @@ class GameShow extends React.Component {
     if (game === undefined) {
       game = { title: '', release_date: '', description: '', imageUrl: '', image_url: '', genres: [], categories: [] }
     }
-    debugger
     let content = ''
     let first = game.description.slice(0, 1000)
     if (game.description.length > 1000) {
@@ -132,20 +132,21 @@ class GameShow extends React.Component {
     //  
     return (
       <ul className='game-show col-2-3'>
-          <li><img src={game.imageUrl} alt={`${game.title} image`} /></li>  
-          <li className='game-title'>{game.title}</li>
-          <li className='game-price'>${game.price}</li>
-          <li className='game-release-date'>Released {game.release_date}</li>
+        <li><img src={game.imageUrl} alt={`${game.title} image`} /></li>  
+        <li className='game-title'>{game.title}</li>
+        <li className='game-price'>${game.price}</li>
+        <li className='game-release-date'>Released {game.release_date}</li>
         <li className='game-description'>
           {first}<span className={className} onClick={this.expand}>{content}</span>{rest}
         </li>
           
-          <li className='game-genres links'>{this.genreLinks(game)}</li>
-          <li className='game-categories links'>{this.categoryLinks(game)}</li>
-          <div className='button-container'>
-            {this.displayButtons()}
-          </div>
-        </ul>
+        <li className='game-genres links'>{this.genreLinks(game)}</li>
+        <li className='game-categories links'>{this.categoryLinks(game)}</li>
+        <div className='button-container'>
+          {this.displayButtons()}
+        </div>
+        <GameCommentSection game_id={game ? game.id : null}></GameCommentSection>
+      </ul>
     )
   }
 }

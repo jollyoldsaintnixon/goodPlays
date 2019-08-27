@@ -1,6 +1,7 @@
 class GameCommentsController < ApplicationController
     def index
-        @comments = GameComment.all
+        game = Game.find(:id)
+        @comments = game.game_comments
         render :index
     end
 
@@ -10,9 +11,12 @@ class GameCommentsController < ApplicationController
     end
 
     def create
-        @comment = current_user.game_comments.new(game_id: game_comment_params[:game][:game_id])
-        if @comment.save
-            render 'api/games/show'
+        comment = current_user.game_comments.new(game_comment_params)
+        if comment.save
+            # game = comment.game
+            # user = current_user
+
+            render json: comment
         else
             render json: ['Attempt to add comment was unsuccesful'], status: 422
         end
@@ -35,6 +39,6 @@ class GameCommentsController < ApplicationController
     private 
 
     def game_comment_params
-        params.require(:game).permit(:game_id)
+        params.require(:comment).permit(:game_id, :title, :body, :parent_id)
     end
 end

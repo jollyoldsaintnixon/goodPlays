@@ -2,6 +2,7 @@ class GameCommentsController < ApplicationController
     def index
         game = Game.find(:id)
         @comments = game.game_comments
+        debugger
         render :index
     end
 

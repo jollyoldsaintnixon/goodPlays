@@ -23,7 +23,7 @@ const msp = state => {
 }
 
 const mdp = dispatch => ({
-    fetchGameCommentsByGame: dispatch(fetchGameCommentsByGame(game_id))
+    fetchGameCommentsByGame: game_id => dispatch(fetchGameCommentsByGame(game_id))
 })
 
 export default connect(null, mdp)(GameCommentList)

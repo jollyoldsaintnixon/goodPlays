@@ -105,6 +105,7 @@ COMPONENTS:
     - logged in users can see all of their own comments from their profile
     - logged in users can comment on comments
     - logged out users can't see comments
-
+  SPLASH PAGE:
+    - Game is clickable
 
     

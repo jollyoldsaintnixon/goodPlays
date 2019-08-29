@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.addGameComment = APIGameCommentUtil.addGameComment;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.fetchGamesAPI = APIGameUtil.fetchGames;
+  window.fetchGameCommentsByGame = Actions.fetchGameCommentsByGame;
   window.addGameComment = Actions.addGameComment
   // end testing
   ReactDOM.render(<Root store={ store } />, root)

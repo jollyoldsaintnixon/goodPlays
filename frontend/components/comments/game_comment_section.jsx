@@ -17,14 +17,14 @@ class GameCommentSection extends React.Component {
     }
 }
 
-const msp = state => {
+const msp = state => ({
     
-}
+})
 
 const mdp = dispatch => {
-    return (
-        null
-    )
+    return ({
+        
+    })
 }
 
 export default connect(msp, mdp)(GameCommentSection)

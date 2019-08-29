@@ -19,3 +19,9 @@
   pointed to a line of code that dispatched a thunk action, which then dispatched a regular action which absolutely had 
   a type defined.  Finally realized that I left off a portion of the currying aspect of the thunk action;
   I never passed it through to receive a dispatch.
+
+28 AUG: Gulp wouldn't update with my sass changes on my portfolio site.  It was not outputting to the destination file.  
+  Downloaded the Gulp CLI, input 'gulp style', and then re-initiated 'gulp watch'.  It's worked since.
+
+29 AUG: A backend partial was not being found when requested from an index view.  I used the exact same syntax as with other views but 
+  this is the only one that didnt work.  Was simple to work around, but remains at large.

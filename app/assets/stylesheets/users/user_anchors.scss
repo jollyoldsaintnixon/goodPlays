@@ -1,0 +1,19 @@
+.user-anchor-wrapper {
+    background: green;
+    height: 100%;
+    width: 150px;
+    // padding-left: 14px;
+}
+
+.user-anchor-links {
+  background: pink;
+  position: sticky;
+  background: $zero;
+  // height: 300px;
+  // margin-top: 880px;
+  width: 150px;
+  top: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}

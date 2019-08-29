@@ -1,6 +1,6 @@
 class GameCommentsController < ApplicationController
     def index
-        debugger
+        
        if params[:game_id]
             game = Game.find(params[:game_id])
             @comments = game.game_comments

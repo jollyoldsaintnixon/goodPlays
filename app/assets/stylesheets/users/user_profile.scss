@@ -1,9 +1,5 @@
-.user-profile {
-  padding-top: 12px;
+.overprofile-container {
   display: flex;
-  margin: 0;
-  justify-content: center;
-  align-items: flex-start;
 }
 
 .profile-container {
@@ -26,7 +22,13 @@
   }
 }
 
-
+.user-profile {
+  padding-top: 12px;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  align-items: flex-start;
+}
 
 .split-headers {
   display: flex;

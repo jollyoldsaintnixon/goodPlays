@@ -7,3 +7,32 @@
         background: yellow;
     }
 }
+
+.game-comment-list {
+    padding: 10px;
+    background: peru;
+    li {
+        background: teal;
+        margin: 10px;
+        padding: 10px;
+        display: block;
+        overflow-wrap: break-word;
+    }
+    h1 {
+        font-size: 1.2em;
+    }
+    p {
+        margin: 8px 0;
+        font-family: $serif;
+    }
+
+}
+
+.game-comment-buttons {
+    display: flex;
+    justify-content: flex-end;
+    button {
+        margin-left: 10px;
+        background: blueviolet;
+    }
+}

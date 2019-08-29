@@ -97,6 +97,7 @@ CSS:
 COMPONENTS:
   PROFILE:
     - implement proper position sticky for jump links
+    - decorate comments
   SEARCH BAR:
     - remove drop down bar when an option is selected from it
     - add scroll bar if more than 4 matches

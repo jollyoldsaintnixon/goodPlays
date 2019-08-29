@@ -10,10 +10,11 @@
 #  parent_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  username   :string
 #
 
 class GameComment < ApplicationRecord
-    validates :title, :author_id, :game_id, presence: true
+    validates :title, :author_id, :game_id, :username, presence: true
 
     belongs_to :game
 

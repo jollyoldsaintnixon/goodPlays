@@ -23,7 +23,7 @@ export const fetchGameCommentsByUser= () => {
 }
 
 export const deleteGameComment = (game_comment_id) => {
-    debugger
+    
     return $.ajax({
         method: 'DELETE',
         url: `/game_comments/${game_comment_id}`,

@@ -7,7 +7,7 @@ import { fetchGameCommentsByGame, deleteGameComment } from '../../actions/game_c
 export default class GameCommentList extends React.Component {
 
     componentDidUpdate(prevProps) {
-        debugger
+        
         const { type, fetchComments } = this.props
         if (type === 'game' && prevProps.parent_id != this.props.match.params.gameId) {
             fetchComments(this.props.match.params.gameId)
@@ -15,47 +15,57 @@ export default class GameCommentList extends React.Component {
     }
 
     componentDidMount() {
-        debugger
+        
         const { type, fetchComments } = this.props
         type === 'game' ? fetchComments(this.props.match.params.gameId)
             : fetchComments()
     }
     
     handleDelete(comment_id) {
-        debugger
+        
         const { deleteGameComment } = this.props
         return e => {
-            debugger
+            
             e.preventDefault()
             deleteGameComment(comment_id)
         }
     }
 
     listComments() {
-        debugger
-        const { comments } = this.props
+        
+        const { comments, games, type, user_id } = this.props
         const list = comments.map((comment, i) => {
+            const display = user_id === comment.author_id ? 'block' : 'none'
+            const game = games[comment.game_id]
+            
             return (
                 <li key={'game-comment-' + i}>
-                    <span>{comment.title}</span>
-                    <button 
-                        onClick={this.handleDelete(comment.id).bind(this)}>
-                            Delete
-                    </button>
+                    <h1>{comment.title}</h1>
+                    <h2>{type === 'game' ? comment.username : game.title}</h2>
+                    <p>{comment.body}</p>
+                    <div className='game-comment-buttons'>
+                        <button className={display}
+                            onClick={this.handleDelete(comment.id).bind(this)}>
+                                Delete
+                        </button>
+                        <button>
+                            Reply
+                        </button>
+                    </div>
                 </li>)
         });
         return list
     }
 
     render() {
-        debugger
+        
         let listComments
         const { comments } = this.props 
         if (comments.length) {
             listComments = this.listComments()
         }
         return (
-            <ul>
+            <ul className='game-comment-list'>
                 {listComments}
             </ul>
         )

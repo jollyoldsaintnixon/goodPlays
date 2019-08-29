@@ -1,11 +1,12 @@
 class GameCommentsController < ApplicationController
     def index
         
-       if params[:game_id]
+        if params[:game_id]
             game = Game.find(params[:game_id])
             @comments = game.game_comments
         else 
-            @comments = current_user.game_comments 
+            @comments = GameComment.where(["author_id = ?", current_user.id]).includes(:game)
+            # 
         end
         render :index
     end
@@ -17,6 +18,7 @@ class GameCommentsController < ApplicationController
 
     def create
         comment = current_user.game_comments.new(game_comment_params)
+        comment.username = current_user.username
         if comment.save
             # game = comment.game
             # user = current_user

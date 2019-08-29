@@ -9,10 +9,7 @@ class GameCommentForm extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            title: '',
-            body: '',
-        }
+        this.state = { title: '', body: '', }
 
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -21,12 +18,6 @@ class GameCommentForm extends React.Component {
         // stop form submission
         event.preventDefault()
         // destructure
-        // const { password, confirm_password } = this.state
-
-        // if (this.signup && password != confirm_password) {
-        //   this.props.receiveErrors(["Password must match"])
-        //   this.props.history.push('/signup')
-        // } else {
         const { title, body } = this.state
         const { game_id } = this.props
         const comment = { 
@@ -34,12 +25,10 @@ class GameCommentForm extends React.Component {
             body, 
             game_id
         }
-        debugger
+        
         this.props.addGameComment(comment)
-            // .then(success => {
-            //     that.props.history.push('/profile')
-            // })
-        // }
+
+        this.setState({ title: '', body: '', })
     }
 
     render() {
@@ -51,7 +40,7 @@ class GameCommentForm extends React.Component {
                         <input type="text" placeholder='Title'
                             onChange={update('title', this)}/>
                     </label>
-                    <textarea name="" id="" cols="30" rows="10">
+                    <textarea onChange={update('body', this)} name="" id="" cols="30" rows="10">
 
                     </textarea>
                     <input type="submit" value='Submit!' />

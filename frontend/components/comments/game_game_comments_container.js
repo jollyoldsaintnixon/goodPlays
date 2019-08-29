@@ -8,6 +8,8 @@ const msp = (state, ownProps) => {
     return ({
         comments: Object.values(state.entities.game_comments),
         parent_id: ownProps.game_id,
+        games: state.entities.games,
+        user_id: state.session.id,
         type: 'game'
     })
 }

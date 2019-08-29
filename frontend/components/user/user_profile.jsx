@@ -42,9 +42,9 @@ class UserProfile extends React.Component {
       selectedCategory = randomElement(selectedGame2.categories) || 'single-player'
     }
     return (
-      <section className='overprofile-container'>
-        <UserAnchorLinks />
+      // <section className='overprofile-container'>
         <section className='profile-container'>
+          <UserAnchorLinks />
           <h1>Hello, {user.username}</h1>
           {/* <Link to='/profile#game-rack' className='link-game-comments'>My Games</Link>
           <Link to='/profile#user-game-comments' className='link-game-comments'>My Comments</Link> */}
@@ -67,7 +67,7 @@ class UserProfile extends React.Component {
             <UserGameCommentsContainer user={user}/>
           </section>
         </section>
-      </section>
+      // </section>
     )
   }
 }

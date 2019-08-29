@@ -110,7 +110,7 @@ class GameShow extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-     debugger
+     
     if (!prevProps.game || prevProps.game.id != this.props.match.params.gameId) {
       this.props.fetchGame(this.props.match.params.gameId)
       this.props.fetchGames()

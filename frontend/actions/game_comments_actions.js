@@ -15,7 +15,7 @@ const receiveGameComment = comment => {
 }
 
 const receiveGameComments = comments => {
-    debugger
+    
     return ({
         type: RECEIVE_GAME_COMMENTS,
         comments
@@ -28,13 +28,13 @@ export const addGameComment = comment => dispatch => {
 }
 
 export const fetchGameCommentsByGame = game_id => dispatch => {
-    debugger
+    
     return APIUtil.fetchGameCommentsByGame(game_id)
         .then(comments => dispatch(receiveGameComments(comments)))
 }
 
 export const fetchGameCommentsByUser = () => dispatch => {
-    debugger
+    
     return APIUtil.fetchGameCommentsByGame()
         .then(comments => dispatch(receiveGameComments(comments)))
 }

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { randomElement } from '../../util/helper_functions'
 import UserRecommendations from './user_recommendations'
 import UserGameRack from './user_game_rack'
+import UserGameCommentsContainer from '../comments/user_game_comments_container'
 import { addGameToUser, deleteGameFromUser } from '../../actions/session_actions'
 
 class UserProfile extends React.Component {
@@ -43,6 +44,7 @@ class UserProfile extends React.Component {
     return (
       <section className='profile-container'>
         <h1>Hello, {user.username}</h1>
+        <Link to={`/profile/game-comments`} className='link-game-comments'>My Comments</Link>
         <section className='user-profile'>
           <UserGameRack 
             gameRackGames={gameRackGames} 
@@ -55,6 +57,9 @@ class UserProfile extends React.Component {
             selectedGame2={selectedGame2} 
             selectedGenre={selectedGenre}
             selectedCategory={selectedCategory}/>
+        </section>
+        <section className='user-comments'>
+            <UserGameCommentsContainer user={user}/>
         </section>
       </section>
 

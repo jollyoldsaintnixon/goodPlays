@@ -38,6 +38,7 @@ class App extends React.Component {
           <img className='banner' src={window.banner} alt='Terror of the Amazon'/> 
           <Switch>
             <ProtectedRoute path='/profile' component={UserProfile} />
+            <ProtectedRoute path='/profile' component={UserProfile} />
             <Route path='/index' component={Content} />
             <Route path='/games/show/:gameId' component={GameShowContainer} />
             {/* <Route path='/games/show/:gameId' component={GameShow} /> */}

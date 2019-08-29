@@ -1,7 +1,12 @@
 class GameCommentsController < ApplicationController
     def index
-        game = Game.find(params[:game_id])
-        @comments = game.game_comments
+        debugger
+       if params[:game_id]
+            game = Game.find(params[:game_id])
+            @comments = game.game_comments
+        else 
+            @comments = current_user.game_comments 
+        end
         render :index
     end
 
@@ -27,10 +32,11 @@ class GameCommentsController < ApplicationController
     end
 
     def destroy
-        comment = GameComment.find(game_comment_params[:game][:game_comment_id])
-        @game = Game.find(game_comment_params[:game][:game_id])
-        if current_user.game_comments.delete(comment) && @game.game_comments.delete(comment)
-            render `api/games/show`
+        comment = GameComment.find(params[:game_comment_id])
+        game = comment.game 
+        if comment.destroy
+            @comments = game.game_comments
+            render :index
         else  
             render json: ['Comment deletion unsuccessful'], status: 422
         end

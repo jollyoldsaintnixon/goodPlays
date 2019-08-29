@@ -14,13 +14,21 @@ export const fetchGameCommentsByGame = game_id => {
     })
 }
 
-export const deleteGameComment = (game_comment_id, game_id) => {
+export const fetchGameCommentsByUser= () => {
+    return $.ajax({
+        method: 'GET',
+        url: `/game_comments`,
+        // data: { game_id },
+    })
+}
+
+export const deleteGameComment = (game_comment_id) => {
+    debugger
     return $.ajax({
         method: 'DELETE',
         url: `/game_comments/${game_comment_id}`,
         data: { 
-            game: { game_id,
-            game_comment_id },
+            game_comment_id
         }
     })
 }

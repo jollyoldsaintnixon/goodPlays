@@ -19,7 +19,7 @@ const receiveGames = games => ({
   games
 })
 
-const receiveGame = game => ({
+export const receiveGame = game => ({
   type: RECEIVE_GAME,
   game
 })

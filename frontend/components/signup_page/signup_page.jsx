@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { update } from '../../util/helper_functions'
+import { update, validateEmail } from '../../util/helper_functions'
 
 class SignupPage extends React.Component {
   constructor(props) {
@@ -44,13 +44,19 @@ class SignupPage extends React.Component {
     //   this.props.receiveErrors(["Password must match"])
     //   this.props.history.push('/signup')
     // } else {
+    const { email } = this.state
+    
+    if (!validateEmail(email)) {
+      this.props.receiveErrors(["Invalid Email"])
+      this.props.history.push('/signup')
+    } else {
       const user = this.state
       const that = this
       this.props.processForm(user)
         .then(success => {
           that.props.history.push('/profile')
         })
-    // }
+    }
   }
 
   handleClick(e) {

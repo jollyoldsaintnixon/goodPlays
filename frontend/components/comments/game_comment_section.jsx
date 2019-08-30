@@ -10,7 +10,7 @@ class GameCommentSection extends React.Component {
         const { game_id } = this.props
         return (
             <>
-                <GameCommentForm game_id={game_id ? game_id : null}/>
+                <GameCommentForm className='' game_id={game_id ? game_id : null}/>
                 <GameGameCommentsContainer game_id={game_id ? game_id : null} />
             </>
             )

@@ -19,11 +19,12 @@ class GameCommentForm extends React.Component {
         event.preventDefault()
         // destructure
         const { title, body } = this.state
-        const { game_id } = this.props
+        const { game_id, parent_id } = this.props
         const comment = { 
             title, 
             body, 
-            game_id
+            game_id,
+            parent_id,
         }
         
         this.props.addGameComment(comment)
@@ -32,8 +33,9 @@ class GameCommentForm extends React.Component {
     }
 
     render() {
+        const { className } = this.props
         return (
-            <form className='game-comment-form' onSubmit={this.handleSubmit} >
+            <form id={this.props.id || ''} className={`game-comment-form ${className}`} onSubmit={this.handleSubmit} >
                 <h3>Add a new comment! game id: {this.props.game_id}</h3>
                 <div> 
                     <label>

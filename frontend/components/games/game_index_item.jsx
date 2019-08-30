@@ -11,13 +11,6 @@ class GameIndexItem extends React.Component {
     this.state = {className: 'none'}
     this.swapClass = this.swapClass.bind(this)
   }
-
-  swapClass(className) {
-    return (e) => {
-      e.preventDefault()
-      this.setState({className: className})
-    }
-  }
   
   render() {
     const { uiGamesIds, game } = this.props

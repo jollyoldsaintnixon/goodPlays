@@ -98,14 +98,17 @@ COMPONENTS:
   PROFILE:
     - implement proper position sticky for jump links
     - decorate comments
+    - when there are zero games in rack, display is different
   SEARCH BAR:
     - remove drop down bar when an option is selected from it
     - add scroll bar if more than 4 matches
+    - can select with arrow keys
   INDEX: 
     - implement paginate (somehow)
   GAME COMMENTS:
     - logged in users can comment on comments
     - logged out users can't see comments
+    - editable by user
   SPLASH PAGE:
     - Game is clickable
 

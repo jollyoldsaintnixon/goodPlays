@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { update } from '../../util/helper_functions'
+import { update, validateEmail } from '../../util/helper_functions'
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -45,6 +45,12 @@ class SessionForm extends React.Component {
     //   this.props.receiveErrors(["Password must match"])
     //   this.props.history.push('/signup')
     // } else {
+    const { email } = this.state
+    
+    if (!validateEmail(email)) {
+      this.props.receiveErrors(["Invalid Email"])
+      this.props.history.push('/signup')
+    } else {
       
       const user = this.state
       const that = this
@@ -54,7 +60,7 @@ class SessionForm extends React.Component {
         } , error => {
           that.props.history.push('/signup')
         })
-    // }
+    }
   }
 
   // componentDidUpdate(prevProps) {

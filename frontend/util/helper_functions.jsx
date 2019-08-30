@@ -130,3 +130,13 @@ export const swapClass = (className, component) => {
     component.setState({ className: className })
   }
 }
+
+export const validateEmail = string => {
+  if (typeof string !== 'string') { return false }
+  const atSplit = string.split('@')
+  if (atSplit.length !== 2) { return false }
+  const dotSplit = atSplit[1].split('.')
+  if (dotSplit.length < 2) { return false }
+  return true
+}
+

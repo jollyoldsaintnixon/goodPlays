@@ -1,6 +1,6 @@
 import React from 'react'
 // import { connect } from 'react-redux'
-// import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 // import { fetchGameCommentsByGame, deleteGameComment } from '../../actions/game_comments_actions';
 import { swapClass } from '../../util/helper_functions'
 import GameCommentForm from './game_comment_form'
@@ -46,9 +46,39 @@ export default class GameCommentList extends React.Component {
             child = this.createCommentItem(child, i)
             parent.push(child)
             // child = $(child)
-            // debugger
+            // 
             // parent.append(child)
         })
+    }
+
+    replyOrJump(game_id, comment_id) {
+        const { type, user_id } = this.props
+        let text = null
+        if (type === 'game') {
+            text = 'Reply'
+        } else {
+            text = 'View Comment'
+        }
+        // const replyDisplay = user_id && (type === 'game') ? '' : 'none'
+
+        const button = type === 'game' ? (
+            <button 
+                // className={replyDisplay}
+                onClick={e => {
+                    e.preventDefault()
+                    const form = $(`#reply-form-${comment_id}`)
+                    form.toggleClass('none')
+                }}>{text}
+            </button>) :
+            <Link to={`/games/show/${game_id}`}><button
+                // onClick={e => {
+                //     e.preventDefault()
+                //     const form= $(`#reply-form-${comment.id}`)
+                //     form.toggleClass('none')
+                // }}
+                >{text}
+            </button></Link>
+        return button
     }
 
     createCommentItem(comment) {
@@ -60,27 +90,35 @@ export default class GameCommentList extends React.Component {
         const game = games[comment.game_id]
         const children = (type === 'game') ? this.findChildren(comment.id, comments) : null // render all comments as top levle on user profile page
         const time_ago = comment.time_ago
+        const second_button = this.replyOrJump(comment.game_id, comment.id)
+        let header = null
+        if (type === 'game') {
+            header = comment.username
+        } else if (game) {
+            header = game.title
+        }
         return (
             <div key={'game-comment-' + comment.id} 
                 id={`comment-${comment.id}`}
                 className={childComment}>
                 <li >
                     <h1>{comment.title}</h1>
-                    <h2>{type === 'game' ? comment.username : game.title}, {time_ago} ago</h2>
+                    <h2>{header}, {time_ago} ago</h2>
                     <h2>{comment.parent_id}</h2>
                     <p>{comment.body}</p>
                     <span className='game-comment-buttons'>
                         <button className={deleteDisplay}
                             onClick={this.handleDelete(comment.id).bind(this)}>
                             Delete
-                                </button>
-                        <button className={replyDisplay}
+                        </button>
+                        {second_button}
+                        {/* <button className={replyDisplay}
                             onClick={e => {
                                 e.preventDefault()
                                 const form = $(`#reply-form-${comment.id}`)
                                 form.toggleClass('none')
                             }}>Reply
-                        </button>
+                        </button> */}
                     </span>
                 </li>
                 <GameCommentForm className='none'
@@ -97,7 +135,7 @@ export default class GameCommentList extends React.Component {
         comments.forEach(comment => {
             if (comment.parent_id === parent_id) { children.push(comment) }
         })
-        debugger
+        
         children = children.map(child => this.createCommentItem(child))
         return children ? <ul className='children-game-comments'>{children}</ul> : null
     }
@@ -151,14 +189,16 @@ export default class GameCommentList extends React.Component {
         const { comments, type } = this.props 
         if (comments.length) {
             // topList = this.createCommentTree()
-            const topComments = []
+            const topComments = [];
+            console.log(comments);
+            console.log(comments.forEach);
 
             // push top level comments into the topComments array
-            comments.forEach(comment => comment.parent_id ? null : topComments.push(comment))
+            comments.forEach(comment => comment.parent_id ? null : topComments.push(comment));
             // send topComments & comments to topList().  Return every top comment with children underneath
             // Recursively append children to children
             (type === 'game') ? commentTree = this.createCommentTree(topComments) :
-                this.createCommentTree(comments)  // render all comments as top level on user profile
+                commentTree = this.createCommentTree(comments)  // render all comments as top level on user profile
             
         }
         return (

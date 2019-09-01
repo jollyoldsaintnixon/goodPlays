@@ -46,7 +46,7 @@ class User < ApplicationRecord
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def is_password?(password)
+  def is_password?(passwor)
     bc = BCrypt::Password.new(self.password_digest)
     bc.is_password?(password)
   end
@@ -65,10 +65,14 @@ class User < ApplicationRecord
   private 
 
   def valid_email? 
-    at_split = email.split('@')
-    errors.add(:email, 'is invalid') if at_split.length != 2
+    at_split = self.email.split('@')
+    if at_split.length != 2
+      errors.add(:email, 'is invalid') 
+      return false
+    end
     dotSplit = at_split[1].split('.')
     return dotSplit.length > 1 ? true : errors.add(:email, 'is invalid')
+    false
   end
 
 end

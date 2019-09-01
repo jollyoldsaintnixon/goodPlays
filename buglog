@@ -27,6 +27,8 @@
   this is the only one that didnt work.  Was simple to work around, but remains at large.
 
 01 SEP: Really odd bug, wherein a const call comments is read as an array when pulled from props, and passes an if statement based on length,
-  but then an error is thrown because 'forEach' is not a method that can be called on comments.  In the Chrome debugger, I confirmed it is an array
+  but then an error is thrown because 'forEach' is not a method that can be called on comments.  In the Chrome , I confirmed it is an array
   of 12 objects, but its typeof was 'object' not array.  I manually input a forEach within the console on comments, and it worked just fine.
+  Solution: Arrays are always an object in the console, so that was a red herring.  Turns out, the issue lay with there being two adjacent ternaries.
+  I added a semicolon between the two and everything worked fine.
   

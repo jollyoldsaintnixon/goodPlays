@@ -93,6 +93,7 @@ TODO
 CSS:
   SESSION FORM:
     - fix errors alignment on the small session form
+    - Load icon
 
 COMPONENTS:
   PROFILE:
@@ -106,12 +107,9 @@ COMPONENTS:
   INDEX: 
     - implement paginate (somehow)
   GAME COMMENTS:
-    - renders all comments as top level on user profile
     - can click on comment in user profile to go to that comment in the game show page
     - editable by user
     - Rerender on update
     - make child rearing more efficient
-  SIGN UP PAGES: 
-    - validate email on backend
 
     

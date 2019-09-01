@@ -36,3 +36,16 @@
         background: blueviolet;
     }
 }
+
+.children-game-comments {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    div {
+        width: 95%;
+    }
+}
+
+// .child-comment {
+//     width: 80%;
+// }

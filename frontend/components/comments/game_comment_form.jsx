@@ -42,7 +42,7 @@ class GameCommentForm extends React.Component {
                         <input type="text" placeholder='Title'
                             onChange={update('title', this)}/>
                     </label>
-                    <textarea onChange={update('body', this)} name="" id="" cols="30" rows="10">
+                    <textarea onChange={update('body', this)} name="" cols="30" rows="10">
 
                     </textarea>
                     <input type="submit" value='Submit!' />

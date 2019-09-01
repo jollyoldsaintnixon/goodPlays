@@ -109,7 +109,13 @@ COMPONENTS:
     - logged in users can comment on comments
     - logged out users can't see comments
     - editable by user
+    - Rerender on update
+    - text clears upon submit
+    - make child rearing more efficient
+    - form disappears on submission of reply
   SPLASH PAGE:
     - Game is clickable
+  SIGN UP PAGES: 
+    - validate email on backend
 
     

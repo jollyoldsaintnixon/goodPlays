@@ -62,7 +62,7 @@ export default class GameCommentList extends React.Component {
         return (
             <div key={'game-comment-' + comment.id} 
                 id={`comment-${comment.id}`}
-                class={childComment}>
+                className={childComment}>
                 <li >
                     <h1>{comment.title}</h1>
                     <h2>{type === 'game' ? comment.username : game.title}</h2>
@@ -86,7 +86,8 @@ export default class GameCommentList extends React.Component {
                 <GameCommentForm className={replyDisplay}
                     id={`reply-form-${comment.id}`}
                     game_id={comment.game_id}
-                    parent_id={comment.id} />
+                    parent_id={comment.id}
+                    child_form={true} />
                 {children}
             </div>)
     }

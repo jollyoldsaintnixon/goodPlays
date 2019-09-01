@@ -47,17 +47,17 @@ class SignupPage extends React.Component {
     const { email } = this.state
     const { formType } = this.props
     
-    if (formType === 'signup' && !validateEmail(email)) {
-      this.props.receiveErrors(["Invalid Email"])
-      this.props.history.push('/signup')
-    } else {
+    // if (formType === 'signup' && !validateEmail(email)) {
+    //   this.props.receiveErrors(["Invalid Email"])
+    //   this.props.history.push('/signup')
+    // } else {
       const user = this.state
       const that = this
       this.props.processForm(user)
         .then(success => {
           that.props.history.push('/profile')
         })
-    }
+    // }
   }
 
   handleClick(e) {

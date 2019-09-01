@@ -106,13 +106,11 @@ COMPONENTS:
   INDEX: 
     - implement paginate (somehow)
   GAME COMMENTS:
-    - logged in users can comment on comments
-    - logged out users can't see comments
+    - renders all comments as top level on user profile
+    - can click on comment in user profile to go to that comment in the game show page
     - editable by user
     - Rerender on update
     - make child rearing more efficient
-  SPLASH PAGE:
-    - Game is clickable
   SIGN UP PAGES: 
     - validate email on backend
 

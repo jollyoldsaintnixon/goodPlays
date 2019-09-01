@@ -12,10 +12,13 @@
 #
 
 class User < ApplicationRecord
+  # include ActiveModel::Validations
+  # validates_with MyValidator
 
   validates :username, :password_digest, :session_token, :email, presence: true
   validates :username, :session_token, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
+  validate :valid_email?
 
   attr_reader :password
 
@@ -58,4 +61,14 @@ class User < ApplicationRecord
   def ensure_token
     self.session_token ||= User.generate_token
   end
+
+  private 
+
+  def valid_email? 
+    at_split = email.split('@')
+    errors.add(:email, 'is invalid') if at_split.length != 2
+    dotSplit = at_split[1].split('.')
+    return dotSplit.length > 1 ? true : errors.add(:email, 'is invalid')
+  end
+
 end

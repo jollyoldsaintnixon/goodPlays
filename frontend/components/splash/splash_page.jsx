@@ -70,8 +70,12 @@ class SplashPage extends React.Component {
       return (
         <>
           <ul className='game-show col-2-3' >
-            <li><img src={game.imageUrl} alt={`${game.title} image`} /></li> {/* this is supposed to connect to AWS */}
-            <li className='game-title'>{game.title}</li>
+            <li>
+              <Link to={`/games/show/${game.id}`} className='splash-link-show'>
+                <img src={game.imageUrl} alt={`${game.title} image`} /></Link></li> {/* this is supposed to connect to AWS */}
+            <li className='game-title'>
+              <Link to={`/games/show/${game.id}`} className='splash-link-show'>
+                {game.title}</Link></li>
             <li className='game-release-date'>Released {game.release_date}</li>
             <li className='game-description'>{game.description}</li>
             <li className='game-genres links'>{this.genreLinks(game)}</li>

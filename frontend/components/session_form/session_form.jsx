@@ -47,10 +47,10 @@ class SessionForm extends React.Component {
     // } else {
     const { email } = this.state
     
-    if (!validateEmail(email)) {
-      this.props.receiveErrors(["Invalid Email"])
-      this.props.history.push('/signup')
-    } else {
+    // if (!validateEmail(email)) {
+    //   this.props.receiveErrors(["Invalid Email"])
+    //   this.props.history.push('/signup')
+    // } else {
       
       const user = this.state
       const that = this
@@ -60,7 +60,7 @@ class SessionForm extends React.Component {
         } , error => {
           that.props.history.push('/signup')
         })
-    }
+    // }
   }
 
   // componentDidUpdate(prevProps) {

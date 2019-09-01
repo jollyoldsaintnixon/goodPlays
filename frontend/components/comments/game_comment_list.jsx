@@ -54,18 +54,19 @@ export default class GameCommentList extends React.Component {
     createCommentItem(comment) {
         
         const { games, type, user_id, comments } = this.props
-        const deleteDisplay = user_id === comment.author_id ? 'block' : 'none'
-        const replyDisplay = 'none'
+        const deleteDisplay = (user_id === comment.author_id) ? 'block' : 'none'
+        const replyDisplay = user_id && (type === 'game') ? '' : 'none'
         const childComment = comment.parent_id ? 'child-comment' : ''
         const game = games[comment.game_id]
-        const children = this.findChildren(comment.id, comments)
+        const children = (type === 'game') ? this.findChildren(comment.id, comments) : null // render all comments as top levle on user profile page
+        const time_ago = comment.time_ago
         return (
             <div key={'game-comment-' + comment.id} 
                 id={`comment-${comment.id}`}
                 className={childComment}>
                 <li >
                     <h1>{comment.title}</h1>
-                    <h2>{type === 'game' ? comment.username : game.title}</h2>
+                    <h2>{type === 'game' ? comment.username : game.title}, {time_ago} ago</h2>
                     <h2>{comment.parent_id}</h2>
                     <p>{comment.body}</p>
                     <span className='game-comment-buttons'>
@@ -73,17 +74,16 @@ export default class GameCommentList extends React.Component {
                             onClick={this.handleDelete(comment.id).bind(this)}>
                             Delete
                                 </button>
-                        <button
+                        <button className={replyDisplay}
                             onClick={e => {
                                 e.preventDefault()
                                 const form = $(`#reply-form-${comment.id}`)
                                 form.toggleClass('none')
-                                // replyDisplay === 'none' ? 'none' : ''
                             }}>Reply
                         </button>
                     </span>
                 </li>
-                <GameCommentForm className={replyDisplay}
+                <GameCommentForm className='none'
                     id={`reply-form-${comment.id}`}
                     game_id={comment.game_id}
                     parent_id={comment.id}
@@ -98,10 +98,7 @@ export default class GameCommentList extends React.Component {
             if (comment.parent_id === parent_id) { children.push(comment) }
         })
         debugger
-        children = children.map(child => {
-            const rdxChild = this.createCommentItem(child)
-            return rdxChild
-        })
+        children = children.map(child => this.createCommentItem(child))
         return children ? <ul className='children-game-comments'>{children}</ul> : null
     }
 
@@ -151,7 +148,7 @@ export default class GameCommentList extends React.Component {
 
     render() {
         let commentTree
-        const { comments } = this.props 
+        const { comments, type } = this.props 
         if (comments.length) {
             // topList = this.createCommentTree()
             const topComments = []
@@ -160,7 +157,8 @@ export default class GameCommentList extends React.Component {
             comments.forEach(comment => comment.parent_id ? null : topComments.push(comment))
             // send topComments & comments to topList().  Return every top comment with children underneath
             // Recursively append children to children
-            commentTree = this.createCommentTree(topComments)
+            (type === 'game') ? commentTree = this.createCommentTree(topComments) :
+                this.createCommentTree(comments)  // render all comments as top level on user profile
             
         }
         return (

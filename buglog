@@ -25,3 +25,8 @@
 
 29 AUG: A backend partial was not being found when requested from an index view.  I used the exact same syntax as with other views but 
   this is the only one that didnt work.  Was simple to work around, but remains at large.
+
+01 SEP: Really odd bug, wherein a const call comments is read as an array when pulled from props, and passes an if statement based on length,
+  but then an error is thrown because 'forEach' is not a method that can be called on comments.  In the Chrome debugger, I confirmed it is an array
+  of 12 objects, but its typeof was 'object' not array.  I manually input a forEach within the console on comments, and it worked just fine.
+  

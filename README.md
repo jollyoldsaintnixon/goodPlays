@@ -101,15 +101,13 @@ COMPONENTS:
     - decorate comments
     - when there are zero games in rack, display is different
   SEARCH BAR:
-    - remove drop down bar when an option is selected from it
     - add scroll bar if more than 4 matches
     - can select with arrow keys
   INDEX: 
     - implement paginate (somehow)
   GAME COMMENTS:
-    - can click on comment in user profile to go to that comment in the game show page
+    - can click on comment in user profile to go to that comment's location within the game show page
     - editable by user
-    - Rerender on update
     - make child rearing more efficient
 
     

@@ -81,6 +81,19 @@ export default class GameCommentList extends React.Component {
         return button
     }
 
+    editButton(comment, user_id) {
+        const edit_display = user_id === comment.author_id ? 'block' : 'none'
+        return (
+        <button
+            className={edit_display}
+            onClick={e => {
+                e.preventDefault()
+                
+            }}>
+            Edit
+        </button>)
+    }
+
     createCommentItem(comment) {
         
         const { games, type, user_id, comments } = this.props
@@ -91,6 +104,7 @@ export default class GameCommentList extends React.Component {
         const children = (type === 'game') ? this.findChildren(comment.id, comments) : null // render all comments as top levle on user profile page
         const time_ago = comment.time_ago
         const second_button = this.replyOrJump(comment.game_id, comment.id)
+        const edit_button = this.editButton(comment, user_id)
         let header = null
         if (type === 'game') {
             header = comment.username
@@ -103,7 +117,7 @@ export default class GameCommentList extends React.Component {
                 className={childComment}>
                 <li >
                     <h1>{comment.title}</h1>
-                    <h2>{header}, {time_ago} ago</h2>
+                    <h2>{header}, {time_ago ? `${time_ago} ago` : `just now!`}</h2>
                     <h2>{comment.parent_id}</h2>
                     <p>{comment.body}</p>
                     <span className='game-comment-buttons'>
@@ -112,6 +126,7 @@ export default class GameCommentList extends React.Component {
                             Delete
                         </button>
                         {second_button}
+                        {edit_button}
                         {/* <button className={replyDisplay}
                             onClick={e => {
                                 e.preventDefault()

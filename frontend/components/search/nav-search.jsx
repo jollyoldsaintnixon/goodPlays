@@ -89,6 +89,7 @@ class NavSearch extends React.Component {
     // this.setState({searchString: ''})
     this.props.receiveUiGames(this.gameList())
     this.props.history.push(`/games/show/${e.currentTarget.id}`)
+    this.setState({ searchString: '' })
   }
 
   advancedSearch() {

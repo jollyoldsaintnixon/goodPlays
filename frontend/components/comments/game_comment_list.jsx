@@ -38,18 +38,27 @@ export default class GameCommentList extends React.Component {
             deleteGameComment(comment_id)
         }
     }
-    
-    appendChildComments(childComments) {
-        if (!childComments) { return null }
-        childComments.forEach((child, i) => {
-            const parent = $(`#comment-${child.parent_id}`)
-            child = this.createCommentItem(child, i)
-            parent.push(child)
-            // child = $(child)
-            // 
-            // parent.append(child)
-        })
+
+    toggleCommentTree(comment_id) {
+        return e => {
+            e.preventDefault()
+            e.stopPropagation()
+            const cashComponent = $(`#game-comment-${comment_id}-body`)
+            cashComponent.toggleClass('none')
+        }
     }
+    
+    // appendChildComments(childComments) {
+    //     if (!childComments) { return null }
+    //     childComments.forEach((child, i) => {
+    //         const parent = $(`#comment-${child.parent_id}`)
+    //         child = this.createCommentItem(child, i)
+    //         parent.push(child)
+    //         // child = $(child)
+    //         // 
+    //         // parent.append(child)
+    //     })
+    // }
 
     replyOrJump(game_id, comment_id) {
         const { type, user_id } = this.props
@@ -82,7 +91,7 @@ export default class GameCommentList extends React.Component {
     }
 
     editButton(comment, user_id) {
-        const edit_display = user_id === comment.author_id ? 'block' : 'none'
+        const edit_display = user_id === comment.author_id ? 'inherit' : 'none'
         return (
         <button
             className={edit_display}
@@ -104,6 +113,7 @@ export default class GameCommentList extends React.Component {
         const game = games[comment.game_id]
         const children = (type === 'game') ? this.findChildren(comment.id, comments) : null // render all comments as top levle on user profile page
         const time_ago = comment.time_ago
+        const update_ago = comment.time_ago === comment.time_since_update ? null : `, edited ${comment.time_since_update} ago`
         const second_button = this.replyOrJump(comment.game_id, comment.id)
         const edit_button = this.editButton(comment, user_id)
         let header = null
@@ -113,29 +123,33 @@ export default class GameCommentList extends React.Component {
             header = game.title
         }
         return (
-            <div key={'game-comment-' + comment.id} 
-                id={`comment-${comment.id}`}
-                className={childComment}>
+            <section key={'game-comment-' + comment.id} 
+                id={`game-comment-${comment.id}-div`}
+                className={childComment}
+                onClick={this.toggleCommentTree(comment.id)}>
+                <h4></h4>
                 <li >
-                    <h1>{comment.title}</h1>
-                    <h2>{header}, {time_ago ? `${time_ago} ago` : `just now!`}</h2>
-                    <h2>{comment.parent_id}</h2>
-                    <p>{comment.body}</p>
-                    <span className='game-comment-buttons'>
-                        <button className={deleteDisplay}
-                            onClick={this.handleDelete(comment.id).bind(this)}>
-                            Delete
-                        </button>
-                        {second_button}
-                        {edit_button}
-                        {/* <button className={replyDisplay}
-                            onClick={e => {
-                                e.preventDefault()
-                                const form = $(`#reply-form-${comment.id}`)
-                                form.toggleClass('none')
-                            }}>Reply
-                        </button> */}
-                    </span>
+                    {/* <h1>{comment.title}</h1> */}
+                    <h2>{header}, posted {time_ago ? `${time_ago} ago` : `just now!`}{update_ago}</h2>
+                    {/* <h2>{comment.parent_id}</h2> */}
+                    <div id={`game-comment-${comment.id}-body`}>
+                        <p>{comment.body}</p>
+                        <span className='game-comment-buttons'>
+                            <button className={deleteDisplay}
+                                onClick={this.handleDelete(comment.id).bind(this)}>
+                                Delete
+                            </button>
+                            {second_button}
+                            {edit_button}
+                            {/* <button className={replyDisplay}
+                                onClick={e => {
+                                    e.preventDefault()
+                                    const form = $(`#reply-form-${comment.id}`)
+                                    form.toggleClass('none')
+                                }}>Reply
+                            </button> */}
+                        </span>
+                    </div>
                 </li>
                 <GameCommentForm className='none'
                     id={`reply-form-${comment.id}`} comment={comment} child_form={true} />
@@ -143,7 +157,7 @@ export default class GameCommentList extends React.Component {
                     id={`edit-form-${comment.id}`} comment={comment} 
                     edit={true} child_form={true} />
                 {children}
-            </div>)
+            </section>)
     }
 
     findChildren(parent_id, comments) {
@@ -220,7 +234,7 @@ export default class GameCommentList extends React.Component {
         return (
             <ul className='game-comment-list' id='top-level-comments'>
                 {commentTree}
-                {this.appendChildComments(comments)}
+                {/* {this.appendChildComments(comments)} */}
             </ul>
         )
     }

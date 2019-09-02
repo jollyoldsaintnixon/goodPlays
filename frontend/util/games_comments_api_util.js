@@ -33,11 +33,11 @@ export const deleteGameComment = (game_comment_id) => {
     })
 }
 
-export const updateGameComment = game_comment => {
+export const updateGameComment = comment => {
     return $.ajax({
         method: 'PATCH',
-        url: `/game_comments/${game_comment.id}`,
-        data: { game_comment }
+        url: `/game_comments/${comment.id}`,
+        data: { comment }
     })
 }
 

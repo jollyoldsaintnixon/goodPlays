@@ -43,3 +43,8 @@ export const deleteGameComment = game_comment_id => dispatch => {
     return APIUtil.deleteGameComment(game_comment_id)
         .then(comments => dispatch(receiveGameComments(comments)))
 }
+
+export const updateGameComment = game_comment => dispatch => {
+    return APIUtil.updateGameComment(game_comment)
+        .then(updated_comment => dispatch(receiveGameComment(updated_comment))) 
+}

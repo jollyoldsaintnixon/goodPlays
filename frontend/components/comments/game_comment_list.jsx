@@ -88,7 +88,8 @@ export default class GameCommentList extends React.Component {
             className={edit_display}
             onClick={e => {
                 e.preventDefault()
-                
+                const form = $(`#edit-form-${comment.id}`)
+                form.toggleClass('none')
             }}>
             Edit
         </button>)
@@ -137,10 +138,10 @@ export default class GameCommentList extends React.Component {
                     </span>
                 </li>
                 <GameCommentForm className='none'
-                    id={`reply-form-${comment.id}`}
-                    game_id={comment.game_id}
-                    parent_id={comment.id}
-                    child_form={true} />
+                    id={`reply-form-${comment.id}`} comment={comment} child_form={true} />
+                <GameCommentForm className='none'
+                    id={`edit-form-${comment.id}`} comment={comment} 
+                    edit={true} child_form={true} />
                 {children}
             </div>)
     }

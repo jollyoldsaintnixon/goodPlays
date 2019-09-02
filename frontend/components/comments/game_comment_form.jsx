@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { update } from '../../util/helper_functions'
 import { addGameComment } from '../../actions/game_comments_actions'
+import { updateGameComment } from '../../actions/game_comments_actions'
+import { cpus } from 'os';
 
 
 
@@ -9,7 +11,13 @@ class GameCommentForm extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = { title: '', body: '', className: ''}
+        this.state 
+        if (this.props.edit) {
+            const { comment } = this.props
+            this.state = { title: comment.title, body: comment.body, className: '' }
+        } else {
+            this.state = { title: '', body: '', className: '' }
+        }
 
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -20,17 +28,24 @@ class GameCommentForm extends React.Component {
         const className = this.props.child_form ?  'none' : '' // hide if it is the comment form for a child
         // destructure
         const { title, body } = this.state
-        const { game_id, parent_id } = this.props
-        const comment = { 
+        const { comment } = this.props
+        const new_comment = { 
             title, 
             body, 
-            game_id,
-            parent_id,
+            game_id: comment.game_id,
+            parent_id: comment.id,
+        }
+        if (this.props.edit) {
+            new_comment.id = comment.id
+            new_comment.parent_id = comment.parent_id
+            this.props.updateGameComment(new_comment)
+            this.setState({ className: className }) // only update classname if edit
+        } else {
+            this.props.addGameComment(new_comment)
+            this.setState({ title: '', body: '', className: className}) // reset form to blank if reply
         }
         
-        this.props.addGameComment(comment)
 
-        this.setState({ title: '', body: '', className: className})
     }
 
     render() {
@@ -63,7 +78,8 @@ const msp = state => ({
     user_id: state.session.id,
 })
 const mdp = dispatch => ({
-    addGameComment: comment => dispatch(addGameComment(comment))
+    addGameComment: comment => dispatch(addGameComment(comment)),
+    updateGameComment: comment => dispatch(updateGameComment(comment)),
 })
 
 export default connect(msp, mdp)(GameCommentForm)

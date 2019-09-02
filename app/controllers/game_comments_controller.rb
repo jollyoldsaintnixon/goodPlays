@@ -30,8 +30,8 @@ class GameCommentsController < ApplicationController
     end
 
     def update
-        comment = GameComment.find(params[:game_comment_id])
-        if comment.update
+        comment = GameComment.find(params[:comment][:id])
+        if comment.update(game_comment_params)
             render json: comment
         else
             render json: ['Attempt to add comment was unsuccesful'], status: 422

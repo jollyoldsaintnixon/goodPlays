@@ -99,7 +99,6 @@ COMPONENTS:
   PROFILE:
     - implement proper position sticky for jump links
     - decorate comments
-    - when there are zero games in rack, display is different
   SEARCH BAR:
     - add scroll bar if more than 4 matches
     - can select with arrow keys
@@ -107,7 +106,8 @@ COMPONENTS:
     - implement paginate (somehow)
   GAME COMMENTS:
     - can click on comment in user profile to go to that comment's location within the game show page
-    - editable by user
+    - only show edit or reply form at once
+    - comments respect white space breaklines
     - make child rearing more efficient
 
     

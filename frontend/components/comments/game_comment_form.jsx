@@ -11,11 +11,15 @@ class GameCommentForm extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state 
         if (this.props.edit) {
             const { comment } = this.props
             this.state = { title: comment.title, body: comment.body, className: '' }
+            this.lede = 'Edit your comment'
+        } else if (this.props.child_form) {  // should only proc for replies
+            this.lede = 'Add a reply'
+            this.state = { title: '', body: '', className: '' }
         } else {
+            this.lede = 'Submit a comment!'
             this.state = { title: '', body: '', className: '' }
         }
 
@@ -54,7 +58,7 @@ class GameCommentForm extends React.Component {
         (  // the classNames are a bit confusing.  The one coming from props is initially 'none' and is toggled on click of the reply button
         // the one from state is set to none only if submitted, and is also toggled by clicking reply
             <form id={this.props.id || ''} className={`game-comment-form ${className} ${this.state.className}`} onSubmit={this.handleSubmit} >
-                <h3>Add a new comment! game id: {this.props.game_id}</h3>
+                <h3>{this.lede}</h3>
                 <div> 
                     <label>
                         <input type="text" placeholder='Title' value={this.state.title}

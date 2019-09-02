@@ -13,8 +13,9 @@ class UserGameRack extends React.Component {
   }
 
   rackList(gameRackGames) {
+    debugger
     const { userId } = this.props
-    if (gameRackGames) {
+    // if (gameRackGames.length) {
       const list = gameRackGames.map((game) => {
         return (
           <li className='game-box'
@@ -36,20 +37,24 @@ class UserGameRack extends React.Component {
         )
       })
       return list
-    } else {
-      return <li className='game-box'>Your rack is empty!</li>
-    }
+    // } else {
+    //   return <li className='game-box'>Your rack is empty!</li>
+    // }
   }
 
   render() {
     const { gameRackGames, count } = this.props
+    const lede = count ? // these next two ternaries render different text if the rack is empty
+      (count === 1) ? `Your Rack has only ${count} game` : `Your Rack has ${count} games` : `Your Rack is empty`;
+    const find_games = count ? 
+      `more` : `your first one`;
     if (!gameRackGames) {
       return null
     }
     return (
       <ul className='game-rack col-2-3' >
-        <h3>Your Rack has {count} games</h3>
-        <h2><Link className='add-more' to='/index'>add more!</Link></h2>
+        <h3>{lede}</h3>
+        <h2><Link className='add-more' to='/index'>click to find {find_games}!</Link></h2>
         {this.rackList(gameRackGames)}
       </ul>
     )

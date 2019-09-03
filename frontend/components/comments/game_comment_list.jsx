@@ -125,7 +125,7 @@ export default class GameCommentList extends React.Component {
         const game = games[comment.game_id]
         const children = (type === 'game') ? this.findChildren(comment.id, comments) : null // render all comments as top levle on user profile page
         const time_ago = comment.time_ago
-        const update_ago = comment.time_ago === comment.time_since_update ? null : `, edited ${comment.time_since_update} ago`
+        const update_ago = comment.time_ago === comment.time_since_update ? null : ` and edited ${comment.time_since_update} ago`
         const second_button = this.replyOrJump(comment.game_id, comment.id)
         const edit_button = this.editButton(comment, user_id)
         let header = null
@@ -146,10 +146,11 @@ export default class GameCommentList extends React.Component {
                 
                 <li >
                     <h1>
-                        <span className={`expand-box transparent`} id={`expand-box-${comment.id}`}>
-                            <span className='expand-box-plus'>+</span></span>
+                        {/* <span className={`expand-box transparent`} id={`expand-box-${comment.id}`}>
+                            <span className='expand-box-plus'>+</span></span> */}
                             {comment.title}</h1>
-                    <h2>{header}, posted {time_ago ? `${time_ago} ago` : `just now!`}{update_ago}</h2>
+                    <h2><span className={`expand-box transparent`} id={`expand-box-${comment.id}`}>
+                        <span className='expand-box-plus'>+</span></span>{header}, posted {time_ago ? `${time_ago} ago` : `just now!`}{update_ago}</h2>
                     {/* <h2>{comment.parent_id}</h2> */}
                     <div className={`game-comment-${comment.id}-toggle-display`}>
                         <p>{comment.body}</p>
@@ -166,7 +167,11 @@ export default class GameCommentList extends React.Component {
                 </li>
                 <div className={`game-comment-${comment.id}-toggle-display`}>
                     <GameCommentForm className='none'
-                        id={`reply-form-${comment.id}`} comment={comment} child_form={true} />
+                        id={`reply-form-${comment.id}`} 
+                        // comment={comment} 
+                        parent_id={comment.id}
+                        game_id={comment.game_id}
+                        child_form={true} />
                     <GameCommentForm className='none'
                         id={`edit-form-${comment.id}`} comment={comment} 
                         edit={true} child_form={true} />

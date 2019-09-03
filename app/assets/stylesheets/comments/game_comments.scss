@@ -17,6 +17,7 @@
     }
     textarea {
         background: $lightest-green;
+        padding: 3px;
     }
     &:hover {
         cursor: initial;
@@ -56,7 +57,7 @@
     }
     h2 {
         color: $dark-green;
-        padding-left: 10px
+        // padding-left: 10px
     }
     p {
         margin: 8px 0;
@@ -130,8 +131,8 @@
         color: white;
         position: relative;
         position: relative;
-        top: -5px;
-        left: 2px;
+        top: -3px;
+        left: 3px;
         font-weight: bolder;
         display: inherit;
         &:hover {

@@ -33,19 +33,25 @@ class GameCommentForm extends React.Component {
         const className = this.props.child_form ?  'none' : '' // hide if it is the comment form for a child
         // destructure
         const { title, body } = this.state
-        const { comment } = this.props
+        let comment
+        if (this.props.comment) {
+             comment = this.props.comment
+        }
         const new_comment = { 
             title, 
             body, 
-            game_id: comment.game_id,
-            parent_id: comment.id,
+            // game_id: comment.game_id,
+            // parent_id: comment.id,
         }
         if (this.props.edit) {
             new_comment.id = comment.id
             new_comment.parent_id = comment.parent_id
+            new_comment.game_id = comment.game_id
             this.props.updateGameComment(new_comment)
             this.setState({ className: className }) // only update classname if edit
         } else {
+            new_comment.parent_id = this.props.parent_id
+            new_comment.game_id = this.props.game_id
             this.props.addGameComment(new_comment)
             this.setState({ title: '', body: '', className: className}) // reset form to blank if reply
         }

@@ -14,7 +14,7 @@
 #
 
 class GameComment < ApplicationRecord
-    validates :title, :author_id, :game_id, :username, presence: true
+    validates :author_id, :game_id, :username, presence: true
 
     belongs_to :game
 

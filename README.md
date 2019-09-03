@@ -94,6 +94,8 @@ CSS:
   SESSION FORM:
     - fix errors alignment on the small session form
     - Load icon
+  COMMENTS: 
+    - overall list doesn't show background when no comments
 
 COMPONENTS:
   PROFILE:

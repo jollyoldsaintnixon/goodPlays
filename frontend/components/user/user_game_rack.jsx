@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { addGameToUser, deleteGameFromUser } from '../../actions/session_actions'
 import { connect } from 'react-redux'
 import { removeGame } from '../../util/game_show_helper'
+import UserGameCommentsContainer from '../comments/user_game_comments_container'
 
 class UserGameRack extends React.Component {
   constructor(props) {
@@ -13,8 +14,7 @@ class UserGameRack extends React.Component {
   }
 
   rackList(gameRackGames) {
-    debugger
-    const { userId } = this.props
+    const { userId } = this.props.user.id
     // if (gameRackGames.length) {
       const list = gameRackGames.map((game) => {
         return (
@@ -56,6 +56,8 @@ class UserGameRack extends React.Component {
         <h3>{lede}</h3>
         <h2><Link className='add-more' to='/index'>click to find {find_games}!</Link></h2>
         {this.rackList(gameRackGames)}
+        <a id='user-game-comments' className='profile-anchor-tag'></a> {/* anchor tag to jump to */}
+        <UserGameCommentsContainer user={this.props.user}/>
       </ul>
     )
   }

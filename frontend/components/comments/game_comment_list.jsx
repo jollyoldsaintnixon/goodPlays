@@ -1,9 +1,10 @@
 import React from 'react'
 // import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 // import { fetchGameCommentsByGame, deleteGameComment } from '../../actions/game_comments_actions';
 import { swapClass } from '../../util/helper_functions'
 import GameCommentForm from './game_comment_form'
+import { HashLink as Link } from 'react-router-hash-link';
 
 export default class GameCommentList extends React.Component {
     // constructor(props) {
@@ -17,8 +18,10 @@ export default class GameCommentList extends React.Component {
     componentDidUpdate(prevProps) {
         
         const { type, fetchComments } = this.props
-        if (type === 'game' && prevProps.parent_id != this.props.match.params.gameId) {
-            fetchComments(this.props.match.params.gameId)
+        if ((type === 'game' && prevProps.parent_id != this.props.match.params.gameId)
+                || prevProps.comments.length !== this.props.comments.length) {
+            const id = this.props.match ? this.props.match.params.gameId : null // the two containers fetch comments differently.  One takes an id one doesn't
+            fetchComments(id)
         } 
     }
     
@@ -31,11 +34,12 @@ export default class GameCommentList extends React.Component {
     
     handleDelete(comment_id) {
         
-        const { deleteGameComment } = this.props
+        const { deleteGameComment, fetchComments } = this.props
         return e => {
             e.preventDefault()
             e.stopPropagation()
             deleteGameComment(comment_id)
+                // .then(fetchComments())
         }
     }
 
@@ -51,6 +55,10 @@ export default class GameCommentList extends React.Component {
                 .toggleClass('collapse-bar')
             const cashSection = $(e.currentTarget)
                 .toggleClass('shrunk').removeClass('collapse-bar-hover')
+            const edit_form = $(`#edit-form-${comment_id}`)
+                .addClass('none') 
+            const reply_form = $(`#reply-form-${comment_id}`)
+                .addClass('none')
         }
     }
 
@@ -86,11 +94,14 @@ export default class GameCommentList extends React.Component {
                 onClick={e => {
                     e.preventDefault()
                     e.stopPropagation()
-                    const form = $(`#reply-form-${comment_id}`)
-                    form.toggleClass('none')
+                    const reply_form = $(`#reply-form-${comment_id}`)
+                        .toggleClass('none')
+                    const edit_form = $(`#edit-form-${comment_id}`)
+                        .addClass('none') 
+                    
                 }}>{text}
             </button>) :
-            <Link to={`/games/show/${game_id}`}><button
+            <Link to={`/games/show/${game_id}#game-comment-link-${comment_id}`}><button
                 // onClick={e => {
                 //     e.preventDefault()
                 //     const form= $(`#reply-form-${comment.id}`)
@@ -109,8 +120,10 @@ export default class GameCommentList extends React.Component {
             onClick={e => {
                 e.preventDefault()
                 e.stopPropagation()
-                const form = $(`#edit-form-${comment.id}`)
-                form.toggleClass('none')
+                const edit_form = $(`#edit-form-${comment.id}`)
+                    .toggleClass('none')
+                const reply_form = $(`#reply-form-${comment.id}`)
+                    .addClass('none')
             }}>
             Edit
         </button>)
@@ -143,14 +156,14 @@ export default class GameCommentList extends React.Component {
                 onClick={this.toggleCommentTree(comment.id)}>
                 {/* <h4 class={`collapse-bar`} id={`collapse-bar-${comment.id}`}></h4> */}
                 {/* <h4 class={`expand-box`} id={`expand-box-${comment.id}`}></h4> */}
-                
+                <a id={'game-comment-link-' + comment.id} className='game-comment-link'></a>
                 <li >
-                    <h1>
+                    {/* <h1> */}
                         {/* <span className={`expand-box transparent`} id={`expand-box-${comment.id}`}>
                             <span className='expand-box-plus'>+</span></span> */}
-                            {comment.title}</h1>
+                            {/* {comment.title}</h1> */}
                     <h2><span className={`expand-box transparent`} id={`expand-box-${comment.id}`}>
-                        <span className='expand-box-plus'>+</span></span>{header}, posted {time_ago ? `${time_ago} ago` : `just now!`}{update_ago}</h2>
+                        <span className='expand-box-plus'></span></span>{header}, posted {time_ago ? `${time_ago} ago` : `just now!`}{update_ago}</h2>
                     {/* <h2>{comment.parent_id}</h2> */}
                     <div className={`game-comment-${comment.id}-toggle-display`}>
                         <p>{comment.body}</p>
@@ -221,6 +234,7 @@ export default class GameCommentList extends React.Component {
         }
         return (
             <ul className='game-comment-list' id='top-level-comments'>
+                <h1>{this.props.lede}</h1>
                 {commentTree}
                 {/* {this.appendChildComments(comments)} */}
             </ul>

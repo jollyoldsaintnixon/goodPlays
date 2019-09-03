@@ -87,6 +87,8 @@ Moving forward, I would like to implement infinite scrolling and add comment fun
 
 * The background banner was created by user Jetrel and found at https://opengameart.org/content/castle-platformer under a Public Domain license  
 
+* Favicon was designedated at https://pixlr.com/editor/ and created at http://www.favicomatic.com/
+
 
 TODO
 
@@ -95,22 +97,18 @@ CSS:
     - fix errors alignment on the small session form
     - Load icon
   COMMENTS: 
-    - overall list doesn't show background when no comments
 
 COMPONENTS:
   PROFILE:
     - implement proper position sticky for jump links
     - decorate comments
   SEARCH BAR:
-    - add scroll bar if more than 4 matches
     - can select with arrow keys
   INDEX: 
     - implement paginate (somehow)
   GAME COMMENTS:
     - can click on comment in user profile to go to that comment's location within the game show page
-    - only show edit or reply form at once
     - comments respect white space breaklines
     - make child rearing more efficient
-    - Expand icon doesn't shift comment title when displayed
 
     

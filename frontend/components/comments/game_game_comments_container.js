@@ -10,7 +10,8 @@ const msp = (state, ownProps) => {
         parent_id: ownProps.game_id,
         games: state.entities.games,
         user_id: state.session.id,
-        type: 'game'
+        type: 'game',
+        lede: 'Here\'s what people are saying'
     })
 }
 

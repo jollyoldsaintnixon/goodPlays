@@ -53,7 +53,7 @@ class UserProfile extends React.Component {
             <UserGameRack 
               gameRackGames={gameRackGames} 
               count={user.game_ids.length}
-              userId={user.id}/>
+              user={user}/>
             <UserRecommendations
               gamesArray={gamesArray} 
               gameRackGames={gameRackGames} 
@@ -62,10 +62,10 @@ class UserProfile extends React.Component {
               selectedGenre={selectedGenre}
               selectedCategory={selectedCategory}/>
           </section>
-          <section className='user-comments'>
+          {/* <section className='user-comments'>
             <a id='user-game-comments'></a>
             <UserGameCommentsContainer user={user}/>
-          </section>
+          </section> */}
         </section>
       // </section>
     )

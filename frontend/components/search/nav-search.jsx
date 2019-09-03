@@ -74,9 +74,10 @@ class NavSearch extends React.Component {
     let list = []
     
     if (searchString === '') {
+      console.log('empty search string')
       return games
     }
-
+    console.log('search string not empty')
     list = stringFilter(games, searchString)
     
     return list
@@ -85,11 +86,12 @@ class NavSearch extends React.Component {
   dropDownSelect(e) {
     //  
     e.preventDefault()
-    this.setState({searchString: e.target.textContent})
+    // this.setState({searchString: e.target.textContent})
     // this.setState({searchString: ''})
-    this.props.receiveUiGames(this.gameList())
-    this.props.history.push(`/games/show/${e.currentTarget.id}`)
     this.setState({ searchString: '' })
+      // .then(this.props.receiveUiGames(this.gameList()))
+    this.props.receiveUiGames(this.props.games)
+    this.props.history.push(`/games/show/${e.currentTarget.id}`)
   }
 
   advancedSearch() {
@@ -130,7 +132,8 @@ class NavSearch extends React.Component {
         <NavLink to='/index/advanced-search' onClick={this.advancedSearch()}>Advanced </NavLink>
         <ul className={`search-list ${
           this.state.searchString === "" ? 'none' : '' }`} >
-          {gameList.slice(0, 4)}
+          {/* {gameList.slice(0, 4)} */}
+          {gameList}
           {/* <NavSearchList gameList={this.gameList()} /> */}
         </ul>
         <Route path='/index/advanced-search' render={props => <AdvancedSearch {...props} 

@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-// import { withRouter } from 'react-router-dom'
 import GameCommentList from './game_comment_list'
 import { fetchGameCommentsByUser, deleteGameComment } from '../../actions/game_comments_actions';
 
@@ -10,7 +9,8 @@ const msp = (state, ownProps) => {
         parent_id: ownProps.user.id,
         games: state.entities.games,
         user_id: state.session.id,
-        type: 'user'
+        type: 'user',
+        lede: 'Your Comments'
     })
 }
 

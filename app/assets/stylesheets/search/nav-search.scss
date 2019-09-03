@@ -44,6 +44,9 @@
   top: 32px;
   width: 227px;
   right: 99px;
+  height: fit-content;
+  max-height: 185px;
+  overflow-y: auto;  // This is how you implement the browser's scroll bar
 }
 
 .search-list li {

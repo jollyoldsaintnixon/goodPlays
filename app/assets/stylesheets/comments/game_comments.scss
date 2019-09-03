@@ -1,29 +1,53 @@
+
 .game-comment-form {
-    background: pink;
+    // background: pink;
+    margin: 10px;
+    // border: 1px solid transparent;
+      display: flex;
+  flex-direction: column;
+  align-items: center;
+    h3 {
+        font-size: 1.5em
+    }
     input {
-        background: green;
+        background: $one;
+        align-self: flex-end;
+        margin: 5px 10px;
+        padding: 5px;
     }
     textarea {
-        background: yellow;
+        background: $lightest-green;
+    }
+    &:hover {
+        cursor: initial;
+    }
+}
+
+.game-comment-form-fields {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 200px;
+    textarea {
+        height: 100%;
+        border: 1px solid $five;
     }
 }
 
 .game-comment-list {
-    // padding: 10px;
+    padding: 7px;
     background: $zero;
-    border: 1px solid $mid-green;
+    // border: 1px solid $mid-green;
     color: $five;
-    section {
-        border-left: 2px solid $three;
-        margin: 10px 0;
-        &:hover {
-            border-left: 2px solid white;
-        }
-    }
+    // section {
+    //     border-left: 2px solid $three;
+    //     margin: 10px 0;
+    //     box-sizing: border-box
+    // }
     li {
         background: $zero;
-        margin: 10px 0;
-        padding: 10px;
+        // margin: 10px 0;
+        padding: 0 10px;
         display: block;
         overflow-wrap: break-word;
     }
@@ -32,6 +56,7 @@
     }
     h2 {
         color: $dark-green;
+        padding-left: 10px
     }
     p {
         margin: 8px 0;
@@ -46,17 +71,31 @@
     // }
 }
 
+.game-comment-section {
+    border: 1px solid transparent;
+    margin: 10px 0;
+    box-sizing: border-box;
+    &:hover {
+        cursor: pointer;
+    }
+    div {
+        padding-left: 10px;
+    }
+}
+
 .game-comment-buttons {
     display: flex;
     justify-content: flex-start;
     button {
+        color: white;
         margin-right: 10px;
         background: $light-green;
+        background: $one;
         padding: 5px;
         border-radius: 5px;
         &:hover {
             color: $four;
-            background: lighten($light-green, 20);
+            // background: lighten($light-green, 20);
             cursor: pointer;
         }
     }
@@ -71,6 +110,40 @@
     }
 }
 
-// .child-comment {
-//     width: 80%;
-// }
+.expand-box {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background: $one;
+    margin-left: -15px;
+    margin-right: 10px;
+    border-radius: 90%;
+    position: relative;
+    top: 5px;
+
+    &:hover {
+        // background: lighten($light-green, 20);
+        color: $four;
+        cursor: pointer;
+    }
+    .expand-box-plus {
+        color: white;
+        position: relative;
+        position: relative;
+        top: -5px;
+        left: 2px;
+        font-weight: bolder;
+        display: inherit;
+        &:hover {
+            color: $four;
+        }
+    }
+}
+
+.collapse-bar {
+    border-left: 1px solid $dark-green;
+}
+
+.collapse-bar-hover {
+     border-left: 1px solid white; 
+}

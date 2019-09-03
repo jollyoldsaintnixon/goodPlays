@@ -9,3 +9,12 @@
 .inherit {
   display: inherit;
 }
+
+.transparent {
+  color: transparent !important;
+  background: transparent !important;
+  * {
+    color: transparent !important;
+    background: transparent !important;
+  }
+}

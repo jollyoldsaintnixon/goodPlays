@@ -109,5 +109,6 @@ COMPONENTS:
     - only show edit or reply form at once
     - comments respect white space breaklines
     - make child rearing more efficient
+    - Expand icon doesn't shift comment title when displayed
 
     

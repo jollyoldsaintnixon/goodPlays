@@ -14,12 +14,12 @@ class GameCommentForm extends React.Component {
         if (this.props.edit) {
             const { comment } = this.props
             this.state = { title: comment.title, body: comment.body, className: '' }
-            this.lede = 'Edit your comment'
+            this.lede = ' Edit your comment'
         } else if (this.props.child_form) {  // should only proc for replies
-            this.lede = 'Add a reply'
+            this.lede = ' Add a reply'
             this.state = { title: '', body: '', className: '' }
         } else {
-            this.lede = 'Submit a comment!'
+            this.lede = ' Review this game'
             this.state = { title: '', body: '', className: '' }
         }
 
@@ -29,6 +29,7 @@ class GameCommentForm extends React.Component {
     handleSubmit(event) {
         // stop form submission
         event.preventDefault()
+        event.stopPropagation()
         const className = this.props.child_form ?  'none' : '' // hide if it is the comment form for a child
         // destructure
         const { title, body } = this.state
@@ -57,19 +58,25 @@ class GameCommentForm extends React.Component {
         return user_id ? // only show form to post comments if logged in
         (  // the classNames are a bit confusing.  The one coming from props is initially 'none' and is toggled on click of the reply button
         // the one from state is set to none only if submitted, and is also toggled by clicking reply
-            <form id={this.props.id || ''} className={`game-comment-form ${className} ${this.state.className}`} onSubmit={this.handleSubmit} >
-                <h3>{this.lede}</h3>
-                <div> 
-                    <label>
+            <form onClick={e => e.stopPropagation()} onMouseOver={e => e.stopPropagation()}
+                id={this.props.id || ''} 
+                className={`game-comment-form ${className} ${this.state.className}`} 
+                onSubmit={this.handleSubmit} >
+                {/* <h3>{this.lede}</h3> */}
+                <div className='game-comment-form-fields'> 
+                    {/* <label>
                         <input type="text" placeholder='Title' value={this.state.title}
+                            onClick={e => e.stopPropagation()}
                             onChange={update('title', this)}/>
-                    </label>
-                    <textarea onChange={update('body', this)} 
+                    </label> */}
+                    <textarea onChange={update('body', this)} onClick={e => e.stopPropagation()}
                         value={this.state.body}
-                        name="" cols="30" rows="10">
+                        // name="" cols="30" rows="10"
+                        placeholder={this.lede}
+                        >
                     </textarea>
-                    <input type="submit" value='Submit!' />
                 </div>
+                    <input type="submit" value='Submit!' />
 
 
             </form>

@@ -33,8 +33,8 @@ export default class GameCommentList extends React.Component {
         
         const { deleteGameComment } = this.props
         return e => {
-            
             e.preventDefault()
+            e.stopPropagation()
             deleteGameComment(comment_id)
         }
     }
@@ -43,22 +43,32 @@ export default class GameCommentList extends React.Component {
         return e => {
             e.preventDefault()
             e.stopPropagation()
-            const cashComponent = $(`#game-comment-${comment_id}-body`)
-            cashComponent.toggleClass('none')
+            const cashDiv = $(`.game-comment-${comment_id}-toggle-display`)
+                .toggleClass('none')
+            const cashBox = $(`#expand-box-${comment_id}`)
+                .toggleClass('transparent')
+            const cashBar = $(`#game-comment-${comment_id}-section`)
+                .toggleClass('collapse-bar')
+            const cashSection = $(e.currentTarget)
+                .toggleClass('shrunk').removeClass('collapse-bar-hover')
         }
     }
-    
-    // appendChildComments(childComments) {
-    //     if (!childComments) { return null }
-    //     childComments.forEach((child, i) => {
-    //         const parent = $(`#comment-${child.parent_id}`)
-    //         child = this.createCommentItem(child, i)
-    //         parent.push(child)
-    //         // child = $(child)
-    //         // 
-    //         // parent.append(child)
-    //     })
-    // }
+
+    highlightBorder(e) {
+        e.preventDefault()
+        e.stopPropagation()
+        const cashSection = $(e.currentTarget)
+        if (!cashSection.hasClass('shrunk')) {
+            cashSection.addClass('collapse-bar-hover')
+        }
+    }
+
+    deselectBorder(e) {
+        e.preventDefault()
+        e.stopPropagation()
+        const cashDiv = $(e.currentTarget)
+        cashDiv.removeClass('collapse-bar-hover')
+    }
 
     replyOrJump(game_id, comment_id) {
         const { type, user_id } = this.props
@@ -75,6 +85,7 @@ export default class GameCommentList extends React.Component {
                 // className={replyDisplay}
                 onClick={e => {
                     e.preventDefault()
+                    e.stopPropagation()
                     const form = $(`#reply-form-${comment_id}`)
                     form.toggleClass('none')
                 }}>{text}
@@ -97,6 +108,7 @@ export default class GameCommentList extends React.Component {
             className={edit_display}
             onClick={e => {
                 e.preventDefault()
+                e.stopPropagation()
                 const form = $(`#edit-form-${comment.id}`)
                 form.toggleClass('none')
             }}>
@@ -124,15 +136,22 @@ export default class GameCommentList extends React.Component {
         }
         return (
             <section key={'game-comment-' + comment.id} 
-                id={`game-comment-${comment.id}-div`}
-                className={childComment}
+                id={`game-comment-${comment.id}-section`}
+                className={childComment + ' game-comment-section collapse-bar'}
+                onMouseOver={this.highlightBorder}
+                onMouseOut={this.deselectBorder}
                 onClick={this.toggleCommentTree(comment.id)}>
-                <h4></h4>
+                {/* <h4 class={`collapse-bar`} id={`collapse-bar-${comment.id}`}></h4> */}
+                {/* <h4 class={`expand-box`} id={`expand-box-${comment.id}`}></h4> */}
+                
                 <li >
-                    {/* <h1>{comment.title}</h1> */}
+                    <h1>
+                        <span className={`expand-box transparent`} id={`expand-box-${comment.id}`}>
+                            <span className='expand-box-plus'>+</span></span>
+                            {comment.title}</h1>
                     <h2>{header}, posted {time_ago ? `${time_ago} ago` : `just now!`}{update_ago}</h2>
                     {/* <h2>{comment.parent_id}</h2> */}
-                    <div id={`game-comment-${comment.id}-body`}>
+                    <div className={`game-comment-${comment.id}-toggle-display`}>
                         <p>{comment.body}</p>
                         <span className='game-comment-buttons'>
                             <button className={deleteDisplay}
@@ -141,22 +160,19 @@ export default class GameCommentList extends React.Component {
                             </button>
                             {second_button}
                             {edit_button}
-                            {/* <button className={replyDisplay}
-                                onClick={e => {
-                                    e.preventDefault()
-                                    const form = $(`#reply-form-${comment.id}`)
-                                    form.toggleClass('none')
-                                }}>Reply
-                            </button> */}
+
                         </span>
                     </div>
                 </li>
-                <GameCommentForm className='none'
-                    id={`reply-form-${comment.id}`} comment={comment} child_form={true} />
-                <GameCommentForm className='none'
-                    id={`edit-form-${comment.id}`} comment={comment} 
-                    edit={true} child_form={true} />
-                {children}
+                <div className={`game-comment-${comment.id}-toggle-display`}>
+                    <GameCommentForm className='none'
+                        id={`reply-form-${comment.id}`} comment={comment} child_form={true} />
+                    <GameCommentForm className='none'
+                        id={`edit-form-${comment.id}`} comment={comment} 
+                        edit={true} child_form={true} />
+                    {children}
+                </div>
+                
             </section>)
     }
 
@@ -177,39 +193,6 @@ export default class GameCommentList extends React.Component {
             // if (!comment.parent_id) {
                 // children = findChildren(comment.id, comments)
                 return this.createCommentItem(topComment)
-                // const deleteDisplay = user_id === comment.author_id ? 'block' : 'none'
-                // const replyDisplay = 'none'
-                // const game = games[comment.game_id]
-                // return(
-                //     <>
-                //         <li key={'game-comment-' + i} id={`comment-${comment.id}`}>
-                //             <h1>{comment.title}</h1>
-                //             <h2>{type === 'game' ? comment.username : game.title}</h2>
-                //             <h2>{comment.parent_id}</h2>
-                //             <p>{comment.body}</p>
-                //             <div className='game-comment-buttons'>
-                //                 <button className={deleteDisplay}
-                //                     onClick={this.handleDelete(comment.id).bind(this)}>
-                //                         Delete
-                //                 </button>
-                //                 <button 
-                //                     onClick={e => {
-                //                         e.preventDefault()
-                //                         const form = $(`#reply-form-${i}`)
-                //                         form.toggleClass('none')
-                //                         // replyDisplay === 'none' ? 'none' : ''
-                //                     }
-                //                 }>
-                //                     Reply
-                //                 </button>
-                //             </div>
-                //         </li>
-                //         <GameCommentForm className={replyDisplay} 
-                //             id={`reply-form-${i}`} 
-                //             game_id={comment.game_id}
-                //             parent_id={comment.id}/>
-                //     </>)
-            // }
         });
         return tree
     }

@@ -51,14 +51,18 @@ class GameCommentForm extends React.Component {
             this.props.updateGameComment(new_comment)
             this.setState({ className: className }) // only update classname if edit
         } else if (this.props.top_id) {
-            const stars = $('.selected-star-' + this.props.top_id) // for top level comments, get the rating
-            // debugger
+            const all_stars = $('.top-level-star')
+            const selected_stars = $('.selected-star-' + this.props.top_id) // for top level comments, get the rating
             new_comment.parent_id = this.props.parent_id
             new_comment.game_id = this.props.game_id
-            new_comment.rating = stars.length // the length is number of selected stars
-            console.log(new_comment)
-            this.props.addGameComment(new_comment)
+            new_comment.rating = selected_stars.length ? selected_stars.length : null // the length is number of selected stars
+
+            this.props.addGameComment(new_comment) // firing off two actions- inefficient?
             this.props.updateGameRating(new_comment)
+
+
+            all_stars.removeClass('.selected-star-' + this.props.top_id) // reset stars to null
+                .addClass('null-star')
             this.setState({ title: '', body: '', className: className}) // reset form to blank 
         } else {
             new_comment.parent_id = this.props.parent_id
@@ -72,7 +76,7 @@ class GameCommentForm extends React.Component {
 
     render() {
         const { className, user_id } = this.props
-        const StarRating = this.props.top_id ? <StarRatings top_id={this.props.top_id}/> : null; // only render stars on comments
+        const StarRating = this.props.top_id ? <><span>Rate this game:</span> <StarRatings top_id={this.props.top_id}/> </> : null; // only render stars on comments
         return user_id ? // only show form to post comments if logged in
         (  // the classNames are a bit confusing.  The one coming from props is initially 'none' and is toggled on click of the reply button
         // the one from state is set to none only if submitted, and is also toggled by clicking reply
@@ -87,17 +91,19 @@ class GameCommentForm extends React.Component {
                             onClick={e => e.stopPropagation()}
                             onChange={update('title', this)}/>
                     </label> */}
-                    {StarRating}
+                    
                     <textarea onChange={update('body', this)} onClick={e => e.stopPropagation()}
                         value={this.state.body}
                         // name="" cols="30" rows="10"
                         placeholder={this.lede}
                         >
                     </textarea>
+
                 </div>
+                <div className={StarRating ? 'comment-form-bottom-star' : 'comment-form-bottom-no-star'}>
+                    <div className='star-rating-div'>{StarRating}</div>
                     <input type="submit" value='Submit!' />
-
-
+                </div>
             </form>
         ) 
         : null

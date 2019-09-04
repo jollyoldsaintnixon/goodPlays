@@ -105,25 +105,31 @@ class GameShow extends React.Component {
 
   componentDidMount() {
      
-    this.props.fetchGame(this.props.match.params.gameId)
     this.props.fetchGames()
+    this.props.fetchGame(this.props.match.params.gameId)
   }
 
   componentDidUpdate(prevProps) {
      
-    if (!prevProps.game || prevProps.game.id != this.props.match.params.gameId) {
-      this.props.fetchGame(this.props.match.params.gameId)
-      this.props.fetchGames()
+    if (!prevProps.game 
+        || prevProps.game.id != this.props.match.params.gameId) {
+          this.props.fetchGames()
+          this.props.fetchGame(this.props.match.params.gameId)
     }
   }
 
   render () {
     let { game } = this.props
     const { className, rest } = this.state
-
     if (game === undefined) {
-      game = { title: '', release_date: '', description: '', imageUrl: '', image_url: '', genres: [], categories: [] }
+      game = { title: '', release_date: '', description: '', imageUrl: '', image_url: '', genres: [], categories: [], rating: null, rating_count: null }
     }
+    const rating = game.rating ? `Rating: ${Math.floor(game.rating * 100) / 100}/5`
+      : `No one has rated ${game.title}- be the first!`;
+    const rating_count = game.rating_count ? game.rating_count > 1 
+      ? `${game.title} has been rated by ${game.rating_count} people` 
+        : `Only one person has rated ${game.title}- be the second!`
+      : null;  // triple ternary, this one is dicey!
     let content = ''
     let first = game.description.slice(0, 1000)
     if (game.description.length > 1000) {
@@ -133,18 +139,18 @@ class GameShow extends React.Component {
     return (
       <ul className='game-show col-2-3'>
         <li><img src={game.imageUrl} alt={`${game.title} image`} /></li>  
-        <li className='game-title'>{game.title}</li>
-        <li className='game-price'>${game.price}</li>
+        <h1 className='game-title'>{game.title}</h1>
+        <h2 className='game-price'>${game.price}</h2>
         <li className='game-release-date'>Released {game.release_date}</li>
-        <li>rating: {game.rating}</li>
+        <li>{rating}</li>
+        <li>{rating_count}</li>
         <div className="ratings">
           <div className="empty-stars"></div>
           <div className="full-stars" width={"70%"}></div>
         </div>
-        <li>rating count: {game.rating_count}</li>
-        <li className='game-description'>
+        <p className='game-description'>
           {first}<span className={className} onClick={this.expand}>{content}</span>{rest}
-        </li>
+        </p>
           
         <li className='game-genres links'>{this.genreLinks(game)}</li>
         <li className='game-categories links'>{this.categoryLinks(game)}</li>

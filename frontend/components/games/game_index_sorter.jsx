@@ -55,6 +55,17 @@ class GameIndexSorter extends React.Component {
             }
           })
           break
+        case 'rating':
+          sorted = matched.sort((el1, el2) => {
+            if (!el1.rating) {
+              return 1
+            } else if (!el2.rating || el1.rating > el2.rating) {
+              return -1
+            } else {
+              return 0
+            }
+          })
+          break
         default:
           sorted = matched
   
@@ -77,6 +88,7 @@ class GameIndexSorter extends React.Component {
         <button onClick={this.sortBy('title')}><span>Sort by title</span></button>
         <button onClick={this.sortBy('release_date')}><span>Sort by release date</span></button>
         <button onClick={this.sortBy('price')}><span>Sort by price</span></button>
+        <button onClick={this.sortBy('rating')}><span>Sort by rating</span></button>
       </form>
     )
   }

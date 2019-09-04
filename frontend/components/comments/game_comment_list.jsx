@@ -81,7 +81,7 @@ export default class GameCommentList extends React.Component {
                     star = <span className={`fa fa-star selected-star`} 
                         key={`comment-${comment_id}-star-${i}`}></span>
                 } else {
-                    star = <span className="fa fa-star empty-star"
+                    star = <span className="fa fa-star "
                         key={`comment-${comment_id}-star-${i}`}></span>
                 }
                 star_list.push(star)
@@ -185,8 +185,8 @@ export default class GameCommentList extends React.Component {
                         <span className='expand-box-plus'></span></span>{header}, posted {time_ago ? `${time_ago} ago` : `just now!`}{update_ago}</h2>
                     {/* <h2>{comment.parent_id}</h2> */}
                     <div className={`game-comment-${comment.id}-toggle-display`}>
-                        <p>{comment.body}</p>
                         <h5>{this.ratingStars(comment.rating, comment.id)}</h5>
+                        <p>{comment.body}</p>
                         <span className='game-comment-buttons'>
                             <button className={deleteDisplay}
                                 onClick={this.handleDelete(comment.id).bind(this)}>

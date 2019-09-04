@@ -241,8 +241,6 @@ export default class GameCommentList extends React.Component {
         if (comments.length) {
             // topList = this.createCommentTree()
             const topComments = [];
-            console.log(comments);
-            console.log(comments.forEach);
 
             // push top level comments into the topComments array
             comments.forEach(comment => comment.parent_id ? null : topComments.push(comment));

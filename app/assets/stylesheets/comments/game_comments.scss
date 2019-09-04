@@ -72,6 +72,7 @@
     h1 {
         font-size: 2em;
         padding: 5px;
+        text-align: center;
     }
     h2 {
         color: $dark-green;
@@ -140,7 +141,7 @@
     margin-right: 10px;
     border-radius: 90%;
     position: relative;
-    top: 5px;
+    top: 3px;
 
     &:hover {
         // background: lighten($light-green, 20);

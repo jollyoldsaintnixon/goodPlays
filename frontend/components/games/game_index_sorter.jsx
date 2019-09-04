@@ -17,7 +17,6 @@ class GameIndexSorter extends React.Component {
     super(props)
     this.state = { errors: null }
   }
-  
 
   sortBy(type) {
 
@@ -88,7 +87,7 @@ class GameIndexSorter extends React.Component {
         <button onClick={this.sortBy('title')}><span>Sort by title</span></button>
         <button onClick={this.sortBy('release_date')}><span>Sort by release date</span></button>
         <button onClick={this.sortBy('price')}><span>Sort by price</span></button>
-        <button onClick={this.sortBy('rating')}><span>Sort by rating</span></button>
+        {/* <button onClick={this.sortBy('rating')}><span>Sort by rating</span></button> */}
       </form>
     )
   }

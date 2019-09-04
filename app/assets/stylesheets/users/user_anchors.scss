@@ -6,14 +6,21 @@
 }
 
 .user-anchor-links {
+  font-style: italic;
   background: pink;
   position: sticky;
   background: $zero;
+  color: $dark-green;
   // height: 300px;
   // margin-top: 880px;
-  width: 150px;
+  width: fit-content;
   top: 200px;
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 5px;
+  margin-left: -44px;
+  a {
+    font-style: normal;
+    color: $four;
+  }
 }

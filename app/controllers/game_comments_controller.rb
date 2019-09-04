@@ -52,6 +52,6 @@ class GameCommentsController < ApplicationController
     private 
 
     def game_comment_params
-        params.require(:comment).permit(:game_id, :title, :body, :parent_id)
+        params.require(:comment).permit(:game_id, :title, :body, :parent_id, :rating)
     end
 end

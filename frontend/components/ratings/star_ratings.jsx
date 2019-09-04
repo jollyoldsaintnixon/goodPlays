@@ -19,13 +19,21 @@ export default class StarRatings extends React.Component {
                 const cash_star = $(`#star-` + i)
                     .removeClass('selected-star-' + top_id)
             }
-            const cash_star = $(`#star-` + idx)
-                .toggleClass('selected-star-' + top_id)
+            if (idx !== 0) {  // can't go less than 1 star
+                const cash_star = $(`#star-` + idx)
+                    .toggleClass('selected-star-' + top_id)
+            }
         }
         for (let i = 0; i < 5; i++) {
             // create the actual star with id based on i and the cb
-            const star = <span className="fa fa-star" id={`star-${i}`}
-                key={`star-${i}`} onClick={selectStar}></span>
+            let star
+            if (i < 3) { // first three stars selected by default
+                star = <span className={`fa fa-star selected-star-${top_id}`} id={`star-${i}`}
+                    key={`star-${i}`} onClick={selectStar}></span>
+            } else {
+                star = <span className="fa fa-star" id={`star-${i}`}
+                    key={`star-${i}`} onClick={selectStar}></span>
+            }
             star_list.push(star)
         }
         return star_list

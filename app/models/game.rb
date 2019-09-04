@@ -14,6 +14,7 @@
 #  image_url    :string
 #  genres       :string           default([]), is an Array
 #  categories   :string           default([]), is an Array
+#  rating_count :integer          default(0)
 #
 
 class Game < ApplicationRecord

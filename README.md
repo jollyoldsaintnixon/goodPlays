@@ -114,9 +114,15 @@ COMPONENTS:
     - can click on comment in user profile to go to that comment's location within the game show page
     - comments respect white space breaklines
     - make child rearing more efficient
+    - reply box closes on submit
   SPLASH:
     - show game changes after a few secs
   ADVANCED SEARCH:
     - if you come back to the index page after advanced searching, no long opens modal
-
-    
+  RATINGS:
+    - cut off after two decimal places
+    - comments render stars
+    - game reners appropriate stars
+ERRORS:
+  - Resolve Uncaught Error: Given action "RECEIVE_GAME_ERRORS", reducer "games" returned undefined. To ignore an action, you must explicitly return the previous state. If you want this reducer to hold no value, you can return null instead of undefined.
+    - Procs when trying to return game after updating rating

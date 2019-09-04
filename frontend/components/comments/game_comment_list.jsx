@@ -167,6 +167,7 @@ export default class GameCommentList extends React.Component {
                     {/* <h2>{comment.parent_id}</h2> */}
                     <div className={`game-comment-${comment.id}-toggle-display`}>
                         <p>{comment.body}</p>
+                        <h5>rating: {comment.rating}</h5>
                         <span className='game-comment-buttons'>
                             <button className={deleteDisplay}
                                 onClick={this.handleDelete(comment.id).bind(this)}>

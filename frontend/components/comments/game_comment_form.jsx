@@ -51,15 +51,15 @@ class GameCommentForm extends React.Component {
             this.props.updateGameComment(new_comment)
             this.setState({ className: className }) // only update classname if edit
         } else if (this.props.top_id) {
-            const rating = $('.selected-star-' + this.props.top_id) // for top level comments, get the rating
-            debugger
+            const stars = $('.selected-star-' + this.props.top_id) // for top level comments, get the rating
+            // debugger
             new_comment.parent_id = this.props.parent_id
             new_comment.game_id = this.props.game_id
-            new_comment.rating = rating.length
+            new_comment.rating = stars.length // the length is number of selected stars
             console.log(new_comment)
             this.props.addGameComment(new_comment)
             this.props.updateGameRating(new_comment)
-            this.setState({ title: '', body: '', className: className}) // reset form to blank if reply
+            this.setState({ title: '', body: '', className: className}) // reset form to blank 
         } else {
             new_comment.parent_id = this.props.parent_id
             new_comment.game_id = this.props.game_id

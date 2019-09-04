@@ -71,6 +71,25 @@ export default class GameCommentList extends React.Component {
         }
     }
 
+    ratingStars(rating, comment_id) {
+        if (rating) {
+            let star_list = []
+            for (let i = 0; i < 5; i++) {
+                // create the actual star with id based on i and the cb
+                let star
+                if (i < rating) { // first three stars selected by default
+                    star = <span className={`fa fa-star selected-star`} 
+                        key={`comment-${comment_id}-star-${i}`}></span>
+                } else {
+                    star = <span className="fa fa-star empty-star"
+                        key={`comment-${comment_id}-star-${i}`}></span>
+                }
+                star_list.push(star)
+            }
+            return star_list
+        }
+    }
+
     deselectBorder(e) {
         e.preventDefault()
         e.stopPropagation()
@@ -167,7 +186,7 @@ export default class GameCommentList extends React.Component {
                     {/* <h2>{comment.parent_id}</h2> */}
                     <div className={`game-comment-${comment.id}-toggle-display`}>
                         <p>{comment.body}</p>
-                        <h5>rating: {comment.rating}</h5>
+                        <h5>{this.ratingStars(comment.rating, comment.id)}</h5>
                         <span className='game-comment-buttons'>
                             <button className={deleteDisplay}
                                 onClick={this.handleDelete(comment.id).bind(this)}>

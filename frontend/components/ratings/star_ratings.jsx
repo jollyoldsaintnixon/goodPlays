@@ -11,10 +11,11 @@ export default class StarRatings extends React.Component {
             e.stopPropagation()
             const id = e.target.id
             const idx = parseInt(id.split('-')[1]) // this gets the number in the id as an integer
+            debugger
             for (let i = 0; i < idx; i++) {
                 const cash_star = $(`#star-` + i)
-                    .addClass('selected-star-' + top_id)
-            }
+                    .addClass('selected-star-' + top_id) // added the game_id to the class for jquerying purposes later.  The rating is based on the number of stars on the page corresponding to this exact class
+            }   
             for (let i = idx + 1; i < 5; i++) {
                 const cash_star = $(`#star-` + i)
                     .removeClass('selected-star-' + top_id)
@@ -28,10 +29,10 @@ export default class StarRatings extends React.Component {
             // create the actual star with id based on i and the cb
             let star
             if (i < 3) { // first three stars selected by default
-                star = <span className={`fa fa-star selected-star-${top_id}`} id={`star-${i}`}
+                star = <span className={`fa fa-star top-level-star selected-star-${top_id}`} id={`star-${i}`}
                     key={`star-${i}`} onClick={selectStar}></span>
             } else {
-                star = <span className="fa fa-star" id={`star-${i}`}
+                star = <span className="fa fa-star top-level-star" id={`star-${i}`}
                     key={`star-${i}`} onClick={selectStar}></span>
             }
             star_list.push(star)
@@ -40,7 +41,7 @@ export default class StarRatings extends React.Component {
     }
 
     render() {
-
+        
         return (
         <ul>
             {/* <span className="fa fa-star checked"></span>

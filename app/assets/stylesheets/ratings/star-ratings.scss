@@ -1,7 +1,62 @@
 // .selected-star {
 //     color: orange;
 // }
-
-[class*='selected-star-'] {
-    color: orange;
+.fa-star {
+    color: $lightest-green;
 }
+
+[class*='selected-star'] {
+    color: $mid-green;
+}
+
+.top-level-star {
+    &:hover {
+        cursor: pointer;
+    }
+}
+// the following css was taken from Ismail Moghul's answer on Stack Overflow https://stackoverflow.com/questions/33858426/only-fill-60-percent-star-using-css-width
+.ratings {
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  color: #b1b1b1;
+  overflow: hidden;
+}
+
+.full-stars{
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #fde16d;
+}
+
+.empty-stars:before,
+.full-stars:before {
+  content: "\2605\2605\2605\2605\2605";
+  font-size: 14pt;
+}
+
+.empty-stars:before {
+  -webkit-text-stroke: 1px #848484;
+}
+
+.full-stars:before {
+  -webkit-text-stroke: 1px orange;
+}
+
+/* Webkit-text-stroke is not supported on firefox or IE */
+/* Firefox */
+@-moz-document url-prefix() {
+  .full-stars{
+    color: #ECBE24;
+  }
+}
+/* IE */
+
+  .full-stars{
+    color: #ECBE24;
+  }
+
+  // end of Ismail Moghul's css

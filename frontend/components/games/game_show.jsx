@@ -1,7 +1,7 @@
-
 import React from 'react'
 import { genreFilter, categoryFilter } from '../../util/helper_functions'
 import { Link } from 'react-router-dom'
+import { css } from '@emotion/core'
 import GameCommentSection from '../comments/game_comment_section'
 
 class GameShow extends React.Component {
@@ -137,6 +137,10 @@ class GameShow extends React.Component {
         <li className='game-price'>${game.price}</li>
         <li className='game-release-date'>Released {game.release_date}</li>
         <li>rating: {game.rating}</li>
+        <div className="ratings">
+          <div className="empty-stars"></div>
+          <div className="full-stars" width={"70%"}></div>
+        </div>
         <li>rating count: {game.rating_count}</li>
         <li className='game-description'>
           {first}<span className={className} onClick={this.expand}>{content}</span>{rest}

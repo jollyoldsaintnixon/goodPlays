@@ -22,14 +22,12 @@ class NavOptions extends React.Component {
     this.removeVisible = this.removeVisible.bind(this)
   }
 
-  componentDidMount() {
-    const root = document.getElementById('root')
-    root.addEventListener('onclick', e => {
-      // debugger
-      this.removeVisible()
-    })
-    // debugger 
-  }
+  // componentDidMount() {
+  //   const root = document.getElementById('root')
+  //   root.addEventListener('click', e => {
+  //     this.removeVisible(e)
+  //   }) 
+  // }
 
   addVisible(e) {
     e.stopPropagation()

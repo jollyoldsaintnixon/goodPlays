@@ -122,7 +122,8 @@ COMPONENTS:
   RATINGS:
     - cut off after two decimal places
     - comments render stars
-    - game reners appropriate stars
+    - game renders appropriate stars
+    - selected star count reverts to three after submission
 ERRORS:
   - Resolve Uncaught Error: Given action "RECEIVE_GAME_ERRORS", reducer "games" returned undefined. To ignore an action, you must explicitly return the previous state. If you want this reducer to hold no value, you can return null instead of undefined.
     - Procs when trying to return game after updating rating

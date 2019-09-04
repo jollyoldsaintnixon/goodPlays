@@ -1,0 +1,7 @@
+// .selected-star {
+//     color: orange;
+// }
+
+[class*='selected-star-'] {
+    color: orange;
+}

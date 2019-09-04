@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { update } from '../../util/helper_functions'
-import { addGameComment } from '../../actions/game_comments_actions'
-import { updateGameComment } from '../../actions/game_comments_actions'
-import { cpus } from 'os';
+import { addGameComment, updateGameComment } from '../../actions/game_comments_actions'
+// import { updateGameComment } from '../../actions/game_comments_actions'
+import { updateGameRating } from '../../actions/games_actions'
+import StarRatings from '../ratings/star_ratings'
 
 
 
@@ -49,6 +50,16 @@ class GameCommentForm extends React.Component {
             new_comment.game_id = comment.game_id
             this.props.updateGameComment(new_comment)
             this.setState({ className: className }) // only update classname if edit
+        } else if (this.props.top_id) {
+            const rating = $('.selected-star-' + this.props.top_id) // for top level comments, get the rating
+            debugger
+            new_comment.parent_id = this.props.parent_id
+            new_comment.game_id = this.props.game_id
+            new_comment.rating = rating.length
+            console.log(new_comment)
+            this.props.addGameComment(new_comment)
+            this.props.updateGameRating(new_comment)
+            this.setState({ title: '', body: '', className: className}) // reset form to blank if reply
         } else {
             new_comment.parent_id = this.props.parent_id
             new_comment.game_id = this.props.game_id
@@ -61,6 +72,7 @@ class GameCommentForm extends React.Component {
 
     render() {
         const { className, user_id } = this.props
+        const StarRating = this.props.top_id ? <StarRatings top_id={this.props.top_id}/> : null; // only render stars on comments
         return user_id ? // only show form to post comments if logged in
         (  // the classNames are a bit confusing.  The one coming from props is initially 'none' and is toggled on click of the reply button
         // the one from state is set to none only if submitted, and is also toggled by clicking reply
@@ -75,6 +87,7 @@ class GameCommentForm extends React.Component {
                             onClick={e => e.stopPropagation()}
                             onChange={update('title', this)}/>
                     </label> */}
+                    {StarRating}
                     <textarea onChange={update('body', this)} onClick={e => e.stopPropagation()}
                         value={this.state.body}
                         // name="" cols="30" rows="10"
@@ -97,6 +110,7 @@ const msp = state => ({
 const mdp = dispatch => ({
     addGameComment: comment => dispatch(addGameComment(comment)),
     updateGameComment: comment => dispatch(updateGameComment(comment)),
+    updateGameRating: comment => dispatch(updateGameRating(comment)),
 })
 
 export default connect(msp, mdp)(GameCommentForm)

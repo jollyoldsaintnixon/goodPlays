@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
       resources :game_comments, only: []
     resource :session, only: [:create, :destroy]
-    resources :games, only: [:index, :show]
+    resources :games, only: [:index, :show, :update]
     resources :game_racks, only: [:create, :destroy]
     get 'count', to: 'games#count'  # made this route to know when we had pulled all the games from the db for our mcgyvered async db pull
   end

@@ -7,7 +7,7 @@ const uiGamesReducer = (state = [], action) => {
   Object.freeze(state)
   switch (action.type) {
     case RECEIVE_UI_GAMES:
-      debugger
+      
       return action.games.map(game => {
         return game.id
       })

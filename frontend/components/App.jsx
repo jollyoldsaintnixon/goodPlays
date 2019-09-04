@@ -4,6 +4,8 @@ import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import GameShowContainer from './games/game_show_container'
 import GameShow from './games/game_show'
+// import { css } from '@emotion/core';
+// import { ClipLoader } from 'react-spinners';
 // components
 import { getCount } from '../actions/games_actions'
 import LoginPageContainer from './signup_page/login_page_container'
@@ -19,10 +21,16 @@ const mdp = dispatch => ({
   getCount: () => dispatch(getCount())
 })
 
+// const override = css`
+//     display: block;
+//     margin: 0 auto;
+// `;
+
+
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { count: null }
+    this.state = { count: null, loading: true }
   }
 
   componentDidMount() {
@@ -33,6 +41,15 @@ class App extends React.Component {
     
     return (
       <>
+        {/* <ClipLoader
+          css={override}
+          sizeUnit={"px"}
+          size={80}
+          color={'purple'}
+          position={'absolute'}
+          loading={this.state.loading}
+          border={'5px solid purple'}
+        /> */}
         <WelcomeContainer />
         <section className='main-section'>
           <img className='banner' src={window.banner} alt='Terror of the Amazon'/> 

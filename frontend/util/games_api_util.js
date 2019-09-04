@@ -53,3 +53,11 @@ export const deleteGame = id => {
     data: { id }
   })
 }
+
+export const updateGameRating = comment => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/games/${comment.game_id}`,
+    data: { comment },
+  })
+}

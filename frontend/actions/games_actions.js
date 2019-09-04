@@ -83,3 +83,8 @@ export const getCount = () => dispatch => {
   return APIUtil.getCount()
     .then(num => dispatch(receiveCount(num)))
 }
+
+export const updateGameRating = comment => dispatch => {
+  return APIUtil.updateGameRating(comment)
+    .then(game => dispatch(receiveGame(game)), error => dispatch(receiveGameErrors(error.responseJSON)))
+}

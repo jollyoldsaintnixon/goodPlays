@@ -136,6 +136,8 @@ class GameShow extends React.Component {
         <li className='game-title'>{game.title}</li>
         <li className='game-price'>${game.price}</li>
         <li className='game-release-date'>Released {game.release_date}</li>
+        <li>rating: {game.rating}</li>
+        <li>rating count: {game.rating_count}</li>
         <li className='game-description'>
           {first}<span className={className} onClick={this.expand}>{content}</span>{rest}
         </li>

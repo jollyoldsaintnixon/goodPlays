@@ -22,6 +22,15 @@ class NavOptions extends React.Component {
     this.removeVisible = this.removeVisible.bind(this)
   }
 
+  componentDidMount() {
+    const root = document.getElementById('root')
+    root.addEventListener('onclick', e => {
+      // debugger
+      this.removeVisible()
+    })
+    // debugger 
+  }
+
   addVisible(e) {
     e.stopPropagation()
     this.setState({visible: true})
@@ -34,7 +43,7 @@ class NavOptions extends React.Component {
   }
 
   render () {
-
+    
     const display = this.state.visible ? 
       <NavBrowseMenu closeParent={this.removeVisible}/> : null
 

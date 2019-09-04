@@ -21,20 +21,11 @@ class NavBrowseMenu extends React.Component {
     this.removeCategoryVisible = this.removeCategoryVisible.bind(this)
   }
 
-  // swapClass(midClassName) {
-  //   return (e) => {
-  //      
-  //     e.preventDefault()
-  //     this.setState({ 
-  //       midClassName: midClassName,
-  //       genreVisible: false,
-  //       categoryVisible: false,
-  //      })
-  //   }
-
-
+  // componentDidMount() {
+  //   const browse_menu = document.getElementById('browse-menu')
+  //   const root = document.getElementById('root')
+  //   root.onclick = e => {browse_menu.addClass('none')}
   // }
-
 
   addGenreVisible(e) {
     e.stopPropagation()
@@ -70,7 +61,7 @@ class NavBrowseMenu extends React.Component {
         closeParent={this.props.closeParent} /> : null
     
     return (
-      <ul className={`browse-menu`} >
+      <ul className={`browse-menu`} id='browse-menu'>
         <li onMouseOver={this.addGenreVisible}
         // onMouseEnter={this.swapClass('inherit').bind(this)}
           onMouseLeave={this.removeGenreVisible}

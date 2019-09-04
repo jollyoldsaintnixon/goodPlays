@@ -11,3 +11,11 @@ img {
   height: 368px;
   z-index: -1;
 }
+
+[class*='css-'] {
+  position: fixed;
+  left: 53vw;
+  top: 39vw;
+  z-index: 10;
+  border: 6px solid purple;
+}

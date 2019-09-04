@@ -15,10 +15,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           query: {
-            presets: ['@babel/env', '@babel/react']
+            presets: ['@babel/env', '@babel/react', "@babel/preset-react", "@babel/preset-env"],
+            "plugins": ["emotion"]
           }
         },
-      }
+      },
     ]
   },
   devtool: 'eval-source-map',

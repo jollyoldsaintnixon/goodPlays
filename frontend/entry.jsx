@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.update = APIGameCommentUtil.updateGameComment;
   window.fetchGameCommentsByGame = Actions.fetchGameCommentsByGame;
   window.addGameComment = Actions.addGameComment
+  window.updateGameRating = APIGameUtil.updateGameRating
   // end testing
   ReactDOM.render(<Root store={ store } />, root)
 })

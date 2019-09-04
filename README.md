@@ -89,6 +89,8 @@ Moving forward, I would like to implement infinite scrolling and add comment fun
 
 * Favicon was designedated at https://pixlr.com/editor/ and created at http://www.favicomatic.com/
 
+* Spinner from https://www.npmjs.com/package/react-spinners
+
 
 TODO
 
@@ -102,13 +104,19 @@ COMPONENTS:
   PROFILE:
     - implement proper position sticky for jump links
     - decorate comments
+    - Different lede when no comments
   SEARCH BAR:
     - can select with arrow keys
+    - set max width, prevent overflow x
   INDEX: 
     - implement paginate (somehow)
   GAME COMMENTS:
     - can click on comment in user profile to go to that comment's location within the game show page
     - comments respect white space breaklines
     - make child rearing more efficient
+  SPLASH:
+    - show game changes after a few secs
+  ADVANCED SEARCH:
+    - if you come back to the index page after advanced searching, no long opens modal
 
     

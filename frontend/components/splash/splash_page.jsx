@@ -77,7 +77,7 @@ class SplashPage extends React.Component {
               <Link to={`/games/show/${game.id}`} className='splash-link-show'>
                 {game.title}</Link></li>
             <li className='game-release-date'>Released {game.release_date}</li>
-            <li className='game-description'>{game.description}</li>
+            <p className='game-description'>{game.description}</p>
             <li className='game-genres links'>{this.genreLinks(game)}</li>
             <li className='game-categories links'>{this.categoryLinks(game)}</li>
             <div className='button-container'>

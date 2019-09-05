@@ -59,13 +59,13 @@
   margin: 10px 0;
   a {
     margin: 0 5px;
-    background: $four;
+    background: $mid-green;
     color: white;
     padding: 2px 4px;
   }
   a:hover {
     border-bottom: 1px solid transparent;
-    background: $zero;
-    color: $four;    
+    background: $light-green;
+    // color: $four;    
   }
 }

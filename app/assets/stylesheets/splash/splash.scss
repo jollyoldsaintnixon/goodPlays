@@ -30,6 +30,13 @@
 .splash-game-title {
   font-size: 3em;
   margin-top: 5px;
+  color: $five
+}
+
+.game-title {
+  a {
+    color: $five;
+  }
 }
 
 .splash-game-release-date {

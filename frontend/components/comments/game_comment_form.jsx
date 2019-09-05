@@ -65,8 +65,9 @@ class GameCommentForm extends React.Component {
                     errors => this.setState({ errors: errors.responseJSON })) // firing off two actions- inefficient?
 
 
-            all_stars.removeClass('.selected-star-' + this.props.top_id) // reset stars to null
+            all_stars.removeClass('selected-star-' + this.props.top_id) // reset stars to null
                 .addClass('null-star')
+                
             this.setState({ title: '', body: '', className: className, errors: ''}) // reset form to blank 
         } else {
             

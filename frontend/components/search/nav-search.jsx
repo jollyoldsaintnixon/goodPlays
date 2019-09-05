@@ -7,6 +7,7 @@ import { withRouter, NavLink, Route } from 'react-router-dom'
 import AdvancedSearch from './advanced-search'
 import { openModal } from '../../actions/modal_actions'
 import { NavSearchList } from './nav-search-list';
+import { css } from '@emotion/core';
 
 class NavSearch extends React.Component {
   constructor(props) {
@@ -35,6 +36,8 @@ class NavSearch extends React.Component {
 
   enterSearch(e) {
     let list
+    let list_idx = 0
+    const cash_list = $('#search-list')
     switch (e.key) {
       case 'Enter':
         e.preventDefault()
@@ -49,6 +52,7 @@ class NavSearch extends React.Component {
         this.props.history.push(`/index`)
         break;
       case "ArrowDown":
+        // debugger
         
         break;
       case "ArrowUp":
@@ -74,10 +78,8 @@ class NavSearch extends React.Component {
     let list = []
     
     if (searchString === '') {
-      ('empty search string')
       return games
     }
-    ('search string not empty')
     list = stringFilter(games, searchString)
     
     return list
@@ -103,9 +105,16 @@ class NavSearch extends React.Component {
   render() {
     const gameList = this.gameList().map(game => {
       return (
-      <li key={`search-item-${game.id}`} 
+      <li key={`search-item-${game.id}`}
         id={game.id} 
-        onClick={this.dropDownSelect.bind(this)}>
+        onClick={this.dropDownSelect.bind(this)}
+        // onBlur={e => {
+        //   debugger
+        //   cash_li = $(`#${e.currentTarget.id}`)
+        //   cash_li.css('background', 'orange')
+        //   // this.style.background = 'orange'
+        // }}
+        >
             <img src={game.imageUrl} alt=""/>
             <p>{game.title.length > 45 ? game.title.slice(0, 42).concat('...') : game.title}</p>
       </li>
@@ -130,7 +139,7 @@ class NavSearch extends React.Component {
           <img  className="icon-magnifying-glass" src={window.search}/>
           </button>
         <NavLink to='/index/advanced-search' onClick={this.advancedSearch()}>Advanced </NavLink>
-        <ul className={`search-list ${
+        <ul id='search-list' className={`search-list ${
           this.state.searchString === "" ? 'none' : '' }`} >
           {/* {gameList.slice(0, 4)} */}
           {gameList}

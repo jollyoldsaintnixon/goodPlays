@@ -10,6 +10,6 @@ export default function UserAnchorLinks(props) {
                 <Link to='/profile#game-rack'>Games   </Link>
                 <Link to='/profile#user-game-comments'>Comments</Link>
             </div>
-        // {/* </div> */}
+        // {/* // </div> */}
     )
 }

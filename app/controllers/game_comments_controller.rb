@@ -25,7 +25,12 @@ class GameCommentsController < ApplicationController
 
             render json: comment
         else
-            render json: ['Attempt to add comment was unsuccesful'], status: 422
+            if params[:comment][:body] == ""
+                render json: ['You must include at least some content!'], status: 422
+            else
+            # render json: ['Attempt to add comment was unsuccesful'], status: 422
+                render json: comment.errors.full_messages, status: 422
+            end
         end
     end
 

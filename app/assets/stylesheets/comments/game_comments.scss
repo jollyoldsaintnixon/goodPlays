@@ -6,6 +6,11 @@
       display: flex;
   flex-direction: column;
   align-items: center;
+    .comment-errors {
+        display: block;
+        height: 19px;
+        color: red;
+    }
     h3 {
         font-size: 1.5em
     }

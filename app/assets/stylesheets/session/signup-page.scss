@@ -18,6 +18,8 @@
   width: 100%;
   background: $zero;
   border: 1px solid gray;
+  max-width: 620px;
+  min-width: 440px;
   h3 {
     color: white;
     font-size: 2em;
@@ -63,6 +65,8 @@
   width: 60%;
   margin-top: 10px;
   align-items: center;
+  position: relative;
+  top: 25px;
   input {
     margin-right: 25px;
   }
@@ -85,6 +89,8 @@
   justify-content: center;
   height: 100px;
   color: black;
+    margin: 10px;
+
   li {
     text-align: center;
     background: lightsalmon;

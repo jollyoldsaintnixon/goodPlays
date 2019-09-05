@@ -11,9 +11,8 @@
   position: sticky;
   // background: $zero;
   color: $dark-green;
-  // height: 300px;
-  // margin-top: 880px;
-  width: fit-content;
+  min-width: 87px;
+  width: 8%;
   top: 200px;
   display: flex;
   flex-direction: column;

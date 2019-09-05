@@ -6,7 +6,7 @@ import { RECEIVE_GAME_COMMENT } from '../../actions/game_comments_actions';
 export default (state = {}, action) => {
   
   Object.freeze(state)
-  debugger
+  
   switch (action.type) {
     case RECEIVE_GAMES:
       return action.games

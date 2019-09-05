@@ -101,9 +101,10 @@ CSS:
   COMMENTS: 
 
 COMPONENTS:
+  USER-AUTH:
+    - confirm password
   PROFILE:
     - decorate comments
-    - Comment headline looks like rack headline
   SEARCH BAR:
     - can select with arrow keys
     - set max width, prevent overflow x
@@ -111,21 +112,21 @@ COMPONENTS:
     - implement paginate (somehow)
   GAME COMMENTS:
     - can click on comment in user profile to go to that comment's location within the game show page. The issue now is sometimes the jump occurs before the comments all load, so the anchor is too high up
-    - errors render if submission unsuccessful
     - comments respect white space breaklines
     - make child rearing more efficient
-    - reply box closes on submit
+    - reply box closes on submit after second reply
   SPLASH:
-    - show game changes after a few secs
+    - show game doesn't change after a few secs
   ADVANCED SEARCH:
     - if you come back to the index page after advanced searching, no long opens modal
+    - add rating search
   RATINGS:
     - game renders appropriate stars
     - consider updating rating if deleting a rated comment
-  SORTER: 
-    - sorts updated games
   INDEX: 
     - rethink the hovering boxes
+  JUMP LINKS:
+    - different text for show and profile
 ERRORS:
   - Resolve Uncaught Error: Given action "RECEIVE_GAME_ERRORS", reducer "games" returned undefined. To ignore an action, you must explicitly return the previous state. If you want this reducer to hold no value, you can return null instead of undefined.
     - Procs when trying to return game after updating rating

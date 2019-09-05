@@ -8,7 +8,7 @@ class SessionForm extends React.Component {
     this.state = {
       username: '', 
       password: '',
-      // confirm_password: '',
+      confirm_password: '',
       email: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,9 +24,9 @@ class SessionForm extends React.Component {
     if (this.signup) {
       return (
         <>
-          {/* <label>Confirm Password:
-                <input type="password" placeholder='username' value={confirm_password} onChange={update('confirm_password', this)} />
-          </label> */}
+          <label>
+                <input type="password" placeholder='Confirm Password' value={confirm_password} onChange={update('confirm_password', this)} />
+          </label>
           <label>
             <input type="text" placeholder='Email Address' value={email} onChange={update('email', this)} />
           </label>
@@ -39,7 +39,7 @@ class SessionForm extends React.Component {
     // stop form submission
     event.preventDefault()
     // destructure
-    // const { password, confirm_password } = this.state
+    const { password, confirm_password } = this.state
 
     // if (this.signup && password != confirm_password) {
     //   this.props.receiveErrors(["Password must match"])

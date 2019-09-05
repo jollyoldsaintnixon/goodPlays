@@ -8,13 +8,13 @@ import { idsToObjects } from '../../util/helper_functions'
 import GameShow from './game_show'
 import GameIndexItem from './game_index_item'
 import GameIndexSorter from './game_index_sorter'
-// import { css } from '@emotion/core';
-// import { ClipLoader } from 'react-spinners';
+import { css } from '@emotion/core';
+import { ClipLoader } from 'react-spinners';
 
-// const override = css`
-//     display: block;
-//     margin: 0 auto;
-// `;
+const override = css`
+    display: block;
+    margin: 0 auto;
+`;
 
 class GameIndex extends React.Component {
   constructor(props) {
@@ -48,6 +48,19 @@ class GameIndex extends React.Component {
       indexItems = gamesArray.map((game, idx) => {
         return <GameIndexItem game={game} key={`game-${idx}`}>Game #{idx + 1}</GameIndexItem>
       })
+    }
+
+    if (Object.values(games).length < 85) {
+      debugger
+      return <ClipLoader
+        css={override}
+        sizeUnit={"px"}
+        size={80}
+        color={'purple'}
+        // position={'absolute'}
+        // loading={this.state.loading}
+        border={'5px solid purple'}
+      />
     }
 
     return (

@@ -1,0 +1,35 @@
+.game-jump-wrapper {
+    height: 100%;
+  width: 20%;
+  padding-top: 46px;
+  padding-left: 14px;
+}
+
+.game-jump-links {
+font-style: italic;
+  // background: pink;
+  position: sticky;
+  // background: $zero;
+  color: $dark-green;
+  min-width: 87px;
+  width: 8%;
+  top: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin-left: -184px;
+  h3 {
+    margin: 15px auto;
+    display: block;
+    height: 0;
+    width: 80%;
+    border-top: 1px solid $five;
+  }
+  a {
+    font-style: normal;
+    color: $four;
+    &:hover {
+      color: $one;
+    }
+  }
+}

@@ -3,6 +3,7 @@ import { genreFilter, categoryFilter } from '../../util/helper_functions'
 import { Link } from 'react-router-dom'
 import { css } from '@emotion/core'
 import GameCommentSection from '../comments/game_comment_section'
+import GameJumpLinks from './game-jump-links';
 
 class GameShow extends React.Component {
   constructor(props) {
@@ -137,8 +138,11 @@ class GameShow extends React.Component {
     }
     //  
     return (
+      // <section className='games'>
       <ul className='game-show col-2-3'>
-        <li><img src={game.imageUrl} alt={`${game.title} image`} /></li>  
+      <GameJumpLinks game_id={game.id} ></GameJumpLinks>
+        <a className='jump-link' id='game-show'></a>  
+        <li><img src={game.imageUrl} alt={`${game.title} image`} /></li>
         <h1 className='game-title'>{game.title}</h1>
         <h2 className='game-price'>${game.price}</h2>
         <li className='game-release-date'>Released {game.release_date}</li>
@@ -159,6 +163,7 @@ class GameShow extends React.Component {
         </div>
         <GameCommentSection game_id={game ? game.id : null}></GameCommentSection>
       </ul>
+      // </section>
     )
   }
 }

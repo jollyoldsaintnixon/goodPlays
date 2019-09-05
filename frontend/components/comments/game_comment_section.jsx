@@ -12,6 +12,7 @@ class GameCommentSection extends React.Component {
             <>
                 <GameCommentForm className='' top_id={game_id ? game_id : null} // the top_id is strictly used in rendering the star ratings
                  game_id={game_id ? game_id : null}/>
+                <a className='jump-link' id='game-comments'></a> 
                 <GameGameCommentsContainer game_id={game_id ? game_id : null} />
             </>
             )

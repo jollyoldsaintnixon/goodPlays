@@ -37,5 +37,5 @@
   API requests and actions, and noticed I wasn't actually hitting the backend when calling all games.  This was because I had a line of code in the
   controller that created a cache every 24 hrs.  Removing this line allowed the sorter to work with the updated information.
   
-05 SEP: Could not log in exisiting users.  Put debuggers in every step of the way.  Pinpointed problem at the is_password? method in User.rb.  Somehow I
+05 SEP: Could not log in exisiting users.  Put s in every step of the way.  Pinpointed problem at the is_password? method in User.rb.  Somehow I
   had deleted the last letter in the parameter, so when using that parameter to see if it was the valid password, it would return false.

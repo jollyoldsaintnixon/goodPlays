@@ -52,7 +52,7 @@ class NavSearch extends React.Component {
         this.props.history.push(`/index`)
         break;
       case "ArrowDown":
-        // debugger
+        // 
         
         break;
       case "ArrowUp":
@@ -109,7 +109,7 @@ class NavSearch extends React.Component {
         id={game.id} 
         onClick={this.dropDownSelect.bind(this)}
         // onBlur={e => {
-        //   debugger
+        //   
         //   cash_li = $(`#${e.currentTarget.id}`)
         //   cash_li.css('background', 'orange')
         //   // this.style.background = 'orange'

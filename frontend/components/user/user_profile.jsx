@@ -49,7 +49,7 @@ class UserProfile extends React.Component {
       selectedCategory = randomElement(selectedGame2.categories) || 'single-player'
     }
 
-    if (gamesArray.length < 90) {
+    if (gamesArray.length < 400) {
       return <ClipLoader
         css={override}
         sizeUnit={"px"}

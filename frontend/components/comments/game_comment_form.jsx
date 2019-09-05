@@ -69,7 +69,7 @@ class GameCommentForm extends React.Component {
                 .addClass('null-star')
             this.setState({ title: '', body: '', className: className, errors: ''}) // reset form to blank 
         } else {
-            debugger
+            
             new_comment.parent_id = this.props.parent_id
             new_comment.game_id = this.props.game_id
             this.props.addGameComment(new_comment).then(null, errors => this.setState({ errors: errors.responseJSON })) 
@@ -81,7 +81,7 @@ class GameCommentForm extends React.Component {
 
     render() {
         const { className, user_id } = this.props
-        debugger
+        
         const StarRating = this.props.top_id ? <><span>Rate this game:</span> <StarRatings top_id={this.props.top_id}/> </> : null; // only render stars on comments
         return user_id ? // only show form to post comments if logged in
         (  // the classNames are a bit confusing.  The one coming from props is initially 'none' and is toggled on click of the reply button

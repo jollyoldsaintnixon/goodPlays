@@ -7,6 +7,13 @@ import UserRecommendations from './user_recommendations'
 import UserGameRack from './user_game_rack'
 import UserGameCommentsContainer from '../comments/user_game_comments_container'
 import UserAnchorLinks from './user_anchor_links'
+import { css } from '@emotion/core';
+import { ClipLoader } from 'react-spinners';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+`;
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -31,8 +38,8 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    const { user } = this.props
-    const gamesArray = Object.values(this.props.games)
+    const { user, games, count } = this.props
+    const gamesArray = Object.values(games)
     const gameRackGames = this.gameRackGames()
     let selectedGame1, selectedGame2, selectedGenre, selectedCategory
     if (gameRackGames && gameRackGames.length) {  // will be undefined before component mounts
@@ -40,6 +47,16 @@ class UserProfile extends React.Component {
       selectedGame2 = randomElement(gameRackGames)
       selectedGenre = randomElement(selectedGame1.genres) || 'indie'
       selectedCategory = randomElement(selectedGame2.categories) || 'single-player'
+    }
+
+    if (gamesArray.length < 90) {
+      return <ClipLoader
+        css={override}
+        sizeUnit={"px"}
+        size={80}
+        color={'purple'}
+        border={'5px solid purple'}
+      />
     }
     return (
       // <section className='overprofile-container'>
@@ -74,7 +91,8 @@ class UserProfile extends React.Component {
 
 const msp = (state) => ({
   games: state.entities.games,
-  user: state.entities.users[state.session.id]
+  user: state.entities.users[state.session.id],
+  count: state.entities.count
 });
 
 const mdp = dispatch => ({

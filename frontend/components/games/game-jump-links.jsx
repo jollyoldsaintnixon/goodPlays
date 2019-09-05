@@ -8,7 +8,7 @@ export default function GameJumpLinks(props) {
             <div className='game-jump-links sticky'>
                 Jump links
                 <h3></h3>
-                <Link to={`/games/show/${props.game_id}#game-show`}>Games   </Link>
+                <Link to={`/games/show/${props.game_id}#game-show`}>Game Description   </Link>
             <Link to={`/games/show/${props.game_id}#game-comments`}>Comments</Link>
             </div>
         // </div>

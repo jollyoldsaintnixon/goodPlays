@@ -11,7 +11,8 @@ font-style: italic;
   position: sticky;
   // background: $zero;
   color: $dark-green;
-  min-width: 87px;
+  text-align: center;
+  min-width: fit-content;
   width: 8%;
   top: 200px;
   display: flex;
@@ -26,6 +27,7 @@ font-style: italic;
     border-top: 1px solid $five;
   }
   a {
+      text-align: left;
     font-style: normal;
     color: $four;
     &:hover {

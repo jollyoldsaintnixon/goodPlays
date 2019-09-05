@@ -9,7 +9,7 @@
   font-style: italic;
   // background: pink;
   position: sticky;
-  // background: $zero;
+  text-align: center;
   color: $dark-green;
   min-width: 87px;
   width: 8%;
@@ -26,6 +26,7 @@
     border-top: 1px solid $five;
   }
   a {
+    text-align: left;
     font-style: normal;
     color: $four;
     &:hover {

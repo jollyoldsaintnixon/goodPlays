@@ -101,6 +101,7 @@ CSS:
   COMMENTS: 
 
 COMPONENTS:
+  - jump to top of page after each front end route change (unless looking for specific comment)
   USER-AUTH:
     - confirm password
   PROFILE:

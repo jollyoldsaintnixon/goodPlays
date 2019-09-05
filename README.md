@@ -102,9 +102,8 @@ CSS:
 
 COMPONENTS:
   PROFILE:
-    - implement proper position sticky for jump links
     - decorate comments
-    - Different lede when no comments
+    - Comment headline looks like rack headline
   SEARCH BAR:
     - can select with arrow keys
     - set max width, prevent overflow x
@@ -122,8 +121,11 @@ COMPONENTS:
     - if you come back to the index page after advanced searching, no long opens modal
   RATINGS:
     - game renders appropriate stars
+    - consider updating rating if deleting a rated comment
   SORTER: 
     - sorts updated games
+  INDEX: 
+    - rethink the hovering boxes
 ERRORS:
   - Resolve Uncaught Error: Given action "RECEIVE_GAME_ERRORS", reducer "games" returned undefined. To ignore an action, you must explicitly return the previous state. If you want this reducer to hold no value, you can return null instead of undefined.
     - Procs when trying to return game after updating rating

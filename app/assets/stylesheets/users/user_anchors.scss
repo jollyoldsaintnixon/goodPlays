@@ -7,9 +7,9 @@
 
 .user-anchor-links {
   font-style: italic;
-  background: pink;
+  // background: pink;
   position: sticky;
-  background: $zero;
+  // background: $zero;
   color: $dark-green;
   // height: 300px;
   // margin-top: 880px;
@@ -19,8 +19,18 @@
   flex-direction: column;
   padding: 5px;
   margin-left: -44px;
+  h3 {
+    margin: 15px auto;
+    display: block;
+    height: 0;
+    width: 80%;
+    border-top: 1px solid $five;
+  }
   a {
     font-style: normal;
     color: $four;
+    &:hover {
+      color: $one;
+    }
   }
 }

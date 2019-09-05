@@ -120,14 +120,8 @@ export default class GameCommentList extends React.Component {
                     
                 }}>{text}
             </button>) :
-            <Link to={`/games/show/${game_id}#game-comment-link-${comment_id}`}><button
-                // onClick={e => {
-                //     e.preventDefault()
-                //     const form= $(`#reply-form-${comment.id}`)
-                //     form.toggleClass('none')
-                // }}
-                >{text}
-            </button></Link>
+            <Link to={`/games/show/${game_id}#game-comment-link-${comment_id}`}>
+                <button>{text}</button></Link>
         return button
     }
 
@@ -251,11 +245,13 @@ export default class GameCommentList extends React.Component {
             
         }
         return (
-            <ul className='game-comment-list' id='top-level-comments'>
-                <h1>{this.props.lede}</h1>
-                {commentTree}
-                {/* {this.appendChildComments(comments)} */}
-            </ul>
+            <>
+                <h5 className='game-comment-lede'>{this.props.lede}</h5>
+                <ul className='game-comment-list' id='top-level-comments'>
+                    {commentTree}
+                    {/* {this.appendChildComments(comments)} */}
+                </ul>
+            </>
         )
     }
 }

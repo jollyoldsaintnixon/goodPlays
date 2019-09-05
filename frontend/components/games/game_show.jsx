@@ -105,7 +105,7 @@ class GameShow extends React.Component {
 
   componentDidMount() {
      
-    this.props.fetchGames()
+    // this.props.fetchGames()
     this.props.fetchGame(this.props.match.params.gameId)
   }
 
@@ -113,7 +113,7 @@ class GameShow extends React.Component {
      
     if (!prevProps.game 
         || prevProps.game.id != this.props.match.params.gameId) {
-          this.props.fetchGames()
+          // this.props.fetchGames()
           this.props.fetchGame(this.props.match.params.gameId)
     }
   }

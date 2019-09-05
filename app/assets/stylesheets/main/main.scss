@@ -11,6 +11,9 @@ body {
   font-family: $sans;
   min-width: 1200px;
   min-height: 850px;
+  // background: linear-gradient(45deg, darkgray, lightgray);
+  background: lighten(lightgray, 5%);
+  z-index: -50;
 }
 
 // input:not([type=submit]) {
@@ -61,4 +64,13 @@ a:hover {
   display: inline-block;
   overflow: hidden;
   
+}
+
+.banner {
+  z-index: 0;
+}
+
+.jump-link {
+  position: relative;
+  top: -100px;
 }

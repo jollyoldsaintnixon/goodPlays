@@ -7,7 +7,8 @@
 
 .game-index-sorter {
   position: sticky;
-  background: $zero;
+  color: $dark-green;
+  // background: $zero;
   // height: 300px;
   // margin-top: 880px;
   width: 100%;
@@ -55,6 +56,7 @@
   }
   button {
     margin: 3px;
+    color: $four;
   }
   button:first-of-type {
     margin-top: 25px
@@ -64,6 +66,8 @@
     border-bottom: 1px solid transparent;
   }
   span:hover {
-    border-bottom: 1px solid $four;
+    // border-bottom: 1px solid $four;
+    color: $one;
+    cursor: pointer;
   }
 }

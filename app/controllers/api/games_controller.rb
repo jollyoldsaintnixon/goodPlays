@@ -2,14 +2,17 @@ class Api::GamesController < ApplicationController
   # caches_action :index
 
   def index
-    expires_in 24.hours, :public => true
+    # expires_in 24.hours, :public => true
     # @games = Game.with_attached_image.page(params[:page]).per(25)
-    @games = Game.with_attached_image.includes(:game_comments)
+    # @games = Game.with_attached_image.includes(:game_comments)
+    @games = Game.all.includes(:game_comments)
+    
     render :index
   end
 
   def show
     @game = Game.includes(:game_comments).find(params[:id])
+    # @game = Game.with_attached_image.includes(:game_comments).find(params[:id])
   end
 
   def update
@@ -26,6 +29,7 @@ class Api::GamesController < ApplicationController
     if @game.update(rating: game_rating, rating_count: game_rating_count)
       # @games = Game.with_attached_image.includes(:game_comments)
       # render :index
+
       render :show
     else
       render json: ['Could not rate game'], status: 422

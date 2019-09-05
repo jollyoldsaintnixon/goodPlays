@@ -74,10 +74,10 @@ class NavSearch extends React.Component {
     let list = []
     
     if (searchString === '') {
-      console.log('empty search string')
+      ('empty search string')
       return games
     }
-    console.log('search string not empty')
+    ('search string not empty')
     list = stringFilter(games, searchString)
     
     return list

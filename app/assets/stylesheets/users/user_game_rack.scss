@@ -16,11 +16,12 @@
   .add-more {
     display: inline;
     border: none;
+    color: $mid-green
     // border-bottom: 1px solid transparent;
   }
   .add-more:hover {
     border: none;
-    color: $two;
+    color: $light-green;
     // border-bottom: 1px solid gray;
   }
 }

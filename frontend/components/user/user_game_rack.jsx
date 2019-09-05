@@ -54,6 +54,7 @@ class UserGameRack extends React.Component {
     return (
       <ul className='game-rack col-2-3' >
         <h3>{lede}</h3>
+        <a className='jump-link' id='game-rack'></a>
         <h2><Link className='add-more' to='/index'>click to find {find_games}!</Link></h2>
         {this.rackList(gameRackGames)}
         <a id='user-game-comments' className='profile-anchor-tag'></a> {/* anchor tag to jump to */}

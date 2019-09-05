@@ -49,7 +49,7 @@ class UserProfile extends React.Component {
           {/* <Link to='/profile#game-rack' className='link-game-comments'>My Games</Link>
           <Link to='/profile#user-game-comments' className='link-game-comments'>My Comments</Link> */}
           <section className='user-profile'>
-            <a id='game-rack'></a>
+            {/* <a className='jump-link' id='game-rack'></a> */}
             <UserGameRack 
               gameRackGames={gameRackGames} 
               count={user.game_ids.length}

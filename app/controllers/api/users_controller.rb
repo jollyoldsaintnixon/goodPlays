@@ -7,7 +7,8 @@ class Api::UsersController < ApplicationController
     if @user.save
       #  
       log_in!(@user)
-      #  
+      email = UserMailer.welcome_email(@user)
+      email.deliver_now
       render :show
     else
       #  
@@ -22,7 +23,7 @@ class Api::UsersController < ApplicationController
 
   private
 
-  def user_params
+  def user_params 
     params.require(:user).permit(:username, :email, :password, :confirm_password)
   end
 end

@@ -102,6 +102,7 @@ CSS:
 
 COMPONENTS:
   - jump to top of page after each front end route change (unless looking for specific comment)
+  - Bloom filter for game recommendations
   USER-AUTH:
     - confirm password
   PROFILE:
@@ -124,6 +125,7 @@ COMPONENTS:
   RATINGS:
     - game renders appropriate stars
     - consider updating rating if deleting a rated comment
+    - search and sort based on ratings
   INDEX: 
     - rethink the hovering boxes
   JUMP LINKS:

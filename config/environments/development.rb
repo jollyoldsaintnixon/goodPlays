@@ -61,7 +61,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # I added this line IOT to test the action mailer
-  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :letter_opener
 
   # I added this line so that the mailer knows the base url IOT embed urls in my emails
   config.action_mailer.default_url_options = { host: 'localhost:3000' }

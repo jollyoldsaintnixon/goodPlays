@@ -129,8 +129,7 @@ COMPONENTS:
   INDEX: 
     - rethink the hovering boxes
   JUMP LINKS:
-    - different text for show and profile
 ERRORS:
   - Resolve Uncaught Error: Given action "RECEIVE_GAME_ERRORS", reducer "games" returned undefined. To ignore an action, you must explicitly return the previous state. If you want this reducer to hold no value, you can return null instead of undefined.
     - Procs when trying to return game after updating rating
-  - weird bug wherein the form stars defualt to three, and can only be increased.
+  - Resolve the Mystery of the Sort by Rating.  Sometimes works properly, sometimes not.

@@ -55,7 +55,11 @@ class GameIndexSorter extends React.Component {
           })
           break
         case 'rating':
+          
           sorted = matched.sort((el1, el2) => {
+            // if (el1.title === 'Multiwinia' || el2.title === 'Multiwinia') {
+            //   debugger
+            // }
             if (!el1.rating) {
               return 1
             } else if (!el2.rating || el1.rating > el2.rating) {
@@ -78,7 +82,7 @@ class GameIndexSorter extends React.Component {
   }
 
   render() {
-     
+     debugger
     return (
       <form className='game-index-sorter sticky'>
         <h4>{this.props.errors}</h4>

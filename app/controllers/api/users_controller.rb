@@ -7,8 +7,9 @@ class Api::UsersController < ApplicationController
     if @user.save
       #  
       log_in!(@user)
-      email = UserMailer.welcome_email(@user)
-      email.deliver_now
+      # email = UserMailer.welcome_email(@user)
+      # email.deliver_now
+      # email.deliver_later
       render :show
     else
       #  

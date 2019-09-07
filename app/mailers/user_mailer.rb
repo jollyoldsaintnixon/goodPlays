@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-    default from: 'TLM <tlmcmerty@gmail.com>'
+    default from: 'tlmcmerty@gmail.com'
 
     def welcome_email(user)
         @user = user
@@ -8,7 +8,6 @@ class UserMailer < ApplicationMailer
         # attachments['relative.jpg'] = File.read('app/assets/images/capybara-swiming.jpg')
         # attachments['full.jpg'] = File.read('/Users/lylecrocodyle/Desktop/TLM/a:A/goodPlays/app/assets/images/capybara-swiming.jpg')
         # attachments['rails_root.jpg'] = File.read("#{Rails.root}/app/assets/images/capybara-swiming.jpg")
-        mail(to: "#{@user.username} <#{@user.email}>", 
-            subject: "Welcome to goodPlays, gamer pal", cc: 'tlmcmerty3@gmail.com')
+        mail(to: @user.email, subject: "Welcome to goodPlays, gamer pal", cc: 'tlmcmerty3@gmail.com')
     end
 end

@@ -8,9 +8,9 @@ class Api::UsersController < ApplicationController
       #  
       log_in!(@user)
       email = UserMailer.welcome_email(@user)
-      # debugger
-      # email.deliver_now
-      # email.deliver_later
+      debugger
+      email.deliver_now
+      email.deliver_later
       render :show
     else
       #  

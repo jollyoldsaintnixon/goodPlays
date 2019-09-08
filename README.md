@@ -100,8 +100,13 @@ CSS:
     - Load icon
   COMMENTS: 
 
+BACKEND:
+  USERMAILER:
+    - get working
+  COUNT
+    - necessary?
+
 COMPONENTS:
-  - jump to top of page after each front end route change (unless looking for specific comment)
   - Bloom filter for game recommendations
   USER-AUTH:
     - confirm password

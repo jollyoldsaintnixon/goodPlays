@@ -8,9 +8,13 @@ export const update = (field, component) => {
 }
 
 export const errorsList = (errors) => {
-    errors.map((error, idx) => {
-    return <li key={`error-${idx}`}>{error}</li>
-  })
+  if (Array.isArray(errors)) {
+      errors.map((error, idx) => {
+      return <li key={`error-${idx}`}>{error}</li>
+    })
+  } else {
+    console.log(errors)
+  }
 }
 
 export const stringFilter = (items, searchString) => {  

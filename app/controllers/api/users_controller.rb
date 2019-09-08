@@ -9,8 +9,11 @@ class Api::UsersController < ApplicationController
       log_in!(@user)
       email = UserMailer.welcome_email(@user)
       # email.deliver_now
-      email.deliver_later
-      render :show
+      if email.deliver_later
+        render :show
+      else
+        render json: email.errors.full_messages, status: 422
+      end
     else
       #  
       render json: @user.errors.full_messages, status: 422 #unprocessable entity

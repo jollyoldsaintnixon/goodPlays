@@ -64,6 +64,6 @@ Rails.application.configure do
   # config.action_mailer.delivery_method = :letter_opener
 
   # I added this line so that the mailer knows the base url IOT embed urls in my emails
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  # config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
 end

@@ -39,6 +39,7 @@ gem 'pry-rails'
 gem 'csv'
 gem 'mechanize'
 gem 'kaminari'
+gem 'sendgrid-ruby'
 
 
 group :development, :test do

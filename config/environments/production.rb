@@ -96,5 +96,6 @@ Rails.application.configure do
   config.static_cache_control = "public, max-age=31536000"
 
   # Added this line so that the mailer knows the base url IOT to put urls in my emails
-  config.action_mailer.default_url_options = { host: 'www.goodplays-aa.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: 'www.goodplays-aa.herokuapp.com', protocol: 'https' }
 end

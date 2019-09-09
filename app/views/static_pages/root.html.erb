@@ -4,12 +4,18 @@
       user: current_user).html_safe %>
   </script>
   <% end %>
-  <link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
+  <!-- <link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" /> -->
+  <link rel="icon" type="image/png" href="favicon.ico" sizes="196x196" />
 <script>
   window.search = '<%= image_path('magnifying_glass.png')%>'
+  window.linkedin = '<%= image_path('linkedin.png')%>'
+  window.angelList = '<%= image_path('angellist6.png')%>'
+  window.github = '<%= image_path('GitHub-Mark-32px.png')%>'
+  window.personalSite = '<%= image_path('user.png')%>'
+  window.banner = '<%= image_path('exterior-parallaxBG1.png')%>'
+
   window.windowGenres = ['indie', 'action', 'adventure', 'casual', 'strategy', 'rpg', 'simulation',
                       'sports', 'racing', 'mmo', 'platform']
   window.windowCategories = ['single-player', 'multi-player', 'co-op']
-  window.banner = '<%= image_path('exterior-parallaxBG1.png')%>'
 </script>
 <main id="root"></main>

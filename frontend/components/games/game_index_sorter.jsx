@@ -82,7 +82,7 @@ class GameIndexSorter extends React.Component {
   }
 
   render() {
-     debugger
+    //  debugger
     return (
       <form className='game-index-sorter sticky'>
         <h4>{this.props.errors}</h4>

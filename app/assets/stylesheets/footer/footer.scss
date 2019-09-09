@@ -1,0 +1,14 @@
+[class*="personal-link-"] {
+    width: 32px;
+    height: auto;
+}
+
+footer {
+    font-family: $sans;
+    // background: $zero;
+    display: flex;
+    justify-content: center;
+    a {
+        margin: 5px 20px;
+    }
+}

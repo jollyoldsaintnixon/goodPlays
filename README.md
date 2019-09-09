@@ -91,6 +91,8 @@ Moving forward, I would like to implement infinite scrolling and add comment fun
 
 * Spinner from https://www.npmjs.com/package/react-spinners
 
+* User icon from http://simpleicon.com/user.html
+
 
 TODO
 

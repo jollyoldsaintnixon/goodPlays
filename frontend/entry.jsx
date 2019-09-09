@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // testing
   // window.addGameComment = APIGameCommentUtil.addGameComment;
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.update = APIGameCommentUtil.updateGameComment;
-  window.fetchGameCommentsByGame = Actions.fetchGameCommentsByGame;
-  window.addGameComment = Actions.addGameComment
-  window.updateGameRating = APIGameUtil.updateGameRating
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.update = APIGameCommentUtil.updateGameComment;
+  // window.fetchGameCommentsByGame = Actions.fetchGameCommentsByGame;
+  // window.addGameComment = Actions.addGameComment
+  // window.updateGameRating = APIGameUtil.updateGameRating
   // end testing
   ReactDOM.render(<Root store={ store } />, root)
 })

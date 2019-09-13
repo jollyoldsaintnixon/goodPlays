@@ -20,7 +20,6 @@ class GameIndex extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { loading: true }
   }
 
   componentDidMount() {
@@ -30,7 +29,7 @@ class GameIndex extends React.Component {
   }
 
   render() {
-    const { games, uiGamesIds } = this.props
+    const { games, uiGamesIds, count } = this.props
     const gamesArray = uiGamesIds.length ? idsToObjects(uiGamesIds, games) : Object.values(games)
     let matched = uiGamesIds.length
     let total = Object.values(games).length
@@ -51,7 +50,7 @@ class GameIndex extends React.Component {
       })
     }
 
-    if (Object.values(games).length < 90 && window.setTimeout(() => false, 3000)) {
+    if (Object.values(games).length < count) {
     // if (setTimeout(() => false, 3000) || Object.values(games).length < 400) {
       
       return <ClipLoader
@@ -68,15 +67,6 @@ class GameIndex extends React.Component {
     return (
 
       <section className='games'>
-        {/* <ClipLoader
-          css={override}
-          sizeUnit={"px"}
-          size={80}
-          color={'purple'}
-          position={'absolute'}
-          loading={this.state.loading}
-          border={'5px solid purple'}
-        /> */}
         <div className='sorter-wrapper'>
           <GameIndexSorter
             uiGamesIds={uiGamesIds}
@@ -95,7 +85,8 @@ const msp = (state) => {
   return ({
     games: state.entities.games,
     user: state.entities.users[state.session.id],
-    uiGamesIds: state.ui.games
+    uiGamesIds: state.ui.games,
+    count: state.entities.count,
   })
 }
 

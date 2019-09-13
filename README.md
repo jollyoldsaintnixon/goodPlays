@@ -126,6 +126,7 @@ COMPONENTS:
     - reply box closes on submit after second reply
   SPLASH:
     - show game doesn't change after a few secs
+    - loading spinner
   ADVANCED SEARCH:
     - if you come back to the index page after advanced searching, no long opens modal
     - add rating search

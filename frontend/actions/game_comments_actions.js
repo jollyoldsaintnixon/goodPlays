@@ -2,6 +2,8 @@ import * as APIUtil from '../util/games_comments_api_util'
 export const RECEIVE_GAME_COMMENT = 'RECEIVE_GAME_COMMENT'
 export const RECEIVE_GAME_COMMENTS = 'RECEIVE_GAME_COMMENTS'
 export const REMOVE_COMMENT = 'REMOVE_COMMENT'
+export const RECEIVE_GAME_COMMENT_ERRORS = 'RECEIVE_GAME_COMMENT_ERRORS'
+export const CLEAR_GAME_COMMENT_ERRORS = 'CLEAR_GAME_COMMENT_ERRORS'
 
 
 const receiveGameComment = comment => {
@@ -14,11 +16,22 @@ const receiveGameComment = comment => {
     })
 }
 
+export const clearGameCommentErrors = () => ({
+    type: CLEAR_GAME_COMMENT_ERRORS
+})
+
 const receiveGameComments = comments => {
     
     return ({
         type: RECEIVE_GAME_COMMENTS,
         comments
+    })
+}
+
+const receiveGameCommentErrors = errors => {
+    return ({
+        type: RECEIVE_GAME_COMMENT_ERRORS,
+        errors
     })
 }
 
@@ -46,5 +59,10 @@ export const deleteGameComment = game_comment_id => dispatch => {
 
 export const updateGameComment = game_comment => dispatch => {
     return APIUtil.updateGameComment(game_comment)
-        .then(updated_comment => dispatch(receiveGameComment(updated_comment))) 
+        .then(updated_comment => dispatch(receiveGameComment(updated_comment)),
+            error => dispatch(receiveGameCommentErrors(error.responseJSON))) 
 }
+
+// .then(games => dispatch(receivePageOfGames(games)),
+//     error => dispatch(receiveGameErrors(error.responseJSON))
+// )

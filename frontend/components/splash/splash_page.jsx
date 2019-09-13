@@ -6,6 +6,13 @@ import { addGameToUser, deleteGameFromUser } from '../../actions/session_actions
 import { Link, withRouter } from 'react-router-dom'
 import { randomElement, genreFilter, categoryFilter } from '../../util/helper_functions'
 import { handleClick, addGame, removeGame} from '../../util/game_show_helper'
+import { css } from '@emotion/core';
+import { ClipLoader } from 'react-spinners';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+`;
 
 class SplashPage extends React.Component {
   constructor(props) {
@@ -139,6 +146,21 @@ class SplashPage extends React.Component {
   }
 
   render() {
+    const { count, games } = this.props
+
+    if (games.length < count) {
+      // if (setTimeout(() => false, 3000) || Object.values(games).length < 400) {
+
+      return <ClipLoader
+        css={override}
+        sizeUnit={"px"}
+        size={80}
+        color={'purple'}
+        // position={'absolute'}
+        // loading={this.state.loading}
+        border={'5px solid purple'}
+      />
+    }
     return (
     <section className='splash-page'>
         <h1>Welcome to goodPlays</h1>
@@ -155,8 +177,9 @@ const msp = (state) => {
   let game_ids = user ? user.game_ids : null
   return ({
     games: Object.values(state.entities.games),
+    count: state.entities.count,
     user,
-    game_ids
+    game_ids,
   })
 }
 

@@ -5,6 +5,7 @@ import { addGameComment, updateGameComment } from '../../actions/game_comments_a
 // import { updateGameComment } from '../../actions/game_comments_actions'
 import { updateGameRating } from '../../actions/games_actions'
 import StarRatings from '../ratings/star_ratings'
+import { clearGameCommentErrors } from '../../actions/game_comments_actions'
 
 
 
@@ -30,8 +31,15 @@ class GameCommentForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    componentDidMount() {  // clear errors on mount
+        // const { clearGameCommentErrors } = this.props
+        // clearGameCommentErrors()
+    }
+
     handleSubmit(event) {
         // stop form submission
+        const { clearGameCommentErrors } = this.props
+        // clearGameCommentErrors()  // clear errors on another submit
         event.preventDefault()
         event.stopPropagation()
         const className = this.props.child_form ?  'none' : '' // hide if it is the comment form for a child
@@ -51,8 +59,10 @@ class GameCommentForm extends React.Component {
             new_comment.id = comment.id
             new_comment.parent_id = comment.parent_id
             new_comment.game_id = comment.game_id
-            this.props.updateGameComment(new_comment).catch(errors => this.setState({ errors: errors.responseJSON }))
+            this.props.updateGameComment(new_comment)
+                .then(null, errors => this.setState({ errors: errors.responseJSON }))
             this.setState({ className: className, errors: '' }) // only update classname & errors if edit
+            
         } else if (this.props.top_id) {
             const all_stars = $('.top-level-star')
             const selected_stars = $('.selected-star-' + this.props.top_id) // for top level comments, get the rating
@@ -124,6 +134,7 @@ const mdp = dispatch => ({
     addGameComment: comment => dispatch(addGameComment(comment)),
     updateGameComment: comment => dispatch(updateGameComment(comment)),
     updateGameRating: comment => dispatch(updateGameRating(comment)),
+    clearGameCommentErrors: () => dispatch(clearGameCommentErrors()),
 })
 
 export default connect(msp, mdp)(GameCommentForm)

@@ -42,15 +42,6 @@ class App extends React.Component {
     
     return (
       <>
-        {/* <ClipLoader
-          css={override}
-          sizeUnit={"px"}
-          size={80}
-          color={'purple'}
-          position={'absolute'}
-          loading={this.state.loading}
-          border={'5px solid purple'}
-        /> */}
         <WelcomeContainer />
         <section className='main-section'>
           <img className='banner' src={window.banner} alt='Terror of the Amazon'/> 

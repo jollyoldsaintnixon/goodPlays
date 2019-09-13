@@ -21,7 +21,7 @@ export default class Footer extends React.Component {
                     <img src={window.angelList} className="personal-link-"></img>
                 </a>
                 <a target="_blank"
-                    href="https://github.com/jollyoldsaintnixon/jollyoldsaintnixon">
+                    href="https://jollyoldsaintnixon.github.io/jollyoldsaintnixon/">
                     <img src={window.personalSite} className="personal-link-"></img>
                 </a>
             </footer>

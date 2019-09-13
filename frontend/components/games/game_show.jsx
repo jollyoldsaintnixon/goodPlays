@@ -139,30 +139,34 @@ class GameShow extends React.Component {
     //  
     return (
       // <section className='games'>
-      <ul className='game-show col-2-3'>
-      <GameJumpLinks game_id={game.id} ></GameJumpLinks>
-        <a className='jump-link' id='game-show'></a>  
-        <li><img src={game.imageUrl} alt={`${game.title} image`} /></li>
-        <h1 className='game-title'>{game.title}</h1>
-        <h2 className='game-price'>${game.price}</h2>
-        <li className='game-release-date'>Released {game.release_date}</li>
-        <li>{rating}</li>
-        <li>{rating_count}</li>
-        <div className="ratings">
-          <div className="empty-stars"></div>
-          <div className="full-stars" width={"70%"}></div>
-        </div>
-        <p className='game-description'>
-          {first}<span className={className} onClick={this.expand}>{content}</span>{rest}
-        </p>
-          
-        <li className='game-genres links'>{this.genreLinks(game)}</li>
-        <li className='game-categories links'>{this.categoryLinks(game)}</li>
-        <div className='button-container'>
-          {this.displayButtons()}
-        </div>
-        <GameCommentSection game_id={game ? game.id : null}></GameCommentSection>
-      </ul>
+      <>
+        <ul className='game-show col-2-3'>
+          <GameJumpLinks game_id={game.id} ></GameJumpLinks>
+          <a className='jump-link' id='game-show'></a>  
+          <li><img src={game.imageUrl} alt={`${game.title} image`} /></li>
+          <h1 className='game-title'>{game.title}</h1>
+          <h2 className='game-price'>${game.price}</h2>
+          <li className='game-release-date'>Released {game.release_date}</li>
+          <li>{rating}</li>
+          <li>{rating_count}</li>
+          <div className="ratings">
+            <div className="empty-stars"></div>
+            <div className="full-stars" width={"70%"}></div>
+          </div>
+          <p className='game-description'>
+            {first}<span className={className} onClick={this.expand}>{content}</span>{rest}
+          </p>
+            
+          <li className='game-genres links'>{this.genreLinks(game)}</li>
+          <li className='game-categories links'>{this.categoryLinks(game)}</li>
+          <div className='button-container'>
+            {this.displayButtons()}
+          </div>
+          <GameCommentSection game_id={game ? game.id : null}></GameCommentSection>
+          {/* <section className='game-link-container'> */}
+          {/* </section> */}
+        </ul>
+      </>
       // </section>
     )
   }

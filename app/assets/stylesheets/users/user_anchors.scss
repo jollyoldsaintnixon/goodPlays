@@ -5,7 +5,14 @@
     // padding-left: 14px;
 }
 
+.user-link-container {
+    height: 100%;
+  position: absolute;
+  width: 8.3333%
+}
+
 .user-anchor-links {
+  margin-top: 20px;
   font-style: italic;
   // background: pink;
   position: sticky;
@@ -17,7 +24,7 @@
   display: flex;
   flex-direction: column;
   padding: 5px;
-  margin-left: -44px;
+  // margin-left: -44px;
   h3 {
     margin: 15px auto;
     display: block;

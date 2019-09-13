@@ -5,6 +5,12 @@
   padding-left: 14px;
 }
 
+.game-link-container {
+      height: 100%;
+  position: absolute;
+  width: 8.3333%;
+}
+
 .game-jump-links {
 font-style: italic;
   // background: pink;
@@ -14,7 +20,7 @@ font-style: italic;
   text-align: center;
   min-width: fit-content;
   width: 8%;
-  top: 200px;
+  top: 381px;
   display: flex;
   flex-direction: column;
   padding: 5px;

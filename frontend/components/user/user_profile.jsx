@@ -46,11 +46,16 @@ class UserProfile extends React.Component {
     if (gameRackGames && gameRackGames.length) {  // will be undefined before component mounts
       selectedGame1 = randomElement(gameRackGames)
       selectedGame2 = randomElement(gameRackGames)
-      selectedGenre = randomElement(selectedGame1.genres) || 'indie'
-      selectedCategory = randomElement(selectedGame2.categories) || 'single-player'
+      if (selectedGame1) {
+        selectedGenre = randomElement(selectedGame1.genres) || 'indie'
+      } 
+      if (selectedGame2) {
+        selectedCategory = randomElement(selectedGame2.categories) || 'single-player'
+      }
     }
 
-    if (gamesArray.length < count) {
+    if (gamesArray.length < 90) {
+    // if (gamesArray.length < count) {
       return <ClipLoader
         css={override}
         sizeUnit={"px"}
@@ -61,8 +66,11 @@ class UserProfile extends React.Component {
     }
     return (
       // <section className='overprofile-container'>
-        <section className='profile-container'>
+      <>
+        {/* <section className='user-link-container'> */}
           <UserAnchorLinks />
+        {/* </section> */}
+        <section className='profile-container'>
           <h1>Hello, {user.username}</h1>
           {/* <Link to='/profile#game-rack' className='link-game-comments'>My Games</Link>
           <Link to='/profile#user-game-comments' className='link-game-comments'>My Comments</Link> */}
@@ -85,7 +93,7 @@ class UserProfile extends React.Component {
             <UserGameCommentsContainer user={user}/>
           </section> */}
         </section>
-      // </section>
+    </>
     )
   }
 }

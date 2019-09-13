@@ -50,7 +50,8 @@ class GameIndex extends React.Component {
       })
     }
 
-    if (Object.values(games).length < count) {
+    if (Object.values(games).length < 90) {
+    // if (Object.values(games).length < count) {
     // if (setTimeout(() => false, 3000) || Object.values(games).length < 400) {
       
       return <ClipLoader

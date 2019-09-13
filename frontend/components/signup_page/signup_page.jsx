@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { update, validateEmail } from '../../util/helper_functions'
+// import Footer from '../footer/footer'
 
 class SignupPage extends React.Component {
   constructor(props) {
@@ -100,6 +101,7 @@ class SignupPage extends React.Component {
           <ul className='error-list'>
           </ul>
         </form>
+        {/* <Footer className='flat' /> */}
       </section>
     )
 

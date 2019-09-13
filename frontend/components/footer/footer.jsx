@@ -5,8 +5,12 @@ export default class Footer extends React.Component {
 
 
     render () {
+        let flex_direction = ''
+        if (this.props.className) {
+            flex_direction = this.props.className
+        }
         return(
-            <footer className='footer'>
+            <footer className={`footer ${flex_direction}`}>
                 <a
                     target="_blank"
                     href="https://github.com/jollyoldsaintnixon/goodPlays">

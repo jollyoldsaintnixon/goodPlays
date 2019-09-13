@@ -8,6 +8,7 @@ import { randomElement, genreFilter, categoryFilter } from '../../util/helper_fu
 import { handleClick, addGame, removeGame} from '../../util/game_show_helper'
 import { css } from '@emotion/core';
 import { ClipLoader } from 'react-spinners';
+import Footer from '../footer/footer'
 
 const override = css`
     display: block;
@@ -167,6 +168,7 @@ class SplashPage extends React.Component {
         <h2>A social site for gamers</h2>
         <h2>Check out this game:</h2>
         {this.displayGame()}
+        <Footer className='flat' />
     </section>
     )
   }

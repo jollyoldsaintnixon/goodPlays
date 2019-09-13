@@ -83,7 +83,7 @@ class SignupPage extends React.Component {
           </div>
           <ul className='signup-page-inputs'>
             <ul className='signup-page-errors'>
-              {errorsList}
+              {errorsList.slice(0, 4)}
             </ul>
             <label>
               <input type="text" placeholder='Username' value={username} onChange={update('username', this)} />

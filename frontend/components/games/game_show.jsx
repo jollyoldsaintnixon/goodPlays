@@ -142,6 +142,7 @@ class GameShow extends React.Component {
       <>
         <ul className='game-show col-2-3'>
           <GameJumpLinks game_id={game.id} ></GameJumpLinks>
+          <section className='except-anchor'>
           <a className='jump-link' id='game-show'></a>  
           <li><img src={game.imageUrl} alt={`${game.title} image`} /></li>
           <h1 className='game-title'>{game.title}</h1>
@@ -163,6 +164,7 @@ class GameShow extends React.Component {
             {this.displayButtons()}
           </div>
           <GameCommentSection game_id={game ? game.id : null}></GameCommentSection>
+          </section>
           {/* <section className='game-link-container'> */}
           {/* </section> */}
         </ul>

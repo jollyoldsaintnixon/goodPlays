@@ -68,30 +68,28 @@ class UserProfile extends React.Component {
       // <section className='overprofile-container'>
       <>
         {/* <section className='user-link-container'> */}
-          <UserAnchorLinks />
         {/* </section> */}
         <section className='profile-container'>
-          <h1>Hello, {user.username}</h1>
-          {/* <Link to='/profile#game-rack' className='link-game-comments'>My Games</Link>
-          <Link to='/profile#user-game-comments' className='link-game-comments'>My Comments</Link> */}
-          <section className='user-profile'>
-            {/* <a className='jump-link' id='game-rack'></a> */}
-            <UserGameRack 
-              gameRackGames={gameRackGames} 
-              count={user.game_ids.length}
-              user={user}/>
-            <UserRecommendations
-              gamesArray={gamesArray} 
-              gameRackGames={gameRackGames} 
-              selectedGame1={selectedGame1} 
-              selectedGame2={selectedGame2} 
-              selectedGenre={selectedGenre}
-              selectedCategory={selectedCategory}/>
+          <UserAnchorLinks />
+            <h1>Hello, {user.username}</h1>
+          <section className='except-user-anchor'>
+            {/* <Link to='/profile#game-rack' className='link-game-comments'>My Games</Link>
+            <Link to='/profile#user-game-comments' className='link-game-comments'>My Comments</Link> */}
+            <section className='user-profile'>
+              {/* <a className='jump-link' id='game-rack'></a> */}
+              <UserGameRack 
+                gameRackGames={gameRackGames} 
+                count={user.game_ids.length}
+                user={user}/>
+              <UserRecommendations
+                gamesArray={gamesArray} 
+                gameRackGames={gameRackGames} 
+                selectedGame1={selectedGame1} 
+                selectedGame2={selectedGame2} 
+                selectedGenre={selectedGenre}
+                selectedCategory={selectedCategory}/>
+            </section>
           </section>
-          {/* <section className='user-comments'>
-            <a id='user-game-comments'></a>
-            <UserGameCommentsContainer user={user}/>
-          </section> */}
         </section>
     </>
     )

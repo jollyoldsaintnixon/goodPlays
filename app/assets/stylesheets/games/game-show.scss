@@ -1,5 +1,5 @@
 .game-show {
-  margin-top: -327px;
+  // margin-top: -327px;
   padding-top: 12px;
   display: flex;
   flex-direction: column;
@@ -21,6 +21,10 @@
       border-bottom: 1px solid transparent;
     }
   }
+}
+
+.except-anchor {
+  margin-top: -327px;
 }
 
 .game-title {

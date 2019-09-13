@@ -27,7 +27,8 @@ font-style: italic;
     border-top: 1px solid $five;
   }
   a {
-      text-align: left;
+    padding: 2px 0;
+    text-align: left;
     font-style: normal;
     color: $four;
     &:hover {

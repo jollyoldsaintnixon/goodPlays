@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { receiveUiGames, clearUiErrors } from '../../actions/ui_actions'
 import { idsToObjects } from '../../util/helper_functions'
+import Footer from '../footer/footer'
 
 const msp = ({ errors: { ui }}) => ({
   errors: ui,
@@ -92,6 +93,8 @@ class GameIndexSorter extends React.Component {
         <button onClick={this.sortBy('release_date')}><span>Sort by release date</span></button>
         <button onClick={this.sortBy('price')}><span>Sort by price</span></button>
         <button onClick={this.sortBy('rating')}><span>Sort by rating</span></button>
+        <h3></h3>
+        <Footer />
       </form>
     )
   }

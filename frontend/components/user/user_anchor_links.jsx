@@ -1,5 +1,6 @@
 import React from 'react'
 import { HashLink as Link } from 'react-router-hash-link';
+import Footer from '../footer/footer'
 
 export default function UserAnchorLinks(props) {
     return (
@@ -9,6 +10,8 @@ export default function UserAnchorLinks(props) {
                 <h3></h3>
                 <Link to='/profile#game-rack'>My Games   </Link>
                 <Link to='/profile#user-game-comments'>Comments</Link>
+                <h3></h3>
+                <Footer />
             </div>
         // {/* // </div> */}
     )

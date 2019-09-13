@@ -16,7 +16,7 @@ import SignupPageContainer from './signup_page/signup_page_container'
 import SplashPage from './splash/splash_page'
 import WelcomeContainer from './welcome/welcome_container'
 import UserProfile from '../components/user/user_profile'
-import Footer from './footer/footer'
+// import Footer from './footer/footer'
 
 const mdp = dispatch => ({
   getCount: () => dispatch(getCount())
@@ -61,7 +61,6 @@ class App extends React.Component {
           {/* <ProtectedRoute path='/games/show/:gameId' component={GameShow} /> */}
     
         </section>
-        <Footer />
       </>
     );
   }

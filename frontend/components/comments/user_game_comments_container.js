@@ -3,7 +3,7 @@ import GameCommentList from './game_comment_list'
 import { fetchGameCommentsByUser, deleteGameComment } from '../../actions/game_comments_actions';
 
 const msp = (state, ownProps) => {
-    const comments = Object.values(state.entities.game_comments)
+    const comments = Object.values(state.entities.game_comments).reverse() // reversing as an easy way to show most recent comments first
     return ({
         comments: comments,
         parent_id: ownProps.user.id,

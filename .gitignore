@@ -9,3 +9,4 @@ tmp/
 games-features.csv
 lines.txt
 log/
+log/development.log

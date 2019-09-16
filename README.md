@@ -5,11 +5,11 @@ Link to goodPlays: https://goodplays-aa.herokuapp.com
 
 ## Functionality
 
-goodPlays allows users to browse from a library of video games and add or remove games to their game racks.  Games can be sorted by title, price, or release date, and they can be searched for through a coommbination of several filters.  Each game has a show page that give the user more information about the game.  Users must be logged in to add or remove games from their rack.
+goodPlays allows users to browse from a library of video games and add or remove games to their game racks.  Games can be sorted by title, price, or release date, and they can be searched for through a combination of several filters.  Each game has a show page that give the user more information about the game.  Users must be logged in to add or remove games from their rack.
 
 ## Plans for future implementation
 
-Moving forward, I would like to implement infinite scrolling and add comment functionality.  I would also like to add in game developers as items that can be interacted with in a similar fashion as the games.  Users will be able to comment, rank, and share both games and developers.
+Moving forward, I would like to implement infinite scrolling and add social aspects akin to 'book clubs'.  I would also like to add in game developers as items that can be interacted with in a similar fashion as the games.  Users will be able to comment, rank, and share both games and developers.
 
 ## Technologies used
 
@@ -17,7 +17,7 @@ Moving forward, I would like to implement infinite scrolling and add comment fun
  * Backend views were rendered via jbuilder  
  * Embedded Ruby tags were used to augment the root html folder  
  * The front end was written in JavaScript mostly with the React and Redux libraries  
- * jQuery was used for its built in authentication and for AJAX requests  
+ * jQuery was used for its built-in authentication and for AJAX requests  
  * The presentation was designed with SCSS  
  * Each component could access the React's store through React Redux's Provider  
  * Each component had access to front-end routing features through React Router Dom  

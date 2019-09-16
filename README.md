@@ -87,7 +87,7 @@ Moving forward, I would like to implement infinite scrolling and add comment fun
 
 * The background banner was created by user Jetrel and found at https://opengameart.org/content/castle-platformer under a Public Domain license  
 
-* Favicon was designedated at https://pixlr.com/editor/ and created at http://www.favicomatic.com/
+* Favicon was designed at at https://pixlr.com/editor/ and created at https://favicon.io/favicon-converter/
 
 * Spinner from https://www.npmjs.com/package/react-spinners
 

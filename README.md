@@ -5,7 +5,11 @@ Link to goodPlays: https://goodplays-aa.herokuapp.com
 
 ## Functionality
 
-goodPlays allows users to browse from a library of video games and add or remove games to their game racks.  Games can be sorted by title, price, or release date, and they can be searched for through a combination of several filters.  Each game has a show page that give the user more information about the game.  Users must be logged in to add or remove games from their rack.
+goodPlays allows users to browse from a library of video games and add or remove games to their game racks.  Games can be sorted by title, price, or release date, and they can be searched for through a combination of several filters.  Each game has a show page that give the user more information about the game.  
+
+Users must be logged in to add or remove games from their rack.  They must also be logged in to leave a comment or reply and to rate a game.  Users can include a rating on any game with a top-level comment, but a rating is not necessarry.  Users can nullify a rating by toggling the 1st star if they change their mind about leaving a rating.
+
+Email address structure is verified upon creation of an account.  A welcome letter is sent to that email address upon account creation.  
 
 ## Plans for future implementation
 
@@ -98,46 +102,36 @@ TODO
 
 CSS:
   SESSION FORM:
-    - fix errors alignment on the small session form
-    - Load icon
   COMMENTS: 
 
 BACKEND:
-  USERMAILER:
-    - get working
   COUNT
     - necessary?
 
 COMPONENTS:
   - Bloom filter for game recommendations
-  USER-AUTH:
-    - confirm password
   PROFILE:
     - decorate comments
   SEARCH BAR:
     - can select with arrow keys
-    - set max width, prevent overflow x
   INDEX: 
-    - implement paginate (somehow)
+    - implement paginate 
   GAME COMMENTS:
     - can click on comment in user profile to go to that comment's location within the game show page. The issue now is sometimes the jump occurs before the comments all load, so the anchor is too high up
     - comments respect white space breaklines
     - make child rearing more efficient
-    - reply box closes on submit after second reply
+    - make edit box close on submit after second edit
+    - reply button renders when no user logged in
   SPLASH:
     - show game doesn't change after a few secs
-    - loading spinner
   ADVANCED SEARCH:
     - if you come back to the index page after advanced searching, no long opens modal
     - add rating search
   RATINGS:
     - game renders appropriate stars
     - consider updating rating if deleting a rated comment
-    - search and sort based on ratings
   INDEX: 
     - rethink the hovering boxes
   JUMP LINKS:
 ERRORS:
-  - Resolve Uncaught Error: Given action "RECEIVE_GAME_ERRORS", reducer "games" returned undefined. To ignore an action, you must explicitly return the previous state. If you want this reducer to hold no value, you can return null instead of undefined.
-    - Procs when trying to return game after updating rating
   - Resolve the Mystery of the Sort by Rating.  Sometimes works properly, sometimes not.

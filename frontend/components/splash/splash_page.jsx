@@ -165,7 +165,8 @@ class SplashPage extends React.Component {
     }
     return (
     <>
-        <img className='banner' src={window.banner} alt='Terror of the Amazon' />
+        {/* <img className='banner' src={window.banner} alt='Terror of the Amazon' /> */}
+        <div className='space-filler'></div>
         <section className='splash-page'>
           <h1>Welcome to goodPlays</h1>
           <h2>A social site for gamers</h2>

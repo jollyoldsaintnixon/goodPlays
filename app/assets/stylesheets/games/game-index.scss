@@ -22,6 +22,12 @@
   border: 1px solid transparent;
   margin: 10px;
   position: relative;
+  border: 2px solid $five;
+  border-left: 2px solid $five;
+  border-right: 2px solid $five;
+  a {
+    border: none;
+  }
   img {
     display: block;
     height: 100%;
@@ -33,10 +39,14 @@
 .game-index-item:hover {
   background: $one;
   color: $four;
-  border: 1px solid $five;
+  border: 2px solid $one;
   a {
     display: inline-block;
     width: 100%;
+    border: none;
+    &:hover {
+      border: none;
+    }
   }
 }
 

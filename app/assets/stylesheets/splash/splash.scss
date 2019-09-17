@@ -3,6 +3,9 @@
   margin-bottom: 0;
   display: flex;
   flex-direction: column;
+    z-index: 1;
+  position: relative;
+  top: 258px;
   h1 {
     font-weight: bolder;
     font-size: 4em;

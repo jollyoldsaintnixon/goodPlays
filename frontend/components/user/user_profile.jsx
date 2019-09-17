@@ -69,6 +69,7 @@ class UserProfile extends React.Component {
       <>
         {/* <section className='user-link-container'> */}
         {/* </section> */}
+        <div className='space-filler'></div>
         <section className='profile-container'>
           <UserAnchorLinks />
             <h1>Hello, {user.username}</h1>

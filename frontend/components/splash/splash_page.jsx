@@ -77,7 +77,7 @@ class SplashPage extends React.Component {
     if (games.length) {
       const game = randomElement(games)
       return (
-        <>
+        <> 
           <ul className='game-show col-2-3' >
             <li>
               <Link to={`/games/show/${game.id}`} className='splash-link-show'>
@@ -164,13 +164,16 @@ class SplashPage extends React.Component {
       />
     }
     return (
-    <section className='splash-page'>
-        <h1>Welcome to goodPlays</h1>
-        <h2>A social site for gamers</h2>
-        <h2>Check out this game:</h2>
-        {this.displayGame()}
-        <Footer className='flat' />
-    </section>
+    <>
+        <img className='banner' src={window.banner} alt='Terror of the Amazon' />
+        <section className='splash-page'>
+          <h1>Welcome to goodPlays</h1>
+          <h2>A social site for gamers</h2>
+          <h2>Check out this game:</h2>
+          {this.displayGame()}
+          <Footer className='flat' />
+      </section>
+    </>
     )
   }
 }

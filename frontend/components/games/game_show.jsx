@@ -140,6 +140,7 @@ class GameShow extends React.Component {
     return (
       // <section className='games'>
       <>
+        <div className='space-filler'></div>
         <ul className='game-show col-2-3'>
           <GameJumpLinks game_id={game.id} ></GameJumpLinks>
           <section className='except-anchor'>

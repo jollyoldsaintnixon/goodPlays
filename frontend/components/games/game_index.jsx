@@ -66,18 +66,20 @@ class GameIndex extends React.Component {
     }
 
     return (
-
-      <section className='games'>
-        <div className='sorter-wrapper'>
-          <GameIndexSorter
-            uiGamesIds={uiGamesIds}
-            allGames={games}
-            content={content} />
-        </div>
-        <ul className='games-list '>
-          {indexItems}
-        </ul>
-      </section>
+      <>
+        {/* <div className='space-filler'></div> */}
+        <section className='games'>
+          <div className='sorter-wrapper'>
+            <GameIndexSorter
+              uiGamesIds={uiGamesIds}
+              allGames={games}
+              content={content} />
+          </div>
+          <ul className='games-list '>
+            {indexItems}
+          </ul>
+        </section>
+      </>
     )
   }
 }

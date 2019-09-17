@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import GameShowContainer from './games/game_show_container'
 import GameShow from './games/game_show'
+import { withRouter } from 'react-router-dom'
 // import { css } from '@emotion/core';
 // import { ClipLoader } from 'react-spinners';
 // components
@@ -32,11 +33,19 @@ const mdp = dispatch => ({
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { count: null, loading: true }
+    // this.state = { count: null, loading: true }
   }
 
-  componentDidMount() {
-    this.props.getCount();
+  // componentDidMount() {
+  //   this.props.getCount();
+  // }
+
+  displayImage() {
+    // debugger
+    if (this.props.match.path === '/') {
+      return <img className='banner' src={window.banner} alt='Terror of the Amazon' />
+    }
+    return null
   }
 
   render() {  
@@ -45,9 +54,9 @@ class App extends React.Component {
       <>
         <WelcomeContainer />
         <section className='main-section'>
-          <img className='banner' src={window.banner} alt='Terror of the Amazon'/> 
+          {/* {this.displayImage()} */}
+          {/* <img className='banner' src={window.banner} alt='Terror of the Amazon'/>  */}
           <Switch>
-            <ProtectedRoute path='/profile' component={UserProfile} />
             <ProtectedRoute path='/profile' component={UserProfile} />
             <Route path='/index' component={Content} />
             <Route path='/games/show/:gameId' component={GameShowContainer} />
@@ -69,4 +78,4 @@ class App extends React.Component {
 
 
 
-export default connect(null, mdp)(App);
+export default withRouter(connect(null, mdp)(App));

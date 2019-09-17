@@ -21,10 +21,13 @@ class Content extends React.Component {
 
   render () {
     return (
-      <section className='content'>
-        <GameIndex></GameIndex>
-        {/* {this.display()} */}
-      </section>
+      <>
+        <div className='space-filler'></div>
+        <section className='content'>
+          <GameIndex></GameIndex>
+          {/* {this.display()} */}
+        </section>
+      </>
     )
   }
 }

@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
       #  
       log_in!(@user)
       email = UserMailer.welcome_email(@user)
-      # email.deliver_now
+      # if email.deliver_now
       if email.deliver_later
         render :show
       else

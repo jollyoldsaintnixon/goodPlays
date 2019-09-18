@@ -1,6 +1,5 @@
 .splash-page {
-  margin: 50px;
-  margin-bottom: 0;
+  // margin: 0 50px;
   display: flex;
   flex-direction: column;
     z-index: 1;
@@ -10,6 +9,9 @@
     font-weight: bolder;
     font-size: 4em;
     align-self: center;
+      margin-top: -40px;
+  margin-bottom: 20px;
+
   }
   h2 {
     font-size: 1.3em;

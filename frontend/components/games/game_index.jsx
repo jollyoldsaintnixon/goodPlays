@@ -67,7 +67,6 @@ class GameIndex extends React.Component {
 
     return (
       <>
-        {/* <div className='space-filler'></div> */}
         <section className='games'>
           <div className='sorter-wrapper'>
             <GameIndexSorter

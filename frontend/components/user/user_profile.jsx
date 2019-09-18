@@ -69,10 +69,10 @@ class UserProfile extends React.Component {
       <>
         {/* <section className='user-link-container'> */}
         {/* </section> */}
-        <div className='space-filler'></div>
+        <div className='space-filler'><span>Hello, {user.username}</span></div>
         <section className='profile-container'>
           <UserAnchorLinks />
-            <h1>Hello, {user.username}</h1>
+            {/* <h1>Hello, {user.username}</h1> */}
           <section className='except-user-anchor'>
             {/* <Link to='/profile#game-rack' className='link-game-comments'>My Games</Link>
             <Link to='/profile#user-game-comments' className='link-game-comments'>My Comments</Link> */}

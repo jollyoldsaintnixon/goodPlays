@@ -22,10 +22,9 @@ class Content extends React.Component {
   render () {
     return (
       <>
-        <div className='space-filler'></div>
+        <div className='space-filler'><span>Come see what we have in store</span></div>
         <section className='content'>
           <GameIndex></GameIndex>
-          {/* {this.display()} */}
         </section>
       </>
     )

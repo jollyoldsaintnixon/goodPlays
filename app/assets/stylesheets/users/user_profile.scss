@@ -7,7 +7,6 @@
   flex-direction: column;
   margin: 30px;
     position: relative;
-  top: 285px;
     h1 {
        margin-top: -303px;
     align-self: center;
@@ -32,6 +31,9 @@
     justify-content: center;
     margin-left: 51px;
     display: flex;
+      position: relative;
+  top: -317px;
+
 }
 
 .user-profile {

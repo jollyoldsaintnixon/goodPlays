@@ -70,8 +70,13 @@
   span {
     display: inline-block;
     border-bottom: 1px solid transparent;
-        display: flex;
+    display: flex;
     align-items: center;
+    i {
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s;
+    }
   }
   span:hover, svg:hover {
     // border-bottom: 1px solid $four;

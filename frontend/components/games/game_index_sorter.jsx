@@ -118,6 +118,10 @@ class GameIndexSorter extends React.Component {
 
   toggle(display) {
     return e => {
+      const button = e.currentTarget
+      const icon_id = button.id.concat('-icon')
+      const cash_icon = $(`#${icon_id}`)
+      cash_icon.toggleClass('flip')
       debugger
       const cash_list = $(`#${display}`)
       cash_list.toggleClass('none')
@@ -134,14 +138,14 @@ class GameIndexSorter extends React.Component {
         <h3></h3>
         <button onClick={this.sortBy('title')}><span>Sort by title</span></button>
         <button onClick={this.sortBy('release_date')}><span>Sort by release date</span></button>
-        <button onClick={this.toggle('price')}><span>Sort by price
-            <p className="iconify" data-icon="ic:baseline-arrow-drop-down" data-inline="false"></p>
+        <button id='price-filter-button' onClick={this.toggle('price')}><span>Sort by price
+            <i id='price-filter-button-icon'><p className="iconify" data-icon="ic:baseline-arrow-drop-down" data-inline="false"></p></i>
             </span>
             {this.highLowSearch('price')}</button>
             {/* {this.highLowSearch(price_display, 'price')} */}
             
-        <button onClick={this.toggle('rating')}><span>Sort by rating
-            <p className="iconify" data-icon="ic:baseline-arrow-drop-down" data-inline="false"></p>
+        <button id='rating-filter-button' onClick={this.toggle('rating')}><span>Sort by rating
+            <i id='rating-filter-button-icon'><p className="iconify" data-icon="ic:baseline-arrow-drop-down" data-inline="false"></p></i>
             </span>
             {this.highLowSearch('rating')}</button>
             {/* {this.highLowSearch(rating_display, 'rating')} */}

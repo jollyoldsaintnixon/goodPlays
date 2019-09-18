@@ -10,6 +10,10 @@
   display: inherit;
 }
 
+.flip {
+  transform: rotate(180deg);
+}
+
 .transparent {
   color: transparent !important;
   background: transparent !important;

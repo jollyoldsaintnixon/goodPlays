@@ -59,6 +59,7 @@
   button {
     margin: 3px;
     color: $four;
+
   }
   button:first-of-type {
     margin-top: 25px
@@ -69,10 +70,13 @@
   span {
     display: inline-block;
     border-bottom: 1px solid transparent;
+        display: flex;
+    align-items: center;
   }
-  span:hover {
+  span:hover, svg:hover {
     // border-bottom: 1px solid $four;
     color: $one;
     cursor: pointer;
   }
+
 }

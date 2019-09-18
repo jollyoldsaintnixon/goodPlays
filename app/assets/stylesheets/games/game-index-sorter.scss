@@ -78,5 +78,12 @@
     color: $one;
     cursor: pointer;
   }
+}
 
+.high-low-search li {
+  padding-left: 10px;
+  &:hover {
+    cursor: pointer;
+    color: $one;
+  }
 }

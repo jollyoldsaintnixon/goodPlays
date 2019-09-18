@@ -133,5 +133,7 @@ COMPONENTS:
   INDEX: 
     - rethink the hovering boxes
   JUMP LINKS:
+    - low and high options appear when clicking sort by rating and price
+      - arrow flips on click
 ERRORS:
   - Resolve the Mystery of the Sort by Rating.  Sometimes works properly, sometimes not.

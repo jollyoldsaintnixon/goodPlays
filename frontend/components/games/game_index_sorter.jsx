@@ -16,7 +16,11 @@ const mdp = dispatch => ({
 class GameIndexSorter extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { errors: null }
+    this.state = { 
+      errors: null,
+      // price_display: 'none',
+      // rating_display: 'none',
+    }
   }
 
   sortBy(type) {
@@ -46,7 +50,7 @@ class GameIndexSorter extends React.Component {
             }
           })
           break
-        case 'price':
+        case 'price-low':
           sorted = matched.sort((el1, el2) => {
             if (el1.price < el2.price) {
               return -1
@@ -55,8 +59,16 @@ class GameIndexSorter extends React.Component {
             }
           })
           break
-        case 'rating':
-          
+        case 'price-high':
+          sorted = matched.sort((el1, el2) => {
+            if (el1.price >= el2.price) {
+              return -1
+            } else {
+              return 0
+            }
+          })
+          break
+        case 'rating-high': 
           sorted = matched.sort((el1, el2) => {
             // if (el1.title === 'Multiwinia' || el2.title === 'Multiwinia') {
             //   debugger
@@ -64,6 +76,17 @@ class GameIndexSorter extends React.Component {
             if (!el1.rating) {
               return 1
             } else if (!el2.rating || el1.rating > el2.rating) {
+              return -1
+            } else {
+              return 0
+            }
+          })
+          break
+        case 'rating-low': 
+          sorted = matched.sort((el1, el2) => {
+            if (!el1.rating) { // still returns unrated last
+              return 1
+            } else if (!el2.rating || el1.rating <= el2.rating) {
               return -1
             } else {
               return 0
@@ -82,8 +105,28 @@ class GameIndexSorter extends React.Component {
     this.props.clearUiErrors()
   }
 
+  highLowSearch(type) {
+    const by_high = type.concat('-high')
+    const by_low = type.concat('-low')
+    return (
+      <ul className='none high-low-search' id={type}>
+        <li onClick={this.sortBy(by_high)}>High to Low</li>
+        <li onClick={this.sortBy(by_low)}>Low to High</li>
+      </ul>
+    )
+  }
+
+  toggle(display) {
+    return e => {
+      debugger
+      const cash_list = $(`#${display}`)
+      cash_list.toggleClass('none')
+    }
+  }
+
   render() {
     //  debugger
+    const { price_display, rating_display } = this.state
     return (
       <form className='game-index-sorter sticky'>
         <h4>{this.props.errors}</h4>
@@ -91,12 +134,18 @@ class GameIndexSorter extends React.Component {
         <h3></h3>
         <button onClick={this.sortBy('title')}><span>Sort by title</span></button>
         <button onClick={this.sortBy('release_date')}><span>Sort by release date</span></button>
-        <button onClick={this.sortBy('price')}><span>Sort by price
+        <button onClick={this.toggle('price')}><span>Sort by price
             <p className="iconify" data-icon="ic:baseline-arrow-drop-down" data-inline="false"></p>
-            </span></button>
-        <button onClick={this.sortBy('rating')}><span>Sort by rating
+            </span>
+            {this.highLowSearch('price')}</button>
+            {/* {this.highLowSearch(price_display, 'price')} */}
+            
+        <button onClick={this.toggle('rating')}><span>Sort by rating
             <p className="iconify" data-icon="ic:baseline-arrow-drop-down" data-inline="false"></p>
-          </span></button>
+            </span>
+            {this.highLowSearch('rating')}</button>
+            {/* {this.highLowSearch(rating_display, 'rating')} */}
+            
         <h3></h3>
         <Footer />
       </form>

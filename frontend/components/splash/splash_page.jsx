@@ -149,7 +149,7 @@ class SplashPage extends React.Component {
   render() {
     const { count, games } = this.props
 
-    if (games.length < 90) {
+    if (games.length < 400) {
     // if (games.length < count) {
       // if (setTimeout(() => false, 3000) || Object.values(games).length < 400) {
 

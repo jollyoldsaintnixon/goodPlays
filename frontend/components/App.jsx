@@ -41,7 +41,7 @@ class App extends React.Component {
   // }
 
   displayImage() {
-    // debugger
+    // 
     if (this.props.match.path === '/') {
       return <img className='banner' src={window.banner} alt='Terror of the Amazon' />
     }

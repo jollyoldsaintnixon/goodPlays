@@ -71,7 +71,7 @@ class GameIndexSorter extends React.Component {
         case 'rating-high': 
           sorted = matched.sort((el1, el2) => {
             // if (el1.title === 'Multiwinia' || el2.title === 'Multiwinia') {
-            //   debugger
+            //   
             // }
             if (!el1.rating) {
               return 1
@@ -122,14 +122,14 @@ class GameIndexSorter extends React.Component {
       const icon_id = button.id.concat('-icon')
       const cash_icon = $(`#${icon_id}`)
       cash_icon.toggleClass('flip')
-      debugger
+      
       const cash_list = $(`#${display}`)
       cash_list.toggleClass('none')
     }
   }
 
   render() {
-    //  debugger
+    //  
     const { price_display, rating_display } = this.state
     return (
       <form className='game-index-sorter sticky'>

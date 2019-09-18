@@ -54,7 +54,7 @@ class UserProfile extends React.Component {
       }
     }
 
-    if (gamesArray.length < 90) {
+    if (gamesArray.length < 400) {
     // if (gamesArray.length < count) {
       return <ClipLoader
         css={override}
